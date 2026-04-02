@@ -2,6 +2,9 @@
   "name": "nwfa-brandguide",
   "version": "1.0.0",
   "scripts": {
-    "start": "npx serve . -l 3000"
+    "start": "serve . -l 3000 -s"
+  },
+  "dependencies": {
+    "serve": "^14.2.6"
   }
 }
