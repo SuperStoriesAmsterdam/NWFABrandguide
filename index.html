@@ -3,1093 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Natural Wine Festival A'dam — Brand Guide</title>
-  <link rel="preload" href="fonts-/Vicky-Black.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts-/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="logos-/logo-icon.svg">
+  <title>NWFA Brand Guide — Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ─── FONTS ─── */
-    @font-face {
-      font-family: 'Vicky Black';
-      src: url('fonts-/Vicky-Black.woff2') format('woff2');
-      font-weight: 900;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Inter Variable';
-      src: url('fonts-/InterVariable.woff2') format('woff2');
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    /* ─── TOKENS ─── */
-    :root {
-      --navy: #233260;
-      --gold: #DBBB00;
-      --green: #21B501;
-      --white: #FFFFFF;
-      --muted: #23326060;
-
-      --font-display: 'Vicky Black', Georgia, serif;
-      --font-body: 'Inter Variable', -apple-system, sans-serif;
-
-      --sp-1: 8px;
-      --sp-2: 16px;
-      --sp-3: 24px;
-      --sp-4: 32px;
-      --sp-5: 48px;
-      --sp-6: 64px;
-      --sp-7: 96px;
-      --sp-8: 128px;
-
-      --type-display: clamp(48px, 10vw, 120px);
-      --type-headline: clamp(32px, 6vw, 72px);
-      --type-h1: clamp(24px, 4vw, 48px);
-      --type-h2: 20px;
-      --type-body: 16px;
-      --type-body-lg: 20px;
-      --type-small: 14px;
-      --type-label: 12px;
-    }
-
-    /* ─── RESET ─── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: var(--font-body);
-      font-size: var(--type-body);
-      line-height: 1.5;
-      color: var(--navy);
-      background: var(--gold);
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: var(--navy);
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 var(--sp-4);
-      border-bottom: 3px solid var(--green);
-    }
-    nav .nav-brand {
-      font-family: var(--font-display);
-      font-size: 18px;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    nav .nav-links {
-      display: flex;
-      gap: var(--sp-3);
-      list-style: none;
-    }
-    nav .nav-links a {
-      font-family: var(--font-body);
-      font-size: var(--type-small);
-      font-weight: 600;
-      color: var(--gold);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      transition: color 0.15s;
-    }
-    nav .nav-links a:hover { color: var(--green); }
-
-    @media (max-width: 768px) {
-      nav .nav-links { display: none; }
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      padding: var(--sp-8) var(--sp-4) var(--sp-6);
-      text-align: center;
-      background: var(--gold);
-    }
-    .hero-logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: var(--sp-3);
-    }
-    .hero-parent {
-      font-family: var(--font-body);
-      font-size: var(--type-small);
-      font-weight: 600;
-      color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: var(--sp-1);
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: var(--type-display);
-      line-height: 0.95;
-      color: var(--navy);
-      margin-bottom: var(--sp-3);
-    }
-    .hero-tagline {
-      display: inline-block;
-      background: var(--green);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: var(--type-small);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: var(--sp-1) var(--sp-3);
-      margin-bottom: var(--sp-3);
-    }
-    .hero-meta {
-      font-size: var(--type-small);
-      color: var(--muted);
-    }
-
-    /* ─── SECTIONS ─── */
-    .section {
-      padding: var(--sp-7) var(--sp-4);
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    .section--navy {
-      background: var(--navy);
-      color: var(--gold);
-      max-width: none;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    .section--navy .section-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 var(--sp-4);
-    }
-    .section-label {
-      font-family: var(--font-body);
-      font-size: var(--type-label);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: var(--sp-1);
-    }
-    .section--navy .section-label { color: #DBBB0080; }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: var(--type-headline);
-      line-height: 0.95;
-      margin-bottom: var(--sp-5);
-    }
-    .section-intro {
-      font-size: var(--type-body-lg);
-      line-height: 1.5;
-      max-width: 680px;
-      margin-bottom: var(--sp-5);
-    }
-
-    /* ─── COLOR SWATCHES ─── */
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--sp-3);
-    }
-    .color-swatch {
-      border: 3px solid var(--navy);
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.15s;
-    }
-    .color-swatch:hover { transform: translateY(-2px); }
-    .color-swatch-block {
-      height: 120px;
-      display: flex;
-      align-items: flex-end;
-      padding: var(--sp-2);
-    }
-    .color-swatch-info {
-      padding: var(--sp-2);
-      background: var(--white);
-      border-top: 3px solid var(--navy);
-    }
-    .color-swatch-name {
-      font-family: var(--font-display);
-      font-size: var(--type-h2);
-    }
-    .color-swatch-hex {
-      font-family: var(--font-body);
-      font-size: var(--type-small);
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .color-swatch-use {
-      font-size: var(--type-small);
-      color: var(--navy);
-      margin-top: var(--sp-1);
-    }
-    .color-swatch .copied {
-      display: none;
-      font-size: var(--type-small);
-      color: var(--green);
-      font-weight: 600;
-    }
-
-    /* ─── COLOR MODES ─── */
-    .color-modes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-3);
-      margin-top: var(--sp-5);
-    }
-    @media (max-width: 768px) {
-      .color-modes { grid-template-columns: 1fr; }
-    }
-    .color-mode {
-      padding: var(--sp-5) var(--sp-4);
-      border: 3px solid var(--navy);
-      text-align: center;
-    }
-    .color-mode--gold {
-      background: var(--gold);
-      color: var(--navy);
-    }
-    .color-mode--navy {
-      background: var(--navy);
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-    .color-mode h3 {
-      font-family: var(--font-display);
-      font-size: var(--type-h1);
-      margin-bottom: var(--sp-2);
-    }
-    .color-mode p {
-      font-size: var(--type-small);
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    .color-mode .mode-badge {
-      display: inline-block;
-      background: var(--green);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: var(--type-label);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 4px 12px;
-      margin-bottom: var(--sp-2);
-    }
-
-    /* ─── TYPOGRAPHY SPECIMENS ─── */
-    .type-specimen {
-      margin-bottom: var(--sp-5);
-      padding-bottom: var(--sp-5);
-      border-bottom: 1px solid var(--muted);
-    }
-    .type-specimen:last-child { border-bottom: none; }
-    .type-specimen-label {
-      font-family: var(--font-body);
-      font-size: var(--type-label);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: var(--sp-1);
-    }
-    .type-specimen-sample {
-      margin-bottom: var(--sp-2);
-    }
-    .type-specimen-meta {
-      font-size: var(--type-small);
-      color: var(--muted);
-    }
-    .type-specimen-meta code {
-      background: var(--navy);
-      color: var(--gold);
-      padding: 2px 6px;
-      font-size: 12px;
-      font-family: monospace;
-    }
-
-    /* ─── LOGO SECTION ─── */
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--sp-3);
-    }
-    .logo-card {
-      border: 3px solid var(--navy);
-      padding: var(--sp-5) var(--sp-4);
+      font-family: 'Space Mono', monospace;
+      background: #111;
+      color: #fff;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 280px;
-      position: relative;
+      padding: 48px 24px;
     }
-    .logo-card--gold { background: var(--gold); }
-    .logo-card--navy {
-      background: var(--navy);
-      border-color: var(--gold);
-    }
-    .logo-card--white { background: var(--white); }
-    .logo-card img {
-      max-width: 200px;
-      max-height: 200px;
-      width: auto;
-      height: auto;
-    }
-    .logo-card-label {
-      position: absolute;
-      bottom: var(--sp-2);
-      left: var(--sp-2);
-      font-size: var(--type-label);
-      font-weight: 600;
+    h1 {
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
+      color: #666;
+      margin-bottom: 48px;
     }
-    .logo-card--navy .logo-card-label { color: var(--gold); }
-
-    /* ─── ICON GRID ─── */
-    .icon-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: var(--sp-3);
-    }
-    .icon-item {
-      text-align: center;
-      padding: var(--sp-3);
-    }
-    .icon-item img {
-      width: 80px;
-      height: 80px;
-      margin-bottom: var(--sp-1);
-    }
-    .icon-item span {
-      display: block;
-      font-size: var(--type-label);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--navy);
-    }
-
-    /* ─── PRINCIPLES ─── */
-    .principles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--sp-3);
-    }
-    .principle {
-      border: 3px solid;
-      padding: var(--sp-4);
-    }
-    .section--navy .principle { border-color: var(--gold); }
-    .principle-number {
-      font-family: var(--font-display);
-      font-size: var(--type-h1);
-      color: var(--green);
-      margin-bottom: var(--sp-1);
-    }
-    .principle h3 {
-      font-family: var(--font-display);
-      font-size: var(--type-h2);
-      margin-bottom: var(--sp-2);
-    }
-    .principle p {
-      font-size: var(--type-small);
-      line-height: 1.6;
-    }
-
-    /* ─── VOICE ─── */
-    .voice-examples {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-3);
-      margin-top: var(--sp-3);
-    }
-    @media (max-width: 768px) {
-      .voice-examples { grid-template-columns: 1fr; }
-    }
-    .voice-do, .voice-dont {
-      padding: var(--sp-3);
-      border: 3px solid;
-    }
-    .voice-do {
-      border-color: var(--green);
-      background: #21B50110;
-    }
-    .voice-dont {
-      border-color: #CC0000;
-      background: #CC000008;
-    }
-    .voice-do h4, .voice-dont h4 {
-      font-family: var(--font-body);
-      font-size: var(--type-label);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: var(--sp-2);
-    }
-    .voice-do h4 { color: var(--green); }
-    .voice-dont h4 { color: #CC0000; }
-    .voice-do p, .voice-dont p {
-      font-size: var(--type-body);
-      margin-bottom: var(--sp-1);
-    }
-
-    /* ─── SPACING VISUALIZATION ─── */
-    .spacing-scale {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-2);
-    }
-    .spacing-item {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-    }
-    .spacing-bar {
-      height: 32px;
-      background: var(--navy);
-      border: 2px solid var(--navy);
-      flex-shrink: 0;
-    }
-    .spacing-meta {
-      font-size: var(--type-small);
-      white-space: nowrap;
-    }
-    .spacing-meta code {
-      background: var(--navy);
-      color: var(--gold);
-      padding: 2px 6px;
-      font-size: 12px;
-      font-family: monospace;
-    }
-
-    /* ─── DONT RULES ─── */
-    .dont-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--sp-3);
-    }
-    .dont-item {
-      padding: var(--sp-3);
-      border: 3px solid var(--gold);
-      position: relative;
-    }
-    .dont-item::before {
-      content: "✕";
-      position: absolute;
-      top: var(--sp-2);
-      right: var(--sp-2);
-      font-size: 18px;
-      color: #CC3333;
-      font-weight: 900;
-    }
-    .dont-item p {
-      font-size: var(--type-body);
-      color: var(--gold);
-      padding-right: var(--sp-4);
-    }
-
-    /* ─── PHOTO SECTION ─── */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--sp-1);
-    }
-    .photo-grid img {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      max-width: 720px;
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border: 3px solid var(--navy);
     }
-
-    /* ─── BANNER DEMO ─── */
-    .banner-demo {
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    .card {
       display: flex;
-      justify-content: center;
-      padding: var(--sp-5) 0;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px;
+      min-height: 200px;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.15s;
+      border: 1px solid #333;
     }
-    .banner-ribbon {
-      background: var(--green);
-      color: var(--white);
-      font-family: var(--font-body);
+    .card:hover { opacity: 0.8; }
+    .card--current { background: #DBBB00; color: #111; border-color: #DBBB00; }
+    .card--a { background: #1a1a2e; border-color: #233260; }
+    .card--b { background: #111; border-color: #DBBB00; }
+    .card--c { background: #111; border-color: #21B501; }
+    .card-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.5;
+    }
+    .card-title {
+      font-size: 20px;
       font-weight: 700;
-      font-size: var(--type-body);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: var(--sp-1) var(--sp-5);
-      position: relative;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      opacity: 0.6;
+    }
+    .card-accent {
       display: inline-block;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      margin-top: 16px;
     }
-    .banner-ribbon::before,
-    .banner-ribbon::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 20px;
-    }
-    .banner-ribbon::before {
-      left: -20px;
-      background: linear-gradient(135deg, transparent 50%, var(--green) 50%);
-    }
-    .banner-ribbon::after {
-      right: -20px;
-      background: linear-gradient(225deg, transparent 50%, var(--green) 50%);
-    }
-
-    /* ─── WORDMARK DEMO ─── */
-    .wordmark-demo {
-      text-align: center;
-      padding: var(--sp-5) 0;
-    }
-    .wordmark-parent {
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: var(--type-small);
-      color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .wordmark-name {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 8vw, 80px);
-      line-height: 0.92;
-      color: var(--navy);
-    }
-    .wordmark-name--inv { color: var(--gold); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--navy);
-      color: var(--gold);
-      padding: var(--sp-5) var(--sp-4);
-      text-align: center;
-      border-top: 3px solid var(--green);
-    }
-    footer p {
-      font-size: var(--type-small);
-    }
-    footer .footer-brand {
-      font-family: var(--font-display);
-      font-size: var(--type-h2);
-      margin-bottom: var(--sp-1);
-    }
-
-    /* ─── UTILITIES ─── */
-    .mt-1 { margin-top: var(--sp-1); }
-    .mt-3 { margin-top: var(--sp-3); }
-    .mt-5 { margin-top: var(--sp-5); }
-    .mb-3 { margin-bottom: var(--sp-3); }
-    .text-green { color: var(--green); }
+    .card--current .card-accent { background: #233260; }
+    .card--a .card-accent { background: #233260; }
+    .card--b .card-accent { background: #DBBB00; }
+    .card--c .card-accent { background: #21B501; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">natural wine festival a'dam</a>
-  <ul class="nav-links">
-    <li><a href="#colors">Colors</a></li>
-    <li><a href="#typography">Typography</a></li>
-    <li><a href="#logo">Logo</a></li>
-    <li><a href="#icons">Icons</a></li>
-    <li><a href="#principles">Principles</a></li>
-    <li><a href="#voice">Voice</a></li>
-    <li><a href="#photography">Photography</a></li>
-    <li><a href="#donts">Don'ts</a></li>
-  </ul>
-</nav>
+  <h1>NWFA Brand Guide — All Versions</h1>
 
-<!-- HERO -->
-<section class="hero">
-  <img src="logos-/logo-icon.svg" alt="NWFA church icon" class="hero-logo">
-  <div class="hero-parent">GREEN <span style="font-weight:400;font-size:0.8em">is</span> GOLDEN</div>
-  <h1>brand guide</h1>
-  <div class="hero-tagline">UNITED BY WINE</div>
-  <p class="hero-meta">Natural Wine Festival Amsterdam &mdash; v1.0 &mdash; April 2026</p>
-</section>
-
-<!-- COLORS -->
-<section class="section" id="colors">
-  <div class="section-label">01</div>
-  <h2 class="section-title">color system</h2>
-  <p class="section-intro">Three colors. No gradients. No transparency. Every element uses one of these three plus white.</p>
-
-  <div class="color-grid">
-    <div class="color-swatch" onclick="copyColor('#233260', this)">
-      <div class="color-swatch-block" style="background:#233260;">
+  <div class="grid">
+    <a href="original.html" class="card card--current">
+      <div>
+        <div class="card-label">Current</div>
+        <div class="card-title">Original<br>Festival Identity</div>
+        <div class="card-desc">Vicky Black + Inter<br>Gold / Navy / Green<br>Illustrative, festive</div>
       </div>
-      <div class="color-swatch-info">
-        <div class="color-swatch-name">festival navy</div>
-        <div class="color-swatch-hex">#233260</div>
-        <div class="color-swatch-use">Text, logo, dark backgrounds, illustrations</div>
-        <div class="copied">Copied!</div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-a.html" class="card card--a">
+      <div>
+        <div class="card-label">Direction A</div>
+        <div class="card-title">Editorial<br>Serif</div>
+        <div class="card-desc">DM Serif Display + Space Mono<br>Navy accent<br>Galerie, wijncatalogus</div>
       </div>
-    </div>
-    <div class="color-swatch" onclick="copyColor('#DBBB00', this)">
-      <div class="color-swatch-block" style="background:#DBBB00;">
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-b.html" class="card card--b">
+      <div>
+        <div class="card-label">Direction B</div>
+        <div class="card-title">Condensed<br>Grotesque</div>
+        <div class="card-desc">Bebas Neue + Space Mono<br>Gold accent<br>Poster, brutalist</div>
       </div>
-      <div class="color-swatch-info">
-        <div class="color-swatch-name">festival gold</div>
-        <div class="color-swatch-hex">#DBBB00</div>
-        <div class="color-swatch-use">Primary background, highlights, accent text</div>
-        <div class="copied">Copied!</div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-c.html" class="card card--c">
+      <div>
+        <div class="card-label">Direction C</div>
+        <div class="card-title">Mono<br>Forward_</div>
+        <div class="card-desc">Space Mono + Source Serif<br>Green accent<br>Systematisch, wine-label</div>
       </div>
-    </div>
-    <div class="color-swatch" onclick="copyColor('#21B501', this)">
-      <div class="color-swatch-block" style="background:#21B501;">
-      </div>
-      <div class="color-swatch-info">
-        <div class="color-swatch-name">festival green</div>
-        <div class="color-swatch-hex">#21B501</div>
-        <div class="color-swatch-use">Logo leaf, CTA buttons, badges, accents</div>
-        <div class="copied">Copied!</div>
-      </div>
-    </div>
-    <div class="color-swatch" onclick="copyColor('#FFFFFF', this)">
-      <div class="color-swatch-block" style="background:#FFFFFF; border-bottom: 3px solid #23326020;">
-      </div>
-      <div class="color-swatch-info">
-        <div class="color-swatch-name">white</div>
-        <div class="color-swatch-hex">#FFFFFF</div>
-        <div class="color-swatch-use">Text on navy, image borders</div>
-        <div class="copied">Copied!</div>
-      </div>
-    </div>
+      <div class="card-accent"></div>
+    </a>
   </div>
-
-  <!-- Color modes -->
-  <div class="color-modes">
-    <div class="color-mode color-mode--gold">
-      <div class="mode-badge">PRIMARY</div>
-      <h3>gold mode</h3>
-      <p>Gold background, navy text, green accents. Festive, energetic. Used for posters, ads, website hero, most materials.</p>
-    </div>
-    <div class="color-mode color-mode--navy">
-      <div class="mode-badge">SECONDARY</div>
-      <h3>navy mode</h3>
-      <p>Navy background, gold text, green accents. Grounded, readable. Used for info sections, confirmations, contrast panels.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TYPOGRAPHY -->
-<section class="section section--navy" id="typography">
-  <div class="section-inner">
-    <div class="section-label">02</div>
-    <h2 class="section-title">typography</h2>
-    <p class="section-intro">Two fonts. Vicky Black for the festival voice. Inter for the information layer. Headlines are always lowercase.</p>
-
-    <div class="type-specimen">
-      <div class="type-specimen-label">Display &mdash; Vicky Black</div>
-      <div class="type-specimen-sample" style="font-family:var(--font-display); font-size:var(--type-display); line-height:0.95; color:var(--gold);">
-        natural wine festival
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-display</code> clamp(48px, 10vw, 120px) &middot; lowercase &middot; line-height 0.95
-      </div>
-    </div>
-
-    <div class="type-specimen">
-      <div class="type-specimen-label">Headline &mdash; Vicky Black</div>
-      <div class="type-specimen-sample" style="font-family:var(--font-display); font-size:var(--type-headline); line-height:0.95; color:var(--gold);">
-        ticket sales have started!
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-headline</code> clamp(32px, 6vw, 72px) &middot; lowercase &middot; line-height 0.95
-      </div>
-    </div>
-
-    <div class="type-specimen">
-      <div class="type-specimen-label">H1 &mdash; Vicky Black</div>
-      <div class="type-specimen-sample" style="font-family:var(--font-display); font-size:var(--type-h1); line-height:1.0; color:var(--gold);">
-        all day oysters and paired wines
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-h1</code> clamp(24px, 4vw, 48px) &middot; lowercase &middot; line-height 1.0
-      </div>
-    </div>
-
-    <div class="type-specimen">
-      <div class="type-specimen-label">Date &mdash; Vicky Black</div>
-      <div class="type-specimen-sample" style="font-family:var(--font-display); font-size:var(--type-h1); line-height:1.1; color:var(--gold);">
-        Saturday 16 November '24
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-date</code> clamp(24px, 5vw, 56px) &middot; Sentence case &middot; exception to lowercase rule
-      </div>
-    </div>
-
-    <div class="type-specimen">
-      <div class="type-specimen-label">Body &mdash; Inter Variable</div>
-      <div class="type-specimen-sample" style="font-family:var(--font-body); font-size:var(--type-body-lg); line-height:1.5; color:var(--gold);">
-        The Natural Wine Festival Amsterdam celebrates natural wine culture in De Hallen. Winemakers, food, workshops, and community. Every November.
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-body-lg</code> 20px &middot; Inter Variable 400 &middot; line-height 1.5
-      </div>
-    </div>
-
-    <div class="type-specimen">
-      <div class="type-specimen-label">Label &mdash; Inter Variable</div>
-      <div class="type-specimen-sample" style="font-family:var(--font-body); font-size:var(--type-label); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:#DBBB0080;">
-        WINEMAKERS &nbsp;&middot;&nbsp; WORKSHOPS &nbsp;&middot;&nbsp; RESTAURANT &nbsp;&middot;&nbsp; MINI MARKET
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-label</code> 12px &middot; Inter 600 &middot; uppercase &middot; letter-spacing +0.1em
-      </div>
-    </div>
-
-    <div class="type-specimen" style="border-bottom:none;">
-      <div class="type-specimen-label">CTA &mdash; Inter Variable</div>
-      <div class="type-specimen-sample">
-        <span style="display:inline-block; background:var(--green); color:var(--white); font-family:var(--font-body); font-weight:700; font-size:var(--type-cta,16px); text-transform:uppercase; letter-spacing:0.06em; padding:12px 32px;">BOOK NOW</span>
-      </div>
-      <div class="type-specimen-meta">
-        <code>--type-cta</code> 16px &middot; Inter 700 &middot; uppercase &middot; green bg, white text
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOGO -->
-<section class="section" id="logo">
-  <div class="section-label">03</div>
-  <h2 class="section-title">logo system</h2>
-  <p class="section-intro">The brand mark combines the festival's wine bottle illustration with the De Hallen church venue. Three variants for different contexts.</p>
-
-  <div class="logo-grid">
-    <div class="logo-card logo-card--gold">
-      <img src="logos-/logo-primary.svg" alt="Primary logo — hand holding wine bottle with grape leaf">
-      <span class="logo-card-label">Primary &mdash; on gold</span>
-    </div>
-    <div class="logo-card logo-card--navy">
-      <img src="logos-/logo-primary.svg" alt="Primary logo on navy" style="filter: brightness(0) invert(1) brightness(0.85) sepia(1) hue-rotate(10deg) saturate(3);">
-      <span class="logo-card-label">Primary &mdash; on navy</span>
-    </div>
-    <div class="logo-card logo-card--gold">
-      <img src="logos-/logo-icon.svg" alt="Church icon" style="max-width:160px;">
-      <span class="logo-card-label">Church icon</span>
-    </div>
-    <div class="logo-card logo-card--navy">
-      <img src="logos-/logo-dark-church.svg" alt="Dark church icon" style="max-width:160px;">
-      <span class="logo-card-label">Church icon &mdash; dark</span>
-    </div>
-  </div>
-
-  <!-- Wordmark demo -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-3); margin-top:var(--sp-5);">
-    <div style="background:var(--gold); border:3px solid var(--navy); padding:var(--sp-5);">
-      <div class="wordmark-demo">
-        <div class="wordmark-parent">GREEN <span style="font-weight:400;font-size:0.8em">is</span> GOLDEN</div>
-        <div class="wordmark-name">Natural<br>Wine<br>Festival<br>A'dam</div>
-      </div>
-    </div>
-    <div style="background:var(--navy); border:3px solid var(--gold); padding:var(--sp-5);">
-      <div class="wordmark-demo">
-        <div class="wordmark-parent" style="color:var(--green);">GREEN <span style="font-weight:400;font-size:0.8em">is</span> GOLDEN</div>
-        <div class="wordmark-name wordmark-name--inv">Natural<br>Wine<br>Festival<br>A'dam</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BANNER ELEMENT -->
-<section class="section section--navy">
-  <div class="section-inner">
-    <div class="section-label">04</div>
-    <h2 class="section-title">the banner</h2>
-    <p class="section-intro">The "United by Wine" ribbon is a recurring brand element. Green fill, white uppercase text, pennant shape. Always centered, always between the festival name and the date.</p>
-    <div class="banner-demo">
-      <div class="banner-ribbon">UNITED BY WINE</div>
-    </div>
-  </div>
-</section>
-
-<!-- ICONS -->
-<section class="section" id="icons">
-  <div class="section-label">05</div>
-  <h2 class="section-title">icon system</h2>
-  <p class="section-intro">Custom hand-drawn illustrations. Bold navy outlines, green and gold fills. Rough, linocut-like. Always inside a circle with a navy border.</p>
-
-  <div class="icon-grid">
-    <div class="icon-item">
-      <img src="icons-/icon-Tasting.svg" alt="Tasting">
-      <span>Tasting</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-Brain.svg" alt="Workshops">
-      <span>Workshops</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-food-yellow.svg" alt="Restaurant">
-      <span>Restaurant</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-MiniMarket.svg" alt="Mini Market">
-      <span>Mini Market</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-Oyster.svg" alt="Oysters">
-      <span>Oysters</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-Sake.svg" alt="Sake">
-      <span>Sake</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-Shipment.svg" alt="Shipment">
-      <span>Shipment</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-mind.svg" alt="Masterclass">
-      <span>Masterclass</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-EatDrinkPairLove.svg" alt="Pairing">
-      <span>Pairing</span>
-    </div>
-  </div>
-
-  <h3 style="font-family:var(--font-display); font-size:var(--type-h2); margin-top:var(--sp-6); margin-bottom:var(--sp-3);">venue icons (church variants)</h3>
-  <div class="icon-grid">
-    <div class="icon-item">
-      <img src="icons-/icon-church-market.svg" alt="Market">
-      <span>Market</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church -thewinemakers.svg" alt="Winemakers">
-      <span>Winemakers</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church-BarBrutNature.svg" alt="Bar Brut Nature">
-      <span>Bar Brut Nature</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church-WinestoreXL.svg" alt="Winestore XL">
-      <span>Winestore XL</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church-gemsbar.svg" alt="Gems Bar">
-      <span>Gems Bar</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church-campingCulinair.svg" alt="Camping Culinair">
-      <span>Camping Culinair</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church-winemakersdinner.svg" alt="Winemakers Dinner">
-      <span>Winemakers Dinner</span>
-    </div>
-    <div class="icon-item">
-      <img src="icons-/icon-church-workshops&Masterclasses.svg" alt="Workshops">
-      <span>Workshops &amp; MC</span>
-    </div>
-  </div>
-</section>
-
-<!-- SPACING -->
-<section class="section section--navy">
-  <div class="section-inner">
-    <div class="section-label">06</div>
-    <h2 class="section-title">spacing scale</h2>
-    <p class="section-intro">Base unit: 8px. Every spacing value is a multiple. No arbitrary values.</p>
-
-    <div class="spacing-scale">
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:8px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-1</code> 8px &mdash; icon gaps, inline padding</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:16px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-2</code> 16px &mdash; between related elements</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:24px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-3</code> 24px &mdash; between components</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:32px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-4</code> 32px &mdash; card/cell padding</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:48px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-5</code> 48px &mdash; between content blocks</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:64px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-6</code> 64px &mdash; between sections</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:96px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-7</code> 96px &mdash; major section breaks</div>
-      </div>
-      <div class="spacing-item">
-        <div class="spacing-bar" style="width:128px; background:var(--gold);"></div>
-        <div class="spacing-meta" style="color:var(--gold);"><code>--sp-8</code> 128px &mdash; page-level spacing</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DESIGN PRINCIPLES -->
-<section class="section" id="principles">
-  <div class="section-label">07</div>
-  <h2 class="section-title">design principles</h2>
-
-  <div class="principles-grid">
-    <div class="principle">
-      <div class="principle-number">01</div>
-      <h3>lowercase does the talking</h3>
-      <p>Vicky Black headlines are always lowercase. The font's weight and character do the shouting — capitalization would be redundant. This gives the brand its casual, approachable festival energy.</p>
-    </div>
-    <div class="principle">
-      <div class="principle-number">02</div>
-      <h3>three colors, no exceptions</h3>
-      <p>Navy, gold, green. Plus white for inverse text. That's it. No pastels, no gradients, no opacity tricks. The constraint is what makes the brand instantly recognizable.</p>
-    </div>
-    <div class="principle">
-      <div class="principle-number">03</div>
-      <h3>gold, never white</h3>
-      <p>The background is always gold or navy. White backgrounds are not allowed. Gold IS the brand — it's the first thing people see and the last thing they remember.</p>
-    </div>
-    <div class="principle">
-      <div class="principle-number">04</div>
-      <h3>hand-drawn, not polished</h3>
-      <p>Illustrations are rough, bold, linocut-like. No clean vectors, no gradient fills, no 3D effects. The imperfection is the aesthetic. It feels like a festival, not a corporation.</p>
-    </div>
-    <div class="principle">
-      <div class="principle-number">05</div>
-      <h3>real people, real wine</h3>
-      <p>Photography is documentary. Real moments from the festival floor. Never staged, never stock. Text over photos always sits on a solid color bar — never floating on the image.</p>
-    </div>
-  </div>
-</section>
-
-<!-- VOICE -->
-<section class="section section--navy" id="voice">
-  <div class="section-inner">
-    <div class="section-label">08</div>
-    <h2 class="section-title">voice & tone</h2>
-    <p class="section-intro">A friend inviting you to something great. Not a corporation selling tickets.</p>
-
-    <div class="voice-examples">
-      <div class="voice-do">
-        <h4>Do</h4>
-        <p>ticket sales have started!</p>
-        <p>all day oysters and paired wines</p>
-        <p>thank you and salut!</p>
-        <p>18 november for professionals only</p>
-      </div>
-      <div class="voice-dont">
-        <h4>Don't</h4>
-        <p>We are pleased to announce that tickets are now available</p>
-        <p>Curated selection of biodynamic offerings</p>
-        <p>An unmissable oenological experience</p>
-        <p>Exclusive trade-only showcase event</p>
-      </div>
-    </div>
-
-    <div style="margin-top:var(--sp-5);">
-      <h3 style="font-family:var(--font-display); font-size:var(--type-h2); margin-bottom:var(--sp-2); color:var(--gold);">fixed phrases</h3>
-      <p style="color:var(--gold);">
-        <strong>Green is Golden</strong> — parent brand, always this mixed case<br>
-        <strong>United by Wine</strong> — tagline, uppercase when in the banner<br>
-        <strong>A'dam</strong> — city abbreviation, with apostrophe<br>
-        <strong>De Hallen Amsterdam</strong> — venue, sentence case
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- PHOTOGRAPHY -->
-<section class="section" id="photography">
-  <div class="section-label">09</div>
-  <h2 class="section-title">photography</h2>
-  <p class="section-intro">Documentary and warm. Real people, real wine, real moments. Full saturation, no filters. Text over photos always on a solid color bar.</p>
-
-  <div class="photo-grid">
-    <img src="photography-/HOI_1691.jpg" alt="Festival moment" loading="lazy">
-    <img src="photography-/344-HOI_1024.jpg" alt="Festival crowd" loading="lazy">
-    <img src="photography-/HOI_1752.jpg" alt="Wine tasting" loading="lazy">
-    <img src="photography-/HOI_1762.jpg" alt="Festival atmosphere" loading="lazy">
-    <img src="photography-/HOI_1777.jpg" alt="Festival scene" loading="lazy">
-    <img src="photography-/HOI_1797.jpg" alt="Festival people" loading="lazy">
-    <img src="photography-/HOI_1810.jpg" alt="Festival detail" loading="lazy">
-    <img src="photography-/HOI_1835.jpg" alt="Festival scene" loading="lazy">
-    <img src="photography-/363-HOI_1052.jpg" alt="Festival crowd" loading="lazy">
-    <img src="photography-/349-HOI_1029 kopie.jpg" alt="Festival scene" loading="lazy">
-  </div>
-</section>
-
-<!-- DON'TS -->
-<section class="section section--navy" id="donts">
-  <div class="section-inner">
-    <div class="section-label">10</div>
-    <h2 class="section-title">what not to do</h2>
-
-    <div class="dont-grid">
-      <div class="dont-item">
-        <p>Never use a white background</p>
-      </div>
-      <div class="dont-item">
-        <p>Never use green as a background color</p>
-      </div>
-      <div class="dont-item">
-        <p>Never use Vicky Black in uppercase for headlines</p>
-      </div>
-      <div class="dont-item">
-        <p>Never place text directly on a photo</p>
-      </div>
-      <div class="dont-item">
-        <p>Never use colors outside the three-color system</p>
-      </div>
-      <div class="dont-item">
-        <p>Never use gradients, shadows, or transparency</p>
-      </div>
-      <div class="dont-item">
-        <p>Never use rounded corners on rectangles</p>
-      </div>
-      <div class="dont-item">
-        <p>Never use stock photography</p>
-      </div>
-      <div class="dont-item">
-        <p>Never write headlines in title case</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">natural wine festival a'dam</div>
-  <p>Brand Guide v1.0 &mdash; April 2026</p>
-  <p>Green is Golden &middot; De Hallen, Amsterdam</p>
-  <p style="margin-top:var(--sp-2); color:#DBBB0060;">Built by SuperStories</p>
-</footer>
-
-<script>
-function copyColor(hex, el) {
-  navigator.clipboard.writeText(hex).then(() => {
-    const copied = el.querySelector('.copied');
-    if (copied) {
-      copied.style.display = 'block';
-      setTimeout(() => { copied.style.display = 'none'; }, 1500);
-    }
-  });
-}
-</script>
 
 </body>
 </html>
