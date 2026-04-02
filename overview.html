@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWFA Brand Guide — Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Mono', monospace;
+      background: #111;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+    h1 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      max-width: 720px;
+      width: 100%;
+    }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px;
+      min-height: 200px;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.15s;
+      border: 1px solid #333;
+    }
+    .card:hover { opacity: 0.8; }
+    .card--current { background: #DBBB00; color: #111; border-color: #DBBB00; }
+    .card--a { background: #1a1a2e; border-color: #233260; }
+    .card--b { background: #111; border-color: #DBBB00; }
+    .card--c { background: #111; border-color: #21B501; }
+    .card-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.5;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      opacity: 0.6;
+    }
+    .card-accent {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      margin-top: 16px;
+    }
+    .card--current .card-accent { background: #233260; }
+    .card--a .card-accent { background: #233260; }
+    .card--b .card-accent { background: #DBBB00; }
+    .card--c .card-accent { background: #21B501; }
+  </style>
+</head>
+<body>
+
+  <h1>NWFA Brand Guide — All Versions</h1>
+
+  <div class="grid">
+    <a href="index.html" class="card card--current">
+      <div>
+        <div class="card-label">Current</div>
+        <div class="card-title">Original<br>Festival Identity</div>
+        <div class="card-desc">Vicky Black + Inter<br>Gold / Navy / Green<br>Illustrative, festive</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-a.html" class="card card--a">
+      <div>
+        <div class="card-label">Direction A</div>
+        <div class="card-title">Editorial<br>Serif</div>
+        <div class="card-desc">DM Serif Display + Space Mono<br>Navy accent<br>Galerie, wijncatalogus</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-b.html" class="card card--b">
+      <div>
+        <div class="card-label">Direction B</div>
+        <div class="card-title">Condensed<br>Grotesque</div>
+        <div class="card-desc">Bebas Neue + Space Mono<br>Gold accent<br>Poster, brutalist</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-c.html" class="card card--c">
+      <div>
+        <div class="card-label">Direction C</div>
+        <div class="card-title">Mono<br>Forward_</div>
+        <div class="card-desc">Space Mono + Source Serif<br>Green accent<br>Systematisch, wine-label</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+  </div>
+
+</body>
+</html>
