@@ -1,0 +1,7 @@
+{
+  "name": "nwfa-brandguide",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx serve . -l 3000"
+  }
+}
