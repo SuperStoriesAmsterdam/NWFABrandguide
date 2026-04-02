@@ -29,28 +29,27 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
-      max-width: 720px;
+      max-width: 900px;
       width: 100%;
     }
-    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
     .card {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 32px;
-      min-height: 200px;
+      min-height: 220px;
       text-decoration: none;
       color: inherit;
       transition: opacity 0.15s;
       border: 1px solid #333;
     }
     .card:hover { opacity: 0.8; }
-    .card--current { background: #DBBB00; color: #111; border-color: #DBBB00; }
+    .card--original { background: #DBBB00; color: #111; border-color: #DBBB00; }
     .card--a { background: #1a1a2e; border-color: #233260; }
-    .card--b { background: #111; border-color: #DBBB00; }
-    .card--c { background: #111; border-color: #21B501; }
+    .card--d { background: #233260; border-color: #DBBB00; }
     .card-label {
       font-size: 10px;
       text-transform: uppercase;
@@ -74,18 +73,17 @@
       border-radius: 50%;
       margin-top: 16px;
     }
-    .card--current .card-accent { background: #233260; }
+    .card--original .card-accent { background: #233260; }
     .card--a .card-accent { background: #233260; }
-    .card--b .card-accent { background: #DBBB00; }
-    .card--c .card-accent { background: #21B501; }
+    .card--d .card-accent { background: #DBBB00; }
   </style>
 </head>
 <body>
 
-  <h1>NWFA Brand Guide — All Versions</h1>
+  <h1>NWFA Brand Guide — Directions</h1>
 
   <div class="grid">
-    <a href="original.html" class="card card--current">
+    <a href="original.html" class="card card--original">
       <div>
         <div class="card-label">Current</div>
         <div class="card-title">Original<br>Festival Identity</div>
@@ -101,19 +99,11 @@
       </div>
       <div class="card-accent"></div>
     </a>
-    <a href="direction-b.html" class="card card--b">
+    <a href="direction-d.html" class="card card--d">
       <div>
-        <div class="card-label">Direction B</div>
-        <div class="card-title">Condensed<br>Grotesque</div>
-        <div class="card-desc">Bebas Neue + Space Mono<br>Gold accent<br>Poster, brutalist</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-c.html" class="card card--c">
-      <div>
-        <div class="card-label">Direction C</div>
-        <div class="card-title">Mono<br>Forward_</div>
-        <div class="card-desc">Space Mono + Source Serif<br>Green accent<br>Systematisch, wine-label</div>
+        <div class="card-label">Direction D</div>
+        <div class="card-title">Editorial<br>Color</div>
+        <div class="card-desc">Vicky Black + Space Mono + Inter<br>Navy / Gold<br>Confident, structured, edge</div>
       </div>
       <div class="card-accent"></div>
     </a>
