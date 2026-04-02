@@ -29,18 +29,19 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
-      max-width: 720px;
+      max-width: 960px;
       width: 100%;
     }
-    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 800px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
     .card {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 32px;
-      min-height: 220px;
+      padding: 28px;
+      min-height: 200px;
       text-decoration: none;
       color: inherit;
       transition: opacity 0.15s;
@@ -49,6 +50,7 @@
     .card:hover { opacity: 0.8; }
     .card--original { background: #DBBB00; color: #111; border-color: #DBBB00; }
     .card--d { background: #233260; border-color: #DBBB00; }
+    .card--variant { background: #1a1a2e; border-color: #DBBB00; }
     .card-label {
       font-size: 10px;
       text-transform: uppercase;
@@ -56,24 +58,32 @@
       opacity: 0.5;
     }
     .card-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       line-height: 1.2;
-      margin: 12px 0;
+      margin: 10px 0;
     }
     .card-desc {
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.5;
       opacity: 0.6;
     }
     .card-accent {
       display: inline-block;
-      width: 12px; height: 12px;
+      width: 10px; height: 10px;
       border-radius: 50%;
-      margin-top: 16px;
+      margin-top: 12px;
     }
     .card--original .card-accent { background: #233260; }
-    .card--d .card-accent { background: #DBBB00; }
+    .card--d .card-accent, .card--variant .card-accent { background: #DBBB00; }
+    .divider {
+      grid-column: 1 / -1;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #444;
+      padding: 24px 0 8px;
+    }
   </style>
 </head>
 <body>
@@ -84,8 +94,8 @@
     <a href="original.html" class="card card--original">
       <div>
         <div class="card-label">Current</div>
-        <div class="card-title">Original<br>Festival Identity</div>
-        <div class="card-desc">Vicky Black + Inter<br>Gold / Navy / Green<br>Illustrative, festive</div>
+        <div class="card-title">Original<br>Festival</div>
+        <div class="card-desc">Vicky Black + Inter<br>Gold / Navy / Green</div>
       </div>
       <div class="card-accent"></div>
     </a>
@@ -93,7 +103,42 @@
       <div>
         <div class="card-label">Direction D</div>
         <div class="card-title">Editorial<br>Color</div>
-        <div class="card-desc">Vicky Black + Space Mono + Inter<br>Navy / Gold<br>Confident, structured, edge</div>
+        <div class="card-desc">Vicky + Space Mono + Inter<br>Navy / Gold &middot; baseline</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-i.html" class="card card--variant">
+      <div>
+        <div class="card-label">Variant I</div>
+        <div class="card-title">Space Mono<br>Bold</div>
+        <div class="card-desc">Same mono, heavier weight<br>700 throughout</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+
+    <div class="divider">Label font alternatives</div>
+
+    <a href="direction-f.html" class="card card--variant">
+      <div>
+        <div class="card-label">Variant F</div>
+        <div class="card-title">Instrument<br>Sans</div>
+        <div class="card-desc">Geometric, contemporary<br>Clean uppercase, variable weight</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-g.html" class="card card--variant">
+      <div>
+        <div class="card-label">Variant G</div>
+        <div class="card-title">Atkinson<br>Hyperlegible</div>
+        <div class="card-desc">Max readability, open forms<br>Functional with character</div>
+      </div>
+      <div class="card-accent"></div>
+    </a>
+    <a href="direction-h.html" class="card card--variant">
+      <div>
+        <div class="card-label">Variant H</div>
+        <div class="card-title">Plus Jakarta<br>Sans</div>
+        <div class="card-desc">Geist-achtig, geometric<br>Tech meets editorial</div>
       </div>
       <div class="card-accent"></div>
     </a>
