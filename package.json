@@ -2,7 +2,7 @@
   "name": "nwfa-brandguide",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve . -l 3000 -s"
+    "start": "serve . -l 3000"
   },
   "dependencies": {
     "serve": "^14.2.6"
