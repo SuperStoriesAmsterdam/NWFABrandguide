@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWFA — Mood 2: Dark Immersive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts-/Vicky-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:'Vicky Black';src:url('fonts-/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    :root{--navy:#0c1428;--green:#21B501;--white:#e8e8e4;--gray:#666;--dim:#333}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased}
+    body{font-family:'Figtree',sans-serif;color:var(--white);background:var(--navy);overflow-x:hidden}
+
+    .mono{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray)}
+    .vicky{font-family:'Vicky Black',serif}
+
+    /* ─── HERO: full viewport image, name bleeds into photo ─── */
+    .hero{height:100vh;position:relative;overflow:hidden}
+    .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(0.4)}
+    .hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 40px 48px}
+    .hero-name{font-family:'Figtree',sans-serif;font-size:clamp(28px,5vw,48px);font-weight:700;color:var(--white);line-height:1.1;mix-blend-mode:difference}
+    .hero-accent{font-family:'Vicky Black',serif;font-size:clamp(16px,2vw,22px);color:var(--green);margin-top:8px}
+    .hero-info{position:absolute;top:48px;right:40px}
+
+    /* ─── IMAGE SECTIONS: photo fills, text floats ─── */
+    .immerse{position:relative;overflow:hidden}
+    .immerse img{width:100%;height:80vh;object-fit:cover;display:block}
+    .immerse-text{position:absolute;padding:32px 40px;max-width:400px}
+    .immerse-text h2{font-family:'Figtree',sans-serif;font-size:20px;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.2}
+    .immerse-text p{font-size:13px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.6)}
+    .immerse-text .tag{font-family:'Vicky Black',serif;font-size:15px;color:var(--green);margin-top:12px}
+
+    /* ─── THIN TEXT BAND ─── */
+    .band{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--dim);border-bottom:1px solid var(--dim)}
+
+    /* ─── GREEN FLASH: a single color moment ─── */
+    .flash{background:var(--green);padding:32px 40px;display:flex;align-items:center;justify-content:space-between}
+    .flash-text{font-family:'Figtree',sans-serif;font-size:clamp(18px,3vw,28px);font-weight:700;color:var(--white)}
+    .flash-date{font-family:'Space Mono',monospace;font-size:12px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em}
+
+    /* ─── PHOTO GRID: edge-to-edge, tight gaps ─── */
+    .grid-tight{display:grid;gap:2px}
+    .grid-tight--3{grid-template-columns:1fr 1fr 1fr}
+    .grid-tight--2{grid-template-columns:1fr 1fr}
+    .grid-tight--21{grid-template-columns:2fr 1fr}
+    @media(max-width:768px){.grid-tight--3,.grid-tight--21{grid-template-columns:1fr 1fr}}
+    .grid-tight img{width:100%;height:100%;object-fit:cover;display:block}
+    .grid-tight--3{height:50vh}
+    .grid-tight--2{height:45vh}
+    .grid-tight--21{height:55vh}
+
+    /* ─── ICONS: floating on dark, tiny ─── */
+    .icon-float{display:flex;justify-content:center;gap:40px;padding:48px 40px}
+    .icon-float img{width:36px;height:36px;opacity:0.3;filter:brightness(0) invert(1);transition:opacity 0.2s}
+    .icon-float img:hover{opacity:0.8}
+
+    /* ─── TEXT SECTION: sparse on dark ─── */
+    .sparse{padding:80px 40px;max-width:500px}
+    .sparse h3{font-family:'Figtree',sans-serif;font-size:18px;font-weight:600;margin-bottom:12px}
+    .sparse p{font-size:14px;font-weight:300;line-height:1.7;color:var(--gray)}
+
+    /* ─── TYPE: on black, minimal ─── */
+    .type-dark{padding:80px 40px;border-top:1px solid var(--dim)}
+    .type-dark-row{margin-bottom:40px}
+    .type-dark-row:last-child{margin-bottom:0}
+
+    /* ─── SWATCHES: thin line ─── */
+    .swatch-line{display:flex;height:4px}
+    .swatch-line div{flex:1}
+
+    /* ─── VOICE ─── */
+    .voice-dark{padding:60px 40px}
+    .voice-dark .yes{font-size:clamp(18px,3vw,28px);font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.3}
+    .voice-dark .no{font-size:13px;font-weight:300;color:var(--gray);text-decoration:line-through;margin-bottom:6px}
+
+    /* ─── FOOTER ─── */
+    footer{padding:32px 40px;border-top:1px solid var(--dim);display:flex;justify-content:space-between;align-items:flex-end}
+    footer .f-name{font-family:'Vicky Black',serif;font-size:13px;color:var(--white)}
+    footer .f-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em}
+
+    .banner{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--green);color:#fff;font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;text-align:center;padding:7px}
+  </style>
+</head>
+<body>
+
+<div class="banner">Mood 2 — Dark Immersive · photography IS the page, type is minimal overlay</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="photography-/HOI_1762.jpg" alt="">
+  <div class="hero-content">
+    <div class="hero-name">natural wine festival amsterdam</div>
+    <div class="hero-accent">united by wine</div>
+  </div>
+  <div class="hero-info mono">23.11.25 · De Hallen</div>
+</section>
+
+<!-- SWATCH LINE -->
+<div class="swatch-line">
+  <div style="background:var(--navy)"></div>
+  <div style="background:var(--green)"></div>
+  <div style="background:var(--navy)"></div>
+</div>
+
+<!-- IMMERSE 1: text bottom-left -->
+<section class="immerse">
+  <img src="photography-/HOI_1691.jpg" alt="">
+  <div class="immerse-text" style="bottom:0;left:0;background:linear-gradient(to top,rgba(12,20,40,0.9),transparent);">
+    <div class="mono" style="color:var(--green);margin-bottom:8px">winemakers</div>
+    <h2>champagne pierre deville</h2>
+    <p>Verzy, Champagne. Third generation. Native yeasts, unfiltered, spontaneous.</p>
+    <div class="tag">the real thing</div>
+  </div>
+</section>
+
+<!-- ICON FLOAT -->
+<section class="icon-float">
+  <img src="icons-/icon-Tasting.svg" alt="">
+  <img src="icons-/icon-Brain.svg" alt="">
+  <img src="icons-/icon-food-yellow.svg" alt="">
+  <img src="icons-/icon-MiniMarket.svg" alt="">
+  <img src="icons-/icon-Oyster.svg" alt="">
+  <img src="icons-/icon-Sake.svg" alt="">
+</section>
+
+<!-- GREEN FLASH -->
+<section class="flash">
+  <div class="flash-text">one ticket. everything included.</div>
+  <div class="flash-date">23 November 2025</div>
+</section>
+
+<!-- GRID: 2fr + 1fr -->
+<section class="grid-tight grid-tight--21">
+  <img src="photography-/HOI_1752.jpg" alt="">
+  <img src="photography-/344-HOI_1024.jpg" alt="">
+</section>
+
+<!-- SPARSE TEXT -->
+<section class="sparse">
+  <div class="mono" style="margin-bottom:16px;color:var(--green)">workshops</div>
+  <h3>go beyond the hype</h3>
+  <p>A guided tasting for beginners. Six wines, six stories. No jargon, no pretension. Just the glass and the person who made it.</p>
+</section>
+
+<!-- GRID: 3 equal -->
+<section class="grid-tight grid-tight--3">
+  <img src="photography-/HOI_1777.jpg" alt="" loading="lazy">
+  <img src="photography-/HOI_1797.jpg" alt="" loading="lazy">
+  <img src="photography-/HOI_1810.jpg" alt="" loading="lazy">
+</section>
+
+<!-- BAND -->
+<section class="band">
+  <span class="mono">some call them terroirists</span>
+  <span class="vicky" style="font-size:15px;color:var(--green)">we just drink it</span>
+</section>
+
+<!-- IMMERSE 2: text top-right -->
+<section class="immerse">
+  <img src="photography-/HOI_1835.jpg" alt="">
+  <div class="immerse-text" style="top:0;right:0;background:linear-gradient(to bottom,rgba(12,20,40,0.85),transparent);text-align:right">
+    <div class="mono" style="color:var(--green);margin-bottom:8px">the dinner</div>
+    <h2>wind down.<br>bring your bottle.</h2>
+    <p>€39.95. Chef Ian Veuger. Cassoulet, beef cheek, roasted cauliflower. Family style.</p>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="type-dark">
+  <div class="type-dark-row">
+    <div class="mono" style="margin-bottom:6px">figtree 700</div>
+    <div style="font-size:clamp(24px,4vw,40px);font-weight:700;color:var(--white)">natural wine festival</div>
+  </div>
+  <div class="type-dark-row">
+    <div class="mono" style="margin-bottom:6px">vicky black</div>
+    <div class="vicky" style="font-size:20px;color:var(--green)">united by wine</div>
+  </div>
+  <div class="type-dark-row">
+    <div class="mono" style="margin-bottom:6px">space mono</div>
+    <div class="mono" style="color:var(--white);font-size:12px">23 November 2025 — De Hallen, Amsterdam</div>
+  </div>
+  <div class="type-dark-row">
+    <div class="mono" style="margin-bottom:6px">figtree 400</div>
+    <div style="font-size:15px;font-weight:300;color:var(--gray);max-width:440px;line-height:1.7">The festival celebrates natural wine culture. Winemakers, food, workshops, and community.</div>
+  </div>
+</section>
+
+<!-- GRID: 2 equal -->
+<section class="grid-tight grid-tight--2">
+  <img src="photography-/363-HOI_1052.jpg" alt="" loading="lazy">
+  <img src="photography-/349-HOI_1029 kopie.jpg" alt="" loading="lazy">
+</section>
+
+<!-- VOICE -->
+<section class="voice-dark">
+  <div class="mono" style="margin-bottom:20px">voice</div>
+  <div class="yes">ticket sales have started</div>
+  <div class="yes">all day oysters and paired wines</div>
+  <div class="yes" style="color:var(--green)">salut.</div>
+  <div style="height:32px"></div>
+  <div class="no">We are pleased to announce that tickets are now available</div>
+  <div class="no">Curated selection of biodynamic offerings</div>
+</section>
+
+<!-- END: logo barely visible -->
+<section style="padding:80px 40px;text-align:center">
+  <img src="logos-/logo-icon.svg" alt="" style="width:40px;filter:brightness(0) invert(1);opacity:0.15">
+</section>
+
+<footer>
+  <div class="f-name">natural wine festival amsterdam</div>
+  <div class="f-meta">Mood 2 · Dark Immersive · April 2026</div>
+</footer>
+
+</body>
+</html>

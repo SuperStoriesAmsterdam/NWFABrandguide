@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWFA — Mood 4: Collage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts-/Vicky-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:'Vicky Black';src:url('fonts-/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    :root{--navy:#233260;--green:#21B501;--white:#FAFAF8;--cream:#F0EDE6;--gray:#999;--rule:#D8D8D2}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased}
+    body{font-family:'Figtree',sans-serif;color:var(--navy);background:var(--cream);overflow-x:hidden}
+
+    .mono{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray)}
+    .vicky{font-family:'Vicky Black',serif}
+
+    /* ─── HERO: layered, icons float as marks ─── */
+    .hero{min-height:100vh;position:relative;padding:100px 40px 60px;display:flex;flex-direction:column;justify-content:flex-end}
+    .hero-icon{position:absolute;opacity:0.08}
+    .hero-icon--1{top:80px;right:5vw;width:180px;transform:rotate(12deg)}
+    .hero-icon--2{top:35vh;left:3vw;width:120px;transform:rotate(-8deg)}
+    .hero-icon--3{bottom:20vh;right:15vw;width:100px;transform:rotate(5deg)}
+    @media(max-width:768px){.hero-icon{display:none}}
+    .hero-name{font-family:'Figtree',sans-serif;font-size:clamp(32px,6vw,64px);font-weight:700;line-height:1.05;color:var(--navy);max-width:700px;position:relative;z-index:1}
+    .hero-accent{font-family:'Vicky Black',serif;font-size:clamp(18px,3vw,32px);color:var(--green);margin-top:12px;position:relative;z-index:1}
+    .hero-meta-row{display:flex;gap:40px;margin-top:32px;position:relative;z-index:1}
+
+    /* ─── COMPOSITION: photo + icon overlay + text ─── */
+    .collage{position:relative;margin:40px;overflow:hidden}
+    @media(max-width:768px){.collage{margin:20px}}
+    .collage img.photo{width:100%;display:block}
+    .collage .stamp{position:absolute;width:80px;height:80px;opacity:0.7}
+    .collage .caption{position:absolute;bottom:0;left:0;padding:20px 24px;background:var(--navy)}
+    .collage .caption h3{font-family:'Figtree',sans-serif;font-size:16px;font-weight:600;color:var(--white);margin-bottom:4px}
+    .collage .caption p{font-size:12px;font-weight:300;color:rgba(255,255,255,0.5)}
+    .collage .caption .tag{font-family:'Vicky Black',serif;font-size:13px;color:var(--green);margin-top:8px}
+
+    /* ─── SCATTERED SECTION ─── */
+    .scatter{padding:60px 40px;position:relative}
+    .scatter-text{max-width:420px}
+    .scatter-text h2{font-family:'Figtree',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:600;line-height:1.2;margin-bottom:12px}
+    .scatter-text p{font-size:14px;font-weight:300;line-height:1.7;color:var(--gray)}
+    .scatter-icon{position:absolute;right:8vw;top:50%;transform:translateY(-50%);width:140px;opacity:0.12}
+    @media(max-width:768px){.scatter-icon{display:none}}
+
+    /* ─── TWO PHOTOS: uneven, overlapping border ─── */
+    .duo-collage{display:flex;padding:0 40px;gap:20px;align-items:center}
+    @media(max-width:768px){.duo-collage{padding:0 20px;flex-direction:column}}
+    .duo-collage .big{width:55%;border:3px solid var(--navy)}
+    .duo-collage .big img{width:100%;height:360px;object-fit:cover;display:block}
+    .duo-collage .small{width:35%;margin-top:60px}
+    .duo-collage .small img{width:100%;height:240px;object-fit:cover;display:block;border:3px solid var(--green)}
+    @media(max-width:768px){.duo-collage .big,.duo-collage .small{width:100%}.duo-collage .small{margin-top:0}}
+
+    /* ─── QUOTE: vicky big as graphic element ─── */
+    .quote-block{padding:80px 40px;position:relative}
+    .quote-block .bg-word{font-family:'Vicky Black',serif;font-size:clamp(80px,20vw,240px);color:var(--navy);opacity:0.04;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+    .quote-block .text{position:relative;z-index:1;max-width:600px;margin:0 auto;text-align:center}
+    .quote-block .text p{font-family:'Figtree',sans-serif;font-size:clamp(18px,3vw,28px);font-weight:300;line-height:1.5;color:var(--navy)}
+    .quote-block .text strong{font-weight:600;color:var(--green)}
+
+    /* ─── ICON SCATTER: not in a row, placed freely ─── */
+    .icon-scatter{position:relative;height:200px;margin:40px}
+    .icon-scatter img{position:absolute;width:56px;height:56px}
+    .icon-scatter .i1{left:5%;top:20%}
+    .icon-scatter .i2{left:22%;top:60%;transform:rotate(-5deg)}
+    .icon-scatter .i3{left:40%;top:15%;transform:rotate(8deg)}
+    .icon-scatter .i4{left:58%;top:55%}
+    .icon-scatter .i5{left:75%;top:25%;transform:rotate(-3deg)}
+    .icon-scatter .i6{left:88%;top:60%;transform:rotate(6deg)}
+
+    /* ─── TAPE: a green stripe that cuts across ─── */
+    .tape{background:var(--green);padding:16px 40px;transform:rotate(-1deg);margin:20px -20px;position:relative;z-index:2}
+    .tape-inner{display:flex;justify-content:space-between;align-items:center;transform:rotate(1deg)}
+    .tape-text{font-family:'Figtree',sans-serif;font-size:clamp(14px,2vw,20px);font-weight:700;color:var(--white)}
+    .tape-date{font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em}
+
+    /* ─── COLOR: swatches as torn paper ─── */
+    .swatches{display:flex;gap:16px;padding:40px 40px 60px}
+    .swatch-card{width:100px;padding:40px 12px 12px;background:var(--white);box-shadow:2px 2px 0 rgba(0,0,0,0.05);transform:rotate(-2deg)}
+    .swatch-card:nth-child(2){transform:rotate(1deg)}
+    .swatch-card:nth-child(3){transform:rotate(-1deg)}
+    .swatch-fill{height:60px;margin-bottom:8px}
+    .swatch-card span{font-family:'Space Mono',monospace;font-size:9px;color:var(--gray)}
+
+    /* ─── TYPE: handwritten-looking layout ─── */
+    .type-section{padding:60px 40px;border-top:1px solid var(--rule)}
+    .type-pair{display:flex;align-items:baseline;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+    .type-pair .label-col{width:80px;flex-shrink:0}
+
+    /* ─── VOICE ─── */
+    .voice-section{padding:40px 40px 80px}
+    .voice-yes{font-size:clamp(18px,3vw,26px);font-weight:500;line-height:1.3;margin-bottom:10px}
+    .voice-no{font-size:13px;font-weight:300;color:var(--gray);text-decoration:line-through;margin-bottom:6px}
+
+    /* ─── FOOTER ─── */
+    footer{padding:32px 40px;border-top:2px solid var(--navy);display:flex;justify-content:space-between;align-items:center}
+    footer .f-name{font-family:'Vicky Black',serif;font-size:14px}
+    footer .f-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em}
+
+    .banner{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--green);color:#fff;font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;text-align:center;padding:7px}
+  </style>
+</head>
+<body>
+
+<div class="banner">Mood 4 — Collage · icons as marks, photos with borders, vicky as graphic element, cream paper</div>
+
+<!-- HERO: icons float as watermarks -->
+<section class="hero">
+  <img src="icons-/icon-Tasting.svg" class="hero-icon hero-icon--1" alt="">
+  <img src="icons-/icon-Brain.svg" class="hero-icon hero-icon--2" alt="">
+  <img src="icons-/icon-Oyster.svg" class="hero-icon hero-icon--3" alt="">
+  <div class="hero-name">natural wine festival amsterdam</div>
+  <div class="hero-accent">united by wine</div>
+  <div class="hero-meta-row">
+    <span class="mono">23 November 2025</span>
+    <span class="mono">De Hallen, Amsterdam</span>
+    <span class="mono">13.00–22.00</span>
+  </div>
+</section>
+
+<!-- TAPE -->
+<div class="tape"><div class="tape-inner">
+  <div class="tape-text">one ticket. everything included.</div>
+  <div class="tape-date">23.11.25</div>
+</div></div>
+
+<!-- COLLAGE: photo with icon stamp -->
+<section class="collage">
+  <img src="photography-/HOI_1691.jpg" alt="" class="photo" style="height:500px;object-fit:cover">
+  <img src="icons-/icon-church-market.svg" class="stamp" style="top:20px;right:20px" alt="">
+  <div class="caption">
+    <div class="mono" style="color:var(--green);margin-bottom:4px">winemakers</div>
+    <h3>champagne pierre deville</h3>
+    <p>Verzy, Champagne. Third generation.</p>
+    <div class="tag">the real thing</div>
+  </div>
+</section>
+
+<!-- SCATTER: text + floating icon -->
+<section class="scatter">
+  <div class="scatter-text">
+    <div class="mono" style="color:var(--green);margin-bottom:12px">workshops</div>
+    <h2>go beyond the hype</h2>
+    <p>A guided tasting for beginners. Six wines, six stories. No jargon, no pretension. Just the glass and the person who made it.</p>
+  </div>
+  <img src="icons-/icon-mind.svg" class="scatter-icon" alt="">
+</section>
+
+<!-- DUO: uneven photos with borders -->
+<section class="duo-collage">
+  <div class="big"><img src="photography-/HOI_1752.jpg" alt=""></div>
+  <div class="small"><img src="photography-/344-HOI_1024.jpg" alt=""></div>
+</section>
+
+<!-- ICON SCATTER -->
+<section class="icon-scatter">
+  <img src="icons-/icon-Tasting.svg" class="i1" alt="">
+  <img src="icons-/icon-Brain.svg" class="i2" alt="">
+  <img src="icons-/icon-food-yellow.svg" class="i3" alt="">
+  <img src="icons-/icon-MiniMarket.svg" class="i4" alt="">
+  <img src="icons-/icon-Oyster.svg" class="i5" alt="">
+  <img src="icons-/icon-Sake.svg" class="i6" alt="">
+</section>
+
+<!-- QUOTE: vicky as bg watermark -->
+<section class="quote-block">
+  <div class="bg-word">wine</div>
+  <div class="text">
+    <p>some call them terroirists. some call them <strong>the punks of wine.</strong> we just drink it.</p>
+  </div>
+</section>
+
+<!-- COLLAGE: another photo with stamp -->
+<section class="collage">
+  <img src="photography-/HOI_1762.jpg" alt="" class="photo" style="height:400px;object-fit:cover">
+  <img src="icons-/icon-EatDrinkPairLove.svg" class="stamp" style="bottom:80px;right:20px" alt="">
+  <div class="caption" style="background:var(--green)">
+    <div style="font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:4px">the dinner</div>
+    <h3>wind down. bring your bottle.</h3>
+    <p style="color:rgba(255,255,255,0.6)">€39.95. Chef Ian Veuger. Family style.</p>
+  </div>
+</section>
+
+<!-- COLOR SWATCHES: polaroid-style -->
+<section class="swatches">
+  <div class="swatch-card"><div class="swatch-fill" style="background:var(--navy)"></div><span>#233260</span></div>
+  <div class="swatch-card"><div class="swatch-fill" style="background:var(--green)"></div><span>#21B501</span></div>
+  <div class="swatch-card"><div class="swatch-fill" style="background:var(--cream)"></div><span>#F0EDE6</span></div>
+</section>
+
+<!-- TYPE -->
+<section class="type-section">
+  <div class="type-pair">
+    <div class="label-col mono">display</div>
+    <div style="font-size:clamp(24px,4vw,40px);font-weight:700;line-height:1.0">natural wine festival</div>
+  </div>
+  <div class="type-pair">
+    <div class="label-col mono">accent</div>
+    <div class="vicky" style="font-size:22px;color:var(--green)">united by wine</div>
+  </div>
+  <div class="type-pair">
+    <div class="label-col mono">mono</div>
+    <div class="mono" style="font-size:12px;color:var(--navy)">23 November 2025 — De Hallen</div>
+  </div>
+  <div class="type-pair">
+    <div class="label-col mono">body</div>
+    <div style="font-size:14px;font-weight:300;line-height:1.7;color:var(--gray);max-width:400px">The festival celebrates natural wine culture. Winemakers, food, workshops, and community.</div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="voice-section">
+  <div class="mono" style="margin-bottom:20px">voice</div>
+  <div class="voice-yes">ticket sales have started</div>
+  <div class="voice-yes">all day oysters and paired wines</div>
+  <div class="voice-yes" style="color:var(--green)">salut.</div>
+  <div style="height:24px"></div>
+  <div class="voice-no">We are pleased to announce that tickets are now available</div>
+  <div class="voice-no">Curated selection of biodynamic offerings</div>
+</section>
+
+<!-- PHOTOS: one more duo -->
+<section class="duo-collage" style="padding-bottom:60px">
+  <div class="small" style="margin-top:0"><img src="photography-/HOI_1777.jpg" alt="" style="border-color:var(--navy)"></div>
+  <div class="big"><img src="photography-/HOI_1797.jpg" alt=""></div>
+</section>
+
+<!-- LOGO -->
+<section style="text-align:center;padding:40px">
+  <img src="logos-/logo-icon.svg" alt="" style="width:56px;opacity:0.5">
+</section>
+
+<footer>
+  <div class="f-name">natural wine festival amsterdam</div>
+  <div class="f-meta">Mood 4 · Collage · April 2026</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWFA — Mood 3: Swiss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts-/Vicky-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:'Vicky Black';src:url('fonts-/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    :root{--navy:#233260;--green:#21B501;--white:#FAFAF8;--gray:#999;--rule:#D0D0CC}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased}
+    body{font-family:'Figtree',sans-serif;color:var(--navy);background:var(--white);overflow-x:hidden}
+
+    .mono{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray)}
+    .rule{border-top:1px solid var(--rule)}
+
+    /* ─── 12-COL GRID ─── */
+    .g{display:grid;grid-template-columns:repeat(12,1fr);gap:0 20px;padding:0 40px}
+    @media(max-width:768px){.g{grid-template-columns:repeat(6,1fr);padding:0 20px}}
+
+    /* ─── HERO: strict grid, nothing decorative ─── */
+    .hero{padding-top:100px;padding-bottom:60px;border-bottom:1px solid var(--navy)}
+    .hero .mono{grid-column:1/4;padding-top:8px}
+    @media(max-width:768px){.hero .mono{grid-column:1/7}}
+    .hero-title{grid-column:4/13;font-family:'Figtree',sans-serif;font-size:clamp(28px,4.5vw,52px);font-weight:700;line-height:1.1;color:var(--navy)}
+    @media(max-width:768px){.hero-title{grid-column:1/7}}
+    .hero-sub{grid-column:4/8;margin-top:24px}
+    @media(max-width:768px){.hero-sub{grid-column:1/5}}
+    .hero-sub p{font-size:14px;font-weight:400;line-height:1.7;color:var(--gray)}
+    .hero-accent{grid-column:9/13;margin-top:24px;text-align:right}
+    @media(max-width:768px){.hero-accent{grid-column:5/7}}
+    .hero-accent span{font-family:'Vicky Black',serif;font-size:18px;color:var(--green)}
+
+    /* ─── ROW: label left, content right ─── */
+    .row{padding:40px 0;border-bottom:1px solid var(--rule)}
+    .row .row-label{grid-column:1/4;padding-top:4px}
+    @media(max-width:768px){.row .row-label{grid-column:1/7;margin-bottom:12px}}
+    .row .row-content{grid-column:4/13}
+    @media(max-width:768px){.row .row-content{grid-column:1/7}}
+
+    /* ─── IMAGE + TEXT ROW ─── */
+    .img-row{padding:40px 0;border-bottom:1px solid var(--rule)}
+    .img-row .img-cell{grid-column:1/6;overflow:hidden}
+    .img-row .img-cell img{width:100%;height:280px;object-fit:cover;display:block}
+    @media(max-width:768px){.img-row .img-cell{grid-column:1/4;height:200px}}
+    .img-row .img-cell img{height:100%}
+    .img-row .text-cell{grid-column:7/13;display:flex;flex-direction:column;justify-content:center}
+    @media(max-width:768px){.img-row .text-cell{grid-column:4/7}}
+    .img-row .text-cell h3{font-size:18px;font-weight:600;line-height:1.2;margin-bottom:8px}
+    .img-row .text-cell p{font-size:13px;font-weight:300;line-height:1.6;color:var(--gray)}
+    .img-row .text-cell .tag{font-family:'Vicky Black',serif;font-size:14px;color:var(--green);margin-top:12px}
+
+    /* ─── PHOTO GRID: strict proportions ─── */
+    .photo-row{padding:40px 0;border-bottom:1px solid var(--rule)}
+    .photo-row .p1{grid-column:1/5}
+    .photo-row .p2{grid-column:5/9}
+    .photo-row .p3{grid-column:9/13}
+    @media(max-width:768px){.photo-row .p1{grid-column:1/3}.photo-row .p2{grid-column:3/5}.photo-row .p3{grid-column:5/7}}
+    .photo-row img{width:100%;height:220px;object-fit:cover;display:block}
+    @media(max-width:768px){.photo-row img{height:140px}}
+
+    /* ─── ICON ROW ─── */
+    .icon-cell{display:flex;align-items:center;gap:10px;padding:8px 0}
+    .icon-cell img{width:32px;height:32px}
+    .icon-cell span{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--navy)}
+
+    /* ─── TYPE TABLE ─── */
+    .type-table{width:100%;border-collapse:collapse}
+    .type-table td{padding:20px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+    .type-table .col-label{width:120px;font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray);padding-top:24px}
+
+    /* ─── QUOTE ─── */
+    .quote{grid-column:4/11;padding:60px 0;font-family:'Figtree',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:300;line-height:1.5;color:var(--navy)}
+    .quote strong{font-weight:600;color:var(--green)}
+    @media(max-width:768px){.quote{grid-column:1/7}}
+
+    /* ─── COLOR ROW ─── */
+    .color-cell{display:flex;align-items:center;gap:12px}
+    .color-swatch{width:20px;height:20px;border-radius:2px}
+    .color-name{font-family:'Space Mono',monospace;font-size:10px;color:var(--gray)}
+
+    /* ─── VOICE ─── */
+    .voice-yes{font-size:clamp(16px,2.5vw,24px);font-weight:500;line-height:1.3;margin-bottom:8px;color:var(--navy)}
+    .voice-no{font-size:13px;font-weight:300;color:var(--gray);text-decoration:line-through;margin-bottom:6px}
+
+    /* ─── FOOTER ─── */
+    footer{padding:32px 40px;border-top:1px solid var(--navy);display:flex;justify-content:space-between}
+    footer .f-name{font-family:'Vicky Black',serif;font-size:13px;color:var(--navy)}
+    footer .f-meta{font-family:'Space Mono',monospace;font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em}
+
+    .banner{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--green);color:#fff;font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;text-align:center;padding:7px}
+  </style>
+</head>
+<body>
+
+<div class="banner">Mood 3 — Swiss · 12-column grid, strict alignment, mono leads the structure</div>
+
+<!-- HERO -->
+<section class="hero g">
+  <div class="mono">Natural Wine<br>Festival Amsterdam</div>
+  <div class="hero-title">natural wine<br>festival amsterdam</div>
+  <div class="hero-sub"><p>60+ winemakers. Workshops. Oyster bar. Food court. Mini market. One ticket, everything included.</p></div>
+  <div class="hero-accent"><span>united by wine</span></div>
+</section>
+
+<!-- DATE ROW -->
+<section class="row g">
+  <div class="row-label mono">Date</div>
+  <div class="row-content">
+    <div style="font-size:clamp(20px,3vw,36px);font-weight:700">23 November 2025</div>
+    <div class="mono" style="margin-top:8px">De Hallen, Amsterdam · 13.00–22.00</div>
+  </div>
+</section>
+
+<!-- WINEMAKER ROW -->
+<section class="img-row g">
+  <div class="img-cell"><img src="photography-/HOI_1752.jpg" alt=""></div>
+  <div class="text-cell">
+    <div class="mono" style="color:var(--green);margin-bottom:8px">Winemakers</div>
+    <h3>champagne pierre deville</h3>
+    <p>Verzy, Champagne. Third generation. Spontaneous fermentation, native yeasts, unfiltered.</p>
+    <div class="tag">the real thing</div>
+  </div>
+</section>
+
+<!-- ICONS ROW -->
+<section class="row g">
+  <div class="row-label mono">Activities</div>
+  <div class="row-content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+    <div class="icon-cell"><img src="icons-/icon-Tasting.svg" alt=""><span>Tasting</span></div>
+    <div class="icon-cell"><img src="icons-/icon-Brain.svg" alt=""><span>Workshops</span></div>
+    <div class="icon-cell"><img src="icons-/icon-food-yellow.svg" alt=""><span>Restaurant</span></div>
+    <div class="icon-cell"><img src="icons-/icon-MiniMarket.svg" alt=""><span>Market</span></div>
+    <div class="icon-cell"><img src="icons-/icon-Oyster.svg" alt=""><span>Oysters</span></div>
+    <div class="icon-cell"><img src="icons-/icon-Sake.svg" alt=""><span>Sake</span></div>
+  </div>
+</section>
+
+<!-- WORKSHOP ROW -->
+<section class="img-row g" style="flex-direction:row-reverse">
+  <div class="text-cell" style="grid-column:1/6">
+    <div class="mono" style="color:var(--green);margin-bottom:8px">Workshops</div>
+    <h3>go beyond the hype</h3>
+    <p>A guided tasting for beginners. Six wines, six stories. No jargon, no pretension.</p>
+  </div>
+  <div class="img-cell" style="grid-column:7/13"><img src="photography-/344-HOI_1024.jpg" alt=""></div>
+</section>
+
+<!-- QUOTE -->
+<section class="g" style="border-bottom:1px solid var(--rule)">
+  <div class="quote">some call them terroirists. some call them <strong>the punks of wine.</strong> we just drink it.</div>
+</section>
+
+<!-- PHOTOS -->
+<section class="photo-row g">
+  <div class="p1"><img src="photography-/HOI_1777.jpg" alt="" loading="lazy"></div>
+  <div class="p2"><img src="photography-/HOI_1797.jpg" alt="" loading="lazy"></div>
+  <div class="p3"><img src="photography-/HOI_1810.jpg" alt="" loading="lazy"></div>
+</section>
+
+<!-- COLOR -->
+<section class="row g">
+  <div class="row-label mono">Color</div>
+  <div class="row-content" style="display:flex;gap:32px">
+    <div class="color-cell"><div class="color-swatch" style="background:var(--navy)"></div><span class="color-name">#233260</span></div>
+    <div class="color-cell"><div class="color-swatch" style="background:var(--green)"></div><span class="color-name">#21B501</span></div>
+    <div class="color-cell"><div class="color-swatch" style="background:var(--white);border:1px solid var(--rule)"></div><span class="color-name">#FAFAF8</span></div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="row g">
+  <div class="row-label mono">Typography</div>
+  <div class="row-content">
+    <table class="type-table">
+      <tr>
+        <td class="col-label">Display</td>
+        <td><div style="font-size:clamp(24px,3.5vw,40px);font-weight:700;line-height:1.0">natural wine festival</div></td>
+      </tr>
+      <tr>
+        <td class="col-label">Accent</td>
+        <td><div style="font-family:'Vicky Black',serif;font-size:20px;color:var(--green)">united by wine</div></td>
+      </tr>
+      <tr>
+        <td class="col-label">Mono</td>
+        <td><div class="mono" style="font-size:12px;color:var(--navy)">23 November 2025 — De Hallen, Amsterdam</div></td>
+      </tr>
+      <tr>
+        <td class="col-label">Body</td>
+        <td><div style="font-size:14px;font-weight:400;line-height:1.7;color:var(--gray);max-width:400px">The festival celebrates natural wine culture. Winemakers, food, workshops, and community.</div></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- DINNER ROW -->
+<section class="row g">
+  <div class="row-label mono">Dinner</div>
+  <div class="row-content">
+    <div style="font-size:18px;font-weight:600;margin-bottom:8px">winemaker's dinner</div>
+    <div style="font-size:13px;font-weight:300;line-height:1.7;color:var(--gray);max-width:400px">€39.95. Bring your own bottle. Chef Ian Veuger. Cassoulet, beef cheek, roasted cauliflower. Family style. Wind down.</div>
+    <div style="font-family:'Vicky Black',serif;font-size:14px;color:var(--green);margin-top:12px">salut.</div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section class="photo-row g">
+  <div class="p1"><img src="photography-/HOI_1691.jpg" alt="" loading="lazy"></div>
+  <div class="p2"><img src="photography-/HOI_1835.jpg" alt="" loading="lazy"></div>
+  <div class="p3"><img src="photography-/363-HOI_1052.jpg" alt="" loading="lazy"></div>
+</section>
+
+<!-- VOICE -->
+<section class="row g">
+  <div class="row-label mono">Voice</div>
+  <div class="row-content">
+    <div class="voice-yes">ticket sales have started</div>
+    <div class="voice-yes">all day oysters and paired wines</div>
+    <div class="voice-yes" style="color:var(--green)">salut.</div>
+    <div style="height:24px"></div>
+    <div class="voice-no">We are pleased to announce that tickets are now available</div>
+    <div class="voice-no">Curated selection of biodynamic offerings</div>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section class="row g" style="border-bottom:1px solid var(--navy)">
+  <div class="row-label mono">Mark</div>
+  <div class="row-content" style="display:flex;align-items:center;gap:16px;padding:20px 0">
+    <img src="logos-/logo-icon.svg" alt="" style="width:40px">
+    <span style="font-family:'Vicky Black',serif;font-size:14px;color:var(--navy)">natural wine festival amsterdam</span>
+  </div>
+</section>
+
+<footer>
+  <div class="f-name">natural wine festival amsterdam</div>
+  <div class="f-meta">Mood 3 · Swiss · April 2026</div>
+</footer>
+
+</body>
+</html>
