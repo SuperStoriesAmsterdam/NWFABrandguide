@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWFA — Direction T: Photo-Led</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts-/Vicky-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="logos-/logo-icon.svg">
+  <style>
+    @font-face {
+      font-family: 'Vicky Black';
+      src: url('fonts-/Vicky-Black.woff2') format('woff2');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+    :root {
+      --navy: #233260;
+      --green: #21B501;
+      --white: #F8F8F4;
+      --black: #0A0A0A;
+      --gray: #999;
+      --font-display: 'Figtree', sans-serif;
+      --font-accent: 'Vicky Black', Georgia, serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-display); color: var(--navy); background: var(--white); overflow-x: hidden; }
+
+    /* ─── HERO: full-bleed photo with type punched through ─── */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 6vh 5vw;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 60%, transparent 100%);
+    }
+    .hero-overlay h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 12vw, 160px);
+      font-weight: 800;
+      line-height: 0.88;
+      color: var(--white);
+      letter-spacing: -0.03em;
+    }
+    .hero-overlay h1 .green { color: var(--green); }
+    .hero-overlay .hero-accent {
+      font-family: var(--font-accent);
+      font-size: clamp(16px, 2.5vw, 28px);
+      color: var(--green);
+      margin-top: 2vh;
+    }
+    .hero-overlay .hero-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      margin-top: 3vh;
+    }
+
+    /* ─── STRIP: narrow text band ─── */
+    .strip {
+      padding: 3vh 5vw;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .strip--green { background: var(--green); color: var(--white); }
+    .strip--navy { background: var(--navy); color: var(--white); }
+
+    /* ─── PHOTO + TEXT OVERLAP ─── */
+    .overlap-section {
+      position: relative;
+      min-height: 80vh;
+    }
+    .overlap-photo {
+      width: 65%;
+      height: 80vh;
+      object-fit: cover;
+      display: block;
+    }
+    .overlap-photo--right {
+      margin-left: auto;
+    }
+    .overlap-text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--white);
+      padding: 6vh 5vw;
+      max-width: 480px;
+    }
+    .overlap-text--left { left: 5vw; }
+    .overlap-text--right { right: 5vw; }
+    .overlap-text .label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin-bottom: 2vh;
+    }
+    .overlap-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      line-height: 1.0;
+      margin-bottom: 2vh;
+    }
+    .overlap-text p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+    .overlap-text .accent {
+      font-family: var(--font-accent);
+      font-size: 18px;
+      color: var(--green);
+      margin-top: 3vh;
+    }
+    @media (max-width: 768px) {
+      .overlap-photo, .overlap-photo--right { width: 100%; height: 50vh; }
+      .overlap-text { position: relative; top: auto; transform: none; max-width: none; left: auto; right: auto; }
+    }
+
+    /* ─── SECTION ─── */
+    .section {
+      padding: 12vh 5vw;
+    }
+    .section--navy { background: var(--navy); color: var(--white); }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gray);
+      margin-bottom: 2vh;
+    }
+    .section--navy .section-label { color: rgba(255,255,255,0.25); }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      margin-bottom: 6vh;
+    }
+
+    /* ─── PHOTO BAND: full-width alternating with caption ─── */
+    .photo-band {
+      position: relative;
+    }
+    .photo-band img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-band-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 2vh 5vw;
+      background: var(--navy);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+    }
+
+    /* ─── TYPE SHOWCASE ─── */
+    .type-showcase {
+      padding: 12vh 5vw;
+      background: var(--navy);
+    }
+    .type-row {
+      margin-bottom: 8vh;
+    }
+    .type-row:last-child { margin-bottom: 0; }
+    .type-row-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 1vh;
+    }
+
+    /* ─── ICON ROW ─── */
+    .icon-band {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid rgba(35,50,96,0.1);
+      border-bottom: 1px solid rgba(35,50,96,0.1);
+    }
+    @media (max-width: 768px) { .icon-band { grid-template-columns: repeat(3, 1fr); } }
+    .icon-band-item {
+      text-align: center;
+      padding: 4vh 0;
+      border-right: 1px solid rgba(35,50,96,0.06);
+    }
+    .icon-band-item:last-child { border-right: none; }
+    .icon-band-item img { width: 56px; height: 56px; margin-bottom: 8px; }
+    .icon-band-item span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+    }
+
+    /* ─── COLOR DOTS ─── */
+    .color-dots {
+      display: flex;
+      gap: 4vw;
+      align-items: center;
+    }
+    .color-dot {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+    }
+    .color-dot-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gray);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ─── VOICE ─── */
+    .voice-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      margin-top: 6vh;
+    }
+    @media (max-width: 768px) { .voice-pair { grid-template-columns: 1fr; gap: 4vh; } }
+    .voice-yes h3, .voice-no h3 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 3vh;
+    }
+    .voice-yes h3 { color: var(--green); }
+    .voice-no h3 { color: var(--gray); }
+    .voice-yes p {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 36px);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 2vh;
+    }
+    .voice-no p {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-bottom: 1.5vh;
+    }
+
+    /* ─── PHOTO TRIPTYCH ─── */
+    .triptych {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      height: 50vh;
+    }
+    @media (max-width: 768px) { .triptych { grid-template-columns: 1fr; height: auto; } }
+    .triptych img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      padding: 6vh 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    footer .f-brand { font-family: var(--font-accent); font-size: 20px; color: var(--white); }
+    footer .f-meta { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ─── BANNER ─── */
+    .dir-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--green); color: var(--white);
+      font-family: var(--font-mono); font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      text-align: center; padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="dir-banner">Direction T — Photo-Led · Photography drives, type responds · Navy / Green</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="photography-/HOI_1762.jpg" alt="Festival atmosphere" class="hero-img">
+  <div class="hero-overlay">
+    <h1>natural<br>wine <span class="green">festival</span></h1>
+    <div class="hero-accent">united by wine</div>
+    <div class="hero-meta">De Hallen, Amsterdam — 23 November 2025</div>
+  </div>
+</section>
+
+<!-- GREEN STRIP -->
+<div class="strip strip--green">
+  <span>60+ winemakers</span>
+  <span>workshops</span>
+  <span>oyster bar</span>
+  <span>restaurant</span>
+  <span>mini market</span>
+</div>
+
+<!-- OVERLAP: photo left, text right -->
+<section class="overlap-section">
+  <img src="photography-/HOI_1752.jpg" alt="Winemaker" class="overlap-photo">
+  <div class="overlap-text overlap-text--right">
+    <div class="label">winemakers</div>
+    <h2>champagne<br>pierre deville</h2>
+    <p>Verzy, Champagne. Third generation. Spontaneous fermentation, native yeasts, unfiltered.</p>
+    <div class="accent">the real thing</div>
+  </div>
+</section>
+
+<!-- PHOTO BAND -->
+<div class="photo-band">
+  <img src="photography-/HOI_1691.jpg" alt="Festival crowd">
+  <div class="photo-band-caption">De Hallen, Amsterdam — November 2024</div>
+</div>
+
+<!-- OVERLAP: photo right, text left -->
+<section class="overlap-section">
+  <img src="photography-/344-HOI_1024.jpg" alt="Workshop" class="overlap-photo overlap-photo--right">
+  <div class="overlap-text overlap-text--left">
+    <div class="label">workshops</div>
+    <h2>introduction to<br>natural wine</h2>
+    <p>A guided tasting for beginners. Six wines, six stories. No jargon, no pretension.</p>
+    <div class="accent">go beyond the hype</div>
+  </div>
+</section>
+
+<!-- ICONS -->
+<section class="icon-band">
+  <div class="icon-band-item"><img src="icons-/icon-Tasting.svg" alt="Tasting"><span>Tasting</span></div>
+  <div class="icon-band-item"><img src="icons-/icon-Brain.svg" alt="Workshops"><span>Workshops</span></div>
+  <div class="icon-band-item"><img src="icons-/icon-food-yellow.svg" alt="Restaurant"><span>Restaurant</span></div>
+  <div class="icon-band-item"><img src="icons-/icon-MiniMarket.svg" alt="Market"><span>Market</span></div>
+  <div class="icon-band-item"><img src="icons-/icon-Oyster.svg" alt="Oysters"><span>Oysters</span></div>
+  <div class="icon-band-item"><img src="icons-/icon-Sake.svg" alt="Sake"><span>Sake</span></div>
+</section>
+
+<!-- COLOR -->
+<section class="section">
+  <div class="section-label">color</div>
+  <div class="color-dots">
+    <div><div class="color-dot" style="background:var(--navy);"></div><div class="color-dot-label">#233260</div></div>
+    <div><div class="color-dot" style="background:var(--green);"></div><div class="color-dot-label">#21B501</div></div>
+    <div><div class="color-dot" style="background:var(--white); border:1px solid #ddd;"></div><div class="color-dot-label">#F8F8F4</div></div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="type-showcase">
+  <div class="type-row">
+    <div class="type-row-label">display — figtree 800</div>
+    <div style="font-family:var(--font-display); font-size:clamp(40px,8vw,100px); font-weight:800; line-height:0.9; color:var(--white); letter-spacing:-0.02em;">natural wine festival</div>
+  </div>
+  <div class="type-row">
+    <div class="type-row-label">accent — vicky black</div>
+    <div style="font-family:var(--font-accent); font-size:clamp(24px,4vw,48px); color:var(--green);">united by wine</div>
+  </div>
+  <div class="type-row">
+    <div class="type-row-label">mono — space mono</div>
+    <div style="font-family:var(--font-mono); font-size:14px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.5);">23 November 2025 — De Hallen, Amsterdam</div>
+  </div>
+  <div class="type-row">
+    <div class="type-row-label">body — figtree 400</div>
+    <div style="font-family:var(--font-display); font-size:20px; font-weight:400; line-height:1.6; color:rgba(255,255,255,0.6); max-width:560px;">The Natural Wine Festival Amsterdam celebrates natural wine culture in De Hallen. Winemakers, food, workshops, and community.</div>
+  </div>
+</section>
+
+<!-- TRIPTYCH -->
+<section class="triptych">
+  <img src="photography-/HOI_1777.jpg" alt="Festival" loading="lazy">
+  <img src="photography-/HOI_1797.jpg" alt="Festival" loading="lazy">
+  <img src="photography-/HOI_1835.jpg" alt="Festival" loading="lazy">
+</section>
+
+<!-- VOICE -->
+<section class="section">
+  <div class="section-label">voice</div>
+  <div class="section-title">tone</div>
+  <div class="voice-pair">
+    <div class="voice-yes">
+      <h3>yes</h3>
+      <p>ticket sales have started</p>
+      <p>all day oysters and paired wines</p>
+      <p style="color:var(--green);">salut.</p>
+    </div>
+    <div class="voice-no">
+      <h3>no</h3>
+      <p>We are pleased to announce that tickets are now available</p>
+      <p>Curated selection of biodynamic offerings</p>
+      <p>An unmissable oenological experience</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BAND -->
+<div class="photo-band">
+  <img src="photography-/HOI_1810.jpg" alt="Festival">
+  <div class="photo-band-caption">Photography — documentary, warm, never staged</div>
+</div>
+
+<!-- LOGO -->
+<section class="section" style="text-align:center; padding:16vh 5vw;">
+  <img src="logos-/logo-icon.svg" alt="NWFA" style="width:100px; margin-bottom:4vh;">
+  <div style="font-family:var(--font-accent); font-size:clamp(18px,3vw,32px); color:var(--navy);">natural wine festival a'dam</div>
+</section>
+
+<footer>
+  <div class="f-brand">natural wine festival a'dam</div>
+  <div class="f-meta">Direction T · Photo-Led · April 2026</div>
+</footer>
+
+</body>
+</html>

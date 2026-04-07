@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWFA — Direction U: Asymmetric</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts-/Vicky-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="logos-/logo-icon.svg">
+  <style>
+    @font-face {
+      font-family: 'Vicky Black';
+      src: url('fonts-/Vicky-Black.woff2') format('woff2');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+    :root {
+      --navy: #233260;
+      --green: #21B501;
+      --white: #F8F8F4;
+      --black: #0A0A0A;
+      --gray: #999;
+      --font-display: 'Figtree', sans-serif;
+      --font-accent: 'Vicky Black', Georgia, serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-display); color: var(--navy); background: var(--white); overflow-x: hidden; }
+
+    /* ─── HERO: split — left mono column, right big type ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      background: var(--navy);
+    }
+    @media (max-width: 768px) { .hero { grid-template-columns: 1fr; } }
+    .hero-sidebar {
+      border-right: 1px solid rgba(255,255,255,0.08);
+      padding: 5vh 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @media (max-width: 768px) { .hero-sidebar { display: none; } }
+    .hero-sidebar-top {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.2);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .hero-sidebar-bottom {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--green);
+    }
+    .hero-main {
+      padding: 5vh 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-main h1 {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 12vw, 180px);
+      font-weight: 800;
+      line-height: 0.85;
+      color: var(--white);
+      letter-spacing: -0.03em;
+    }
+    .hero-main h1 .green { color: var(--green); }
+    .hero-main .hero-accent {
+      font-family: var(--font-accent);
+      font-size: clamp(18px, 3vw, 36px);
+      color: var(--green);
+      margin-top: 3vh;
+    }
+    .hero-main .hero-details {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4vh;
+      display: flex;
+      gap: 4em;
+    }
+
+    /* ─── ASYMMETRIC: sidebar label + content ─── */
+    .asym {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 40vh;
+    }
+    @media (max-width: 768px) { .asym { grid-template-columns: 1fr; } }
+    .asym-label {
+      padding: 6vh 24px;
+      border-right: 1px solid rgba(35,50,96,0.08);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    @media (max-width: 768px) {
+      .asym-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        padding: 3vh 5vw 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(35,50,96,0.08);
+      }
+    }
+    .asym--navy { background: var(--navy); color: var(--white); }
+    .asym--navy .asym-label { border-color: rgba(255,255,255,0.08); color: rgba(255,255,255,0.2); }
+    .asym--green { background: var(--green); color: var(--white); }
+    .asym--green .asym-label { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+    .asym-content {
+      padding: 6vh 5vw;
+    }
+
+    /* ─── LARGE STATEMENT ─── */
+    .statement {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.3;
+      max-width: 700px;
+    }
+    .statement strong { font-weight: 700; color: var(--green); }
+
+    /* ─── TWO-PANEL within asym ─── */
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      height: 100%;
+    }
+    @media (max-width: 768px) { .panels { grid-template-columns: 1fr; } }
+    .panel {
+      padding: 6vh 4vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .panel + .panel { border-left: 1px solid rgba(35,50,96,0.08); }
+    .asym--navy .panel + .panel { border-color: rgba(255,255,255,0.08); }
+    @media (max-width: 768px) { .panel + .panel { border-left: none; border-top: 1px solid rgba(35,50,96,0.08); } }
+    .panel h3 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 700;
+      line-height: 1.0;
+      margin-bottom: 2vh;
+    }
+    .panel p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+    .asym--navy .panel p { color: rgba(255,255,255,0.5); }
+    .panel .accent {
+      font-family: var(--font-accent);
+      font-size: 16px;
+      color: var(--green);
+      margin-top: 2vh;
+    }
+
+    /* ─── DATE BAND ─── */
+    .date-band {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      background: var(--green);
+    }
+    @media (max-width: 768px) { .date-band { grid-template-columns: 1fr; } }
+    .date-band-side {
+      border-right: 1px solid rgba(255,255,255,0.15);
+      padding: 4vh 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 768px) { .date-band-side { display: none; } }
+    .date-band-side img { width: 60px; height: 60px; filter: brightness(0) invert(1); }
+    .date-band-main {
+      padding: 4vh 5vw;
+      display: flex;
+      align-items: center;
+      gap: 5vw;
+    }
+    .date-band-date {
+      font-family: var(--font-mono);
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+    }
+    .date-band-info {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    /* ─── PHOTO: full bleed between sections ─── */
+    .photo-full {
+      width: 100%;
+      height: 65vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── PHOTO ASYMMETRIC ─── */
+    .photo-asym {
+      display: grid;
+      grid-template-columns: 200px 3fr 2fr;
+      height: 50vh;
+    }
+    @media (max-width: 768px) { .photo-asym { grid-template-columns: 1fr 1fr; height: 40vh; } }
+    .photo-asym-side {
+      background: var(--navy);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    @media (max-width: 768px) { .photo-asym-side { display: none; } }
+    .photo-asym-side span {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.2);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .photo-asym img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── ICON GRID in asym ─── */
+    .icon-asym-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .icon-asym-item {
+      text-align: center;
+      padding: 4vh 2vw;
+      border-right: 1px solid rgba(35,50,96,0.06);
+      border-bottom: 1px solid rgba(35,50,96,0.06);
+    }
+    .icon-asym-item:nth-child(3n) { border-right: none; }
+    .icon-asym-item:nth-last-child(-n+3) { border-bottom: none; }
+    .icon-asym-item img { width: 56px; height: 56px; margin-bottom: 8px; }
+    .icon-asym-item span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+    }
+
+    /* ─── TYPE SHOWCASE ─── */
+    .type-row { margin-bottom: 6vh; }
+    .type-row:last-child { margin-bottom: 0; }
+    .type-row-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 1vh;
+    }
+
+    /* ─── SWATCH ROW ─── */
+    .swatch-row { display: flex; height: 100px; }
+    .swatch-item { flex: 1; display: flex; align-items: flex-end; padding: 12px; }
+    .swatch-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; }
+
+    /* ─── VOICE ─── */
+    .voice-do {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 2vh;
+    }
+    .voice-dont {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-bottom: 1vh;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      background: var(--navy);
+    }
+    @media (max-width: 768px) { footer { grid-template-columns: 1fr; } }
+    .footer-side {
+      border-right: 1px solid rgba(255,255,255,0.08);
+      padding: 4vh 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 768px) { .footer-side { display: none; } }
+    .footer-side img { width: 48px; filter: brightness(0) invert(1) opacity(0.3); }
+    .footer-main {
+      padding: 4vh 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-main .f-brand { font-family: var(--font-accent); font-size: 18px; color: var(--white); }
+    .footer-main .f-meta { font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ─── BANNER ─── */
+    .dir-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--green); color: var(--white);
+      font-family: var(--font-mono); font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      text-align: center; padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="dir-banner">Direction U — Asymmetric · Sidebar grid, mono as architecture · Navy / Green</div>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:36px;">
+  <div class="hero-sidebar">
+    <div class="hero-sidebar-top">Natural Wine Festival Amsterdam — Brand Guide v2</div>
+    <div class="hero-sidebar-bottom">2025</div>
+  </div>
+  <div class="hero-main">
+    <h1>natural<br>wine<br><span class="green">festival</span></h1>
+    <div class="hero-accent">united by wine</div>
+    <div class="hero-details">
+      <span>De Hallen, Amsterdam</span>
+      <span>23 November 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="asym">
+  <div class="asym-label">About</div>
+  <div class="asym-content" style="display:flex; align-items:center;">
+    <div class="statement">60+ winemakers. Workshops. Oyster bar. Food court. Mini market. <strong>One ticket, full access.</strong></div>
+  </div>
+</section>
+
+<!-- FULL PHOTO -->
+<img src="photography-/HOI_1691.jpg" alt="Festival" class="photo-full">
+
+<!-- DATE -->
+<section class="date-band">
+  <div class="date-band-side"><img src="logos-/logo-icon.svg" alt="NWFA"></div>
+  <div class="date-band-main">
+    <div class="date-band-date">23.11.25</div>
+    <div class="date-band-info">De Hallen, Amsterdam<br>13.00 — 22.00</div>
+  </div>
+</section>
+
+<!-- WINEMAKERS + WORKSHOPS -->
+<section class="asym asym--navy">
+  <div class="asym-label">Programme</div>
+  <div class="asym-content" style="padding:0;">
+    <div class="panels">
+      <div class="panel">
+        <div style="font-family:var(--font-mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:var(--green); margin-bottom:2vh;">Winemakers</div>
+        <h3 style="color:var(--white);">champagne<br>pierre deville</h3>
+        <p>Verzy, Champagne. Third generation. Spontaneous fermentation, native yeasts.</p>
+        <div class="accent">the real thing</div>
+      </div>
+      <div class="panel">
+        <div style="font-family:var(--font-mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:var(--green); margin-bottom:2vh;">Workshops</div>
+        <h3 style="color:var(--white);">introduction to<br>natural wine</h3>
+        <p>A guided tasting for beginners. Six wines, six stories.</p>
+        <div class="accent">go beyond the hype</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO ASYM -->
+<section class="photo-asym">
+  <div class="photo-asym-side"><span>Photography</span></div>
+  <img src="photography-/HOI_1752.jpg" alt="Festival">
+  <img src="photography-/344-HOI_1024.jpg" alt="Festival">
+</section>
+
+<!-- ICONS -->
+<section class="asym">
+  <div class="asym-label">Activities</div>
+  <div class="asym-content" style="padding:0;">
+    <div class="icon-asym-grid">
+      <div class="icon-asym-item"><img src="icons-/icon-Tasting.svg" alt="Tasting"><span>Tasting</span></div>
+      <div class="icon-asym-item"><img src="icons-/icon-Brain.svg" alt="Workshops"><span>Workshops</span></div>
+      <div class="icon-asym-item"><img src="icons-/icon-food-yellow.svg" alt="Restaurant"><span>Restaurant</span></div>
+      <div class="icon-asym-item"><img src="icons-/icon-MiniMarket.svg" alt="Market"><span>Market</span></div>
+      <div class="icon-asym-item"><img src="icons-/icon-Oyster.svg" alt="Oysters"><span>Oysters</span></div>
+      <div class="icon-asym-item"><img src="icons-/icon-Sake.svg" alt="Sake"><span>Sake</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR -->
+<section class="asym">
+  <div class="asym-label">Color</div>
+  <div class="asym-content" style="padding:0;">
+    <div class="swatch-row">
+      <div class="swatch-item" style="background:var(--navy);"><span class="swatch-label" style="color:rgba(255,255,255,0.4);">#233260</span></div>
+      <div class="swatch-item" style="background:var(--green);"><span class="swatch-label" style="color:rgba(255,255,255,0.6);">#21B501</span></div>
+      <div class="swatch-item" style="background:var(--white); border-bottom:1px solid #e0e0e0;"><span class="swatch-label" style="color:var(--gray);">#F8F8F4</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPE -->
+<section class="asym asym--navy">
+  <div class="asym-label">Typography</div>
+  <div class="asym-content">
+    <div class="type-row">
+      <div class="type-row-label">display — figtree 800</div>
+      <div style="font-family:var(--font-display); font-size:clamp(36px,7vw,88px); font-weight:800; line-height:0.9; color:var(--white); letter-spacing:-0.02em;">natural wine festival</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row-label">accent — vicky black</div>
+      <div style="font-family:var(--font-accent); font-size:clamp(20px,3.5vw,42px); color:var(--green);">united by wine</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row-label">mono — space mono</div>
+      <div style="font-family:var(--font-mono); font-size:13px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.4);">23 November 2025 — De Hallen, Amsterdam — 13.00–22.00</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row-label">body — figtree 400</div>
+      <div style="font-family:var(--font-display); font-size:18px; font-weight:400; line-height:1.6; color:rgba(255,255,255,0.5); max-width:500px;">The Natural Wine Festival Amsterdam celebrates natural wine culture in De Hallen. Winemakers, food, workshops, and community.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO FULL -->
+<img src="photography-/HOI_1777.jpg" alt="Festival" class="photo-full">
+
+<!-- VOICE -->
+<section class="asym">
+  <div class="asym-label">Voice</div>
+  <div class="asym-content">
+    <div class="voice-do">ticket sales have started</div>
+    <div class="voice-do">all day oysters and paired wines</div>
+    <div class="voice-do" style="color:var(--green);">salut.</div>
+    <div style="height:6vh;"></div>
+    <div class="voice-dont">We are pleased to announce that tickets are now available</div>
+    <div class="voice-dont">Curated selection of biodynamic offerings</div>
+    <div class="voice-dont">An unmissable oenological experience</div>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section class="asym asym--green">
+  <div class="asym-label">Mark</div>
+  <div class="asym-content" style="display:flex; align-items:center; gap:4vw;">
+    <img src="logos-/logo-icon.svg" alt="NWFA" style="width:80px; filter:brightness(0) invert(1);">
+    <div style="font-family:var(--font-accent); font-size:clamp(20px,3vw,36px); color:var(--white);">natural wine festival a'dam</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-side"><img src="logos-/logo-icon.svg" alt="NWFA"></div>
+  <div class="footer-main">
+    <div class="f-brand">natural wine festival a'dam</div>
+    <div class="f-meta">Direction U · Asymmetric · April 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
