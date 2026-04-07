@@ -31,11 +31,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2px;
-      max-width: 960px;
+      max-width: 900px;
       width: 100%;
     }
-    @media (max-width: 800px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
     .card {
       display: flex;
       flex-direction: column;
@@ -50,8 +49,7 @@
     .card:hover { opacity: 0.8; }
     .card--original { background: #DBBB00; color: #111; border-color: #DBBB00; }
     .card--d { background: #233260; border-color: #DBBB00; }
-    .card--variant { background: #1a1a2e; border-color: #DBBB00; }
-    .card--j { background: #0A0A0A; border-color: #CC0B22; }
+    .card--r { background: #0a1a0a; border-color: #21B501; }
     .card-label {
       font-size: 10px;
       text-transform: uppercase;
@@ -76,16 +74,8 @@
       margin-top: 12px;
     }
     .card--original .card-accent { background: #233260; }
-    .card--d .card-accent, .card--variant .card-accent { background: #DBBB00; }
-    .card--j .card-accent { background: #CC0B22; }
-    .divider {
-      grid-column: 1 / -1;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #444;
-      padding: 24px 0 8px;
-    }
+    .card--d .card-accent { background: #DBBB00; }
+    .card--r .card-accent { background: #21B501; }
   </style>
 </head>
 <body>
@@ -105,98 +95,17 @@
       <div>
         <div class="card-label">Direction D</div>
         <div class="card-title">Editorial<br>Color</div>
-        <div class="card-desc">Vicky + Space Mono + Inter<br>Navy / Gold &middot; baseline</div>
+        <div class="card-desc">Vicky + Space Mono + Inter<br>Navy / Gold</div>
       </div>
       <div class="card-accent"></div>
     </a>
-    <a href="direction-i.html" class="card card--variant">
-      <div>
-        <div class="card-label">Variant I</div>
-        <div class="card-title">Space Mono<br>Bold</div>
-        <div class="card-desc">Same mono, heavier weight<br>700 throughout</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-
-    <div class="divider">Label font alternatives</div>
-
-    <a href="direction-f.html" class="card card--variant">
-      <div>
-        <div class="card-label">Variant F</div>
-        <div class="card-title">Instrument<br>Sans</div>
-        <div class="card-desc">Geometric, contemporary<br>Clean uppercase, variable weight</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-g.html" class="card card--variant">
-      <div>
-        <div class="card-label">Variant G</div>
-        <div class="card-title">Atkinson<br>Hyperlegible</div>
-        <div class="card-desc">Max readability, open forms<br>Functional with character</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-h.html" class="card card--variant">
-      <div>
-        <div class="card-label">Variant H</div>
-        <div class="card-title">Plus Jakarta<br>Sans</div>
-        <div class="card-desc">Geist-achtig, geometric<br>Tech meets editorial</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-
-    <div class="divider">Flipped — sophisticated sans headlines, vicky as signature</div>
-
-    <a href="direction-k.html" class="card card--variant">
-      <div>
-        <div class="card-label">Direction K</div>
-        <div class="card-title">Outfit</div>
-        <div class="card-desc">Geometric, clean, confident<br>Fashion-house uppercase<br>Vicky Black as warm accent</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-m.html" class="card card--variant">
-      <div>
-        <div class="card-label">Direction M</div>
-        <div class="card-title">Libre Franklin</div>
-        <div class="card-desc">Classic American grotesque<br>Editorial authority<br>Vicky Black as warm accent</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-
-    <div class="divider">Large sans body — vicky stays small, sans carries the page</div>
-
-    <a href="direction-n.html" class="card card--variant">
-      <div>
-        <div class="card-label">Direction N</div>
-        <div class="card-title">Outfit<br>Body</div>
-        <div class="card-desc">Outfit 500 as large body/subtitle<br>Vicky Black small (labels, accents)<br>Sans carries the reading</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-p.html" class="card card--variant">
-      <div>
-        <div class="card-label">Direction P</div>
-        <div class="card-title">Libre Franklin<br>Body</div>
-        <div class="card-desc">Libre Franklin 500 as large body<br>Vicky Black small (labels, accents)<br>Editorial weight throughout</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-q.html" class="card card--variant">
-      <div>
-        <div class="card-label">Direction Q</div>
-        <div class="card-title">Figtree<br>Body</div>
-        <div class="card-desc">Figtree 500 as large body<br>Vicky Black small (labels, accents)<br>Warm geometric, friendly weight</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-r.html" class="card" style="background:#0a1a0a; border-color:#21B501;">
+    <a href="direction-r.html" class="card card--r">
       <div>
         <div class="card-label">Direction R</div>
         <div class="card-title">Figtree<br>Green</div>
-        <div class="card-desc">Same as Q but green (#21B501)<br>replaces gold as accent<br>Navy / Green</div>
+        <div class="card-desc">Figtree + Vicky accent + Space Mono<br>Navy / Green</div>
       </div>
-      <div class="card-accent" style="background:#21B501;"></div>
+      <div class="card-accent"></div>
     </a>
   </div>
 
