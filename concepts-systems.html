@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — three art-direction systems</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#b4ae9f;color:#222;-webkit-font-smoothing:antialiased;}
+  img{display:block;}
+
+  .index{position:sticky;top:0;z-index:50;background:#161a16;color:#efe9db;display:flex;align-items:center;gap:22px;padding:14px 30px;font-size:13px;}
+  .index strong{font-weight:600;}
+  .index .sp{flex:1;}
+  .index a{color:#cfc4a4;text-decoration:none;font-weight:500;}
+  .index a:hover{color:#fff;}
+
+  .intro{max-width:1180px;margin:0 auto;padding:56px 30px 22px;}
+  .intro .tag{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7a7460;}
+  .intro h2{font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.04;margin:9px 0 12px;color:#1c211b;letter-spacing:-.02em;}
+  .intro p{max-width:76ch;font-size:15px;line-height:1.62;color:#3a3a32;}
+  .intro p b{color:#1c211b;}
+
+  .browser{max-width:1180px;margin:0 auto 38px;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(0,0,0,.6);}
+  .chrome{display:flex;align-items:center;gap:8px;padding:11px 16px;background:#e7e3da;border-bottom:1px solid #d4cfc2;}
+  .chrome .dot{width:11px;height:11px;border-radius:50%;background:#c3bdaf;}
+  .chrome .url{margin-left:14px;background:#fff;border-radius:7px;padding:5px 14px;font-size:12px;color:#6a6556;flex:1;max-width:330px;}
+
+  .home{background:var(--bg);color:var(--ink);font-size:16px;}
+  .home .wrap{max-width:1060px;margin:0 auto;padding:0 56px;}
+  .home a{color:inherit;text-decoration:none;}
+  .payoff{font-family:'Vicky';color:var(--accent);text-transform:lowercase;line-height:1;}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:13.5px;padding:13px 26px;border-radius:100px;}
+  .nav{display:flex;align-items:center;gap:24px;padding:24px 56px;font-size:14px;}
+  .nav .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;}
+  .nav .bm span{display:block;}
+  .nav .lk{margin-left:auto;display:flex;gap:24px;align-items:center;font-weight:500;}
+  .nav .lk a{opacity:.66;}
+
+  /* ===================================================== SYSTEM 1 · THE LABEL */
+  .sys-label{--bg:#ECE6D6;--ink:#1B3326;--accent:#9F6E29;--line:#1B3326;}
+  .sys-label .frame{border:1.6px solid var(--line);}
+  .sys-label .lab-hero{margin:34px 56px 0;padding:46px 48px 40px;}
+  .sys-label .lhead{display:flex;justify-content:space-between;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding-bottom:16px;border-bottom:1.4px solid var(--line);opacity:.85;}
+  .sys-label .lname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;font-size:clamp(46px,7vw,92px);margin:30px 0 8px;}
+  .sys-label .lsub{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.7;}
+  .sys-label .lgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:46px;margin-top:34px;align-items:end;}
+  .sys-label .spec .row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 22%,transparent);}
+  .sys-label .spec .row .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.6;}
+  .sys-label .spec .row .v{font-weight:600;font-size:15px;}
+  .sys-label .stamp{display:inline-block;border:1.5px solid var(--accent);color:var(--accent);padding:14px 18px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;line-height:1.3;transform:rotate(-5deg);text-align:center;border-radius:3px;}
+  .sys-label .lab-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:36px;padding-top:22px;border-top:1.4px solid var(--line);}
+  .sys-label .sec{padding:96px 56px;max-width:1180px;margin:0 auto;}
+  .sys-label .seclabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .sys-label .sectitle{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.4vw,46px);margin-top:8px;}
+  .sys-label .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:42px;}
+  .sys-label .card{border:1.4px solid var(--line);padding:24px;}
+  .sys-label .card .cn{font-weight:700;text-transform:lowercase;font-size:21px;letter-spacing:-.01em;}
+  .sys-label .card .cr{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:4px 0 16px;}
+  .sys-label .card .row{display:flex;justify-content:space-between;font-size:12.5px;padding:7px 0;border-bottom:1px dotted color-mix(in srgb,var(--ink) 30%,transparent);}
+  .sys-label .card .row .k{opacity:.55;text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;font-weight:600;}
+  .sys-label .backlabel{border:1.4px solid var(--line);padding:40px 44px;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;margin-top:8px;}
+  .sys-label .backlabel .small{font-size:12px;line-height:1.7;opacity:.66;}
+  .sys-label .backlabel .big{font-weight:700;text-transform:lowercase;letter-spacing:-.025em;font-size:clamp(30px,3.6vw,52px);line-height:1;}
+  .sys-label .backlabel .big .ac{color:var(--accent);}
+
+  /* ===================================================== SYSTEM 2 · STAINED GLASS */
+  .sys-glass{--bg:#E7E0D0;--ink:#15301F;--accent:#9F6E29;}
+  .sys-glass .lead{height:3px;background:var(--ink);}
+  .sys-glass .ghero{display:grid;grid-template-columns:1fr .8fr;gap:48px;align-items:center;padding:80px 0 92px;}
+  .sys-glass .ghero .rose{width:100%;max-width:330px;margin:0 auto;filter:drop-shadow(0 24px 44px rgba(0,0,0,.2));}
+  .sys-glass .gname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.94;font-size:clamp(48px,6.6vw,88px);}
+  .sys-glass .gname .ac{color:var(--accent);}
+  .sys-glass .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .sys-glass .sec{padding:96px 0;}
+  .sys-glass .seclabel{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);text-align:center;}
+  .sys-glass .sectitle{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.4vw,48px);text-align:center;margin-top:8px;}
+  .sys-glass .wall{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:56px;align-items:end;}
+  .sys-glass .archframe{background:var(--ink);padding:8px 8px 0;border-radius:48% 48% 7px 7px/30% 30% 4px 4px;}
+  .sys-glass .archframe img{width:100%;aspect-ratio:3/4.1;object-fit:cover;border-radius:46% 46% 3px 3px/29% 29% 2px 2px;}
+  .sys-glass .glasspanel{display:flex;align-items:flex-end;justify-content:center;height:100%;}
+  .sys-glass .glasspanel img{width:100%;max-width:150px;}
+  .sys-glass .cap{text-align:center;margin-top:14px;font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.01em;}
+  .sys-glass .cap small{display:block;font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-top:4px;}
+  .sys-glass .story{padding:104px 0;text-align:center;}
+  .sys-glass .story .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(40px,5.6vw,82px);line-height:1;max-width:16ch;margin:0 auto;}
+  .sys-glass .story .big .ac{color:var(--accent);}
+  .sys-glass .story p{max-width:54ch;margin:26px auto 0;opacity:.74;line-height:1.7;}
+
+  /* ===================================================== SYSTEM 3 · ALMANAC */
+  .sys-almanac{--bg:#F0EBDC;--ink:#26302A;--accent:#9F6E29;}
+  .sys-almanac .rule{height:1px;background:color-mix(in srgb,var(--ink) 24%,transparent);}
+  .sys-almanac .frontis{text-align:center;padding:84px 0 70px;border-bottom:1px solid color-mix(in srgb,var(--ink) 24%,transparent);}
+  .sys-almanac .frontis .ed{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;opacity:.55;}
+  .sys-almanac .frontis .guide{font-style:normal;font-weight:600;text-transform:lowercase;font-size:clamp(15px,1.6vw,19px);letter-spacing:.02em;opacity:.8;margin-top:24px;}
+  .sys-almanac .frontis .aname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.94;font-size:clamp(44px,6.4vw,86px);margin:6px 0 10px;}
+  .sys-almanac .frontis .aname .ac{color:var(--accent);}
+  .sys-almanac .frontis .plate{width:120px;margin:0 auto 30px;}
+  .sys-almanac .sec{padding:88px 0;}
+  .sys-almanac .seclabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:flex;justify-content:space-between;border-bottom:1px solid color-mix(in srgb,var(--ink) 24%,transparent);padding-bottom:12px;}
+  .sys-almanac .entry{display:grid;grid-template-columns:54px 1fr 200px;gap:26px;padding:30px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);align-items:start;}
+  .sys-almanac .entry .no{font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.04em;}
+  .sys-almanac .entry .nm{font-weight:700;text-transform:lowercase;font-size:24px;letter-spacing:-.02em;}
+  .sys-almanac .entry .cls{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:6px 0 10px;}
+  .sys-almanac .entry .desc{font-size:14px;line-height:1.6;opacity:.72;max-width:52ch;}
+  .sys-almanac .entry .note{font-size:12px;line-height:1.55;font-style:italic;opacity:.6;border-left:1px solid color-mix(in srgb,var(--ink) 30%,transparent);padding-left:16px;}
+  .sys-almanac .plates{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;border:1px solid color-mix(in srgb,var(--ink) 24%,transparent);}
+  .sys-almanac .plates .p{padding:28px 18px;text-align:center;border-right:1px solid color-mix(in srgb,var(--ink) 18%,transparent);}
+  .sys-almanac .plates .p:last-child{border-right:none;}
+  .sys-almanac .plates .p img{width:66px;margin:0 auto 14px;}
+  .sys-almanac .plates .p .t{font-weight:700;text-transform:lowercase;font-size:15px;}
+  .sys-almanac .plates .p .fig{font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.45;margin-top:6px;}
+  .sys-almanac .frontis .payoff{font-size:clamp(26px,3vw,40px);margin-top:14px;}
+
+  /* shared footer */
+  .foot{padding:60px 56px 50px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:flex-end;border-top:1px solid color-mix(in srgb,var(--ink) 18%,transparent);}
+  .foot .pf{font-family:'Vicky';color:var(--accent);font-size:34px;line-height:.9;text-transform:lowercase;}
+  .foot .law{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.45;}
+
+  @media(max-width:860px){
+    .sys-label .lgrid,.sys-label .backlabel,.sys-glass .ghero{grid-template-columns:1fr;}
+    .sys-label .cards{grid-template-columns:1fr;}
+    .sys-glass .wall{grid-template-columns:repeat(2,1fr);}
+    .sys-almanac .entry{grid-template-columns:1fr;}.sys-almanac .entry .note{border-left:none;padding-left:0;}
+    .sys-almanac .plates{grid-template-columns:repeat(2,1fr);}
+    .home .wrap,.nav{padding-left:24px;padding-right:24px;}.nav .lk{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="index">
+    <strong>NWFA · three distinctive systems — built on your existing elements</strong>
+    <span class="sp"></span>
+    <a href="#L">1 · The Label</a><a href="#G">2 · Stained Glass</a><a href="#A">3 · Almanac</a>
+  </div>
+
+  <!-- ================= SYSTEM 1 ================= -->
+  <section id="L">
+    <div class="intro">
+      <div class="tag">System 1</div>
+      <h2>The Label — radical transparency</h2>
+      <p>Position: natural wine is the one truly transparent product — grape to bottle, one person, nothing hidden. <b>The whole site is built like a wine label / a disclosure document.</b> Every maker and wine declares everything. Uses your existing palette, icons, photos and Vicky payoff — but the system is full disclosure.</p>
+    </div>
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">naturalwinefestival.nl</span></div>
+      <div class="home sys-label">
+        <nav class="nav"><div class="bm"><span>natural wine festival</span><span>a'dam</span></div><div class="lk"><a href="#">the makers</a><a href="#">the lessons</a><a href="#">the supper</a><a href="#" class="btn">take your place</a></div></nav>
+
+        <div class="frame lab-hero">
+          <div class="lhead"><span>natural wine · amsterdam</span><span>edition 03 — lot 23.11</span></div>
+          <div class="lname">natural<br>wine festival<br>a'dam</div>
+          <div class="lsub">a one-day festival of living wine · de hallen, amsterdam</div>
+          <div class="lgrid">
+            <div class="spec">
+              <div class="row"><span class="k">contents</span><span class="v">60+ growers</span></div>
+              <div class="row"><span class="k">poured</span><span class="v">300+ living wines</span></div>
+              <div class="row"><span class="k">lessons</span><span class="v">25+ masterclasses</span></div>
+              <div class="row"><span class="k">served</span><span class="v">sat 23 nov '26 · 13:00–18:15</span></div>
+              <div class="row"><span class="k">intervention</span><span class="v">none</span></div>
+            </div>
+            <div style="text-align:center;">
+              <div class="stamp">nothing added<br>nothing taken away</div>
+            </div>
+          </div>
+          <div class="lab-foot">
+            <div class="payoff" style="font-size:clamp(30px,3.6vw,50px);">united by wine</div>
+            <a href="#" class="btn">take your place →</a>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="seclabel">the makers · full disclosure</div>
+          <div class="sectitle">60+ growers. nothing to hide.</div>
+          <div class="cards">
+            <div class="card"><div class="cn">oller del mas</div><div class="cr">catalonia, es</div>
+              <div class="row"><span class="k">farming</span><span>biodynamic</span></div>
+              <div class="row"><span class="k">added yeast</span><span>none</span></div>
+              <div class="row"><span class="k">sulphur</span><span>&lt; 20 mg/l</span></div>
+              <div class="row"><span class="k">hands</span><span>family + 4</span></div>
+            </div>
+            <div class="card"><div class="cn">le coste</div><div class="cr">lazio, it</div>
+              <div class="row"><span class="k">farming</span><span>organic, wild</span></div>
+              <div class="row"><span class="k">added yeast</span><span>none</span></div>
+              <div class="row"><span class="k">sulphur</span><span>none</span></div>
+              <div class="row"><span class="k">hands</span><span>gianmarco + friends</span></div>
+            </div>
+            <div class="card"><div class="cn">gut oggau</div><div class="cr">burgenland, at</div>
+              <div class="row"><span class="k">farming</span><span>biodynamic</span></div>
+              <div class="row"><span class="k">added yeast</span><span>none</span></div>
+              <div class="row"><span class="k">sulphur</span><span>&lt; 10 mg/l</span></div>
+              <div class="row"><span class="k">hands</span><span>stephanie + eduard</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec" style="padding-top:0;">
+          <div class="backlabel">
+            <div class="small"><b style="color:var(--accent);">back label.</b><br><br>Winemaking industrialised in the 20th century: fertiliser, pesticides, added yeasts, sulphites. These growers refused. They farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture.</div>
+            <div><div class="seclabel">below the hype</div><div class="big" style="margin-top:12px;">it’s not cool. it’s just <span class="ac">common sense.</span></div></div>
+          </div>
+        </div>
+
+        <div class="foot"><div class="pf">united<br>by wine</div><div class="law">De Hallen, Amsterdam · 23 November '26 · …and salut.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SYSTEM 2 ================= -->
+  <section id="G">
+    <div class="intro">
+      <div class="tag">System 2</div>
+      <h2>Stained Glass — the window as the grid</h2>
+      <p>Position: a contemporary congregation. <b>Your real stained-glass windows become the actual structure</b> — photos masked into the arched window shapes, the real glass icons interspersed, dark "lead" lines as dividers, colour glowing through glass on a calm nave. The assets aren't decoration; they're the layout system.</p>
+    </div>
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">naturalwinefestival.nl</span></div>
+      <div class="home sys-glass">
+        <nav class="nav"><div class="bm"><span>natural wine festival</span><span>a'dam</span></div><div class="lk"><a href="#">the makers</a><a href="#">the lessons</a><a href="#">the supper</a><a href="#" class="btn">take your place</a></div></nav>
+        <div class="lead"></div>
+        <div class="wrap">
+          <div class="ghero">
+            <div>
+              <div class="eyebrow">the church of natural wine</div>
+              <h1 class="gname" style="margin:16px 0 12px;">natural<br>wine festival<br><span class="ac">a'dam</span></h1>
+              <div class="payoff" style="font-size:clamp(30px,3.6vw,50px);">united by wine</div>
+              <p style="margin-top:24px;max-width:34ch;opacity:.75;line-height:1.55;">Step up to the window, meet the maker, ask anything — and find out why it tastes different.</p>
+              <a href="#" class="btn" style="margin-top:30px;">take your place →</a>
+            </div>
+            <img class="rose" src="concept-assets/rose.svg" alt="rose window">
+          </div>
+        </div>
+        <div class="lead"></div>
+
+        <div class="wrap sec">
+          <div class="seclabel">the window wall</div>
+          <div class="sectitle">look through, then step in</div>
+          <div class="wall">
+            <div><div class="archframe"><img src="concept-assets/photo-7.jpg" alt=""></div><div class="cap">the makers<small>60+ growers</small></div></div>
+            <div><div class="glasspanel"><img src="concept-assets/win-workshops.svg" alt=""></div><div class="cap">the lessons<small>25+ masterclasses</small></div></div>
+            <div><div class="archframe"><img src="concept-assets/photo-4.jpg" alt=""></div><div class="cap">the gathering<small>all of a'dam</small></div></div>
+            <div><div class="glasspanel"><img src="concept-assets/win-dinner.svg" alt=""></div><div class="cap">the supper<small>invite only</small></div></div>
+          </div>
+        </div>
+        <div class="lead"></div>
+
+        <div class="wrap story">
+          <div class="seclabel">below the hype</div>
+          <div class="big" style="margin-top:12px;">it’s not cool. it’s just <span class="ac">common sense.</span></div>
+          <p>People who farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture. We salute them, and we’d like you to meet them.</p>
+        </div>
+
+        <div class="foot"><div class="pf">united<br>by wine</div><div class="law">De Hallen, Amsterdam · 23 November · …and salut.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SYSTEM 3 ================= -->
+  <section id="A">
+    <div class="intro">
+      <div class="tag">System 3</div>
+      <h2>The Almanac — a field guide to taste</h2>
+      <p>Position: making taste accessible (your BD core). <b>The site is an illustrated field guide / almanac</b> — numbered entries, classifications, figure captions, margin notes, and your woodcut icons used as engraved plates. Intelligent and knowledge-forward — a beautiful reference book, not a landing page.</p>
+    </div>
+    <div class="browser">
+      <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">naturalwinefestival.nl</span></div>
+      <div class="home sys-almanac">
+        <nav class="nav"><div class="bm"><span>natural wine festival</span><span>a'dam</span></div><div class="lk"><a href="#">contents</a><a href="#">the specimens</a><a href="#">the index</a><a href="#" class="btn">take your place</a></div></nav>
+
+        <div class="wrap frontis">
+          <img class="plate" src="concept-assets/win-winemakers.svg" alt="">
+          <div class="ed">edition 03 · amsterdam · mmxxvi</div>
+          <div class="guide">a field guide to living wine —</div>
+          <div class="aname">natural wine festival <span class="ac">a'dam</span></div>
+          <div class="payoff">united by wine</div>
+        </div>
+
+        <div class="wrap sec">
+          <div class="seclabel"><span>the specimens</span><span>plate i–vi</span></div>
+          <div class="entry">
+            <div class="no">01</div>
+            <div><div class="nm">oller del mas</div><div class="cls">vitis · biodynamic · catalonia</div><div class="desc">Old vines on monastery land; whole-cluster, wild ferments, nothing added. A wine that tastes of the schist it grew on.</div></div>
+            <div class="note">fig. 1 — “the canary in the coal mine of agriculture.” Notice the cover crops between the rows.</div>
+          </div>
+          <div class="entry">
+            <div class="no">02</div>
+            <div><div class="nm">le coste</div><div class="cls">vitis · wild · lazio</div><div class="desc">Volcanic soils farmed by hand, abandoned vines revived. Cloudy, unfiltered — most of all, alive.</div></div>
+            <div class="note">fig. 2 — sediment is not a flaw; it is evidence of life.</div>
+          </div>
+          <div class="entry">
+            <div class="no">03</div>
+            <div><div class="nm">gut oggau</div><div class="cls">vitis · biodynamic · burgenland</div><div class="desc">A family of living wines, each given a face and a name. Biodynamic since the first vintage.</div></div>
+            <div class="note">fig. 3 — every bottle is a portrait.</div>
+          </div>
+        </div>
+
+        <div class="wrap sec" style="padding-top:0;">
+          <div class="seclabel"><span>the day, classified</span><span>fig. vii</span></div>
+          <div class="plates">
+            <div class="p"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">tastings</div><div class="fig">13:00–18:15</div></div>
+            <div class="p"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">lessons</div><div class="fig">25+ classes</div></div>
+            <div class="p"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oyster bar</div><div class="fig">all day</div></div>
+            <div class="p"><img src="concept-assets/ico-food.svg" alt=""><div class="t">kitchen</div><div class="fig">til 22:00</div></div>
+            <div class="p"><img src="concept-assets/ico-market.svg" alt=""><div class="t">market</div><div class="fig">take home</div></div>
+          </div>
+        </div>
+
+        <div class="foot"><div class="pf">united<br>by wine</div><div class="law">De Hallen, Amsterdam · 23 November · …and salut.</div></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
