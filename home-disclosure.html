@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — homepage · route 1 · full disclosure</title>
+<meta name="description" content="Natural Wine Festival A'dam — the register. Nothing added, nothing taken away. De Hallen, Amsterdam, 23.11.26." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+
+  .page{position:relative;min-height:100svh;display:flex;flex-direction:column;padding:26px 0 22px;overflow:hidden;}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+
+  /* header rule */
+  .rhead{display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1.4px solid var(--ink);}
+  .rhead .seal{width:34px;height:34px;flex:0 0 auto;}
+  .rhead .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .rhead .nm span{color:var(--ink-2);}
+  .rhead .doc{margin-left:auto;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);text-align:right;line-height:1.5;}
+
+  /* masthead — the title (one controlled step up, not shouting) */
+  .mast{margin-top:40px;max-width:60%;position:relative;z-index:3;}
+  .mast .ey{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .mast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.95;
+           font-size:clamp(40px,5.4vw,80px);}
+  .mast .sub{margin-top:16px;font-size:13px;color:var(--ink-2);font-weight:500;letter-spacing:.01em;}
+
+  /* the register — dense, clinical, ruled */
+  .register{margin-top:42px;position:relative;z-index:3;max-width:64%;}
+  .register .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .register .cap .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .register .cap .n{font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);}
+  .row{display:grid;grid-template-columns:1.5fr 1.2fr 1.1fr .8fr .7fr;gap:14px;
+       padding:7px 0;border-top:1px solid var(--rule);font-size:12px;letter-spacing:.01em;align-items:baseline;}
+  .row.head{border-top:1.4px solid var(--ink);border-bottom:1px solid var(--rule);padding:6px 0;}
+  .row.head span{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .row .g{font-weight:600;text-transform:lowercase;font-size:12.5px;letter-spacing:0;font-family:'Figtree',sans-serif;}
+  .row .c{color:var(--ink-2);}
+  .row .ok{color:var(--ochre);}
+  .register .more{margin-top:12px;font-size:12px;color:var(--ink-2);}
+  .register .more a{border-bottom:1.5px solid var(--ochre);padding-bottom:2px;color:var(--ink);}
+  .footnote{margin-top:18px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);}
+
+  /* the living thing — oversized photo bleeding in, breaking the grid */
+  .living{position:absolute;top:0;right:0;bottom:0;width:39vw;z-index:2;overflow:hidden;border-left:1.4px solid var(--ink);}
+  .living img{width:100%;height:100%;object-fit:cover;object-position:48% 42%;}
+  .living .lot{position:absolute;left:18px;bottom:60px;color:#f0e9d8;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    mix-blend-mode:normal;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+  .living .lot b{display:block;font-size:13px;letter-spacing:.04em;margin-top:3px;}
+  /* a wax-seal payoff over the image */
+  .seal-stamp{position:absolute;right:26px;bottom:26px;z-index:4;width:96px;height:96px;border-radius:50%;
+    border:1.4px solid var(--ochre);color:#f0e9d8;display:flex;align-items:center;justify-content:center;text-align:center;
+    font-size:9px;letter-spacing:.2em;text-transform:uppercase;line-height:1.5;transform:rotate(-7deg);
+    background:rgba(27,42,32,.34);backdrop-filter:blur(2px);}
+
+  /* footer ledger */
+  .ledger{margin-top:auto;padding-top:18px;}
+  .ledger .in{border-top:1.4px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;max-width:60%;}
+  .ledger .l{font-size:11.5px;letter-spacing:.04em;color:var(--ink-2);line-height:1.7;text-transform:lowercase;}
+  .ledger .l b{color:var(--ink);font-weight:700;}
+  .ledger .cta{font-size:14px;font-weight:600;text-transform:lowercase;border-bottom:1.5px solid var(--ochre);padding-bottom:4px;}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .mast,.register,.ledger .in{max-width:100%;}
+    .living{position:relative;width:auto;height:300px;border-left:0;border-top:1.4px solid var(--ink);margin-top:34px;}
+    .living img{object-position:50% 38%;}
+    .row{grid-template-columns:1.3fr 1fr .9fr;}
+    .row .h-yeast,.row .h-sulph,.row .c.yeast,.row .c.sulph{display:none;}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="wrap rhead">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>the register · full disclosure</span></div>
+      <div class="doc">edition 03 — lot 23.11.26<br>de hallen · amsterdam</div>
+    </div>
+
+    <div class="wrap mast">
+      <div class="ey">nothing added · nothing taken away</div>
+      <h1>every bottle,<br>on the record.</h1>
+      <div class="sub">a one-day festival of living wine — 60+ growers who farm without chemicals and let the ground speak.</div>
+    </div>
+
+    <div class="wrap register">
+      <div class="cap"><span class="t">the growers register</span><span class="n mono">filed 23.11.26 · de hallen</span></div>
+      <div class="row head mono"><span>grower</span><span>origin</span><span>farming</span><span class="h-yeast">added yeast</span><span class="h-sulph">sulphur</span></div>
+      <div class="row mono"><span class="g">oller del mas</span><span class="c">catalonia, es</span><span class="c">biodynamic</span><span class="c yeast">none</span><span class="c sulph ok">&lt;20 mg/l</span></div>
+      <div class="row mono"><span class="g">le coste</span><span class="c">lazio, it</span><span class="c">organic, wild</span><span class="c yeast">none</span><span class="c sulph ok">none</span></div>
+      <div class="row mono"><span class="g">gut oggau</span><span class="c">burgenland, at</span><span class="c">biodynamic</span><span class="c yeast">none</span><span class="c sulph ok">&lt;10 mg/l</span></div>
+      <div class="row mono"><span class="g">roses de jeanne</span><span class="c">aube, fr</span><span class="c">biodynamic</span><span class="c yeast">none</span><span class="c sulph ok">none</span></div>
+      <div class="row mono"><span class="g">comando g</span><span class="c">gredos, es</span><span class="c">organic, wild</span><span class="c yeast">none</span><span class="c sulph ok">&lt;10 mg/l</span></div>
+      <div class="row mono"><span class="g">cécile tremblay</span><span class="c">burgundy, fr</span><span class="c">organic</span><span class="c yeast">none</span><span class="c sulph ok">&lt;15 mg/l</span></div>
+      <div class="row mono"><span class="g">partida creus</span><span class="c">catalonia, es</span><span class="c">organic, wild</span><span class="c yeast">none</span><span class="c sulph ok">none</span></div>
+      <div class="more mono">+ 53 more growers · <a href="#register">read the full register →</a></div>
+      <div class="footnote">added yeast: none across the floor · sulphur declared in mg/l · this is the whole list</div>
+    </div>
+
+    <div class="living" aria-hidden="true">
+      <img src="concept-assets/photo-1.jpg" alt="" />
+      <div class="lot">on the floor<br><b>the living bottle</b></div>
+      <div class="seal-stamp">united<br>by<br>wine</div>
+    </div>
+
+    <div class="wrap ledger">
+      <div class="in">
+        <div class="l"><b>60+ growers · 300+ wines · 25+ classes</b><br>doors 13:00 – 22:00 · festival pass €32,50</div>
+        <a class="cta" href="#tickets">take your place →</a>
+      </div>
+    </div>
+  </div>
+  <script src="comments.js"></script>
+</body>
+</html>

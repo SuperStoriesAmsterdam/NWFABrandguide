@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — homepage · route 2 · stained light</title>
+<meta name="description" content="Natural Wine Festival A'dam — the natural-wine cathedral. De Hallen, Amsterdam, 23.11.26. United by wine." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+
+  :root{
+    --dark:#0c130e;
+    --parch:#e8e1cd;
+    --parch-dim:rgba(232,225,205,.56);
+    --parch-faint:rgba(232,225,205,.30);
+    --gold:#d6a231;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;color:var(--parch);
+       background:#0c130e;-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .scene{position:relative;min-height:100svh;display:flex;flex-direction:column;
+    padding:30px 52px 34px;overflow:hidden;
+    background:radial-gradient(120% 130% at 86% 84%, #1a2a18 0%, #0e1610 34%, #0a0f0b 72%);}
+
+  /* faint effervescence in the dark */
+  .scene::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:radial-gradient(circle, rgba(232,225,205,.05) 1.2px, transparent 1.4px);
+    background-size:34px 34px;mask-image:radial-gradient(100% 100% at 84% 82%, #000 18%, transparent 60%);}
+
+  /* the cropped, glowing glass fragment — bleeds off bottom-right, dissolves into dark */
+  .light{position:absolute;z-index:1;width:104vh;aspect-ratio:1;right:-13vh;bottom:-24vh;pointer-events:none;opacity:.62;}
+  .light::before{content:"";position:absolute;inset:-16%;border-radius:50%;
+    background:radial-gradient(circle, rgba(214,162,49,.40), rgba(55,150,55,.13) 40%, transparent 62%);}
+  .light img{position:relative;width:100%;height:100%;object-fit:contain;
+    filter:saturate(.9) brightness(.86) drop-shadow(0 0 80px rgba(214,162,49,.3));
+    -webkit-mask-image:radial-gradient(circle, #000 46%, rgba(0,0,0,.4) 62%, transparent 72%);
+    mask-image:radial-gradient(circle, #000 46%, rgba(0,0,0,.4) 62%, transparent 72%);}
+
+  .top{position:relative;z-index:3;display:flex;align-items:center;gap:14px;}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(214,162,49,.3));}
+  .top .id{font-size:12px;font-weight:600;text-transform:lowercase;line-height:1.15;letter-spacing:.02em;}
+  .top .id span{color:var(--parch-dim);}
+  .top .meta{margin-left:auto;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--parch-dim);text-align:right;line-height:1.55;}
+
+  /* type anchored top-left, against the dark leading — opposite the light */
+  .head{position:relative;z-index:3;margin-top:11vh;max-width:54%;}
+  .head .ey{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:22px;}
+  .head h1{font-weight:500;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;
+           font-size:clamp(42px,6.4vw,108px);color:var(--parch);}
+  .head .sub{margin-top:24px;max-width:34ch;font-size:clamp(14px,1.4vw,18px);color:var(--parch-dim);line-height:1.5;text-transform:lowercase;}
+  .head .cta{margin-top:30px;display:inline-flex;align-items:center;gap:11px;font-size:15px;font-weight:600;
+    text-transform:lowercase;border-bottom:1.5px solid var(--gold);padding-bottom:5px;transition:gap .15s;}
+  .head .cta:hover{gap:18px;}
+  .head .cta .a{color:var(--gold);}
+
+  /* foot — small ledger, payoff as a quiet signoff */
+  .foot{margin-top:auto;position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;
+        gap:24px;flex-wrap:wrap;border-top:1px solid rgba(232,225,205,.16);padding-top:16px;}
+  .foot .l{font-size:12px;color:var(--parch-dim);line-height:1.7;text-transform:lowercase;letter-spacing:.01em;}
+  .foot .l b{color:var(--parch);font-weight:600;}
+  .foot .pay{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);align-self:flex-end;}
+
+  @media(max-width:880px){
+    .scene{padding:24px 26px 28px;}
+    .light{width:96vh;right:-40vh;bottom:-40vh;}
+    .head{max-width:100%;margin-top:8vh;}
+    .foot .pay{order:-1;}
+  }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="light" aria-hidden="true"><img src="concept-assets/rose.svg" alt="" /></div>
+
+    <div class="top">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="id">natural wine festival a'dam<br><span>the natural-wine cathedral</span></div>
+      <div class="meta">de hallen · amsterdam<br>23 . 11 . 26</div>
+    </div>
+
+    <div class="head">
+      <div class="ey">below the hype</div>
+      <h1>natural wine<br>festival<br>amsterdam</h1>
+      <div class="sub">once a year, all of amsterdam gathers around the living bottle. one long day, one cathedral of glass.</div>
+      <a class="cta" href="#tickets">take your place <span class="a">→</span></a>
+    </div>
+
+    <div class="foot">
+      <div class="l"><b>60+ growers · 300+ wines · 25+ classes</b><br>doors 13:00 – 22:00 · festival pass €32,50</div>
+      <div class="pay">united by wine</div>
+    </div>
+  </div>
+  <script src="comments.js"></script>
+</body>
+</html>
