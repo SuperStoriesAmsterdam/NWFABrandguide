@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Natural Wine Festival A'dam — 23 November '26, De Hallen</title>
+<meta name="description" content="A one-day festival of living wine. 60+ growers, 300+ natural wines, 25+ masterclasses. De Hallen, Amsterdam — 23 November 2026. United by wine." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+
+  :root{
+    --bg:#ECE6D6; --ink:#1B3326; --accent:#9F6E29; --line:#1B3326;
+    --paper:#F3EEE1;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .payoff{font-family:'Vicky';color:var(--accent);text-transform:lowercase;line-height:1;}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:13.5px;padding:13px 26px;border-radius:100px;transition:opacity .15s;}
+  .btn:hover{opacity:.88;}
+  .btn--ghost{background:transparent;color:var(--ink);border:1.4px solid color-mix(in srgb,var(--ink) 38%,transparent);}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:30px;}
+  .seclabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .sectitle{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.6vw,48px);margin-top:10px;line-height:1.02;}
+  .sec{padding:104px 0;}
+
+  /* ---------------- nav ---------------- */
+  .nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid color-mix(in srgb,var(--ink) 14%,transparent);}
+  .nav .in{max-width:var(--maxw);margin:0 auto;padding:16px 40px;display:flex;align-items:center;gap:24px;}
+  .nav .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;font-size:15px;}
+  .nav .bm span{display:block;}
+  .nav .lk{margin-left:auto;display:flex;gap:26px;align-items:center;font-size:14px;font-weight:500;}
+  .nav .lk a{opacity:.66;}
+  .nav .lk a:hover{opacity:1;}
+
+  /* ---------------- hero (the label) ---------------- */
+  .hero{padding:34px 0 0;}
+  .frame{border:1.6px solid var(--line);}
+  .lhead{display:flex;justify-content:space-between;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:16px 30px;border-bottom:1.4px solid var(--line);opacity:.85;}
+  .hgrid{display:grid;grid-template-columns:1.05fr .95fr;}
+  .htext{padding:54px 38px 48px;display:flex;flex-direction:column;justify-content:center;}
+  .lname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;font-size:clamp(44px,5.8vw,82px);}
+  .htext .payoff{font-size:clamp(18px,1.9vw,26px);margin-top:12px;}
+  .lsub{font-size:13px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;opacity:.7;margin-top:20px;}
+  .hphoto{border-left:1.4px solid var(--line);overflow:hidden;}
+  .hphoto img{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:50% 32%;}
+  .specstrip{display:grid;grid-template-columns:repeat(4,1fr) auto;border-top:1.4px solid var(--line);}
+  .specstrip .cell{padding:18px 22px;border-right:1px solid color-mix(in srgb,var(--ink) 22%,transparent);}
+  .specstrip .cell .k{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.55;}
+  .specstrip .cell .v{font-weight:700;font-size:17px;letter-spacing:-.01em;margin-top:7px;}
+  .specstrip .stampcell{display:flex;align-items:center;justify-content:center;padding:14px 24px;}
+  .stamp{border:1.5px solid var(--accent);color:var(--accent);padding:11px 16px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px;line-height:1.35;text-align:center;border-radius:3px;transform:rotate(-5deg);}
+
+  /* ---------------- full-bleed band ---------------- */
+  .band{position:relative;overflow:hidden;margin-top:104px;}
+  .band img{width:100%;height:460px;object-fit:cover;}
+  .band .cap{position:absolute;inset:0;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(16,22,16,0) 36%,rgba(16,22,16,.66) 100%);}
+  .band .cap .in{max-width:var(--maxw);margin:0 auto;width:100%;padding:0 40px 46px;}
+  .band .cap .t{color:#f4efe2;font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(26px,3.4vw,44px);line-height:1.04;max-width:22ch;}
+
+  /* ---------------- the day (what's included) ---------------- */
+  .day{display:grid;grid-template-columns:1.15fr 1fr;gap:46px;align-items:stretch;margin-top:48px;}
+  .day .oyster{overflow:hidden;border:1.4px solid var(--line);}
+  .day .oyster img{width:100%;height:100%;object-fit:cover;min-height:340px;}
+  .grid5{display:grid;grid-template-columns:1fr 1fr;border:1.4px solid var(--line);}
+  .grid5 .it{padding:26px 24px;border-right:1px solid color-mix(in srgb,var(--ink) 18%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);}
+  .grid5 .it:nth-child(2n){border-right:none;}
+  .grid5 .it.full{grid-column:1 / -1;border-right:none;border-bottom:none;}
+  .grid5 .it img{width:40px;margin-bottom:14px;}
+  .grid5 .it .t{font-weight:700;text-transform:lowercase;font-size:19px;letter-spacing:-.01em;}
+  .grid5 .it .m{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-top:6px;}
+
+  /* ---------------- makers · label grid ---------------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px;}
+  .card{border:1.4px solid var(--line);overflow:hidden;}
+  .card img{width:100%;aspect-ratio:4/3.2;object-fit:cover;border-bottom:1.4px solid var(--line);}
+  .card .cb{padding:20px 22px 22px;}
+  .card .cn{font-weight:700;text-transform:lowercase;font-size:21px;letter-spacing:-.01em;}
+  .card .cr{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:4px 0 14px;}
+  .card .row{display:flex;justify-content:space-between;font-size:12.5px;padding:7px 0;border-bottom:1px dotted color-mix(in srgb,var(--ink) 32%,transparent);}
+  .card .row:last-child{border-bottom:none;}
+  .card .row .k{opacity:.55;text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:700;}
+  .card .row .v{font-weight:600;}
+
+  /* ---------------- makers · register ---------------- */
+  .mfeat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .mfeat img{width:100%;aspect-ratio:4/3.1;object-fit:cover;border:1.4px solid var(--line);}
+  .mfeat p{font-size:16px;line-height:1.7;opacity:.74;margin-top:22px;max-width:42ch;}
+  .register{margin-top:64px;border-top:1.4px solid var(--line);}
+  .register .rhead,.register .row{display:grid;grid-template-columns:2.2fr 1.6fr 1.3fr 1fr;gap:18px;align-items:baseline;}
+  .register .rhead{padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 22%,transparent);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.5;}
+  .register .row{padding:18px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 14%,transparent);}
+  .register .row .nm{font-weight:700;text-transform:lowercase;font-size:21px;letter-spacing:-.02em;}
+  .register .row .rg,.register .row .fm,.register .row .su{font-size:13.5px;opacity:.72;}
+  .register .row .su{color:var(--accent);font-weight:600;opacity:1;}
+
+  /* ---------------- two-column feature ---------------- */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .twocol img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1.4px solid var(--line);}
+  .twocol p{font-size:16px;line-height:1.7;opacity:.74;margin-top:22px;max-width:42ch;}
+  .wl{margin-top:8px;}
+  .wl .row{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 14%,transparent);}
+  .wl .row .t{font-weight:600;text-transform:lowercase;font-size:19px;letter-spacing:-.02em;}
+  .wl .row .tm{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.08em;opacity:.45;}
+
+  /* ---------------- story ---------------- */
+  .story .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(40px,5.6vw,82px);line-height:.98;max-width:15ch;}
+  .story .big .ac{color:var(--accent);}
+  .story p{max-width:54ch;font-size:16px;line-height:1.7;opacity:.74;margin-top:26px;}
+
+  /* ---------------- tickets band ---------------- */
+  .tix{position:relative;overflow:hidden;}
+  .tix img.bg{width:100%;height:560px;object-fit:cover;object-position:50% 40%;}
+  .tix .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,16,.32),rgba(16,22,16,.72));}
+  .tix .in{position:absolute;inset:0;display:flex;align-items:center;}
+  .tix .box{max-width:var(--maxw);margin:0 auto;width:100%;padding:0 40px;color:var(--paper);}
+  .tix .ttl{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(36px,5vw,68px);line-height:.98;max-width:16ch;}
+  .tix .price{margin-top:24px;display:flex;align-items:baseline;gap:14px;}
+  .tix .price .n{font-weight:700;font-size:clamp(28px,3vw,40px);}
+  .tix .price .l{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.8;}
+  .tix .payoff{color:#e7c87a;font-size:clamp(22px,2.4vw,32px);margin-top:6px;}
+  .tix .btn{margin-top:30px;}
+
+  /* ---------------- newsletter ---------------- */
+  .news{text-align:center;padding:96px 0;}
+  .news .field{margin-top:24px;display:flex;gap:10px;max-width:430px;margin-inline:auto;}
+  .news input{flex:1;border:1.4px solid color-mix(in srgb,var(--ink) 24%,transparent);background:transparent;border-radius:100px;padding:14px 22px;font-family:inherit;font-size:14px;color:var(--ink);}
+
+  /* ---------------- footer ---------------- */
+  .foot{border-top:1px solid color-mix(in srgb,var(--ink) 16%,transparent);padding:60px 0 54px;}
+  .foot .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end;}
+  .foot .pf{font-family:'Vicky';color:var(--accent);font-size:40px;line-height:.9;text-transform:lowercase;}
+  .foot .cols{display:flex;gap:50px;font-size:14px;}
+  .foot .cols a{display:block;opacity:.6;margin-bottom:9px;}
+  .foot .law{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.42;margin-top:42px;}
+
+  @media(max-width:860px){
+    .wrap,.nav .in,.band .cap .in,.tix .box{padding-left:24px;padding-right:24px;}
+    .nav .lk{display:none;}
+    .hgrid{grid-template-columns:1fr;}
+    .hphoto{border-left:none;border-top:1.4px solid var(--line);}
+    .hphoto img{min-height:360px;}
+    .specstrip{grid-template-columns:1fr 1fr;}
+    .specstrip .stampcell{grid-column:1 / -1;}
+    .day,.mfeat,.twocol,.cards{grid-template-columns:1fr;gap:32px;}
+    .register .rhead{display:none;}
+    .register .row{grid-template-columns:1fr 1fr;gap:6px 18px;}
+    .register .row .nm{grid-column:1 / -1;}
+    .sec{padding:72px 0;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== nav ===== -->
+  <nav class="nav">
+    <div class="in">
+      <div class="bm"><span>natural wine festival</span><span>a'dam</span></div>
+      <div class="lk">
+        <a href="#makers">the makers</a>
+        <a href="#lessons">the lessons</a>
+        <a href="#supper">the supper</a>
+        <a href="#tickets" class="btn">take your place</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== hero ===== -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="frame">
+        <div class="lhead"><span>natural wine · amsterdam</span><span>edition 03 — lot 23.11.26</span></div>
+        <div class="hgrid">
+          <div class="htext">
+            <h1 class="lname">natural<br>wine festival<br>a'dam</h1>
+            <div class="payoff">united by wine</div>
+            <div class="lsub">a one-day festival of living wine · de hallen, amsterdam</div>
+            <div class="cta-row"><a href="#tickets" class="btn">take your place →</a><a href="#day" class="btn btn--ghost">sat 23 nov '26</a></div>
+          </div>
+          <div class="hphoto"><img src="concept-assets/photo-10.jpg" alt="a visitor tasting a glass of red at the festival"></div>
+        </div>
+        <div class="specstrip">
+          <div class="cell"><div class="k">contents</div><div class="v">60+ growers</div></div>
+          <div class="cell"><div class="k">poured</div><div class="v">300+ wines</div></div>
+          <div class="cell"><div class="k">lessons</div><div class="v">25+ classes</div></div>
+          <div class="cell"><div class="k">doors</div><div class="v">13:00–22:00</div></div>
+          <div class="stampcell"><div class="stamp">nothing added<br>nothing taken away</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== crowd band ===== -->
+  <div class="band">
+    <img src="concept-assets/photo-4.jpg" alt="the crowd at the festival">
+    <div class="cap"><div class="in"><div class="t">once a year, all of amsterdam gathers around the living bottle.</div></div></div>
+  </div>
+
+  <!-- ===== the day / what's included ===== -->
+  <section id="day" class="wrap sec">
+    <div class="seclabel">one ticket · one long day</div>
+    <div class="sectitle">what's in the bottle, and the day.</div>
+    <div class="day">
+      <div class="oyster"><img src="concept-assets/photo-2.jpg" alt="an oyster shucked to order"></div>
+      <div class="grid5">
+        <div class="it"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">unlimited tasting</div><div class="m">13:00–18:15</div></div>
+        <div class="it"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">the lessons</div><div class="m">25+ classes</div></div>
+        <div class="it"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oyster bar</div><div class="m">all day</div></div>
+        <div class="it"><img src="concept-assets/ico-food.svg" alt=""><div class="t">the kitchen</div><div class="m">til 22:00</div></div>
+        <div class="it full"><img src="concept-assets/ico-market.svg" alt=""><div class="t">the market</div><div class="m">take a bottle home</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== the makers · label grid ===== -->
+  <section id="makers" class="wrap sec" style="padding-top:0;">
+    <div class="seclabel">the makers · full disclosure</div>
+    <div class="sectitle">60+ growers. nothing to hide.</div>
+    <div class="cards">
+      <div class="card"><img src="concept-assets/photo-7.jpg" alt="">
+        <div class="cb"><div class="cn">oller del mas</div><div class="cr">catalonia, es</div>
+          <div class="row"><span class="k">farming</span><span class="v">biodynamic</span></div>
+          <div class="row"><span class="k">added yeast</span><span class="v">none</span></div>
+          <div class="row"><span class="k">sulphur</span><span class="v">&lt; 20 mg/l</span></div>
+        </div>
+      </div>
+      <div class="card"><img src="concept-assets/photo-12.jpg" alt="">
+        <div class="cb"><div class="cn">le coste</div><div class="cr">lazio, it</div>
+          <div class="row"><span class="k">farming</span><span class="v">organic, wild</span></div>
+          <div class="row"><span class="k">added yeast</span><span class="v">none</span></div>
+          <div class="row"><span class="k">sulphur</span><span class="v">none</span></div>
+        </div>
+      </div>
+      <div class="card"><img src="concept-assets/photo-10.jpg" alt="">
+        <div class="cb"><div class="cn">gut oggau</div><div class="cr">burgenland, at</div>
+          <div class="row"><span class="k">farming</span><span class="v">biodynamic</span></div>
+          <div class="row"><span class="k">added yeast</span><span class="v">none</span></div>
+          <div class="row"><span class="k">sulphur</span><span class="v">&lt; 10 mg/l</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-row"><a href="#" class="btn btn--ghost">read the full register →</a></div>
+  </section>
+
+  <!-- ===== the lessons ===== -->
+  <section id="lessons" class="wrap sec" style="padding-top:0;">
+    <div class="twocol">
+      <img src="concept-assets/photo-6.jpg" alt="a tasting in progress">
+      <div>
+        <div class="seclabel">the lessons · go beyond the hype</div>
+        <div class="sectitle">learn from the source.</div>
+        <div class="wl">
+          <div class="row"><div class="t">montsant masterclass</div><div class="tm">14:00</div></div>
+          <div class="row"><div class="t">talha — amphora wine</div><div class="tm">15:00</div></div>
+          <div class="row"><div class="t">cider &amp; perry</div><div class="tm">16:00</div></div>
+          <div class="row"><div class="t">to SO₂ or not</div><div class="tm">17:00</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== the supper ===== -->
+  <section id="supper" class="wrap sec" style="padding-top:0;">
+    <div class="twocol">
+      <div>
+        <div class="seclabel">the supper · invite only</div>
+        <div class="sectitle">sit at the long table.</div>
+        <p>One long table, one seating, after the floor closes. The winemakers pour alongside the kitchen and the stories the labels can't tell. Bring a bottle from the floor to share.</p>
+        <div class="cta-row"><a href="#" class="btn">request a seat · €39,95</a></div>
+      </div>
+      <img src="concept-assets/photo-1.jpg" alt="the kitchen plating family-style at the long table">
+    </div>
+  </section>
+
+  <!-- ===== story ===== -->
+  <section class="wrap sec story" style="padding-top:0;">
+    <div class="seclabel">below the hype</div>
+    <div class="big" style="margin-top:14px;">it's just <span class="ac">common sense.</span></div>
+    <p>Winemaking industrialised in the 20th century: fertiliser, pesticides, added yeasts, sulphites. These growers refused. They farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture.</p>
+  </section>
+
+  <!-- ===== tickets ===== -->
+  <section id="tickets" class="tix">
+    <img class="bg" src="concept-assets/photo-3.jpg" alt="two visitors sharing a bottle at the festival">
+    <div class="ov"></div>
+    <div class="in">
+      <div class="box">
+        <div class="eyebrow" style="color:#e7c87a;">23 nov '26 · de hallen, amsterdam</div>
+        <div class="ttl">take your place at the table.</div>
+        <div class="price"><span class="n">€32,50</span><span class="l">festival pass · unlimited tasting</span></div>
+        <div class="payoff">united by wine</div>
+        <a href="https://eventix.shop/swsdaj8d" class="btn">get your tickets →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== newsletter ===== -->
+  <section class="wrap news">
+    <div class="seclabel">stay on the list</div>
+    <div class="sectitle">first to the bottle list, every edition.</div>
+    <div class="field"><input placeholder="your email"><a href="#" class="btn">join</a></div>
+  </section>
+
+  <!-- ===== footer ===== -->
+  <footer class="wrap foot">
+    <div class="top">
+      <div class="pf">united<br>by wine</div>
+      <div class="cols">
+        <div><a href="#makers">the makers</a><a href="#lessons">the lessons</a><a href="#supper">the supper</a></div>
+        <div><a href="#tickets">tickets</a><a href="#">trade &amp; press</a><a href="#">contact</a></div>
+        <div><a href="https://instagram.com/naturalwinefestival.ams">instagram</a><a href="#">newsletter</a></div>
+      </div>
+    </div>
+    <div class="law">De Hallen, Amsterdam · 23 November '26 · …and salut.</div>
+  </footer>
+
+  <script src="comments.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

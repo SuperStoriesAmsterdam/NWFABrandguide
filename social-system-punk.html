@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — the social system · v2 (punk)</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#0e0d0b;color:#222;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+
+  .index{position:sticky;top:0;z-index:50;background:#000;color:#37d40a;display:flex;align-items:center;gap:18px;padding:14px 30px;font-size:13px;flex-wrap:wrap;border-bottom:2px solid #37d40a;}
+  .index strong{font-weight:800;text-transform:uppercase;letter-spacing:.04em;}
+  .index .sp{flex:1;}
+  .index a{color:#dbbb00;text-decoration:none;font-weight:700;}
+  .index a:hover{color:#fff;}
+
+  .intro{max-width:1180px;margin:0 auto;padding:50px 30px 8px;color:#e9e2d0;}
+  .intro .tag{font-size:11.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#37d40a;}
+  .intro h2{font-weight:800;font-size:clamp(28px,3.8vw,46px);line-height:.98;margin:9px 0 12px;color:#f3ecd9;letter-spacing:-.02em;text-transform:uppercase;}
+  .intro p{max-width:82ch;font-size:15px;line-height:1.6;color:#b8b1a0;}
+  .intro p b{color:#f3ecd9;}
+  .intro p + p{margin-top:10px;}
+
+  .stage{max-width:1180px;margin:0 auto;padding:20px 30px 60px;}
+  .blocklabel{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#dbbb00;margin:46px 0 20px;border-top:2px solid #37d40a;padding-top:18px;}
+  .blocklabel span{color:#8a836f;font-weight:600;letter-spacing:.02em;text-transform:none;font-size:13px;margin-left:10px;}
+
+  /* ============ POST PRIMITIVE ============ */
+  .post{container-type:inline-size;aspect-ratio:1/1;overflow:hidden;position:relative;
+        --bg:#15130f;--ink:#F2ECDE;--acid:#37d40a;--gold:#dbbb00;--green:#21b501;--red:#e2231a;--paper:#ECE6D6;
+        background:var(--bg);color:var(--ink);}
+  .post::before{content:'';position:absolute;inset:0;z-index:6;pointer-events:none;
+        background-image:radial-gradient(rgba(255,255,255,.06) 0.5px,transparent 0.6px);background-size:3px 3px;mix-blend-mode:overlay;}
+  .post .pad{position:absolute;inset:0;padding:6.5cqw;display:flex;flex-direction:column;z-index:3;}
+
+  .scream{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.84;}
+  .stencil{font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:1;}
+  .eb{font-size:2.9cqw;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--acid);}
+  .vk{font-family:'Vicky';color:var(--gold);text-transform:lowercase;line-height:1;}
+  .red{background:#000;color:#000;padding:0 .12em;border-radius:.5cqw;}
+  .red.leak{color:var(--acid);}
+
+  /* rubber stamp */
+  .stamp2{position:absolute;z-index:5;border:0.7cqw solid var(--red);color:var(--red);
+        font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:3cqw;line-height:1.05;
+        text-align:center;padding:1.6cqw 2.2cqw;border-radius:1cqw;transform:rotate(-9deg);opacity:.92;
+        box-shadow:inset 0 0 0 0.25cqw var(--red);}
+  /* masking tape */
+  .tape{position:absolute;z-index:4;width:24cqw;height:7cqw;background:rgba(219,187,0,.4);
+        border-left:0.3cqw dashed rgba(0,0,0,.25);border-right:0.3cqw dashed rgba(0,0,0,.25);transform:rotate(-6deg);}
+  /* ransom number tag */
+  .tag{position:absolute;z-index:5;background:var(--acid);color:#000;font-weight:800;
+        font-size:3.4cqw;letter-spacing:.02em;padding:1.2cqw 2.4cqw;transform:rotate(3deg);text-transform:uppercase;}
+
+  /* icons + watermark */
+  .seal{position:absolute;z-index:5;width:24cqw;height:auto;}
+  .wm{position:absolute;z-index:1;opacity:.22;pointer-events:none;}
+
+  /* duotone photo */
+  .ph{position:relative;flex:1;overflow:hidden;}
+  .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.35) brightness(.92);}
+  .ph::after{content:'';position:absolute;inset:0;background:var(--green);mix-blend-mode:multiply;opacity:.55;}
+  .ph .pp{position:absolute;inset:0;background:#000;mix-blend-mode:screen;opacity:.0;}
+
+  /* === sticker label (maker) === */
+  .post.maker{background:var(--bg);}
+  .post.maker .sticker{position:absolute;inset:5cqw;background:var(--paper);color:#15130f;z-index:2;
+        transform:rotate(-1.6deg);box-shadow:0 4cqw 7cqw rgba(0,0,0,.5);display:flex;flex-direction:column;padding:4.5cqw;}
+  .post.maker .lrow{display:flex;justify-content:space-between;align-items:center;font-size:2.7cqw;font-weight:800;letter-spacing:.1em;text-transform:uppercase;}
+  .post.maker .lrow img{height:7cqw;}
+  .post.maker .ph{margin:3cqw 0;border:0.5cqw solid #15130f;}
+  .post.maker .nm{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.86;font-size:7.4cqw;}
+  .post.maker .preg{font-size:2.7cqw;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#15130f;opacity:.6;margin-top:1.4cqw;}
+  .post.maker .rows{margin-top:2.4cqw;}
+  .post.maker .rows .r{display:flex;justify-content:space-between;align-items:baseline;padding:1.3cqw 0;border-bottom:0.3cqw solid rgba(0,0,0,.18);}
+  .post.maker .rows .r .k{font-size:2.5cqw;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.55;}
+  .post.maker .rows .r .v{font-size:3cqw;font-weight:800;text-transform:lowercase;}
+  .post.maker .rows .r .v.no{color:var(--red);}
+
+  /* === manifesto === */
+  .post.quote .pad{justify-content:center;}
+  .post.quote .scream{font-size:13cqw;}
+  .post.quote .scream .ac{color:var(--acid);}
+  .post.quote .vk{font-size:5cqw;margin-top:5cqw;}
+  .post.quote .wm{right:-12cqw;bottom:-10cqw;width:66cqw;}
+
+  /* === the day · plates === */
+  .post.day .pad{}
+  .post.day .top{display:flex;justify-content:space-between;align-items:center;}
+  .post.day .top .scream{font-size:7cqw;color:var(--acid);}
+  .post.day .grid{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2cqw;margin-top:3cqw;}
+  .post.day .cellp{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:0.4cqw solid rgba(219,187,0,.4);padding:2cqw 1cqw;}
+  .post.day .cellp img{width:62%;max-width:15cqw;margin-bottom:1.2cqw;}
+  .post.day .cellp .t{font-size:2.4cqw;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--gold);}
+
+  /* === lessons === */
+  .post.lesson .ico{width:32cqw;margin-bottom:auto;}
+  .post.lesson .when{font-size:3cqw;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--acid);}
+  .post.lesson .scream{font-size:11cqw;margin-top:2cqw;}
+
+  /* === creed / seal === */
+  .post.creed .pad{justify-content:center;align-items:center;text-align:center;}
+  .post.creed .seal{position:static;width:34cqw;margin-bottom:4cqw;}
+  .post.creed .scream{font-size:8.5cqw;}
+  .post.creed .scream .ac{color:var(--acid);}
+
+  /* === announce / hero sticker === */
+  .post.hero .sticker{position:absolute;inset:6cqw;background:var(--paper);color:#15130f;z-index:2;transform:rotate(-1.4deg);box-shadow:0 4cqw 7cqw rgba(0,0,0,.5);padding:6cqw 5cqw;display:flex;flex-direction:column;justify-content:center;}
+  .post.hero .scream{font-size:11.5cqw;}
+  .post.hero .vk{color:var(--green);font-size:5cqw;margin-top:2.4cqw;}
+
+  /* === ticket / conversion === */
+  .post.ticket .pad{justify-content:flex-end;z-index:3;}
+  .post.ticket .ph{position:absolute;inset:0;}
+  .post.ticket .scream{font-size:10cqw;}
+  .post.ticket .btn{margin-top:3cqw;background:var(--acid);color:#000;text-align:center;font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:3.4cqw;padding:3cqw;}
+
+  /* ============ feed grid ============ */
+  .feedwrap{display:grid;grid-template-columns:430px 1fr;gap:40px;align-items:start;}
+  .phone{background:#0e0d0b;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(0,0,0,.7);border:1px solid #2a2722;}
+  .phead{padding:22px 20px 16px;background:#000;color:#f3ecd9;}
+  .phead .top{display:flex;align-items:center;gap:16px;}
+  .phead .av{width:62px;height:62px;border-radius:50%;background:#15130f;display:flex;align-items:center;justify-content:center;border:2px solid #37d40a;overflow:hidden;}
+  .phead .av img{width:82%;}
+  .phead .nums{display:flex;gap:22px;flex:1;justify-content:space-around;text-align:center;}
+  .phead .nums b{display:block;font-size:16px;}
+  .phead .nums span{font-size:11px;opacity:.55;}
+  .phead .handle{font-weight:800;font-size:14px;margin-top:14px;text-transform:lowercase;}
+  .phead .bio{font-size:12.5px;line-height:1.45;opacity:.82;margin-top:3px;}
+  .phead .bio .acid{color:#37d40a;font-weight:700;}
+  .phead .bio .link{color:#dbbb00;font-weight:600;}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#2a2722;}
+  .pgrid .post{aspect-ratio:1/1;}
+
+  .caption{font-size:12.5px;line-height:1.55;color:#b8b1a0;}
+  .caption .h{font-weight:800;color:#f3ecd9;display:block;margin:14px 0 5px;text-transform:uppercase;letter-spacing:.02em;font-size:13px;}
+  .caption .h:first-child{margin-top:0;}
+  .caption b{color:#dbbb00;}
+
+  .row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;}
+  .single .lbl{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8a836f;margin-top:12px;}
+  .single .lbl b{color:#37d40a;}
+  .single .lbl small{display:block;font-weight:500;letter-spacing:0;text-transform:none;opacity:.85;margin-top:4px;font-size:12px;line-height:1.45;color:#b8b1a0;}
+
+  .kit{display:flex;gap:14px;flex-wrap:wrap;background:#15130f;border:1px solid #2a2722;border-radius:10px;padding:22px;}
+  .kit figure{width:88px;text-align:center;}
+  .kit img{width:64px;height:64px;object-fit:contain;margin:0 auto 8px;}
+  .kit figcaption{font-size:10.5px;color:#8a836f;text-transform:uppercase;letter-spacing:.04em;}
+
+  @media(max-width:980px){.feedwrap{grid-template-columns:1fr;}.row3{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.row3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+  <div class="index">
+    <strong>NWFA · social system v2 — PUNK</strong>
+    <span class="sp"></span>
+    <a href="#feed">the feed</a><a href="#types">post-types</a><a href="#kit">the marks</a>
+    <a href="social-system.html" style="opacity:.7;">← v1 (refined)</a>
+  </div>
+
+  <div class="intro">
+    <div class="tag">The social system · version 2</div>
+    <h2>The punks of wine</h2>
+    <p>Same system, same post-types — <b>more teeth</b>. The label stops being a tidy frame and becomes a <b>slapped sticker</b>: rubber stamps, ransom-note number tags, redaction bars, gritty duotone photos, and the icons screaming in acid green and gold on black. The register still leads; it just stopped being polite.</p>
+    <p>Copy carries the attitude — <b>"no chemicals, no bull*sht", "additives are for cowards"</b> — with swearing kept asterisked/redacted so every tile stays postable. "united by wine" stays as the one soft note against all the noise.</p>
+  </div>
+
+  <div class="stage">
+
+    <!-- ===================== THE FEED ===================== -->
+    <div id="feed" class="blocklabel">01 — the feed <span>louder, same grid</span></div>
+    <div class="feedwrap">
+      <div class="phone">
+        <div class="phead">
+          <div class="top">
+            <div class="av"><img src="concept-assets/badge.svg" alt=""></div>
+            <div class="nums"><div><b>176</b><span>posts</span></div><div><b>1.631</b><span>followers</span></div><div><b>293</b><span>following</span></div></div>
+          </div>
+          <div class="handle">natural wine festival a'dam</div>
+          <div class="bio"><span class="acid">the punks of wine.</span> living wine, no apologies · de hallen · 23 nov '26<br><span class="link">naturalwinefestival.nl</span></div>
+        </div>
+        <div class="pgrid">
+          <!-- 1 hero sticker -->
+          <div class="post hero"><div class="stamp2" style="right:7cqw;top:9cqw;">no<br>bull*sht</div><div class="sticker"><div class="eb" style="color:#15130f;opacity:.6;">nat. wine · a'dam</div><div class="scream" style="margin-top:1.5cqw;">natural<br>wine<br>festival</div><div class="vk">united by wine</div></div></div>
+          <!-- 2 maker -->
+          <div class="post maker"><div class="tag" style="left:5cqw;top:4cqw;">no. 01</div><div class="sticker"><div class="lrow"><span>the makers</span><img src="concept-assets/win-winemakers.svg" alt=""></div><div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div><div class="nm">oller del mas</div><div class="preg">catalonia · said no</div></div></div>
+          <!-- 3 manifesto -->
+          <div class="post quote"><img class="wm" src="concept-assets/rose.svg" alt=""><div class="pad"><div class="eb">below the hype</div><div class="scream" style="font-size:10cqw;margin-top:2cqw;">additives<br>are for<br><span class="ac">cowards.</span></div></div></div>
+          <!-- 4 the day -->
+          <div class="post day"><div class="pad"><div class="top"><div class="scream">all in.<br>all day.</div></div><div class="grid"><div class="cellp"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">tasting</div></div><div class="cellp"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">lessons</div></div><div class="cellp"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oysters</div></div><div class="cellp"><img src="concept-assets/ico-food.svg" alt=""><div class="t">kitchen</div></div><div class="cellp"><img src="concept-assets/ico-market.svg" alt=""><div class="t">market</div></div><div class="cellp" style="border:none;"><div class="vk" style="color:var(--green);font-size:4.6cqw;">til late</div></div></div></div></div>
+          <!-- 5 maker -->
+          <div class="post maker"><div class="tag" style="left:5cqw;top:4cqw;">no. 02</div><div class="sticker"><div class="lrow"><span>the makers</span><img src="concept-assets/win-winemakers.svg" alt=""></div><div class="ph"><img src="concept-assets/photo-12.jpg" alt=""></div><div class="nm">le coste</div><div class="preg">lazio · zero added</div></div></div>
+          <!-- 6 lesson -->
+          <div class="post lesson"><div class="pad"><img class="ico" src="concept-assets/ico-mind.svg" alt=""><div class="when">the lessons · 15:00</div><div class="scream" style="font-size:9cqw;">learn it<br>or leave.</div></div></div>
+          <!-- 7 creed -->
+          <div class="post creed"><div class="pad"><img class="seal" src="concept-assets/badge.svg" alt=""><div class="scream">nothing added.<br><span class="ac">no apologies.</span></div></div></div>
+          <!-- 8 maker -->
+          <div class="post maker"><div class="tag" style="left:5cqw;top:4cqw;">no. 03</div><div class="sticker"><div class="lrow"><span>the makers</span><img src="concept-assets/win-winemakers.svg" alt=""></div><div class="ph"><img src="concept-assets/photo-10.jpg" alt=""></div><div class="nm">gut oggau</div><div class="preg">burgenland · biodynamic</div></div></div>
+          <!-- 9 ticket -->
+          <div class="post ticket"><div class="ph"><img src="concept-assets/photo-3.jpg" alt=""></div><div class="stamp2" style="right:6cqw;top:7cqw;">selling<br>fast</div><div class="pad"><div class="eb">tickets live</div><div class="scream">take your<br><span style="color:var(--acid);">place.</span></div><div class="btn">€32,50 · grab one →</div></div></div>
+        </div>
+      </div>
+      <div class="caption">
+        <span class="h">what changed</span>
+        Nothing structural — the <b>register still leads</b>, the post-types are the same. The treatment got loud: black ground, <b>acid-green &amp; gold</b> instead of bronze, <b>duotone</b> photography, and the label slapped on at an angle like a flyposter with a <b>rubber stamp</b> over it.
+        <span class="h">the dial</span>
+        This is the <b>"fuck you" end</b> of the same system. v1 is the <b>gallery</b>, v2 is the <b>dive bar</b>. You can run one, or mix — refined maker labels with the occasional punk manifesto drop hits hard precisely because it breaks the calm.
+      </div>
+    </div>
+
+    <!-- ===================== POST TYPES ===================== -->
+    <div id="types" class="blocklabel">02 — the post-types <span>same jobs, more attitude</span></div>
+    <div class="row3">
+
+      <div class="single">
+        <div class="post maker"><div class="tag" style="left:6cqw;top:5cqw;">no. 01</div><div class="stamp2" style="right:7cqw;bottom:8cqw;font-size:2.6cqw;">verified<br>natural</div><div class="sticker">
+          <div class="lrow"><span>the makers · ed.03</span><img src="concept-assets/win-winemakers.svg" alt=""></div>
+          <div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div>
+          <div class="nm">oller del mas</div>
+          <div class="preg">catalonia, spain</div>
+          <div class="rows">
+            <div class="r"><span class="k">farming</span><span class="v">biodynamic</span></div>
+            <div class="r"><span class="k">added yeast</span><span class="v no">none</span></div>
+            <div class="r"><span class="k">sulphur</span><span class="v no">none, obviously</span></div>
+          </div>
+        </div></div>
+        <div class="lbl"><b>lead ·</b> maker reveal<small>The label, slapped on as a sticker, stamped + tagged. Disclosure with a sneer.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post quote"><img class="wm" src="concept-assets/rose.svg" alt=""><div class="pad">
+          <div class="eb">below the hype</div>
+          <div class="scream" style="margin-top:3cqw;">no<br>chemicals.<br>no <span class="ac">bull<span class="red leak">*sht.</span></span></div>
+          <div class="vk">united by wine</div>
+        </div></div>
+        <div class="lbl">manifesto<small>Scream type, vine watermark, one redaction bar. The point of view, sharpened.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post day"><div class="pad">
+          <div class="top"><div class="scream">all in.<br>all day.</div></div>
+          <div class="grid">
+            <div class="cellp"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">tasting</div></div>
+            <div class="cellp"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">lessons</div></div>
+            <div class="cellp"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oysters</div></div>
+            <div class="cellp"><img src="concept-assets/ico-food.svg" alt=""><div class="t">kitchen</div></div>
+            <div class="cellp"><img src="concept-assets/ico-market.svg" alt=""><div class="t">market</div></div>
+            <div class="cellp" style="border:none;"><div class="vk" style="color:var(--green);font-size:5.5cqw;">til late</div></div>
+          </div>
+        </div></div>
+        <div class="lbl">the day · icon plates<small>Icons screaming gold/green on black — reads like a gig flyer's line-up.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post lesson"><div class="pad">
+          <img class="ico" src="concept-assets/ico-mind.svg" alt="">
+          <div class="when">the lessons · 14:00</div>
+          <div class="scream">learn it<br>or leave.</div>
+          <div class="eb" style="margin-top:auto;opacity:.7;">montsant masterclass · 25+ classes</div>
+        </div></div>
+        <div class="lbl">the lessons<small>Workshops with a dare. Icon leads, time stamped, no fluff.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post creed"><div class="pad">
+          <img class="seal" src="concept-assets/badge.svg" alt="">
+          <div class="scream">nothing added.<br>nothing taken away.<br><span class="ac">no apologies.</span></div>
+        </div></div>
+        <div class="lbl">the seal / creed<small>The rosette as a badge of defiance — values, "verified natural", reposts.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post ticket"><div class="ph"><img src="concept-assets/photo-3.jpg" alt=""></div><div class="stamp2" style="right:6cqw;top:7cqw;">selling<br>fast</div><div class="pad">
+          <div class="eb">23 nov '26 · tickets live</div>
+          <div class="scream">take your<br><span style="color:var(--acid);">place.</span></div>
+          <div class="btn">€32,50 · festival pass →</div>
+        </div></div>
+        <div class="lbl">conversion / ticket<small>Duotone photo, rubber stamp, acid CTA. The campaign shove.</small></div>
+      </div>
+
+    </div>
+
+    <!-- ===================== THE MARKS ===================== -->
+    <div id="kit" class="blocklabel">03 — the marks <span>same woodcut set, screaming on black</span></div>
+    <div class="kit">
+      <figure><img src="concept-assets/win-winemakers.svg" alt=""><figcaption>makers</figcaption></figure>
+      <figure><img src="concept-assets/ico-tasting.svg" alt=""><figcaption>tasting</figcaption></figure>
+      <figure><img src="concept-assets/ico-mind.svg" alt=""><figcaption>lessons</figcaption></figure>
+      <figure><img src="concept-assets/ico-oyster.svg" alt=""><figcaption>oysters</figcaption></figure>
+      <figure><img src="concept-assets/ico-food.svg" alt=""><figcaption>kitchen</figcaption></figure>
+      <figure><img src="concept-assets/ico-market.svg" alt=""><figcaption>market</figcaption></figure>
+      <figure><img src="concept-assets/win-dinner.svg" alt=""><figcaption>the supper</figcaption></figure>
+      <figure><img src="concept-assets/win-workshops.svg" alt=""><figcaption>workshops</figcaption></figure>
+      <figure><img src="concept-assets/badge.svg" alt=""><figcaption>the seal</figcaption></figure>
+      <figure><img src="concept-assets/rose.svg" alt=""><figcaption>the vine</figcaption></figure>
+    </div>
+
+  </div>
+
+</body>
+</html>

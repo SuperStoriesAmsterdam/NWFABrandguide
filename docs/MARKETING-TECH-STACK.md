@@ -1,7 +1,7 @@
 # Marketing & Tech Stack — Natural Wine Festival A'dam
 
 > Where the brand, ticketing, and CRM/marketing live, and how they connect.
-> Decided May 2026. Companion to `REDESIGN-PLAN.md`.
+> Decided May 2026. Companion to `REDESIGN-PLAN.md` and `CMS-CONTENT-DECISION.md`.
 
 ## Principle — three systems, clean separation
 

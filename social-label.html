@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — Instagram in the language of The Label</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#b4ae9f;color:#222;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+
+  .index{position:sticky;top:0;z-index:50;background:#161a16;color:#efe9db;display:flex;align-items:center;gap:22px;padding:14px 30px;font-size:13px;}
+  .index strong{font-weight:600;}
+  .index .sp{flex:1;}
+  .index a{color:#cfc4a4;text-decoration:none;font-weight:500;}
+  .index a:hover{color:#fff;}
+
+  .intro{max-width:1180px;margin:0 auto;padding:54px 30px 10px;}
+  .intro .tag{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7a7460;}
+  .intro h2{font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.05;margin:9px 0 12px;color:#1c211b;letter-spacing:-.02em;}
+  .intro p{max-width:80ch;font-size:15px;line-height:1.62;color:#3a3a32;}
+  .intro p b{color:#1c211b;}
+  .intro p + p{margin-top:12px;}
+
+  .stage{max-width:1180px;margin:0 auto;padding:30px;}
+  .blocklabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3a382f;margin:46px 0 20px;border-top:1px solid rgba(0,0,0,.18);padding-top:18px;}
+
+  /* ====================== POST PRIMITIVE (container-scaled) ====================== */
+  .post{container-type:inline-size;aspect-ratio:1/1;overflow:hidden;position:relative;
+        --bg:#ECE6D6;--ink:#1B3326;--accent:#9F6E29;background:var(--bg);color:var(--ink);}
+  .post.dark{--bg:#1B3326;--ink:#F0EAD9;--accent:#C79A4E;}
+  .post .pad{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column;}
+  .post.bord .pad{inset:4cqw;border:0.5cqw solid var(--ink);padding:5.5cqw;}
+  .eb{font-size:2.7cqw;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .lrow{display:flex;justify-content:space-between;font-size:2.5cqw;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
+  .pname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.9;}
+  .vk{font-family:'Vicky';color:var(--accent);text-transform:lowercase;line-height:1;}
+  .ph{flex:1;overflow:hidden;border:0.5cqw solid var(--ink);}
+  .ph img{width:100%;height:100%;object-fit:cover;}
+  .rows .r{display:flex;justify-content:space-between;align-items:baseline;padding:1.6cqw 0;border-bottom:0.25cqw dotted color-mix(in srgb,var(--ink) 36%,transparent);}
+  .rows .r .k{font-size:2.5cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.55;}
+  .rows .r .v{font-size:3cqw;font-weight:700;}
+  .rows .r .v.acc{color:var(--accent);}
+  .brand{display:flex;justify-content:space-between;align-items:flex-end;font-size:2.6cqw;font-weight:700;text-transform:lowercase;letter-spacing:-.01em;}
+  .stamp{border:0.5cqw solid var(--accent);color:var(--accent);padding:1.8cqw 2.4cqw;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:2.4cqw;line-height:1.3;text-align:center;border-radius:1cqw;transform:rotate(-5deg);}
+
+  /* ---- maker post ---- */
+  .post.maker .ph{margin:3.5cqw 0;}
+  .post.maker .pname{font-size:8.5cqw;}
+  .post.maker .preg{font-size:3cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-top:1.4cqw;}
+  .post.maker .rows{margin-top:2.6cqw;}
+
+  /* ---- announce / hero ---- */
+  .post.announce .pname{font-size:12cqw;margin-top:auto;}
+  .post.announce .vk{font-size:5.4cqw;margin-top:2.4cqw;}
+  .post.announce .specs{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:0.5cqw solid var(--ink);margin-top:5cqw;}
+  .post.announce .specs .c{padding:2.6cqw 0;}
+  .post.announce .specs .c:nth-child(odd){border-right:0.3cqw solid color-mix(in srgb,var(--ink) 24%,transparent);padding-right:3cqw;}
+  .post.announce .specs .c:nth-child(even){padding-left:3cqw;}
+  .post.announce .specs .k{font-size:2.4cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.55;}
+  .post.announce .specs .val{font-size:4.4cqw;font-weight:700;letter-spacing:-.02em;margin-top:1cqw;}
+
+  /* ---- quote ---- */
+  .post.quote .pad{justify-content:center;}
+  .post.quote .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.98;font-size:10.5cqw;}
+  .post.quote .big .ac{color:var(--accent);}
+  .post.quote .vk{font-size:5cqw;margin-top:6cqw;}
+
+  /* ---- lesson ---- */
+  .post.lesson .ico{width:18cqw;margin-bottom:auto;}
+  .post.lesson .when{font-size:3cqw;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+  .post.lesson .pname{font-size:9cqw;margin-top:2cqw;}
+  .post.lesson .desc{font-size:3.4cqw;line-height:1.45;opacity:.7;margin-top:3cqw;max-width:34ch;}
+
+  /* ---- date / countdown ---- */
+  .post.date .pad{justify-content:center;align-items:flex-start;}
+  .post.date .lot{font-size:18cqw;font-weight:700;letter-spacing:-.04em;line-height:.86;}
+  .post.date .sub{font-size:3.2cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-top:3cqw;}
+
+  /* ---- photo-led ---- */
+  .post.photo .pad{padding:0;}
+  .post.photo>.bg{position:absolute;inset:0;}
+  .post.photo>.bg img{width:100%;height:100%;object-fit:cover;}
+  .post.photo .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,16,0) 40%,rgba(16,22,16,.72));}
+  .post.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:7cqw;color:#F0EAD9;}
+  .post.photo .cap .t{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:7.5cqw;line-height:1;}
+  .post.photo .cap .vk{color:#E7C87A;font-size:4.6cqw;margin-top:2cqw;}
+
+  /* ====================== FEED GRID (profile mock) ====================== */
+  .phone{max-width:430px;margin:0;background:#ECE6D6;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(0,0,0,.6);}
+  .phead{padding:22px 20px 16px;background:#fff;color:#1B3326;}
+  .phead .top{display:flex;align-items:center;gap:16px;}
+  .phead .av{width:62px;height:62px;border-radius:50%;background:#1B3326;color:#ECE6D6;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;text-align:center;letter-spacing:.04em;text-transform:lowercase;line-height:1;border:2px solid #9F6E29;}
+  .phead .nums{display:flex;gap:22px;flex:1;justify-content:space-around;text-align:center;}
+  .phead .nums b{display:block;font-size:16px;}
+  .phead .nums span{font-size:11px;opacity:.55;}
+  .phead .handle{font-weight:700;font-size:14px;margin-top:14px;}
+  .phead .bio{font-size:12.5px;line-height:1.45;opacity:.8;margin-top:3px;}
+  .phead .bio .link{color:#9F6E29;font-weight:600;}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#cfc7b4;}
+  .pgrid .post{aspect-ratio:1/1;}
+
+  /* layout helpers */
+  .row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;}
+  .feedwrap{display:grid;grid-template-columns:430px 1fr;gap:40px;align-items:start;}
+  .caption{font-size:12.5px;line-height:1.5;color:#3a382f;}
+  .caption .h{font-weight:700;color:#1c211b;display:block;margin-bottom:5px;text-transform:lowercase;letter-spacing:-.01em;font-size:14px;}
+  .single{max-width:300px;}
+  .single .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3a382f;margin-top:12px;}
+  .single .lbl small{display:block;font-weight:500;letter-spacing:0;text-transform:none;opacity:.6;margin-top:4px;font-size:12px;line-height:1.4;}
+
+  /* stories */
+  .story{container-type:inline-size;aspect-ratio:9/16;width:240px;overflow:hidden;border-radius:14px;position:relative;background:#ECE6D6;color:#1B3326;--accent:#9F6E29;box-shadow:0 18px 40px -20px rgba(0,0,0,.5);}
+  .story.dark{background:#1B3326;color:#F0EAD9;--accent:#C79A4E;}
+  .story .bg{position:absolute;inset:0;}
+  .story .bg img{width:100%;height:100%;object-fit:cover;}
+  .story .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,16,.15) 30%,rgba(16,22,16,.78));}
+  .story .pad{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column;}
+  .story .bar{display:flex;gap:1.4cqw;}
+  .story .bar i{height:1cqw;flex:1;background:rgba(255,255,255,.55);border-radius:2cqw;}
+  .story .bar i:first-child{background:#fff;}
+  .story .who{display:flex;align-items:center;gap:2.4cqw;margin-top:3cqw;color:#fff;font-size:3cqw;font-weight:600;}
+  .story .who .d{width:6cqw;height:6cqw;border-radius:50%;background:#9F6E29;}
+  .story .eb{font-size:3.4cqw;}
+  .story .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.94;font-size:11cqw;color:#fff;}
+  .story.light .big{color:#1B3326;}
+  .story .vk{font-size:6cqw;}
+  .story .cta{margin-top:auto;align-self:center;background:#fff;color:#1B3326;font-weight:700;font-size:3.4cqw;padding:3cqw 6cqw;border-radius:20cqw;text-transform:lowercase;}
+  .story .swipe{text-align:center;color:#fff;font-size:2.8cqw;letter-spacing:.1em;text-transform:uppercase;margin-top:3cqw;opacity:.8;}
+
+  @media(max-width:980px){.feedwrap{grid-template-columns:1fr;}.row3{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.row3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+  <div class="index">
+    <strong>NWFA · Instagram in the language of "The Label"</strong>
+    <span class="sp"></span>
+    <a href="#feed">the feed</a><a href="#posts">post templates</a><a href="#stories">stories</a>
+    <a href="home-label.html" style="opacity:.6;">← the homepage</a>
+  </div>
+
+  <div class="intro">
+    <div class="tag">Proposal</div>
+    <h2>What the front door looks like as a feed</h2>
+    <p>Your current Instagram is <b>loud and playful</b>: saturated yellow / navy / green, chunky drop-shadow type, doodles and stickers — the "Green is Golden" festival voice. <b>The Label is the opposite instinct</b>: quiet, editorial, confident; cream, dark green &amp; bronze, lowercase, every post built like a disclosure label. So this is a real shift in tone — calmer and more premium — and the proposal below shows how it reads as a cohesive grid, as repeatable post templates, and as stories.</p>
+    <p>The core idea travels perfectly to social: <b>every maker reveal becomes a collectible "label"</b> — name, region, and full disclosure (farming, sulphur). The feed turns into a register you scroll.</p>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============================ THE FEED ============================ -->
+    <div id="feed" class="blocklabel">01 — the feed, as a grid</div>
+    <div class="feedwrap">
+      <div class="phone">
+        <div class="phead">
+          <div class="top">
+            <div class="av">nwfa<br>a'dam</div>
+            <div class="nums"><div><b>176</b><span>posts</span></div><div><b>1.631</b><span>followers</span></div><div><b>293</b><span>following</span></div></div>
+          </div>
+          <div class="handle">natural wine festival a'dam</div>
+          <div class="bio">a one-day festival of living wine · de hallen, amsterdam · 23 nov '26<br>united by wine · <span class="link">naturalwinefestival.nl</span></div>
+        </div>
+        <div class="pgrid">
+          <!-- 1 announce -->
+          <div class="post announce bord"><div class="pad">
+            <div class="lrow"><span>nat. wine · a'dam</span><span>lot 23.11.26</span></div>
+            <div class="pname" style="font-size:9cqw;margin-top:auto;">natural<br>wine<br>festival</div>
+            <div class="vk" style="font-size:4.4cqw;margin-top:2cqw;">united by wine</div>
+          </div></div>
+          <!-- 2 maker -->
+          <div class="post maker bord"><div class="pad">
+            <div class="lrow"><span>the makers</span><span>no. 01</span></div>
+            <div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div>
+            <div class="pname" style="font-size:7cqw;">oller del mas</div>
+            <div class="preg">catalonia, es</div>
+          </div></div>
+          <!-- 3 quote dark -->
+          <div class="post quote dark"><div class="pad">
+            <div class="eb">below the hype</div>
+            <div class="big" style="font-size:9cqw;margin-top:3cqw;">it's not cool.<br>it's just <span class="ac">common<br>sense.</span></div>
+          </div></div>
+          <!-- 4 photo -->
+          <div class="post photo"><div class="bg"><img src="concept-assets/photo-4.jpg" alt=""></div><div class="scrim"></div>
+            <div class="cap"><div class="t" style="font-size:6cqw;">all of a'dam,<br>around the bottle.</div></div></div>
+          <!-- 5 maker -->
+          <div class="post maker bord"><div class="pad">
+            <div class="lrow"><span>the makers</span><span>no. 02</span></div>
+            <div class="ph"><img src="concept-assets/photo-12.jpg" alt=""></div>
+            <div class="pname" style="font-size:7cqw;">le coste</div>
+            <div class="preg">lazio, it</div>
+          </div></div>
+          <!-- 6 lesson -->
+          <div class="post lesson bord"><div class="pad">
+            <img class="ico" src="concept-assets/ico-mind.svg" alt="">
+            <div class="when">the lessons · 15:00</div>
+            <div class="pname" style="font-size:7.5cqw;">talha wine</div>
+          </div></div>
+          <!-- 7 date -->
+          <div class="post date dark"><div class="pad">
+            <div class="lot">23<br>11</div><div class="sub">save the date · de hallen</div>
+          </div></div>
+          <!-- 8 maker -->
+          <div class="post maker bord"><div class="pad">
+            <div class="lrow"><span>the makers</span><span>no. 03</span></div>
+            <div class="ph"><img src="concept-assets/photo-10.jpg" alt=""></div>
+            <div class="pname" style="font-size:7cqw;">gut oggau</div>
+            <div class="preg">burgenland, at</div>
+          </div></div>
+          <!-- 9 photo -->
+          <div class="post photo"><div class="bg"><img src="concept-assets/photo-1.jpg" alt=""></div><div class="scrim"></div>
+            <div class="cap"><div class="t" style="font-size:6cqw;">the long table</div><div class="vk" style="font-size:3.6cqw;">invite only</div></div></div>
+        </div>
+      </div>
+      <div class="caption">
+        <span class="h">why it holds together</span>
+        The grid alternates three "beats": <b>maker labels</b> (cream, bordered, with photo + disclosure), <b>type posts</b> (dark green quote / save-the-date), and <b>full-bleed photo</b> moments. That rhythm is what makes a feed look designed rather than random — and the bordered cream label is instantly recognisable as <em>yours</em>, even at thumbnail size.
+        <br><br>
+        <span class="h">the shift, honestly</span>
+        This is much calmer than the current yellow/green feed. If that feels like too hard a cut, we can phase it: keep the green accent on stories first, move the grid to The Label over one campaign.
+      </div>
+    </div>
+
+    <!-- ============================ POST TEMPLATES ============================ -->
+    <div id="posts" class="blocklabel">02 — post templates (1:1), enlarged</div>
+    <div class="row3">
+
+      <div class="single">
+        <div class="post maker bord"><div class="pad">
+          <div class="lrow"><span>the makers · ed. 03</span><span>no. 01</span></div>
+          <div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div>
+          <div class="pname" style="font-size:8cqw;">oller del mas</div>
+          <div class="preg">catalonia, spain</div>
+          <div class="rows">
+            <div class="r"><span class="k">farming</span><span class="v">biodynamic</span></div>
+            <div class="r"><span class="k">added yeast</span><span class="v">none</span></div>
+            <div class="r"><span class="k">sulphur</span><span class="v acc">&lt; 20 mg/l</span></div>
+          </div>
+        </div></div>
+        <div class="lbl">maker reveal<small>The marquee format. One per grower, numbered — a collectible label with full disclosure. This is the engine of the feed.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post announce bord"><div class="pad">
+          <div class="lrow"><span>natural wine · a'dam</span><span>lot 23.11.26</span></div>
+          <div class="pname">natural<br>wine festival<br>a'dam</div>
+          <div class="vk">united by wine</div>
+          <div class="specs">
+            <div class="c"><div class="k">growers</div><div class="val">60+</div></div>
+            <div class="c"><div class="k">wines</div><div class="val">300+</div></div>
+            <div class="c"><div class="k">lessons</div><div class="val">25+</div></div>
+            <div class="c"><div class="k">doors</div><div class="val">13:00</div></div>
+          </div>
+        </div></div>
+        <div class="lbl">announcement / pinned<small>The homepage hero, squared. Save-the-date, ticket launch, recap — the spec strip does the talking.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post quote dark"><div class="pad">
+          <div class="eb">below the hype</div>
+          <div class="big" style="margin-top:4cqw;">it's not cool.<br>it's just<br><span class="ac">common sense.</span></div>
+          <div class="vk">united by wine</div>
+        </div></div>
+        <div class="lbl">manifesto / quote<small>The dark-green breather. Carries the philosophy and resets the grid rhythm between photo posts.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post lesson bord"><div class="pad">
+          <img class="ico" src="concept-assets/ico-mind.svg" alt="">
+          <div class="when">the lessons · 14:00</div>
+          <div class="pname">montsant<br>masterclass</div>
+          <div class="desc">schist, garnacha &amp; altitude — a region in a glass. go beyond the hype.</div>
+          <div class="brand" style="margin-top:5cqw;"><span>natural wine festival a'dam</span><span>25+ classes</span></div>
+        </div></div>
+        <div class="lbl">the lessons<small>Workshops as a clean, woodcut-led card. Swap the icon (mind / tasting / oyster) per class type.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post photo"><div class="bg"><img src="concept-assets/photo-3.jpg" alt=""></div><div class="scrim"></div>
+          <div class="cap"><div class="eb" style="color:#E7C87A;">23 nov '26 · de hallen</div><div class="t">take your place<br>at the table.</div><div class="vk">united by wine</div></div></div>
+        <div class="lbl">photo + payoff<small>The human, full-bleed moment. Real photography carries it; type stays minimal and lowercase.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post maker bord"><div class="pad">
+          <div class="lrow"><span>the market · take home</span><span>shelf 04</span></div>
+          <div class="ph"><img src="concept-assets/photo-12.jpg" alt=""></div>
+          <div class="pname" style="font-size:7.4cqw;">found a favourite?</div>
+          <div class="preg">buy it from the floor market</div>
+          <div class="rows"><div class="r"><span class="k">where</span><span class="v">the market</span></div><div class="r"><span class="k">when</span><span class="v acc">all day</span></div></div>
+        </div></div>
+        <div class="lbl">the market / take-home<small>Same label frame, repurposed for the on-floor shop and bottle recommendations.</small></div>
+      </div>
+
+    </div>
+
+    <!-- ============================ STORIES ============================ -->
+    <div id="stories" class="blocklabel">03 — stories (9:16)</div>
+    <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;">
+
+      <div>
+        <div class="story">
+          <div class="bg"><img src="concept-assets/photo-10.jpg" alt=""></div><div class="scrim"></div>
+          <div class="pad">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="who"><span class="d"></span>naturalwinefestival.ams</div>
+            <div style="margin-top:auto;">
+              <div class="eb" style="color:#E7C87A;">tickets are live</div>
+              <div class="big">take your<br>place.</div>
+              <div class="vk" style="color:#E7C87A;">united by wine</div>
+            </div>
+            <a class="cta">get your tickets</a>
+            <div class="swipe">↑ link in bio</div>
+          </div>
+        </div>
+        <div class="single"><div class="lbl">ticket launch</div></div>
+      </div>
+
+      <div>
+        <div class="story light" style="background:#ECE6D6;">
+          <div class="pad">
+            <div class="bar"><i style="background:#1B3326;opacity:.3;"></i><i style="background:#1B3326;opacity:.3;"></i></div>
+            <div class="who" style="color:#1B3326;"><span class="d"></span>naturalwinefestival.ams</div>
+            <div style="margin-top:auto;border:0.5cqw solid #1B3326;padding:5cqw;">
+              <div class="lrow" style="color:#1B3326;"><span>the makers</span><span>no. 01</span></div>
+              <div style="aspect-ratio:1/1;border:0.5cqw solid #1B3326;margin:4cqw 0;overflow:hidden;"><img src="concept-assets/photo-7.jpg" style="width:100%;height:100%;object-fit:cover;" alt=""></div>
+              <div class="big" style="color:#1B3326;font-size:8cqw;">oller del mas</div>
+              <div class="eb" style="margin-top:1.5cqw;">catalonia · biodynamic · &lt;20mg/l</div>
+            </div>
+            <div class="swipe" style="color:#1B3326;opacity:.6;">tap to meet them →</div>
+          </div>
+        </div>
+        <div class="single"><div class="lbl">maker reveal (story)</div></div>
+      </div>
+
+      <div>
+        <div class="story dark">
+          <div class="pad">
+            <div class="bar"><i></i></div>
+            <div class="who"><span class="d"></span>naturalwinefestival.ams</div>
+            <div style="margin:auto 0;">
+              <div class="eb">below the hype</div>
+              <div class="big" style="font-size:13cqw;">it's not<br>cool.<br>it's just<br><span style="color:#C79A4E;">common<br>sense.</span></div>
+            </div>
+            <div class="vk" style="font-size:7cqw;text-align:center;">united by wine</div>
+          </div>
+        </div>
+        <div class="single"><div class="lbl">manifesto (story)</div></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

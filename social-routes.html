@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — 5 Instagram routes, one design language (The Label)</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#b4ae9f;color:#222;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+
+  .index{position:sticky;top:0;z-index:50;background:#161a16;color:#efe9db;display:flex;align-items:center;gap:18px;padding:14px 30px;font-size:13px;flex-wrap:wrap;}
+  .index strong{font-weight:600;}
+  .index .sp{flex:1;}
+  .index a{color:#cfc4a4;text-decoration:none;font-weight:500;}
+  .index a:hover{color:#fff;}
+
+  .intro{max-width:1180px;margin:0 auto;padding:54px 30px 8px;}
+  .intro .tag{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7a7460;}
+  .intro h2{font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.05;margin:9px 0 12px;color:#1c211b;letter-spacing:-.02em;}
+  .intro p{max-width:82ch;font-size:15px;line-height:1.62;color:#3a3a32;}
+  .intro p b{color:#1c211b;}
+
+  .stage{max-width:1180px;margin:0 auto;padding:14px 30px 60px;}
+
+  /* ---------------- route block ---------------- */
+  .route{border-top:1px solid rgba(0,0,0,.2);padding:40px 0;}
+  .rhead{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;flex-wrap:wrap;}
+  .rhead .num{font-weight:700;font-size:14px;color:#9F6E29;letter-spacing:.1em;}
+  .rhead h3{font-weight:700;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;color:#1c211b;text-transform:lowercase;}
+  .rhead .tagline{font-size:14px;color:#5a5648;font-style:italic;}
+  .rbody{display:grid;grid-template-columns:330px 1fr;gap:38px;align-items:start;}
+
+  .arg{background:#efe9db;border:1px solid rgba(0,0,0,.18);border-radius:10px;padding:22px 24px;}
+  .arg .a-lead{font-size:14.5px;line-height:1.6;color:#2c2a22;}
+  .arg dl{margin-top:18px;display:grid;grid-template-columns:auto 1fr;gap:9px 14px;}
+  .arg dt{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9F6E29;padding-top:2px;}
+  .arg dd{font-size:13px;line-height:1.5;color:#3a382f;}
+
+  .samples{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+
+  /* ---------------- post primitive (container-scaled) ---------------- */
+  .post{container-type:inline-size;aspect-ratio:1/1;overflow:hidden;position:relative;
+        --bg:#ECE6D6;--ink:#1B3326;--accent:#9F6E29;--green:#1f8a3b;background:var(--bg);color:var(--ink);}
+  .post.dark{--bg:#1B3326;--ink:#F0EAD9;--accent:#C79A4E;}
+  .post .pad{position:absolute;inset:0;padding:6.5cqw;display:flex;flex-direction:column;}
+  .post.bord .pad{inset:4cqw;border:0.5cqw solid var(--ink);padding:5.5cqw;}
+  .eb{font-size:2.9cqw;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);}
+  .lrow{display:flex;justify-content:space-between;font-size:2.7cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.8;}
+  .pname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.9;}
+  .vk{font-family:'Vicky';color:var(--accent);text-transform:lowercase;line-height:1;}
+  .ph{flex:1;overflow:hidden;border:0.5cqw solid var(--ink);}
+  .ph img{width:100%;height:100%;object-fit:cover;}
+  .rows .r{display:flex;justify-content:space-between;align-items:baseline;padding:1.5cqw 0;border-bottom:0.25cqw dotted color-mix(in srgb,var(--ink) 36%,transparent);}
+  .rows .r .k{font-size:2.7cqw;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.55;}
+  .rows .r .v{font-size:3.1cqw;font-weight:700;}
+  .rows .r .v.acc{color:var(--accent);}
+  .rows .r .v.grn{color:var(--green);}
+
+  .post.maker .ph{margin:3.2cqw 0;}
+  .post.maker .preg{font-size:3cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:1.4cqw;}
+
+  .post.quote .pad{justify-content:center;}
+  .post.quote .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.98;font-size:9.5cqw;}
+  .post.quote .big .ac{color:var(--accent);}
+  .post.quote .vk{font-size:5cqw;margin-top:5cqw;}
+
+  .post.lesson .ico{width:17cqw;margin-bottom:auto;}
+  .post.lesson .when{font-size:3cqw;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+  .post.lesson .pname{font-size:8cqw;margin-top:2cqw;}
+
+  .post.announce .pname{margin-top:auto;}
+  .post.announce .specs{display:grid;grid-template-columns:1fr 1fr;border-top:0.5cqw solid var(--ink);margin-top:4cqw;}
+  .post.announce .specs .c{padding:2.4cqw 0;}
+  .post.announce .specs .c:nth-child(odd){border-right:0.3cqw solid color-mix(in srgb,var(--ink) 24%,transparent);padding-right:3cqw;}
+  .post.announce .specs .c:nth-child(even){padding-left:3cqw;}
+  .post.announce .specs .k{font-size:2.5cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.55;}
+  .post.announce .specs .val{font-size:4.6cqw;font-weight:700;letter-spacing:-.02em;margin-top:.8cqw;}
+
+  .post.date .pad{justify-content:center;}
+  .post.date .lot{font-size:17cqw;font-weight:700;letter-spacing:-.04em;line-height:.86;}
+  .post.date .sub{font-size:3.2cqw;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-top:3cqw;}
+
+  .post.photo .pad{padding:0;}
+  .post.photo>.bg{position:absolute;inset:0;}
+  .post.photo>.bg img{width:100%;height:100%;object-fit:cover;}
+  .post.photo .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,22,16,0) 42%,rgba(16,22,16,.72));}
+  .post.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:6.5cqw;color:#F0EAD9;}
+  .post.photo .cap .t{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:7cqw;line-height:1;}
+  .post.photo .cstamp{position:absolute;top:5cqw;right:5cqw;border:0.5cqw solid #F0EAD9;color:#F0EAD9;font-size:2.5cqw;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:1.4cqw 2cqw;border-radius:1cqw;}
+
+  /* green bridge bits */
+  .ribbon{background:var(--green);color:#fff;font-family:'Vicky';text-transform:lowercase;text-align:center;padding:1.6cqw 0;font-size:5.5cqw;line-height:1;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%);}
+  .post.cta-photo .btn{position:absolute;left:6.5cqw;right:6.5cqw;bottom:6.5cqw;background:#fff;color:#1B3326;text-align:center;font-weight:700;text-transform:lowercase;font-size:3.6cqw;padding:3cqw;border-radius:14cqw;}
+
+  .verdict{border-top:1px solid rgba(0,0,0,.2);margin-top:30px;padding-top:28px;}
+  .verdict h3{font-weight:700;font-size:20px;color:#1c211b;text-transform:lowercase;letter-spacing:-.02em;margin-bottom:10px;}
+  .verdict p{max-width:78ch;font-size:14.5px;line-height:1.65;color:#3a382f;}
+  .verdict p b{color:#1c211b;}
+
+  @media(max-width:900px){.rbody{grid-template-columns:1fr;gap:22px;}}
+</style>
+</head>
+<body>
+
+  <div class="index">
+    <strong>NWFA · 5 Instagram routes — one design language (The Label)</strong>
+    <span class="sp"></span>
+    <a href="#r1">1 register</a><a href="#r3">3 manifesto</a><a href="#r4">4 conversion</a>
+    <a href="home-label.html" style="opacity:.6;">homepage →</a>
+  </div>
+
+  <div class="intro">
+    <div class="tag">Five routes · same system</div>
+    <h2>One look, five strategies</h2>
+    <p>The visual language is settled — cream, dark green, bronze, lowercase, the disclosure label. What's <b>not</b> settled is how you run the account. These five routes use the exact same design system but optimise for five different goals. Each is a defensible choice; they're not ranked. Pick the argument that matches what this account needs to do in the next 12 months. They can also be <b>layered</b> — e.g. a Register backbone with a Conversion push in the campaign window.</p>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============================= ROUTE 1 ============================= -->
+    <div id="r1" class="route">
+      <div class="rhead"><span class="num">ROUTE 01</span><h3>the register</h3><span class="tagline">the feed as a living catalogue</span></div>
+      <div class="rbody">
+        <div class="arg">
+          <div class="a-lead">Natural-wine people are <b>collectors and nerds</b>. Make the whole feed a register: every grower gets a numbered disclosure label (no. 01 → no. 60), revealed one by one. The line-up <em>is</em> the content.</div>
+          <dl>
+            <dt>argues</dt><dd>radical transparency + completionism. "Did they drop no. 17 yet?"</dd>
+            <dt>best for</dt><dd>differentiation &amp; an evergreen content engine that never runs dry</dd>
+            <dt>trade-off</dt><dd>uniform; needs real per-maker data; light on "fun"</dd>
+            <dt>cadence</dt><dd>steady — 3–4 maker drops a week, building to the date</dd>
+          </dl>
+        </div>
+        <div class="samples">
+          <div class="post maker bord"><div class="pad"><div class="lrow"><span>the makers</span><span>no. 01</span></div><div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div><div class="pname" style="font-size:6.4cqw;">oller del mas</div><div class="preg">catalonia, es</div><div class="rows" style="margin-top:2cqw;"><div class="r"><span class="k">farming</span><span class="v">biodynamic</span></div><div class="r"><span class="k">sulphur</span><span class="v acc">&lt;20 mg/l</span></div></div></div></div>
+          <div class="post maker bord"><div class="pad"><div class="lrow"><span>the makers</span><span>no. 02</span></div><div class="ph"><img src="concept-assets/photo-12.jpg" alt=""></div><div class="pname" style="font-size:6.4cqw;">le coste</div><div class="preg">lazio, it</div><div class="rows" style="margin-top:2cqw;"><div class="r"><span class="k">farming</span><span class="v">organic, wild</span></div><div class="r"><span class="k">sulphur</span><span class="v acc">none</span></div></div></div></div>
+          <div class="post maker bord"><div class="pad"><div class="lrow"><span>the makers</span><span>no. 03</span></div><div class="ph"><img src="concept-assets/photo-10.jpg" alt=""></div><div class="pname" style="font-size:6.4cqw;">gut oggau</div><div class="preg">burgenland, at</div><div class="rows" style="margin-top:2cqw;"><div class="r"><span class="k">farming</span><span class="v">biodynamic</span></div><div class="r"><span class="k">sulphur</span><span class="v acc">&lt;10 mg/l</span></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= ROUTE 3 ============================= -->
+    <div id="r3" class="route">
+      <div class="rhead"><span class="num">ROUTE 03</span><h3>the manifesto</h3><span class="tagline">a point of view, not a poster</span></div>
+      <div class="rbody">
+        <div class="arg">
+          <div class="a-lead">Differentiate on <b>opinion, not logistics</b>. Type-led, dark-green editorial posts and teaching carousels that argue the philosophy and explain natural wine. Positions NWFA as the smart, opinionated voice of the scene.</div>
+          <dl>
+            <dt>argues</dt><dd>authority + brand. Quotable, screenshot-able, press-worthy</dd>
+            <dt>best for</dt><dd>building a distinctive reputation and PR pull</dd>
+            <dt>trade-off</dt><dd>copy-heavy; lower frequency; not directly selling tickets</dd>
+            <dt>cadence</dt><dd>low &amp; deliberate — 2 strong pieces a week</dd>
+          </dl>
+        </div>
+        <div class="samples">
+          <div class="post quote dark"><div class="pad"><div class="eb">below the hype</div><div class="big" style="margin-top:3cqw;">it's just<br><span class="ac">common sense.</span></div></div></div>
+          <div class="post quote dark"><div class="pad"><div class="eb">a field guide · 01</div><div class="big" style="margin-top:3cqw;">what <span class="ac">is</span><br>natural<br>wine?</div><div class="eb" style="margin-top:auto;color:#F0EAD9;opacity:.6;">swipe to learn →</div></div></div>
+          <div class="post quote dark"><div class="pad"><div class="big" style="font-size:8.5cqw;">nothing<br>added.<br><span class="ac">nothing<br>taken away.</span></div><div class="vk" style="margin-top:auto;">united by wine</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= ROUTE 4 ============================= -->
+    <div id="r4" class="route">
+      <div class="rhead"><span class="num">ROUTE 04</span><h3>conversion</h3><span class="tagline">every post earns a ticket</span></div>
+      <div class="rbody">
+        <div class="arg">
+          <div class="a-lead">The account exists to <b>sell a one-day event</b>. Every post moves someone toward a ticket: countdowns, what's-included, price clarity, line-up FOMO, "tickets live". The Label's spec-strip is built for legible info.</div>
+          <dl>
+            <dt>argues</dt><dd>revenue. Fixes the current site's hidden-price / weak-CTA problem</dd>
+            <dt>best for</dt><dd>the campaign window — driving measurable ticket sales</dd>
+            <dt>trade-off</dt><dd>transactional if it's the only mode; bursty around launch/event</dd>
+            <dt>cadence</dt><dd>campaign bursts — countdown rhythm, hard CTAs</dd>
+          </dl>
+        </div>
+        <div class="samples">
+          <div class="post date dark"><div class="pad"><div class="eb" style="color:#C79A4E;">countdown</div><div class="lot" style="margin-top:auto;">t–30</div><div class="sub">days · lot 23.11.26</div></div></div>
+          <div class="post announce bord"><div class="pad"><div class="lrow"><span>included</span><span>one ticket</span></div><div class="pname" style="font-size:7cqw;margin-top:auto;">what's in<br>the day</div><div class="specs"><div class="c"><div class="k">tasting</div><div class="val">unltd.</div></div><div class="c"><div class="k">oysters</div><div class="val">all day</div></div><div class="c"><div class="k">lessons</div><div class="val">25+</div></div><div class="c"><div class="k">kitchen</div><div class="val">til 22</div></div></div></div></div>
+          <div class="post photo cta-photo"><div class="bg"><img src="concept-assets/photo-3.jpg" alt=""></div><div class="scrim"></div><div class="cap" style="bottom:auto;top:0;"><div class="eb" style="color:#E7C87A;">tickets are live</div><div class="t" style="font-size:6.5cqw;">€32,50<br>festival pass</div></div><div class="btn">take your place →</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= VERDICT ============================= -->
+    <div class="verdict">
+      <h3>my take</h3>
+      <p><b>Route 1 (the register)</b> is the strongest spine — it's the most "you", it's evergreen, and it turns the empty line-up problem from the live site into your best content. Run it as the backbone, <b>layer Route 4 (conversion)</b> in the 6–8 weeks before the event, and use <b>Route 3 (manifesto)</b> sparingly for the screenshot-worthy moments. That's the system: register-led, with conversion and manifesto as post-types inside it.</p>
+    </div>
+
+  </div>
+
+  <script src="comments.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

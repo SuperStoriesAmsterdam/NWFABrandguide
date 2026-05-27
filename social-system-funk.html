@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — social system · funk</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#b4ae9f;color:#222;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+
+  .index{position:sticky;top:0;z-index:50;background:#2f4a36;color:#F2E9D4;display:flex;align-items:center;gap:18px;padding:14px 30px;font-size:13px;flex-wrap:wrap;}
+  .index strong{font-weight:700;}
+  .index .sp{flex:1;}
+  .index a{color:#E0A92E;text-decoration:none;font-weight:600;}
+  .index a:hover{color:#fff;}
+
+  .intro{max-width:1180px;margin:0 auto;padding:54px 30px 8px;}
+  .intro .tag{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7a7460;}
+  .intro h2{font-weight:700;font-size:clamp(26px,3.4vw,40px);line-height:1.05;margin:9px 0 12px;color:#1c211b;letter-spacing:-.02em;}
+  .intro p{max-width:82ch;font-size:15px;line-height:1.62;color:#3a3a32;}
+  .intro p b{color:#1c211b;}
+
+  .stage{max-width:1180px;margin:0 auto;padding:20px 30px 60px;}
+  .blocklabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#3a382f;margin:46px 0 20px;border-top:1px solid rgba(0,0,0,.18);padding-top:18px;}
+  .blocklabel span{color:#7a7460;font-weight:500;letter-spacing:.02em;text-transform:none;font-size:13px;margin-left:10px;}
+
+  /* ============ POST PRIMITIVE ============ */
+  .post{container-type:inline-size;aspect-ratio:1/1;overflow:hidden;position:relative;}
+  .post.cream{--bg:#F0E7D2;--ink:#23301f;--accent:#C9602F;}
+  .post.moss{--bg:#2f4a36;--ink:#F2E9D4;--accent:#E0A92E;}
+  .post.terra{--bg:#C9602F;--ink:#FBEFD9;--accent:#2f4a36;}
+  .post.mustard{--bg:#E0A92E;--ink:#23301f;--accent:#7e2f3a;}
+  .post.wine{--bg:#7e2f3a;--ink:#F6E6D2;--accent:#E0A92E;}
+  .post{background:var(--bg);color:var(--ink);}
+  .post .pad{position:absolute;inset:0;padding:7cqw;display:flex;flex-direction:column;z-index:2;}
+
+  .fk{font-family:'Vicky';text-transform:lowercase;line-height:.84;letter-spacing:0;}
+  .eb{font-size:2.9cqw;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .pill{display:inline-block;border-radius:100cqw;padding:1.5cqw 3.2cqw;font-size:2.7cqw;font-weight:800;text-transform:lowercase;letter-spacing:.01em;line-height:1;}
+  .seal{position:absolute;z-index:3;width:22cqw;height:auto;}
+  .wm{position:absolute;z-index:1;pointer-events:none;}
+
+  /* hero */
+  .post.hero .pad{justify-content:space-between;}
+  .post.hero .wm{right:-14cqw;top:-10cqw;width:56cqw;opacity:.9;}
+  .post.hero .name{font-size:15cqw;}
+  .post.hero .pay{color:var(--accent);font-size:7cqw;margin-top:3cqw;}
+
+  /* maker */
+  .post.maker .pad{padding:5.5cqw;}
+  .post.maker .top{display:flex;justify-content:space-between;align-items:center;}
+  .post.maker .top .eb{color:var(--accent);}
+  .post.maker .top img{height:8cqw;}
+  .post.maker .ph{flex:1;overflow:hidden;border-radius:4cqw;margin:3cqw 0;}
+  .post.maker .ph img{width:100%;height:100%;object-fit:cover;}
+  .post.maker .name{font-size:9.5cqw;}
+  .post.maker .tags{display:flex;flex-wrap:wrap;gap:1.6cqw;margin-top:2.6cqw;}
+  .post.maker .tags .pill{background:var(--accent);color:#F0E7D2;}
+  .post.maker .tags .pill.reg{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 0.4cqw var(--ink);}
+
+  /* the day */
+  .post.day .pad{padding:5.5cqw;}
+  .post.day .name{font-size:8.5cqw;}
+  .post.day .grid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqw;margin-top:3cqw;}
+  .post.day .cellp{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:3.5cqw;background:rgba(240,231,210,.08);box-shadow:inset 0 0 0 0.4cqw color-mix(in srgb,var(--accent) 60%,transparent);padding:2cqw 1cqw;}
+  .post.day .cellp img{width:62%;max-width:15cqw;margin-bottom:1cqw;}
+  .post.day .cellp .t{font-size:2.4cqw;font-weight:800;text-transform:lowercase;color:var(--accent);}
+
+  /* manifesto */
+  .post.quote .pad{justify-content:center;}
+  .post.quote .big{font-size:16cqw;}
+  .post.quote .big .ac{color:var(--accent);}
+  .post.quote .eb{margin-bottom:2cqw;}
+  .post.quote .pay{margin-top:5cqw;color:var(--accent);font-size:5.5cqw;}
+
+  /* lessons */
+  .post.lesson .pad{padding:5.5cqw;}
+  .post.lesson .ico{width:34cqw;margin-bottom:auto;}
+  .post.lesson .big{font-size:10.5cqw;}
+  .post.lesson .when{margin-top:3cqw;background:var(--accent);color:#23301f;align-self:flex-start;}
+
+  /* groove / payoff */
+  .post.groove .pad{justify-content:center;align-items:flex-start;}
+  .post.groove .big{font-size:15cqw;}
+  .post.groove .sub{font-size:3cqw;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-top:3cqw;opacity:.7;}
+
+  /* ticket */
+  .post.ticket{--ink:#FBEFD9;}
+  .post.ticket .bg{position:absolute;inset:0;z-index:0;}
+  .post.ticket .bg img{width:100%;height:100%;object-fit:cover;}
+  .post.ticket .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(125,47,58,.15),rgba(125,47,58,.82));}
+  .post.ticket .pad{z-index:2;justify-content:flex-end;}
+  .post.ticket .big{font-size:11cqw;}
+  .post.ticket .big .ac{color:#E0A92E;}
+  .post.ticket .cta{margin-top:3cqw;background:#E0A92E;color:#23301f;align-self:flex-start;font-size:3.2cqw;}
+
+  /* ============ feed grid ============ */
+  .feedwrap{display:grid;grid-template-columns:430px 1fr;gap:40px;align-items:start;}
+  .phone{background:#2f4a36;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(0,0,0,.6);}
+  .phead{padding:22px 20px 16px;background:#F0E7D2;color:#23301f;}
+  .phead .top{display:flex;align-items:center;gap:16px;}
+  .phead .av{width:62px;height:62px;border-radius:50%;background:#2f4a36;display:flex;align-items:center;justify-content:center;border:2px solid #E0A92E;overflow:hidden;}
+  .phead .av img{width:80%;}
+  .phead .nums{display:flex;gap:22px;flex:1;justify-content:space-around;text-align:center;}
+  .phead .nums b{display:block;font-size:16px;}
+  .phead .nums span{font-size:11px;opacity:.55;}
+  .phead .handle{font-weight:800;font-size:14px;margin-top:14px;text-transform:lowercase;}
+  .phead .bio{font-size:12.5px;line-height:1.45;opacity:.82;margin-top:3px;}
+  .phead .bio .link{color:#C9602F;font-weight:700;}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#23301f;}
+  .pgrid .post{aspect-ratio:1/1;}
+
+  .caption{font-size:12.5px;line-height:1.55;color:#3a382f;}
+  .caption .h{font-weight:700;color:#1c211b;display:block;margin:14px 0 5px;text-transform:lowercase;letter-spacing:-.01em;font-size:15px;}
+  .caption .h:first-child{margin-top:0;}
+  .caption b{color:#9b4a1f;}
+
+  .row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;}
+  .single .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3a382f;margin-top:12px;}
+  .single .lbl b{color:#C9602F;}
+  .single .lbl small{display:block;font-weight:500;letter-spacing:0;text-transform:none;opacity:.62;margin-top:4px;font-size:12px;line-height:1.45;}
+
+  @media(max-width:980px){.feedwrap{grid-template-columns:1fr;}.row3{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.row3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+  <div class="index">
+    <strong>NWFA · social system — funk</strong>
+    <span class="sp"></span>
+    <a href="#feed">the feed</a><a href="#types">post-types</a>
+    <a href="social-system.html" style="opacity:.8;">↔ refined</a>
+  </div>
+
+  <div class="intro">
+    <div class="tag">The funk cut</div>
+    <h2>Same system — looser, warmer, with groove</h2>
+    <p>Not punk, not precious. The register still leads, but the system gets a <b>warm colour-blocked palette</b> (moss, terracotta, mustard, wine), <b>Vicky going big and round</b>, rounded shapes and a looser voice. The icons stay full-colour and live where you want them — <b>on the moss-green blocks</b>. It's the festival with a glass in its hand instead of a clipboard.</p>
+  </div>
+
+  <div class="stage">
+
+    <!-- ===================== THE FEED ===================== -->
+    <div id="feed" class="blocklabel">01 — the feed <span>warm, color-blocked, same backbone</span></div>
+    <div class="feedwrap">
+      <div class="phone">
+        <div class="phead">
+          <div class="top">
+            <div class="av"><img src="concept-assets/badge.svg" alt=""></div>
+            <div class="nums"><div><b>176</b><span>posts</span></div><div><b>1.631</b><span>followers</span></div><div><b>293</b><span>following</span></div></div>
+          </div>
+          <div class="handle">natural wine festival a'dam</div>
+          <div class="bio">living wine, loosely held · de hallen · 23 nov '26<br>united by wine · <span class="link">naturalwinefestival.nl</span></div>
+        </div>
+        <div class="pgrid">
+          <!-- 1 hero (moss) -->
+          <div class="post hero moss"><img class="wm" src="concept-assets/win-winemakers.svg" alt=""><div class="pad"><div class="eb">natural wine · a'dam</div><div class="name fk">natural<br>wine<br>festival</div><div class="pay fk">united by wine</div></div></div>
+          <!-- 2 maker (cream) -->
+          <div class="post maker cream"><div class="pad"><div class="top"><span class="eb">makers · no.01</span><img src="concept-assets/win-winemakers.svg" alt=""></div><div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div><div class="name fk">oller<br>del mas</div><div class="tags"><span class="pill reg">catalonia</span><span class="pill">biodynamic</span></div></div></div>
+          <!-- 3 the day (moss) -->
+          <div class="post day moss"><div class="pad"><div class="name fk">all day.<br>all in.</div><div class="grid"><div class="cellp"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">tasting</div></div><div class="cellp"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">lessons</div></div><div class="cellp"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oysters</div></div><div class="cellp"><img src="concept-assets/ico-food.svg" alt=""><div class="t">kitchen</div></div><div class="cellp"><img src="concept-assets/ico-market.svg" alt=""><div class="t">market</div></div><div class="cellp" style="box-shadow:none;background:none;"><div class="fk" style="color:var(--accent);font-size:5cqw;">til late</div></div></div></div></div>
+          <!-- 4 manifesto (terra) -->
+          <div class="post quote terra"><div class="pad"><div class="eb">below the hype</div><div class="big fk">wine<br>that's<br><span class="ac">alive.</span></div></div></div>
+          <!-- 5 maker (cream) -->
+          <div class="post maker cream"><div class="pad"><div class="top"><span class="eb">makers · no.02</span><img src="concept-assets/win-winemakers.svg" alt=""></div><div class="ph"><img src="concept-assets/photo-12.jpg" alt=""></div><div class="name fk">le<br>coste</div><div class="tags"><span class="pill reg">lazio</span><span class="pill">zero added</span></div></div></div>
+          <!-- 6 lessons (moss) -->
+          <div class="post lesson moss"><div class="pad"><img class="ico" src="concept-assets/ico-mind.svg" alt=""><div class="big fk">learn the<br>good stuff.</div><span class="pill when">talha · 15:00</span></div></div>
+          <!-- 7 groove (mustard) -->
+          <div class="post groove mustard"><div class="pad"><div class="big fk">pour me<br>another.</div><div class="sub">see you 23 nov</div></div></div>
+          <!-- 8 maker (cream) -->
+          <div class="post maker cream"><div class="pad"><div class="top"><span class="eb">makers · no.03</span><img src="concept-assets/win-winemakers.svg" alt=""></div><div class="ph"><img src="concept-assets/photo-10.jpg" alt=""></div><div class="name fk">gut<br>oggau</div><div class="tags"><span class="pill reg">burgenland</span><span class="pill">biodynamic</span></div></div></div>
+          <!-- 9 ticket -->
+          <div class="post ticket"><div class="bg"><img src="concept-assets/photo-3.jpg" alt=""></div><div class="scrim"></div><div class="pad"><div class="eb" style="color:#E0A92E;">tickets live</div><div class="big fk">take your<br><span class="ac">place.</span></div><span class="pill cta">€32,50 — grab one →</span></div></div>
+        </div>
+      </div>
+      <div class="caption">
+        <span class="h">same bones, more groove</span>
+        The <b>register still leads</b> — makers numbered, flagged with the hand-and-bottle. But the connective tiles loosen up: <b>colour blocks</b> instead of cream-on-cream, <b>Vicky big and round</b> instead of tidy lowercase, <b>pills and rounded photos</b> instead of hard rules.
+        <span class="h">where it sits</span>
+        Between refined and punk: refined is the clipboard, punk is the middle finger, <b>funk is the party</b>. Icons keep their colour and live on the moss blocks, exactly where you wanted them.
+      </div>
+    </div>
+
+    <!-- ===================== POST TYPES ===================== -->
+    <div id="types" class="blocklabel">02 — the post-types <span>warm cut</span></div>
+    <div class="row3">
+
+      <div class="single">
+        <div class="post maker cream"><div class="pad">
+          <div class="top"><span class="eb">the makers · no.01</span><img src="concept-assets/win-winemakers.svg" alt=""></div>
+          <div class="ph"><img src="concept-assets/photo-7.jpg" alt=""></div>
+          <div class="name fk">oller<br>del mas</div>
+          <div class="tags"><span class="pill reg">catalonia, es</span><span class="pill">biodynamic</span><span class="pill">no sulphur</span></div>
+        </div></div>
+        <div class="lbl"><b>lead ·</b> maker reveal<small>Name big in Vicky, disclosure as pills. Warm, still the register.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post day moss"><div class="pad">
+          <div class="name fk">all day.<br>all in.</div>
+          <div class="grid">
+            <div class="cellp"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">tasting</div></div>
+            <div class="cellp"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">lessons</div></div>
+            <div class="cellp"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oysters</div></div>
+            <div class="cellp"><img src="concept-assets/ico-food.svg" alt=""><div class="t">kitchen</div></div>
+            <div class="cellp"><img src="concept-assets/ico-market.svg" alt=""><div class="t">market</div></div>
+            <div class="cellp" style="box-shadow:none;background:none;"><div class="fk" style="color:var(--accent);font-size:5.5cqw;">til late</div></div>
+          </div>
+        </div></div>
+        <div class="lbl">the day · plates on moss<small>Full-colour icons in rounded cells on moss green.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post quote terra"><div class="pad">
+          <div class="eb">below the hype</div>
+          <div class="big fk">wine<br>that's<br><span class="ac">alive.</span></div>
+          <div class="pay fk">united by wine</div>
+        </div></div>
+        <div class="lbl">manifesto<small>Big round Vicky on a terracotta block. Warm, quotable.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post lesson moss"><div class="pad">
+          <img class="ico" src="concept-assets/ico-mind.svg" alt="">
+          <div class="big fk">learn the<br>good stuff.</div>
+          <span class="pill when">montsant · 14:00</span>
+        </div></div>
+        <div class="lbl">the lessons<small>Icon-led, time on a pill. 25+ classes, loosely put.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post groove mustard"><div class="pad">
+          <div class="big fk">pour me<br>another.</div>
+          <div class="sub">united by wine · 23 nov</div>
+        </div></div>
+        <div class="lbl">groove / filler<small>The pure-vibe tile — keeps the grid warm between the work.</small></div>
+      </div>
+
+      <div class="single">
+        <div class="post ticket"><div class="bg"><img src="concept-assets/photo-3.jpg" alt=""></div><div class="scrim"></div><div class="pad">
+          <div class="eb" style="color:#E0A92E;">23 nov '26 · tickets live</div>
+          <div class="big fk">take your<br><span class="ac">place.</span></div>
+          <span class="pill cta">€32,50 — festival pass →</span>
+        </div></div>
+        <div class="lbl">conversion / ticket<small>Warm overlay, mustard pill CTA. Converts with a smile.</small></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="comments.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

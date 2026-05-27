@@ -3,221 +3,283 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NWFA — two routes (sans, reworked)</title>
+<title>NWFA — two homepages (label · almanac), with photography</title>
 <style>
-  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
 
-  :root{--sans:'Figtree',system-ui,sans-serif;}
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{font-family:var(--sans);background:#b4ae9f;color:#222;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#b4ae9f;color:#222;-webkit-font-smoothing:antialiased;}
+  img{display:block;}
 
-  .index{position:sticky;top:0;z-index:50;background:#161a16;color:#efe9db;display:flex;align-items:center;gap:24px;padding:14px 30px;font-size:13px;}
+  /* ---------- presentation chrome (not part of the design) ---------- */
+  .index{position:sticky;top:0;z-index:50;background:#161a16;color:#efe9db;display:flex;align-items:center;gap:22px;padding:14px 30px;font-size:13px;}
   .index strong{font-weight:600;}
   .index .sp{flex:1;}
   .index a{color:#cfc4a4;text-decoration:none;font-weight:500;}
   .index a:hover{color:#fff;}
+  .index .ghost{opacity:.6;}
 
-  .intro{max-width:1180px;margin:0 auto;padding:60px 30px 26px;}
+  .intro{max-width:1180px;margin:0 auto;padding:56px 30px 22px;}
   .intro .tag{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7a7460;}
-  .intro h2{font-weight:700;font-size:clamp(28px,3.8vw,42px);line-height:1.04;margin:10px 0 14px;color:#1c211b;letter-spacing:-.02em;}
-  .intro p{max-width:74ch;font-size:15px;line-height:1.65;color:#3a3a32;}
-  .intro .sws{display:flex;gap:8px;margin-top:18px;align-items:center;}
-  .intro .sw{width:28px;height:28px;border-radius:5px;border:1px solid rgba(0,0,0,.15);}
-  .intro .voice{color:#6a6452;margin-left:8px;font-size:14px;font-weight:500;}
+  .intro h2{font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.04;margin:9px 0 12px;color:#1c211b;letter-spacing:-.02em;}
+  .intro p{max-width:78ch;font-size:15px;line-height:1.62;color:#3a3a32;}
+  .intro p b{color:#1c211b;}
 
-  .browser{max-width:1180px;margin:0 auto 36px;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(0,0,0,.6);}
+  .browser{max-width:1180px;margin:0 auto 40px;border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -28px rgba(0,0,0,.6);}
   .chrome{display:flex;align-items:center;gap:8px;padding:11px 16px;background:#e7e3da;border-bottom:1px solid #d4cfc2;}
   .chrome .dot{width:11px;height:11px;border-radius:50%;background:#c3bdaf;}
-  .chrome .url{margin-left:14px;background:#fff;border-radius:7px;padding:5px 14px;font-size:12px;color:#6a6556;flex:1;max-width:340px;}
+  .chrome .url{margin-left:14px;background:#fff;border-radius:7px;padding:5px 14px;font-size:12px;color:#6a6556;flex:1;max-width:330px;}
 
-  .home{background:var(--bg);color:var(--ink);font-size:17px;}
-  .home .wrap{max-width:1040px;margin:0 auto;padding:0 64px;}
-  .home a{color:inherit;}
-
-  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
-  .display{font-weight:700;letter-spacing:-.025em;line-height:.98;text-transform:lowercase;font-size:clamp(50px,7vw,94px);}
-  .display .ac{color:var(--accent);}
+  /* ---------- shared homepage primitives ---------- */
+  .home{background:var(--bg);color:var(--ink);font-size:16px;}
+  .home a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 56px;}
   .payoff{font-family:'Vicky';color:var(--accent);text-transform:lowercase;line-height:1;}
-  .lead{font-size:clamp(16px,1.35vw,19px);line-height:1.6;opacity:.74;font-weight:400;}
-  .meta{font-size:12.5px;font-weight:600;letter-spacing:.04em;opacity:.5;text-transform:uppercase;}
-  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:14px;letter-spacing:.01em;padding:14px 28px;border-radius:100px;text-decoration:none;}
-  .btn--ghost{background:transparent;color:var(--ink);border:1px solid color-mix(in srgb,var(--ink) 35%,transparent);}
-  .btn--light{background:#f3eee1;color:#1c211b;}
-  .cta-row{display:flex;gap:14px;align-items:center;margin-top:36px;flex-wrap:wrap;}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:13.5px;padding:13px 26px;border-radius:100px;}
+  .btn--ghost{background:transparent;color:var(--ink);border:1.4px solid color-mix(in srgb,var(--ink) 38%,transparent);}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:30px;}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
 
-  .nav{display:flex;align-items:center;gap:26px;padding:26px 64px;}
-  .nav .bm{font-weight:700;letter-spacing:-.02em;text-transform:lowercase;line-height:.95;font-size:16px;}
+  .nav{display:flex;align-items:center;gap:24px;padding:24px 56px;font-size:14px;}
+  .nav .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;}
   .nav .bm span{display:block;}
-  .nav .links{display:flex;gap:28px;margin-left:auto;align-items:center;font-size:14px;font-weight:500;}
-  .nav .links a{text-decoration:none;opacity:.66;}
-  .nav .links a:hover{opacity:1;}
-
-  .sec{padding:128px 0;}
-  .sec--tight{padding:96px 0;}
-  .shead{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
-  .stitle{font-weight:600;letter-spacing:-.02em;text-transform:lowercase;font-size:clamp(30px,3.8vw,52px);line-height:1.02;}
+  .nav .lk{margin-left:auto;display:flex;gap:24px;align-items:center;font-weight:500;}
+  .nav .lk a{opacity:.66;}
+  .nav .lk a:hover{opacity:1;}
 
   .stats{display:flex;}
-  .stats .s{flex:1;padding:34px 0;}
-  .stats .s + .s{border-left:1px solid color-mix(in srgb,var(--ink) 12%,transparent);padding-left:34px;}
-  .stats .n{font-weight:700;font-size:clamp(36px,4vw,56px);line-height:1;letter-spacing:-.03em;}
-  .stats .l{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-top:12px;}
+  .stats .s{flex:1;padding:30px 0;}
+  .stats .s + .s{border-left:1px solid color-mix(in srgb,var(--ink) 16%,transparent);padding-left:30px;}
+  .stats .n{font-weight:700;font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-.03em;}
+  .stats .l{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-top:11px;}
 
-  /* full-bleed life band */
   .band{position:relative;overflow:hidden;}
-  .band img{width:100%;height:420px;object-fit:cover;display:block;}
-  .band .cap{position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 64px 46px;background:linear-gradient(180deg,rgba(18,24,18,0) 40%,rgba(18,24,18,.62) 100%);}
-  .band .cap .t{color:#f4efe2;font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.6vw,46px);line-height:1.02;max-width:20ch;}
+  .band img{width:100%;height:440px;object-fit:cover;}
+  .band .cap{position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 56px 44px;background:linear-gradient(180deg,rgba(16,22,16,0) 38%,rgba(16,22,16,.66) 100%);}
+  .band .cap .t{color:#f4efe2;font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(26px,3.4vw,44px);line-height:1.04;max-width:22ch;}
 
-  .windows{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;margin-top:64px;}
-  .window{text-align:center;}
-  .window img{width:138px;height:138px;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.16));}
-  .window .lbl{font-weight:600;text-transform:lowercase;font-size:24px;margin-top:22px;letter-spacing:-.015em;}
-  .window .ln{font-size:14px;opacity:.6;margin-top:9px;line-height:1.5;font-weight:400;}
+  .news{text-align:center;padding:42px 0;}
+  .news .field{margin-top:24px;display:flex;gap:10px;max-width:430px;margin-inline:auto;}
+  .news input{flex:1;border:1.4px solid color-mix(in srgb,var(--ink) 24%,transparent);background:transparent;border-radius:100px;padding:14px 22px;font-family:inherit;font-size:14px;color:var(--ink);}
 
-  .makers{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:60px;}
-  .mk .ph{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
-  .mk .nm{font-weight:600;text-transform:lowercase;font-size:23px;margin-top:18px;letter-spacing:-.015em;}
-  .mk .rg{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-top:6px;}
-
-  .wl{margin-top:58px;}
-  .wl .row{display:flex;align-items:baseline;gap:28px;padding:28px 0;border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent);}
-  .wl .row:last-child{border-bottom:1px solid color-mix(in srgb,var(--ink) 12%,transparent);}
-  .wl .row .t{font-weight:600;text-transform:lowercase;font-size:clamp(23px,2.4vw,31px);letter-spacing:-.02em;flex:none;width:46%;}
-  .wl .row .d{font-size:14.5px;opacity:.6;line-height:1.5;font-weight:400;}
-  .wl .row .tm{margin-left:auto;font-size:12.5px;font-weight:600;letter-spacing:.08em;opacity:.45;}
-
-  .feat{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center;}
-  .feat .badge{width:100%;max-width:230px;margin:0 auto;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.16));}
-  .feat .fimg{width:100%;aspect-ratio:4/3;object-fit:cover;}
-
-  .story .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(42px,6vw,86px);line-height:.98;max-width:15ch;}
-  .story .big .ac{color:var(--accent);}
-  .story p{max-width:52ch;font-size:17px;line-height:1.7;opacity:.74;margin-top:28px;font-weight:400;}
-
-  .news{text-align:center;padding:46px 0;}
-  .news .field{margin-top:28px;display:flex;gap:10px;max-width:420px;margin-left:auto;margin-right:auto;}
-  .news input{flex:1;border:1px solid color-mix(in srgb,var(--ink) 22%,transparent);background:transparent;border-radius:100px;padding:15px 22px;font-family:var(--sans);font-size:14px;color:var(--ink);}
-
-  .foot{padding:66px 0 54px;border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent);}
+  .foot{padding:60px 0 52px;border-top:1px solid color-mix(in srgb,var(--ink) 16%,transparent);}
   .foot .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end;}
-  .foot .pf{font-family:'Vicky';color:var(--accent);font-size:40px;line-height:.9;text-transform:lowercase;}
-  .foot .cols{display:flex;gap:54px;font-size:14px;}
-  .foot .cols a{display:block;opacity:.6;text-decoration:none;margin-bottom:9px;font-weight:400;}
-  .foot .law{font-size:11.5px;opacity:.42;letter-spacing:.06em;text-transform:uppercase;margin-top:42px;}
+  .foot .pf{font-family:'Vicky';color:var(--accent);font-size:38px;line-height:.9;text-transform:lowercase;}
+  .foot .cols{display:flex;gap:50px;font-size:14px;}
+  .foot .cols a{display:block;opacity:.6;margin-bottom:9px;}
+  .foot .law{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.42;margin-top:40px;}
 
-  .heroA{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:92px 0 96px;}
-  .heroA .rose{width:100%;max-width:340px;margin:0 auto;display:block;filter:drop-shadow(0 26px 48px rgba(0,0,0,.2));}
+  /* ============================================================ HOME · THE LABEL */
+  .home-label{--bg:#ECE6D6;--ink:#1B3326;--accent:#9F6E29;--line:#1B3326;}
+  .home-label .frame{border:1.6px solid var(--line);margin:8px 56px 0;}
+  .home-label .lhead{display:flex;justify-content:space-between;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:16px 30px;border-bottom:1.4px solid var(--line);opacity:.85;}
+  .home-label .hgrid{display:grid;grid-template-columns:1.05fr .95fr;}
+  .home-label .hgrid .htext{padding:44px 30px 40px;}
+  .home-label .hgrid .hphoto{border-left:1.4px solid var(--line);overflow:hidden;}
+  .home-label .hgrid .hphoto img{width:100%;height:100%;min-height:340px;object-fit:cover;}
+  .home-label .lname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;font-size:clamp(42px,5.6vw,76px);}
+  .home-label .lsub{font-size:13px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;opacity:.7;margin-top:18px;}
+  .home-label .htext .payoff{font-size:clamp(18px,1.9vw,26px);margin-top:11px;}
+  .home-label .specstrip{display:grid;grid-template-columns:repeat(4,1fr) auto;border-top:1.4px solid var(--line);}
+  .home-label .specstrip .cell{padding:18px 22px;border-right:1px solid color-mix(in srgb,var(--ink) 22%,transparent);}
+  .home-label .specstrip .cell .k{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.55;}
+  .home-label .specstrip .cell .v{font-weight:700;font-size:17px;letter-spacing:-.01em;margin-top:7px;}
+  .home-label .specstrip .stampcell{display:flex;align-items:center;justify-content:center;padding:14px 24px;}
+  .home-label .stamp{border:1.5px solid var(--accent);color:var(--accent);padding:11px 16px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px;line-height:1.35;text-align:center;border-radius:3px;transform:rotate(-5deg);}
 
-  .heroB{position:relative;}
-  .heroB img.bg{width:100%;height:620px;object-fit:cover;display:block;}
-  .heroB .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,18,0) 36%,rgba(18,24,18,.66) 100%);}
-  .heroB .in{position:absolute;left:0;right:0;bottom:0;padding:0 64px 66px;}
-  .heroB .in .w2{max-width:1040px;margin:0 auto;color:#f3eee1;}
-  .heroB .display{color:#f6f1e6;}
-  .heroB .display .ac{color:#e7c87a;}
-  .heroB .payoff{color:#e7c87a;}
-  .heroB .eyebrow{color:#e7c87a;}
+  .home-label .sec{padding:104px 0;}
+  .home-label .seclabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .home-label .sectitle{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.4vw,46px);margin-top:8px;line-height:1.02;}
+  .home-label .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px;}
+  .home-label .card{border:1.4px solid var(--line);overflow:hidden;}
+  .home-label .card img{width:100%;aspect-ratio:4/3.2;object-fit:cover;border-bottom:1.4px solid var(--line);}
+  .home-label .card .cb{padding:20px 22px 22px;}
+  .home-label .card .cn{font-weight:700;text-transform:lowercase;font-size:21px;letter-spacing:-.01em;}
+  .home-label .card .cr{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:4px 0 14px;}
+  .home-label .card .row{display:flex;justify-content:space-between;font-size:12.5px;padding:7px 0;border-bottom:1px dotted color-mix(in srgb,var(--ink) 32%,transparent);}
+  .home-label .card .row .k{opacity:.55;text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:700;}
+  .home-label .twocol{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .home-label .twocol img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1.4px solid var(--line);}
+  .home-label .wl{margin-top:8px;}
+  .home-label .wl .row{display:flex;align-items:baseline;gap:22px;padding:20px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 16%,transparent);}
+  .home-label .wl .row .t{font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.02em;flex:none;width:48%;}
+  .home-label .wl .row .d{font-size:13.5px;opacity:.6;line-height:1.5;}
+  .home-label .wl .row .tm{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.08em;opacity:.45;}
+  .home-label .story .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(40px,5.4vw,78px);line-height:.98;max-width:15ch;}
+  .home-label .story .big .ac{color:var(--accent);}
+  .home-label .story p{max-width:54ch;font-size:16px;line-height:1.7;opacity:.74;margin-top:26px;}
 
-  @media(max-width:840px){
-    .heroA,.feat{grid-template-columns:1fr;}
-    .makers,.windows{grid-template-columns:1fr;}
-    .wl .row{flex-wrap:wrap;gap:8px;}.wl .row .t{width:100%;}
-    .home .wrap,.nav,.heroB .in,.band .cap{padding-left:26px;padding-right:26px;}
-    .nav .links{display:none;}
+  /* ============================================================ HOME · THE ALMANAC */
+  .home-almanac{--bg:#F0EBDC;--ink:#26302A;--accent:#9F6E29;}
+  .home-almanac .frontis{text-align:center;padding:74px 0 0;}
+  .home-almanac .frontis .ed{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;opacity:.55;}
+  .home-almanac .frontis .guide{font-weight:600;text-transform:lowercase;font-size:clamp(15px,1.6vw,19px);letter-spacing:.02em;opacity:.8;margin-top:22px;}
+  .home-almanac .frontis .aname{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;line-height:.94;font-size:clamp(42px,6vw,82px);margin:6px 0 10px;}
+  .home-almanac .frontis .aname .ac{color:var(--accent);}
+  .home-almanac .frontis .payoff{font-size:clamp(26px,3vw,40px);}
+  .home-almanac .plate{margin:42px auto 0;max-width:980px;border:1px solid color-mix(in srgb,var(--ink) 30%,transparent);padding:10px;}
+  .home-almanac .plate img{width:100%;height:clamp(280px,42vw,440px);object-fit:cover;}
+  .home-almanac .plate .fig{text-align:left;font-style:italic;font-size:12.5px;opacity:.62;padding:12px 6px 4px;line-height:1.5;}
+  .home-almanac .frontis .cta-row{justify-content:center;margin-top:34px;}
+
+  .home-almanac .sec{padding:92px 0;}
+  .home-almanac .seclabel{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:flex;justify-content:space-between;border-bottom:1px solid color-mix(in srgb,var(--ink) 26%,transparent);padding-bottom:12px;}
+  .home-almanac .entry{display:grid;grid-template-columns:48px 1fr 300px;gap:30px;padding:30px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);align-items:center;}
+  .home-almanac .entry .no{font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.04em;align-self:start;padding-top:4px;}
+  .home-almanac .entry .nm{font-weight:700;text-transform:lowercase;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;}
+  .home-almanac .entry .cls{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:8px 0 12px;}
+  .home-almanac .entry .desc{font-size:14.5px;line-height:1.6;opacity:.74;max-width:48ch;}
+  .home-almanac .entry .more{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);}
+  .home-almanac .entry .ph{width:300px;}
+  .home-almanac .entry .ph img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .home-almanac .entry .ph .fc{font-style:italic;font-size:11.5px;opacity:.55;margin-top:8px;line-height:1.45;}
+
+  .home-almanac .plates{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid color-mix(in srgb,var(--ink) 26%,transparent);margin-top:8px;}
+  .home-almanac .plates .p{padding:28px 16px;text-align:center;border-right:1px solid color-mix(in srgb,var(--ink) 18%,transparent);}
+  .home-almanac .plates .p:last-child{border-right:none;}
+  .home-almanac .plates .p img{width:60px;margin:0 auto 14px;}
+  .home-almanac .plates .p .t{font-weight:700;text-transform:lowercase;font-size:15px;}
+  .home-almanac .plates .p .fig{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.45;margin-top:6px;}
+  .home-almanac .story{text-align:center;padding:96px 0;}
+  .home-almanac .story .big{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(40px,5.4vw,78px);line-height:.98;max-width:16ch;margin-inline:auto;}
+  .home-almanac .story .big .ac{color:var(--accent);}
+  .home-almanac .story p{max-width:54ch;margin:24px auto 0;opacity:.74;line-height:1.7;}
+
+  @media(max-width:860px){
+    .wrap,.nav,.band .cap{padding-left:24px;padding-right:24px;}
+    .nav .lk{display:none;}
+    .home-label .frame{margin-left:24px;margin-right:24px;}
+    .home-label .hgrid{grid-template-columns:1fr;}
+    .home-label .hgrid .hphoto{border-left:none;border-top:1.4px solid var(--line);}
+    .home-label .specstrip{grid-template-columns:1fr 1fr;}
+    .home-label .specstrip .stampcell{grid-column:1 / -1;}
+    .home-label .cards,.home-label .twocol{grid-template-columns:1fr;}
+    .home-label .wl .row{flex-wrap:wrap;gap:6px;}.home-label .wl .row .t{width:100%;}
+    .home-almanac .entry{grid-template-columns:1fr;}
+    .home-almanac .entry .ph{width:100%;}
+    .home-almanac .plates{grid-template-columns:repeat(2,1fr);}
   }
 </style>
 </head>
 <body>
 
   <div class="index">
-    <strong>NWFA · sans (Figtree), no Vicky — A reworked for energy</strong>
+    <strong>NWFA · two homepages — built in the language of 1 (the label) &amp; 3 (the almanac)</strong>
     <span class="sp"></span>
-    <a href="#A">A · The Church</a>
-    <a href="#B">B · Community</a>
+    <a href="#L">1 · Label home</a>
+    <a href="#A">2 · Almanac home</a>
+    <a class="ghost" href="concepts-systems.html">inner pages →</a>
   </div>
 
-  <!-- ============================ ROUTE A ============================ -->
-  <section id="A">
+  <!-- ===================================== HOME 1 · THE LABEL ===================================== -->
+  <section id="L">
     <div class="intro">
-      <div class="tag">Route A — reworked</div>
-      <h2>The Church of Natural Wine</h2>
-      <p>Back to the sans from your flyer (Figtree), no Vicky, no serif. And A is no longer a quiet brochure: a bigger glowing rose-window hero, real energy from the crowd, bolder type and cooler copy — the church idea, but <em>alive</em>. Tell me if this is the kind of "engaging" you mean, or push it further.</p>
-      <div class="sws">
-        <span class="sw" style="background:#EDE7D9"></span><span class="sw" style="background:#1B3527"></span><span class="sw" style="background:#A8742A"></span>
-        <span class="voice">friendly sans · bold name · light everything else</span>
-      </div>
+      <div class="tag">Homepage 1</div>
+      <h2>The Label — as a front door</h2>
+      <p>The disclosure system from page 1, turned into an actual homepage: a hero that reads like the front of a wine label, but <b>photography now carries it</b> — the people, the pours, the room. The spec row makes the whole day legible at a glance (growers · wines · lessons · door time), and every section routes into the deeper "register" page. Warm, confident, and unmistakably yours.</p>
     </div>
-
     <div class="browser">
       <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">naturalwinefestival.nl</span></div>
-      <div class="home" style="--bg:#EDE7D9;--ink:#1B3527;--accent:#A8742A;">
+      <div class="home home-label">
 
         <nav class="nav">
           <div class="bm"><span>natural wine festival</span><span>a'dam</span></div>
-          <div class="links"><a href="#">the makers</a><a href="#">the lessons</a><a href="#">the supper</a><a href="#" class="btn">take your place</a></div>
+          <div class="lk"><a href="#">the makers</a><a href="#">the lessons</a><a href="#">the supper</a><a href="#" class="btn">take your place</a></div>
         </nav>
 
-        <div class="wrap">
-          <div class="heroA">
-            <div>
-              <div class="eyebrow">the church of natural wine</div>
-              <h1 class="display" style="margin:18px 0 12px;">natural<br>wine festival<br><span class="ac">a'dam</span></h1>
-              <div class="payoff" style="font-size:clamp(30px,3.6vw,50px);">united by wine</div>
-              <p class="lead" style="margin-top:28px;max-width:36ch;">Meet the people who grow it. Ask anything. Leave knowing why it tastes different.</p>
-              <div class="cta-row"><a href="#" class="btn">take your place</a><a href="#" class="btn btn--ghost">23 nov · de hallen</a></div>
+        <div class="frame">
+          <div class="lhead"><span>natural wine · amsterdam</span><span>edition 03 — lot 23.11.26</span></div>
+          <div class="hgrid">
+            <div class="htext">
+              <h1 class="lname">natural<br>wine festival<br>a'dam</h1>
+              <div class="payoff">united by wine</div>
+              <div class="lsub">a one-day festival of living wine · de hallen, amsterdam</div>
+              <div class="cta-row"><a href="#" class="btn">take your place →</a><a href="#" class="btn btn--ghost">sat 23 nov '26</a></div>
             </div>
-            <img class="rose" src="concept-assets/rose.svg" alt="rose window">
+            <div class="hphoto"><img src="concept-assets/photo-3.jpg" alt="two visitors sharing a bottle at the festival"></div>
+          </div>
+          <div class="specstrip">
+            <div class="cell"><div class="k">contents</div><div class="v">60+ growers</div></div>
+            <div class="cell"><div class="k">poured</div><div class="v">300+ wines</div></div>
+            <div class="cell"><div class="k">lessons</div><div class="v">25+ classes</div></div>
+            <div class="cell"><div class="k">doors</div><div class="v">13:00–22:00</div></div>
+            <div class="stampcell"><div class="stamp">nothing added<br>nothing taken away</div></div>
           </div>
         </div>
 
-        <div class="band">
-          <img src="concept-assets/photo-4.jpg" alt="">
-          <div class="cap"><div class="t">once a year, all of amsterdam gathers around the bottle.</div></div>
-        </div>
-
-        <div class="wrap" style="padding-top:80px;">
-          <div class="stats">
-            <div class="s"><div class="n">60+</div><div class="l">makers</div></div>
-            <div class="s"><div class="n">300+</div><div class="l">living wines</div></div>
-            <div class="s"><div class="n">25+</div><div class="l">lessons</div></div>
-          </div>
+        <div class="band" style="margin-top:104px;">
+          <img src="concept-assets/photo-9.jpg" alt="visitors tasting at a winemaker's table">
+          <div class="cap"><div class="t">300+ living wines, poured by the people who made them.</div></div>
         </div>
 
         <div class="wrap sec">
-          <div class="shead" style="text-align:center;">the order of service</div>
-          <div class="stitle" style="text-align:center;">find your window</div>
-          <div class="windows">
-            <div class="window"><img src="concept-assets/win-winemakers.svg" alt=""><div class="lbl">the makers</div><div class="ln">60+ growers, pouring 300+ wines. Ask them anything.</div></div>
-            <div class="window"><img src="concept-assets/win-workshops.svg" alt=""><div class="lbl">the lessons</div><div class="ln">Soil, sulphur, amphorae — learn from the source.</div></div>
-            <div class="window"><img src="concept-assets/win-dinner.svg" alt=""><div class="lbl">the supper</div><div class="ln">An invite-only dinner with the winemakers.</div></div>
-          </div>
-        </div>
-
-        <div class="wrap sec--tight story">
-          <div class="shead">below the hype</div>
-          <div class="big">it’s not cool. it’s just <span class="ac">common sense.</span></div>
-          <p>People who farm without chemicals and let the wine reflect the ground it came from — the proverbial canaries in the coal mine of agriculture. We salute them, and we’d like you to meet them.</p>
-        </div>
-
-        <div class="wrap sec--tight">
-          <div class="feat">
-            <img class="badge" src="concept-assets/win-dinner.svg" alt="winemaker's dinner">
-            <div>
-              <div class="shead">the supper · invite only</div>
-              <div class="stitle">sit at the long table</div>
-              <p class="lead" style="margin-top:22px;">The winemakers cook and pour alongside the kitchen. Bring your questions.</p>
-              <div class="cta-row"><a href="#" class="btn">request a seat</a></div>
+          <div class="seclabel">the makers · full disclosure</div>
+          <div class="sectitle">60+ growers. nothing to hide.</div>
+          <div class="cards">
+            <div class="card"><img src="concept-assets/photo-7.jpg" alt="">
+              <div class="cb"><div class="cn">oller del mas</div><div class="cr">catalonia, es</div>
+                <div class="row"><span class="k">farming</span><span>biodynamic</span></div>
+                <div class="row"><span class="k">added yeast</span><span>none</span></div>
+                <div class="row"><span class="k">sulphur</span><span>&lt; 20 mg/l</span></div>
+              </div>
+            </div>
+            <div class="card"><img src="concept-assets/photo-11.jpg" alt="">
+              <div class="cb"><div class="cn">le coste</div><div class="cr">lazio, it</div>
+                <div class="row"><span class="k">farming</span><span>organic, wild</span></div>
+                <div class="row"><span class="k">added yeast</span><span>none</span></div>
+                <div class="row"><span class="k">sulphur</span><span>none</span></div>
+              </div>
+            </div>
+            <div class="card"><img src="concept-assets/photo-6.jpg" alt="">
+              <div class="cb"><div class="cn">gut oggau</div><div class="cr">burgenland, at</div>
+                <div class="row"><span class="k">farming</span><span>biodynamic</span></div>
+                <div class="row"><span class="k">added yeast</span><span>none</span></div>
+                <div class="row"><span class="k">sulphur</span><span>&lt; 10 mg/l</span></div>
+              </div>
             </div>
           </div>
+          <div class="cta-row"><a href="#" class="btn btn--ghost">read the full register →</a></div>
+        </div>
+
+        <div class="wrap sec" style="padding-top:0;">
+          <div class="twocol">
+            <img src="concept-assets/photo-11.jpg" alt="a masterclass in progress">
+            <div>
+              <div class="seclabel">the lessons · go beyond the hype</div>
+              <div class="sectitle">learn it from the source.</div>
+              <div class="wl">
+                <div class="row"><div class="t">montsant masterclass</div><div class="d">schist, garnacha &amp; altitude — a region in a glass.</div><div class="tm">14:00</div></div>
+                <div class="row"><div class="t">talha wine</div><div class="d">amphora winemaking, 2000 years in the making.</div><div class="tm">15:00</div></div>
+                <div class="row"><div class="t">to SO₂ or not</div><div class="d">the sulphur question, answered by people who live it.</div><div class="tm">17:00</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap sec" style="padding-top:0;">
+          <div class="twocol">
+            <div>
+              <div class="seclabel">the supper · invite only</div>
+              <div class="sectitle">sit at the long table.</div>
+              <p style="font-size:16px;line-height:1.7;opacity:.74;margin-top:22px;max-width:42ch;">One long table, one seating. The winemakers pour alongside the kitchen and the stories the labels can't tell. €39,95 — bring a bottle from the floor.</p>
+              <div class="cta-row"><a href="#" class="btn">request a seat</a></div>
+            </div>
+            <img src="concept-assets/photo-1.jpg" alt="the kitchen plating at the long table">
+          </div>
+        </div>
+
+        <div class="wrap sec story" style="padding-top:0;">
+          <div class="seclabel">below the hype</div>
+          <div class="big" style="margin-top:14px;">it's just <span class="ac">common sense.</span></div>
+          <p>Winemaking industrialised in the 20th century: fertiliser, pesticides, added yeasts, sulphites. These growers refused. They farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture.</p>
         </div>
 
         <div class="wrap">
           <div class="news">
-            <div class="shead">join the congregation</div>
-            <div class="stitle">be first to the bottle list</div>
+            <div class="seclabel">stay on the list</div>
+            <div class="sectitle">first to the bottle list, every edition.</div>
             <div class="field"><input placeholder="your email"><a href="#" class="btn">join</a></div>
           </div>
         </div>
@@ -231,110 +293,124 @@
               <div><a href="#">instagram</a><a href="#">newsletter</a></div>
             </div>
           </div>
-          <div class="law">De Hallen, Amsterdam · 23 November · …and salut.</div>
+          <div class="law">De Hallen, Amsterdam · 23 November '26 · …and salut.</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ============================ ROUTE B ============================ -->
-  <section id="B">
+  <!-- ===================================== HOME 2 · THE ALMANAC ===================================== -->
+  <section id="A">
     <div class="intro">
-      <div class="tag">Route B — sans</div>
-      <h2>Community / United by wine</h2>
-      <p>Same warm, people-first route — now in the flyer's sans (Figtree), Vicky gone. Bold name, light supporting type, a clean typographic workshop index, three makers shown large, lots of air.</p>
-      <div class="sws">
-        <span class="sw" style="background:#F1ECDF"></span><span class="sw" style="background:#23271F"></span><span class="sw" style="background:#A8742A"></span>
-        <span class="voice">one clean sans family, end to end</span>
-      </div>
+      <div class="tag">Homepage 2</div>
+      <h2>The Almanac — as a front door</h2>
+      <p>The field-guide system from page 3, made into a homepage you can actually navigate. It opens like a <b>frontispiece with a hero photo plate</b>, then the homepage <em>is</em> the table of contents: numbered, photographic entries that lead into the makers, the lessons and the supper. Knowledge-forward and editorial — but with people and pours doing the talking, so it never reads like a reference book.</p>
     </div>
-
     <div class="browser">
       <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">naturalwinefestival.nl</span></div>
-      <div class="home" style="--bg:#F1ECDF;--ink:#23271F;--accent:#A8742A;">
+      <div class="home home-almanac">
 
         <nav class="nav">
           <div class="bm"><span>natural wine festival</span><span>a'dam</span></div>
-          <div class="links"><a href="#">the makers</a><a href="#">table talks</a><a href="#">the long table</a><a href="#" class="btn">save your seat</a></div>
+          <div class="lk"><a href="#">contents</a><a href="#">the makers</a><a href="#">the lessons</a><a href="#" class="btn">take your place</a></div>
         </nav>
 
-        <div class="heroB">
-          <img class="bg" src="concept-assets/photo-3.jpg" alt="">
-          <div class="ov"></div>
-          <div class="in"><div class="w2">
-            <div class="eyebrow">23 nov · de hallen, amsterdam</div>
-            <h1 class="display" style="margin:16px 0 10px;">meet the people<br>behind the bottle</h1>
-            <div class="payoff" style="font-size:clamp(28px,3.4vw,46px);">united by wine</div>
-            <div class="cta-row"><a href="#" class="btn">save your seat</a><a href="#" class="btn btn--light">see the makers</a></div>
-          </div></div>
-        </div>
-
-        <div class="wrap" style="padding-top:70px;">
-          <div class="stats">
-            <div class="s"><div class="n">60+</div><div class="l">winemakers</div></div>
-            <div class="s"><div class="n">300+</div><div class="l">open wines</div></div>
-            <div class="s"><div class="n">25+</div><div class="l">workshops</div></div>
+        <div class="wrap frontis">
+          <div class="ed">edition 03 · amsterdam · mmxxvi</div>
+          <div class="guide">a field guide to living wine —</div>
+          <div class="aname">natural wine festival <span class="ac">a'dam</span></div>
+          <div class="payoff">united by wine</div>
+          <div class="cta-row"><a href="#" class="btn">take your place →</a><a href="#" class="btn btn--ghost">sat 23 nov '26 · de hallen</a></div>
+          <div class="plate">
+            <img src="concept-assets/photo-3.jpg" alt="visitors sharing a bottle at the festival">
+            <div class="fig">fig. i — 23 november, de hallen: once a year, amsterdam gathers around the living bottle. 60+ growers, 300+ wines, one room.</div>
           </div>
         </div>
 
         <div class="wrap sec">
-          <div class="shead">the makers</div>
-          <div class="stitle">ask anything. they know more<br>than your sommelier.</div>
-          <div class="makers">
-            <div class="mk"><img class="ph" src="concept-assets/photo-7.jpg" alt=""><div class="nm">oller del mas</div><div class="rg">catalonia, spain</div></div>
-            <div class="mk"><img class="ph" src="concept-assets/photo-3.jpg" alt=""><div class="nm">le coste</div><div class="rg">lazio, italy</div></div>
-            <div class="mk"><img class="ph" src="concept-assets/photo-6.jpg" alt=""><div class="nm">gut oggau</div><div class="rg">burgenland, austria</div></div>
-          </div>
-          <div style="margin-top:44px;"><a href="#" class="btn btn--ghost">see all 60+ makers</a></div>
-        </div>
+          <div class="seclabel"><span>the contents</span><span>i–iv</span></div>
 
-        <div class="wrap sec--tight">
-          <div class="shead">table talks</div>
-          <div class="stitle">learn from the source</div>
-          <div class="wl">
-            <div class="row"><div class="t">montsant masterclass</div><div class="d">A region in a glass — schist, garnacha and altitude.</div><div class="tm">14:00</div></div>
-            <div class="row"><div class="t">talha wine</div><div class="d">Amphora winemaking, 2000 years in the making.</div><div class="tm">15:00</div></div>
-            <div class="row"><div class="t">cider &amp; perry</div><div class="d">Beyond grapes: living apples and pears.</div><div class="tm">16:00</div></div>
-            <div class="row"><div class="t">to SO₂ or not</div><div class="d">The sulphur question, answered by people who live it.</div><div class="tm">17:00</div></div>
-          </div>
-        </div>
-
-        <div class="wrap sec--tight">
-          <div class="feat">
-            <img class="fimg" src="concept-assets/photo-1.jpg" alt="">
+          <div class="entry">
+            <div class="no">01</div>
             <div>
-              <div class="shead">the long table · invite only</div>
-              <div class="stitle">dinner with the makers</div>
-              <p class="lead" style="margin-top:22px;">One long table, one seating. The stories the labels can’t tell. Pull up a chair.</p>
-              <div class="cta-row"><a href="#" class="btn">request a seat</a></div>
+              <div class="nm">the makers</div>
+              <div class="cls">vitis · 60+ growers · across europe</div>
+              <div class="desc">Meet the people who grow it. Every maker declares everything — farming, yeast, sulphur, hands — so you taste with your eyes open.</div>
+              <a href="#" class="more">enter the register →</a>
             </div>
+            <div class="ph"><img src="concept-assets/photo-7.jpg" alt=""><div class="fc">fig. 1 — the maker, behind the table, pouring their own work.</div></div>
+          </div>
+
+          <div class="entry">
+            <div class="no">02</div>
+            <div>
+              <div class="nm">the lessons</div>
+              <div class="cls">schola · 25+ masterclasses · all day</div>
+              <div class="desc">Soil, sulphur, amphorae, cider. Small classes led from the source — go beyond the hype and into the how.</div>
+              <a href="#" class="more">see the timetable →</a>
+            </div>
+            <div class="ph"><img src="concept-assets/photo-11.jpg" alt=""><div class="fc">fig. 2 — a tasting in progress; sediment is not a flaw, it is evidence of life.</div></div>
+          </div>
+
+          <div class="entry">
+            <div class="no">03</div>
+            <div>
+              <div class="nm">the supper</div>
+              <div class="cls">convivium · invite only · €39,95</div>
+              <div class="desc">One long table after the floor closes. The winemakers pour alongside the kitchen; you bring a bottle and a question.</div>
+              <a href="#" class="more">request a seat →</a>
+            </div>
+            <div class="ph"><img src="concept-assets/photo-1.jpg" alt=""><div class="fc">fig. 3 — the kitchen, plating family-style at the long table.</div></div>
+          </div>
+
+          <div class="entry">
+            <div class="no">04</div>
+            <div>
+              <div class="nm">the market</div>
+              <div class="cls">emporium · take it home · all day</div>
+              <div class="desc">Found a bottle you loved? Take it home from the on-floor market — and keep the tasting card to remember which.</div>
+              <a href="#" class="more">browse the shelf →</a>
+            </div>
+            <div class="ph"><img src="concept-assets/photo-5.jpg" alt=""><div class="fc">fig. 4 — the tasting card: note the wines worth carrying home.</div></div>
           </div>
         </div>
 
-        <div class="wrap">
-          <div class="news">
-            <div class="shead">stay in the loop</div>
-            <div class="stitle">first dibs, every edition</div>
-            <div class="field"><input placeholder="your email"><a href="#" class="btn">join</a></div>
+        <div class="wrap sec" style="padding-top:0;">
+          <div class="seclabel"><span>the day, classified</span><span>fig. v</span></div>
+          <div class="plates">
+            <div class="p"><img src="concept-assets/ico-tasting.svg" alt=""><div class="t">tastings</div><div class="fig">13:00–18:15</div></div>
+            <div class="p"><img src="concept-assets/ico-mind.svg" alt=""><div class="t">lessons</div><div class="fig">25+ classes</div></div>
+            <div class="p"><img src="concept-assets/ico-oyster.svg" alt=""><div class="t">oyster bar</div><div class="fig">all day</div></div>
+            <div class="p"><img src="concept-assets/ico-food.svg" alt=""><div class="t">kitchen</div><div class="fig">til 22:00</div></div>
+            <div class="p"><img src="concept-assets/ico-market.svg" alt=""><div class="t">market</div><div class="fig">take home</div></div>
           </div>
+        </div>
+
+        <div class="wrap story">
+          <div class="seclabel" style="justify-content:center;border:none;">below the hype</div>
+          <div class="big" style="margin-top:12px;">it's just <span class="ac">common sense.</span></div>
+          <p>People who farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture. We salute them, and we'd like you to meet them.</p>
+          <div class="cta-row" style="justify-content:center;"><a href="#" class="btn">take your place →</a></div>
         </div>
 
         <div class="wrap foot">
           <div class="top">
             <div class="pf">united<br>by wine</div>
             <div class="cols">
-              <div><a href="#">the makers</a><a href="#">table talks</a><a href="#">the long table</a></div>
+              <div><a href="#">the makers</a><a href="#">the lessons</a><a href="#">the supper</a></div>
               <div><a href="#">tickets</a><a href="#">trade &amp; press</a><a href="#">contact</a></div>
               <div><a href="#">instagram</a><a href="#">newsletter</a></div>
             </div>
           </div>
-          <div class="law">De Hallen, Amsterdam · 23 November · pull up a chair.</div>
+          <div class="law">De Hallen, Amsterdam · 23 November '26 · …and salut.</div>
         </div>
 
       </div>
     </div>
   </section>
 
+  <script src="comments.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>
