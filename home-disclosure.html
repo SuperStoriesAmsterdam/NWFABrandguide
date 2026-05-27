@@ -83,6 +83,62 @@
     .row{grid-template-columns:1.3fr 1fr .9fr;}
     .row .h-yeast,.row .h-sulph,.row .c.yeast,.row .c.sulph{display:none;}
   }
+
+  /* ===== filed sections ===== */
+  .sec{display:grid;grid-template-columns:1fr 1fr;border-top:1.4px solid var(--ink);}
+  .sec .body{padding:74px 56px;display:flex;flex-direction:column;justify-content:center;}
+  .sec .shot{position:relative;min-height:470px;overflow:hidden;border-left:1.4px solid var(--ink);}
+  .sec.flip .shot{border-left:0;border-right:1.4px solid var(--ink);order:-1;}
+  .sec .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .sec .shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.65);}
+  .slabel{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .stitle{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.98;font-size:clamp(30px,3.4vw,52px);margin-top:12px;}
+  .slede{font-size:14px;color:var(--ink-2);max-width:42ch;margin-top:16px;line-height:1.55;}
+  .manifest{margin-top:26px;}
+  .mrow{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-top:1px solid var(--rule);}
+  .mrow:first-child{border-top:1.2px solid var(--ink);}
+  .mrow .k{font-weight:600;text-transform:lowercase;font-size:15px;letter-spacing:-.01em;}
+  .mrow .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:var(--ink-2);letter-spacing:.02em;white-space:nowrap;}
+  .smore{margin-top:14px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);}
+  .scta{margin-top:26px;align-self:flex-start;font-size:14px;font-weight:600;text-transform:lowercase;border-bottom:1.5px solid var(--ochre);padding-bottom:4px;}
+
+  /* manifesto — type-only beat */
+  .manifesto{border-top:1.4px solid var(--ink);}
+  .manifesto .in{max-width:1280px;margin:0 auto;padding:96px 56px;}
+  .manifesto .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:26px;}
+  .manifesto .big{font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:1.0;font-size:clamp(32px,4.6vw,72px);max-width:17ch;}
+  .manifesto .big em{font-style:normal;color:var(--ochre);}
+  .manifesto p{margin-top:30px;max-width:54ch;font-size:15.5px;color:var(--ink-2);line-height:1.65;}
+
+  /* tickets docket */
+  .docket{border-top:1.4px solid var(--ink);display:grid;grid-template-columns:1.1fr .9fr;}
+  .docket .info{padding:82px 56px;}
+  .docket .price{font-weight:600;letter-spacing:-.03em;font-size:clamp(56px,9vw,150px);line-height:.84;text-transform:lowercase;margin-top:14px;}
+  .docket .price small{font-size:.3em;vertical-align:super;color:var(--ink-2);font-weight:600;}
+  .docket .meta{margin-top:20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:var(--ink-2);letter-spacing:.04em;line-height:1.85;text-transform:uppercase;}
+  .docket .stamp{margin-top:26px;display:inline-block;border:1.4px solid var(--ochre);color:var(--ochre);border-radius:3px;padding:9px 16px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg);}
+  .docket .shot{position:relative;overflow:hidden;border-left:1.4px solid var(--ink);min-height:430px;}
+  .docket .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+
+  /* footer */
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(231,225,208,.4);border-radius:100px;overflow:hidden;max-width:330px;}
+  .pfoot .join input{flex:1;background:transparent;border:0;color:var(--paper);padding:11px 16px;font-family:inherit;font-size:13px;outline:none;}
+  .pfoot .join input::placeholder{color:rgba(231,225,208,.5);}
+  .pfoot .join button{background:var(--ochre);color:#fff;border:0;padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;text-transform:lowercase;}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:880px){
+    .sec,.docket{grid-template-columns:1fr;}
+    .sec .body,.docket .info{padding:48px 22px;}
+    .sec .shot,.docket .shot{min-height:300px;border-left:0;border-top:1.4px solid var(--ink);}
+    .sec.flip .shot{order:0;border-right:0;}
+    .manifesto .in{padding:60px 22px;}
+    .pfoot .in{padding:44px 22px;}
+  }
 </style>
 </head>
 <body>
@@ -126,6 +182,88 @@
       </div>
     </div>
   </div>
+
+  <!-- ===== filed sections ===== -->
+  <section class="sec" id="day">
+    <div class="body">
+      <div class="slabel">§ 02 — the day</div>
+      <h2 class="stitle">one ticket,<br>one long day.</h2>
+      <div class="slede">the floor opens once a year and stays open. what's in the bottle — and in the day:</div>
+      <div class="manifest">
+        <div class="mrow"><span class="k">unlimited tasting</span><span class="v">13:00 – 18:15</span></div>
+        <div class="mrow"><span class="k">the lessons</span><span class="v">25+ classes</span></div>
+        <div class="mrow"><span class="k">oyster bar</span><span class="v">all day</span></div>
+        <div class="mrow"><span class="k">the kitchen</span><span class="v">til 22:00</span></div>
+        <div class="mrow"><span class="k">the market</span><span class="v">take a bottle home</span></div>
+      </div>
+    </div>
+    <div class="shot"><img src="concept-assets/photo-2.jpg" alt="oyster bar" /><span class="tag">oyster bar · all day</span></div>
+  </section>
+
+  <section class="sec flip" id="lessons">
+    <div class="body">
+      <div class="slabel">§ 03 — the lessons</div>
+      <h2 class="stitle">go beyond<br>the hype.</h2>
+      <div class="slede">learn from the source — 25+ classes across the day. a sample from the timetable:</div>
+      <div class="manifest">
+        <div class="mrow"><span class="k">montsant masterclass</span><span class="v">14:00</span></div>
+        <div class="mrow"><span class="k">talha — amphora wine</span><span class="v">15:00</span></div>
+        <div class="mrow"><span class="k">cider &amp; perry</span><span class="v">16:00</span></div>
+        <div class="mrow"><span class="k">to SO₂ or not</span><span class="v">17:00</span></div>
+      </div>
+      <div class="smore">+ 21 more classes in the programme</div>
+    </div>
+    <div class="shot"><img src="concept-assets/photo-8.jpg" alt="wine tasting and workshops" /><span class="tag">wine tasting &amp; workshops</span></div>
+  </section>
+
+  <section class="sec" id="supper">
+    <div class="body">
+      <div class="slabel">§ 04 — the supper · invite only</div>
+      <h2 class="stitle">sit at the<br>long table.</h2>
+      <div class="slede">one long table, one seating, after the floor closes. the winemakers pour alongside the kitchen — and the stories the labels can't tell. bring a bottle from the floor to share.</div>
+      <a class="scta" href="#supper-request">request a seat · €39,95 →</a>
+    </div>
+    <div class="shot"><img src="concept-assets/photo-10.jpg" alt="the supper" /><span class="tag">after the floor closes</span></div>
+  </section>
+
+  <section class="manifesto" id="why">
+    <div class="in">
+      <div class="lab">§ 05 — below the hype</div>
+      <div class="big">it's just <em>common sense</em>, poured into a glass.</div>
+      <p>winemaking industrialised in the 20th century: fertiliser, pesticides, added yeasts, sulphites. these growers refused. they farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture.</p>
+    </div>
+  </section>
+
+  <section class="docket" id="tickets">
+    <div class="info">
+      <div class="slabel">§ 06 — take your place</div>
+      <div class="price">€32,<small>50</small></div>
+      <div class="meta">festival pass · unlimited tasting<br>23 nov '26 · de hallen, amsterdam<br>doors 13:00 – 22:00</div>
+      <div class="stamp">united by wine</div>
+      <div style="margin-top:26px"><a class="scta" href="#buy">get your tickets →</a></div>
+    </div>
+    <div class="shot"><img src="concept-assets/photo-3.jpg" alt="" /></div>
+  </section>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the bottle list, every edition.</div>
+        <form class="join" onsubmit="return false">
+          <input type="email" placeholder="your email" aria-label="email" />
+          <button>join</button>
+        </form>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition 03 — 23.11.26<br>
+        de hallen, amsterdam<br><br>
+        instagram · newsletter<br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
   <script src="comments.js"></script>
 </body>
 </html>
