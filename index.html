@@ -1,147 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NWFA Brand Guide — Overview</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Space Mono', monospace;
-      background: #111;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 24px;
-    }
-    h1 {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #666;
-      margin-bottom: 48px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      max-width: 900px;
-      width: 100%;
-    }
-    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
-    .card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 28px;
-      min-height: 200px;
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.15s;
-      border: 1px solid #333;
-    }
-    .card:hover { opacity: 0.8; }
-    .card--original { background: #DBBB00; color: #111; border-color: #DBBB00; }
-    .card--d { background: #233260; border-color: #DBBB00; }
-    .card--r { background: #0a1a0a; border-color: #21B501; }
-    .card--contemporary { background: #233260; border-color: #21B501; }
-    .card--contemporary .card-accent { background: #21B501; }
-    .card-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      opacity: 0.5;
-    }
-    .card-title {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin: 10px 0;
-    }
-    .card-desc {
-      font-size: 11px;
-      line-height: 1.5;
-      opacity: 0.6;
-    }
-    .card-accent {
-      display: inline-block;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      margin-top: 12px;
-    }
-    .card--original .card-accent { background: #233260; }
-    .card--d .card-accent { background: #DBBB00; }
-    .card--r .card-accent { background: #21B501; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — all pages</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:#0e0d0b;color:#efe9db;padding:48px 24px 80px;}
+  .wrap{max-width:1040px;margin:0 auto;}
+  header{margin-bottom:40px;}
+  h1{font-size:15px;font-weight:700;letter-spacing:.04em;color:#cfc4a4;margin-bottom:8px;}
+  .hint{font-size:12.5px;line-height:1.5;color:#8a8474;max-width:560px;}
+  .hint b{color:#C9602F;}
+  section{margin-top:34px;}
+  .gl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6a6452;margin-bottom:12px;border-top:1px solid #2a2722;padding-top:12px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;}
+  a.card{display:flex;flex-direction:column;gap:5px;text-decoration:none;color:inherit;
+    border:1px solid #2f2c26;border-radius:10px;padding:13px 15px;background:#161a16;transition:.14s;}
+  a.card:hover{border-color:#C9602F;background:#1b1f1b;transform:translateY(-1px);}
+  .t{font-size:13.5px;font-weight:600;line-height:1.25;color:#efe9db;}
+  .f{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:#6a6452;letter-spacing:.01em;}
+</style>
 </head>
 <body>
+<div class="wrap">
 
-  <h1>NWFA Brand Guide — Directions</h1>
+  <header>
+    <h1>NWFA · all pages</h1>
+    <p class="hint">Every design, one click each. To cull: open a page and leave a <b>💬 review</b> note saying it can be deleted — I'll pick those up and remove them.</p>
+  </header>
 
-  <div class="grid">
-    <a href="original.html" class="card card--original">
-      <div>
-        <div class="card-label">Current</div>
-        <div class="card-title">Original<br>Festival</div>
-        <div class="card-desc">Vicky Black + Inter<br>Gold / Navy / Green</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-d.html" class="card card--d">
-      <div>
-        <div class="card-label">Direction D</div>
-        <div class="card-title">Editorial<br>Color</div>
-        <div class="card-desc">Vicky + Space Mono + Inter<br>Navy / Gold</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="direction-r.html" class="card card--r">
-      <div>
-        <div class="card-label">Direction R</div>
-        <div class="card-title">Figtree<br>Green</div>
-        <div class="card-desc">Figtree + Vicky accent + Space Mono<br>Navy / Green</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="mood-1.html" class="card card--contemporary">
-      <div>
-        <div class="card-label">Mood 1</div>
-        <div class="card-title">Apartamento</div>
-        <div class="card-desc">White space, editorial precision<br>Images at unexpected scales<br>Asymmetric scrapbook</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="mood-2.html" class="card" style="background:#0c1428;border-color:#21B501">
-      <div>
-        <div class="card-label">Mood 2</div>
-        <div class="card-title">Dark<br>Immersive</div>
-        <div class="card-desc">Photography IS the page<br>Edge-to-edge, minimal type<br>No whitespace</div>
-      </div>
-      <div class="card-accent" style="background:#21B501"></div>
-    </a>
-    <a href="mood-3.html" class="card card--contemporary">
-      <div>
-        <div class="card-label">Mood 3</div>
-        <div class="card-title">Swiss</div>
-        <div class="card-desc">12-col grid, strict alignment<br>Label-left content-right<br>Mono leads the structure</div>
-      </div>
-      <div class="card-accent"></div>
-    </a>
-    <a href="mood-4.html" class="card" style="background:#F0EDE6;color:#233260;border-color:#233260">
-      <div>
-        <div class="card-label" style="color:#999">Mood 4</div>
-        <div class="card-title">Collage</div>
-        <div class="card-desc" style="color:#666">Icons as scattered marks<br>Cream paper, photo borders<br>Vicky as graphic watermark</div>
-      </div>
-      <div class="card-accent" style="background:#21B501"></div>
-    </a>
-  </div>
+  <section>
+    <div class="gl">Homepage</div>
+    <div class="grid">
+      <a class="card" href="home-label.html"><span class="t">Front door</span><span class="f">home-label.html</span></a>
+      <a class="card" href="home-day-variants.html"><span class="t">One long day — 3 versions</span><span class="f">home-day-variants.html</span></a>
+      <a class="card" href="concepts-home.html"><span class="t">Two homepages (label · almanac)</span><span class="f">concepts-home.html</span></a>
+    </div>
+  </section>
 
+  <section>
+    <div class="gl">Inner pages</div>
+    <div class="grid">
+      <a class="card" href="concepts-systems.html"><span class="t">Three art-direction systems</span><span class="f">concepts-systems.html</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="gl">Social</div>
+    <div class="grid">
+      <a class="card" href="social-system.html"><span class="t">Social system (register-led)</span><span class="f">social-system.html</span></a>
+      <a class="card" href="social-system-brown.html"><span class="t">Social system — brown</span><span class="f">social-system-brown.html</span></a>
+      <a class="card" href="social-system-funk.html"><span class="t">Social system — funk</span><span class="f">social-system-funk.html</span></a>
+      <a class="card" href="social-system-punk.html"><span class="t">Social system — punk (v2)</span><span class="f">social-system-punk.html</span></a>
+      <a class="card" href="social-routes.html"><span class="t">5 Instagram routes</span><span class="f">social-routes.html</span></a>
+      <a class="card" href="social-label.html"><span class="t">Instagram in The Label</span><span class="f">social-label.html</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="gl">Brand directions</div>
+    <div class="grid">
+      <a class="card" href="original.html"><span class="t">Original brand guide</span><span class="f">original.html</span></a>
+      <a class="card" href="direction-d.html"><span class="t">D · Editorial Color</span><span class="f">direction-d.html</span></a>
+      <a class="card" href="direction-r.html"><span class="t">R · Figtree Green</span><span class="f">direction-r.html</span></a>
+      <a class="card" href="direction-s.html"><span class="t">S · Oversized</span><span class="f">direction-s.html</span></a>
+      <a class="card" href="direction-t.html"><span class="t">T · Photo-Led</span><span class="f">direction-t.html</span></a>
+      <a class="card" href="direction-u.html"><span class="t">U · Asymmetric</span><span class="f">direction-u.html</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="gl">Moods</div>
+    <div class="grid">
+      <a class="card" href="mood-1.html"><span class="t">1 · Apartamento</span><span class="f">mood-1.html</span></a>
+      <a class="card" href="mood-2.html"><span class="t">2 · Dark Immersive</span><span class="f">mood-2.html</span></a>
+      <a class="card" href="mood-3.html"><span class="t">3 · Swiss</span><span class="f">mood-3.html</span></a>
+      <a class="card" href="mood-4.html"><span class="t">4 · Collage</span><span class="f">mood-4.html</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="gl">Posters & colour</div>
+    <div class="grid">
+      <a class="card" href="poster-real.html"><span class="t">Real assets, given room</span><span class="f">poster-real.html</span></a>
+      <a class="card" href="poster-refined.html"><span class="t">Refined poster (one direction)</span><span class="f">poster-refined.html</span></a>
+      <a class="card" href="color-directions.html"><span class="t">Colour directions</span><span class="f">color-directions.html</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="gl">Other views</div>
+    <div class="grid">
+      <a class="card" href="studio.html"><span class="t">Studio — tabbed hub</span><span class="f">studio.html</span></a>
+      <a class="card" href="overview.html"><span class="t">Overview (old)</span><span class="f">overview.html</span></a>
+    </div>
+  </section>
+
+</div>
 </body>
 </html>
