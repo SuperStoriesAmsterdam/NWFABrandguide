@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NWFA — homepage (tension study)</title>
+<meta name="description" content="Natural Wine Festival A'dam — one long day of living wine. De Hallen, Amsterdam, 23.11.26. A tension study: saturated field, simple type, the rose window as effervescence." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+
+  :root{
+    --wine:#6c1f25;        /* deep bordeaux field */
+    --wine-deep:#591a1f;
+    --cream:#f1ebdb;
+    --cream-dim:rgba(241,235,219,.62);
+    --cream-faint:rgba(241,235,219,.34);
+    --gold:#d79a3f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--wine);color:var(--cream);
+       -webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* ----------------------------------------------------- HERO */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
+        justify-content:space-between;padding:30px 52px 34px;overflow:hidden;}
+
+  /* effervescence — faint dot-field (the rose-window grid / pét-nat bubbles) */
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:radial-gradient(circle, rgba(241,235,219,.06) 1.4px, transparent 1.6px);
+    background-size:30px 30px;mask-image:radial-gradient(120% 120% at 75% 50%, #000 35%, transparent 78%);}
+
+  /* the rose window — backlit glass, off-centre, bleeding off the right edge */
+  .glass{position:absolute;z-index:0;top:50%;right:-13vw;transform:translateY(-50%);
+    width:min(86vh,860px);aspect-ratio:1;pointer-events:none;}
+  .glass::before{content:"";position:absolute;inset:-14%;border-radius:50%;
+    background:radial-gradient(circle, rgba(241,235,219,.30), rgba(241,235,219,.07) 46%, transparent 66%);}
+  .glass img{position:relative;width:100%;height:100%;object-fit:contain;
+    filter:drop-shadow(0 30px 70px rgba(0,0,0,.35));}
+
+  /* vertical edition tag, running up the far-left edge */
+  .edge{position:absolute;left:18px;top:50%;z-index:2;transform:rotate(180deg);writing-mode:vertical-rl;
+    font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-faint);font-weight:600;}
+
+  .top{position:relative;z-index:2;display:flex;align-items:center;gap:15px;}
+  .top .mark{width:38px;height:38px;flex:0 0 auto;}
+  .top .mark img{width:100%;height:100%;}
+  .top .id{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:lowercase;line-height:1.15;color:var(--cream);}
+  .top .id b{display:block;font-weight:600;}
+  .top .id span{color:var(--cream-dim);}
+  .top .place{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim);text-align:right;}
+
+  /* the charged centre — clustered hard-left, enormous void to the right */
+  .mid{position:relative;z-index:2;max-width:62%;padding:4vh 0;}
+  .kicker{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:lowercase;color:var(--cream-dim);margin-bottom:26px;}
+  .kicker .dot{color:var(--gold);}
+  h1{font-weight:500;text-transform:lowercase;letter-spacing:-.035em;line-height:.86;
+     font-size:clamp(66px,13.5vw,232px);color:var(--cream);}
+  h1 em{font-style:normal;color:var(--gold);}
+  .say{margin-top:30px;font-size:clamp(15px,1.55vw,20px);font-weight:400;color:var(--cream-dim);
+       max-width:30ch;line-height:1.45;text-transform:lowercase;}
+  .cta{margin-top:30px;display:inline-flex;align-items:center;gap:11px;font-size:15px;font-weight:600;
+       text-transform:lowercase;border-bottom:1.5px solid var(--gold);padding-bottom:5px;color:var(--cream);transition:gap .15s;}
+  .cta:hover{gap:18px;}
+  .cta .arr{color:var(--gold);}
+
+  /* footer ledger — two columns, Cornerstore-simple */
+  .foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;
+        border-top:1px solid rgba(241,235,219,.20);padding-top:18px;flex-wrap:wrap;}
+  .foot .col{font-size:12.5px;line-height:1.6;color:var(--cream-dim);text-transform:lowercase;letter-spacing:.01em;}
+  .foot .col.r{text-align:right;}
+  .foot .col b{color:var(--cream);font-weight:600;}
+
+  /* ----------------------------------------------------- COUNTERPOINT BAND (flip) */
+  .flip{background:var(--cream);color:var(--wine-deep);padding:14vh 52px;}
+  .flip .lab{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#a8702c;margin-bottom:30px;}
+  .flip h2{font-weight:500;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;
+           font-size:clamp(40px,7vw,120px);max-width:16ch;}
+  .flip h2 em{font-style:normal;color:#a8702c;}
+  .flip p{margin-top:34px;max-width:46ch;font-size:clamp(15px,1.4vw,18px);color:rgba(89,26,31,.74);line-height:1.55;}
+
+  /* ----------------------------------------------------- responsive */
+  @media(max-width:860px){
+    .hero{padding:24px 26px 28px;}
+    .glass{right:-34vw;width:min(74vh,560px);opacity:.5;}
+    .glass::before{background:radial-gradient(circle, rgba(241,235,219,.22), transparent 64%);}
+    .mid{max-width:100%;}
+    .edge{display:none;}
+    .foot{gap:16px;}
+    .foot .col.r{text-align:left;}
+    .flip{padding:11vh 26px;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <span class="edge">edition 03 — lot 23.11.26</span>
+
+    <div class="glass" aria-hidden="true">
+      <img src="concept-assets/rose.svg" alt="" />
+    </div>
+
+    <div class="top">
+      <div class="mark"><img src="concept-assets/rose.svg" alt="Natural Wine Festival A'dam" /></div>
+      <div class="id"><b>natural wine festival</b><span>amsterdam</span></div>
+      <div class="place">de hallen<br>23 — 11 — 26</div>
+    </div>
+
+    <div class="mid">
+      <div class="kicker">one long day of living wine <span class="dot">·</span> de hallen, amsterdam</div>
+      <h1>united<br>by <em>wine</em></h1>
+      <p class="say">once a year, all of amsterdam gathers around the living bottle. nothing added, nothing taken away.</p>
+      <a class="cta" href="#tickets">take your place <span class="arr">→</span></a>
+    </div>
+
+    <div class="foot">
+      <div class="col"><b>60+ growers · 300+ wines · 25+ classes</b><br>doors 13:00 – 22:00</div>
+      <div class="col r"><b>festival pass — €32,50</b><br>unlimited tasting · one seating supper</div>
+    </div>
+  </section>
+
+  <section class="flip">
+    <div class="lab">below the hype</div>
+    <h2>it's just <em>common sense</em>, poured into a glass.</h2>
+    <p>winemaking industrialised in the 20th century — fertiliser, pesticides, added yeasts, sulphites. these growers refused. they farm without chemicals and let the wine reflect the ground it came from.</p>
+  </section>
+
+  <script src="comments.js"></script>
+</body>
+</html>
