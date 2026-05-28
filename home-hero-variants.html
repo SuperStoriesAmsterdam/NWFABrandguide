@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home — hero variants · NWFA</title>
+<meta name="description" content="Three hero variants applying the home-disclosure grid to the NWFA homepage. Switch between A/B/C." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* ===== switcher ===== */
+  .switch{position:fixed;top:14px;left:50%;transform:translateX(-50%);
+          background:var(--ink);color:var(--paper);border-radius:100px;display:flex;
+          padding:5px;gap:4px;z-index:1000;box-shadow:0 6px 22px rgba(0,0,0,.28);}
+  .switch button{background:transparent;color:rgba(231,225,208,.7);border:0;padding:9px 20px;
+                 font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;
+                 letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-weight:700;
+                 border-radius:100px;transition:.14s;}
+  .switch button:hover{color:var(--paper);}
+  .switch button.active{background:var(--ochre);color:#fff;}
+
+  .variant{display:none;}
+  .variant.show{display:block;}
+
+  /* tiny note in the corner labelling each variant */
+  .vlabel{position:fixed;bottom:14px;left:14px;z-index:999;
+          font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;
+          letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);
+          background:rgba(231,225,208,.85);padding:8px 14px;border-radius:3px;border:1px solid var(--rule);
+          max-width:380px;line-height:1.5;}
+  .vlabel b{color:var(--ochre);}
+
+  /* ===== shared content components ===== */
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+
+  .nav-list{display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .nav-list a:hover{color:var(--ink);}
+
+  .seal-img{width:34px;height:34px;flex:0 0 auto;}
+  .brand-name{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .brand-name span{color:var(--ink-2);}
+  .doc-info{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);text-align:right;line-height:1.6;}
+
+  /* the masthead block (used in all variants) */
+  .mast .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .mast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;
+           font-size:clamp(40px,5.4vw,82px);}
+  .mast .sub{margin-top:18px;font-size:clamp(14px,1.25vw,16px);color:var(--ink-2);max-width:42ch;line-height:1.55;}
+
+  /* the extra register block (slightly wider than mast) */
+  .extra{margin-top:38px;}
+  .extra .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .extra .cap .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .extra .cap .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);}
+  .erow{display:grid;grid-template-columns:1.4fr 1.1fr 1.1fr .7fr;gap:14px;padding:9px 0;border-top:1px solid var(--rule);font-size:12.5px;letter-spacing:.01em;align-items:baseline;}
+  .erow:first-of-type{border-top:1.4px solid var(--ink);}
+  .erow .g{font-weight:600;text-transform:lowercase;font-size:13.5px;}
+  .erow .c{color:var(--ink-2);font-family:ui-monospace,'SF Mono',Menlo,monospace;text-transform:lowercase;}
+  .erow .ok{color:var(--ochre);font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+  .extra .more{margin-top:12px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);}
+  .extra .more a{border-bottom:1.5px solid var(--ochre);padding-bottom:2px;color:var(--ink);}
+
+  /* the bottom ledger */
+  .ledger{margin-top:38px;padding-top:14px;border-top:1.4px solid var(--ink);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .ledger .l{font-size:11.5px;letter-spacing:.04em;color:var(--ink-2);line-height:1.7;text-transform:lowercase;}
+  .ledger .l b{color:var(--ink);font-weight:700;}
+  .ledger .cta{font-size:14px;font-weight:600;text-transform:lowercase;border-bottom:1.5px solid var(--ochre);padding-bottom:4px;}
+
+  /* ============================================== */
+  /*  VARIANT A — full-width brand strip + nav      */
+  /*  Image starts BELOW the rule (safer fallback)  */
+  /* ============================================== */
+  .vA .page{position:relative;min-height:100svh;display:flex;flex-direction:column;padding:0 0 22px;overflow:hidden;}
+  .vA .bs{padding:22px 46px 14px;display:flex;align-items:center;gap:18px;border-bottom:1.4px solid var(--ink);max-width:1280px;width:100%;margin:0 auto;}
+  .vA .bs .seal-img{}
+  .vA .bs .brand-name{}
+  .vA .bs nav{margin-left:auto;}
+  .vA .bs .doc-info{margin-left:24px;}
+
+  .vA .hero{position:relative;flex:1;display:grid;grid-template-columns:1fr;max-width:1280px;width:100%;margin:0 auto;}
+  .vA .hero-content{padding:60px 46px 0;max-width:64%;position:relative;z-index:3;}
+  .vA .hero-photo{position:absolute;top:0;right:0;bottom:0;width:32vw;border-left:1.4px solid var(--ink);overflow:hidden;z-index:2;}
+  .vA .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;}
+  .vA .hero-photo .stamp{position:absolute;right:24px;bottom:24px;z-index:4;width:86px;height:86px;border-radius:50%;
+       border:1.4px solid var(--ochre);color:#f0e9d8;display:flex;align-items:center;justify-content:center;text-align:center;
+       font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;line-height:1.5;transform:rotate(-7deg);
+       background:rgba(27,42,32,.34);backdrop-filter:blur(2px);}
+
+  /* the wider extra block (60→64% step) */
+  .vA .hero-content .mast{max-width:none;}
+  .vA .hero-content .extra{max-width:106%;}
+
+  /* ============================================== */
+  /*  VARIANT B — image bleeds to TOP of page       */
+  /*  brand strip + nav stacked, both in left col   */
+  /* ============================================== */
+  .vB .page{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 30vw;overflow:hidden;}
+  .vB .leftcol{padding:22px 46px 22px;max-width:none;display:flex;flex-direction:column;}
+  .vB .bs{display:flex;align-items:center;gap:14px;padding-bottom:12px;}
+  .vB .bs .seal-img{}
+  .vB .bs .brand-name{}
+  .vB .bs .doc-info{margin-left:auto;}
+  .vB .navrow{padding:8px 0 14px;border-top:1px solid var(--rule);border-bottom:1.4px solid var(--ink);}
+  .vB .navrow nav{}
+
+  .vB .hero-content{padding:48px 0 0;flex:1;display:flex;flex-direction:column;}
+  .vB .hero-content .mast{max-width:46ch;}
+  .vB .hero-content .extra{margin-right:-30px;}
+  .vB .hero-content .ledger{margin-top:auto;padding-top:22px;}
+
+  .vB .rightcol{position:relative;border-left:1.4px solid var(--ink);overflow:hidden;}
+  .vB .rightcol img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
+  .vB .rightcol .stamp{position:absolute;right:22px;bottom:22px;z-index:4;width:88px;height:88px;border-radius:50%;
+       border:1.4px solid var(--ochre);color:#f0e9d8;display:flex;align-items:center;justify-content:center;text-align:center;
+       font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;line-height:1.5;transform:rotate(-7deg);
+       background:rgba(27,42,32,.34);backdrop-filter:blur(2px);}
+
+  /* ============================================== */
+  /*  VARIANT C — image bleeds to TOP of page       */
+  /*  brand + nav share single horizontal row       */
+  /* ============================================== */
+  .vC .page{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 28vw;overflow:hidden;}
+  .vC .leftcol{padding:22px 46px 22px;display:flex;flex-direction:column;}
+  .vC .bs{display:flex;align-items:center;gap:22px;padding-bottom:14px;border-bottom:1.4px solid var(--ink);}
+  .vC .bs .seal-img{}
+  .vC .bs .brand-name{}
+  .vC .bs nav{margin-left:auto;}
+  .vC .bs .doc-info{margin-left:18px;}
+
+  .vC .hero-content{padding:54px 0 0;flex:1;display:flex;flex-direction:column;}
+  .vC .hero-content .mast{max-width:46ch;}
+  .vC .hero-content .extra{margin-right:-30px;}
+  .vC .hero-content .ledger{margin-top:auto;padding-top:22px;}
+
+  .vC .rightcol{position:relative;border-left:1.4px solid var(--ink);overflow:hidden;}
+  .vC .rightcol img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
+  .vC .rightcol .stamp{position:absolute;right:22px;bottom:22px;z-index:4;width:88px;height:88px;border-radius:50%;
+       border:1.4px solid var(--ochre);color:#f0e9d8;display:flex;align-items:center;justify-content:center;text-align:center;
+       font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;line-height:1.5;transform:rotate(-7deg);
+       background:rgba(27,42,32,.34);backdrop-filter:blur(2px);}
+
+  @media(max-width:880px){
+    .vA .bs,.vA .hero{padding-left:22px;padding-right:22px;}
+    .vA .bs nav,.vB .navrow nav,.vC .bs nav{display:none;}
+    .vA .hero-content{padding:48px 22px 0;max-width:100%;}
+    .vA .hero-photo{position:relative;width:auto;height:300px;border-left:0;border-top:1.4px solid var(--ink);margin-top:34px;}
+
+    .vB .page,.vC .page{grid-template-columns:1fr;}
+    .vB .leftcol,.vC .leftcol{padding:22px 22px;}
+    .vB .rightcol,.vC .rightcol{height:320px;border-left:0;border-top:1.4px solid var(--ink);}
+    .vB .bs .doc-info,.vC .bs .doc-info{display:none;}
+
+    .erow{grid-template-columns:1.3fr 1fr .9fr;}
+    .erow .h-sulph,.erow .c.sulph{display:none;}
+    .switch{transform:translateX(-50%) scale(.85);}
+    .vlabel{font-size:9.5px;padding:6px 10px;max-width:200px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="switch" role="tablist">
+    <button data-v="A" class="active">variant A · safe</button>
+    <button data-v="B">variant B · top bleed · stacked nav</button>
+    <button data-v="C">variant C · top bleed · inline nav</button>
+  </div>
+
+  <div class="vlabel" id="vlabel">
+    <b>variant A</b> — full-width brand strip, nav inline, rule across the page; image starts below the rule. closest to current homepage. safest fallback.
+  </div>
+
+  <!-- ======================== VARIANT A ======================== -->
+  <div class="variant vA show">
+    <div class="page">
+      <div class="bs">
+        <div class="seal"><img class="seal-img" src="concept-assets/rose.svg" alt="NWFA" /></div>
+        <div class="brand-name">natural wine festival a'dam<br><span>edition 03 — 23.11.26</span></div>
+        <nav class="nav-list">
+          <a href="about.html">about</a>
+          <a href="winemakers.html">winemakers</a>
+          <a href="workshops.html">workshops</a>
+          <a href="winemakers-dinner.html">dinner</a>
+          <a href="for-professionals.html">trade</a>
+          <a href="home-event.html#tickets">tickets</a>
+        </nav>
+        <div class="doc-info">de hallen<br>amsterdam</div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-content">
+          <div class="mast">
+            <div class="ey">united by wine</div>
+            <h1>one long day<br>of living wine.</h1>
+            <p class="sub">a one-day festival of living wines, the people who farm them, and an honest day of tasting, eating and learning — in the heart of amsterdam.</p>
+          </div>
+
+          <div class="extra">
+            <div class="cap"><span class="t">the day at a glance</span><span class="n">edition 03 · 23.11.26</span></div>
+            <div class="erow"><span class="g">60+ growers</span><span class="c">all named, all declared</span><span class="c">11 countries</span><span class="ok">→ register</span></div>
+            <div class="erow"><span class="g">300+ wines</span><span class="c">tasting 13:00 – 18:15</span><span class="c">unlimited pours</span><span class="ok">→ floor</span></div>
+            <div class="erow"><span class="g">25+ classes</span><span class="c">14:00 onward</span><span class="c">60–90 min · 18 seats</span><span class="ok">→ workshops</span></div>
+            <div class="erow"><span class="g">oyster bar &amp; kitchen</span><span class="c">13:00 – 22:00</span><span class="c">all day</span><span class="ok">→ the day</span></div>
+          </div>
+
+          <div class="ledger">
+            <div class="l"><b>festival pass · €32,50</b><br>doors 13:00 – 22:00 · de hallen, amsterdam</div>
+            <a class="cta" href="home-event.html#tickets">take your place →</a>
+          </div>
+        </div>
+
+        <div class="hero-photo">
+          <img src="concept-assets/photo-3.jpg" alt="" />
+          <div class="stamp">united<br>by<br>wine</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== VARIANT B ======================== -->
+  <div class="variant vB">
+    <div class="page">
+      <div class="leftcol">
+        <div class="bs">
+          <div class="seal"><img class="seal-img" src="concept-assets/rose.svg" alt="NWFA" /></div>
+          <div class="brand-name">natural wine festival a'dam<br><span>edition 03 — 23.11.26</span></div>
+          <div class="doc-info">de hallen<br>amsterdam</div>
+        </div>
+        <div class="navrow">
+          <nav class="nav-list">
+            <a href="about.html">about</a>
+            <a href="winemakers.html">winemakers</a>
+            <a href="workshops.html">workshops</a>
+            <a href="winemakers-dinner.html">dinner</a>
+            <a href="for-professionals.html">trade</a>
+            <a href="home-event.html#tickets">tickets</a>
+          </nav>
+        </div>
+
+        <div class="hero-content">
+          <div class="mast">
+            <div class="ey">united by wine</div>
+            <h1>one long day<br>of living wine.</h1>
+            <p class="sub">a one-day festival of living wines, the people who farm them, and an honest day of tasting, eating and learning — in the heart of amsterdam.</p>
+          </div>
+
+          <div class="extra">
+            <div class="cap"><span class="t">the day at a glance</span><span class="n">edition 03 · 23.11.26</span></div>
+            <div class="erow"><span class="g">60+ growers</span><span class="c">all named, all declared</span><span class="c">11 countries</span><span class="ok">→ register</span></div>
+            <div class="erow"><span class="g">300+ wines</span><span class="c">tasting 13:00 – 18:15</span><span class="c">unlimited pours</span><span class="ok">→ floor</span></div>
+            <div class="erow"><span class="g">25+ classes</span><span class="c">14:00 onward</span><span class="c">60–90 min · 18 seats</span><span class="ok">→ workshops</span></div>
+            <div class="erow"><span class="g">oyster bar &amp; kitchen</span><span class="c">13:00 – 22:00</span><span class="c">all day</span><span class="ok">→ the day</span></div>
+          </div>
+
+          <div class="ledger">
+            <div class="l"><b>festival pass · €32,50</b><br>doors 13:00 – 22:00 · de hallen, amsterdam</div>
+            <a class="cta" href="home-event.html#tickets">take your place →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rightcol">
+        <img src="concept-assets/photo-3.jpg" alt="" />
+        <div class="stamp">united<br>by<br>wine</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== VARIANT C ======================== -->
+  <div class="variant vC">
+    <div class="page">
+      <div class="leftcol">
+        <div class="bs">
+          <div class="seal"><img class="seal-img" src="concept-assets/rose.svg" alt="NWFA" /></div>
+          <div class="brand-name">natural wine festival a'dam<br><span>edition 03</span></div>
+          <nav class="nav-list">
+            <a href="about.html">about</a>
+            <a href="winemakers.html">winemakers</a>
+            <a href="workshops.html">workshops</a>
+            <a href="winemakers-dinner.html">dinner</a>
+            <a href="for-professionals.html">trade</a>
+            <a href="home-event.html#tickets">tickets</a>
+          </nav>
+          <div class="doc-info">23.11.26<br>de hallen</div>
+        </div>
+
+        <div class="hero-content">
+          <div class="mast">
+            <div class="ey">united by wine</div>
+            <h1>one long day<br>of living wine.</h1>
+            <p class="sub">a one-day festival of living wines, the people who farm them, and an honest day of tasting, eating and learning — in the heart of amsterdam.</p>
+          </div>
+
+          <div class="extra">
+            <div class="cap"><span class="t">the day at a glance</span><span class="n">edition 03 · 23.11.26</span></div>
+            <div class="erow"><span class="g">60+ growers</span><span class="c">all named, all declared</span><span class="c">11 countries</span><span class="ok">→ register</span></div>
+            <div class="erow"><span class="g">300+ wines</span><span class="c">tasting 13:00 – 18:15</span><span class="c">unlimited pours</span><span class="ok">→ floor</span></div>
+            <div class="erow"><span class="g">25+ classes</span><span class="c">14:00 onward</span><span class="c">60–90 min · 18 seats</span><span class="ok">→ workshops</span></div>
+            <div class="erow"><span class="g">oyster bar &amp; kitchen</span><span class="c">13:00 – 22:00</span><span class="c">all day</span><span class="ok">→ the day</span></div>
+          </div>
+
+          <div class="ledger">
+            <div class="l"><b>festival pass · €32,50</b><br>doors 13:00 – 22:00 · de hallen, amsterdam</div>
+            <a class="cta" href="home-event.html#tickets">take your place →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rightcol">
+        <img src="concept-assets/photo-3.jpg" alt="" />
+        <div class="stamp">united<br>by<br>wine</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const LABELS = {
+      A: "<b>variant A</b> — full-width brand strip, nav inline, rule across the page; image starts BELOW the rule. closest to current homepage. safest fallback.",
+      B: "<b>variant B</b> — image bleeds to the TOP of the page. brand strip + nav stacked in two rows inside the left column. nav clearly under the brand strip. image ~30vw.",
+      C: "<b>variant C</b> — image bleeds to the TOP of the page. brand + nav share a single row inside the left column (more compact). image ~28vw."
+    };
+    document.querySelectorAll('.switch button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.v;
+        document.querySelectorAll('.switch button').forEach(b => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.variant').forEach(el => el.classList.toggle('show', el.classList.contains('v' + v)));
+        document.getElementById('vlabel').innerHTML = LABELS[v];
+      });
+    });
+  </script>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
