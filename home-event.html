@@ -105,12 +105,27 @@
   .manifesto p{margin-top:30px;max-width:54ch;font-size:15.5px;color:var(--ink-2);line-height:1.65;}
 
   /* tickets docket */
-  .docket{display:grid;grid-template-columns:1.1fr .9fr;overflow:visible;}
-  .docket .info{padding:82px 56px;}
-  .docket .price{font-weight:600;letter-spacing:-.03em;font-size:clamp(56px,9vw,150px);line-height:.84;text-transform:lowercase;margin-top:14px;}
-  .docket .price small{font-size:.3em;vertical-align:super;color:var(--ink-2);font-weight:600;}
-  .docket .meta{margin-top:20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:var(--ink-2);letter-spacing:.04em;line-height:1.85;text-transform:uppercase;}
-  .docket .stamp{margin-top:26px;display:inline-block;border:1.4px solid var(--ochre);color:var(--ochre);border-radius:3px;padding:9px 16px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg);}
+  .docket{display:grid;grid-template-columns:1.15fr .85fr;overflow:visible;}
+  .docket .info{padding:72px 56px 80px;}
+  .docket .dtitle{font-weight:600;letter-spacing:-.03em;font-size:clamp(40px,5.4vw,80px);line-height:.92;text-transform:lowercase;margin-top:14px;}
+  .docket .dsub{margin-top:16px;font-size:15px;color:var(--ink-2);max-width:42ch;line-height:1.55;}
+  .docket .tix{margin-top:40px;border-top:1.4px solid var(--ink);}
+  .docket .trow{display:grid;grid-template-columns:32px 1.6fr 1fr auto;gap:22px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .14s;}
+  .docket .trow:last-child{border-bottom:1.4px solid var(--ink);}
+  .docket .trow:hover{background:rgba(27,42,32,.05);}
+  .docket .trow.prim{background:rgba(154,102,40,.06);}
+  .docket .trow.prim:hover{background:rgba(154,102,40,.11);}
+  .docket .trow .tn{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;letter-spacing:.04em;align-self:start;padding-top:5px;}
+  .docket .trow .tname{font-weight:600;text-transform:lowercase;font-size:22px;letter-spacing:-.018em;line-height:1.1;}
+  .docket .trow .tname span{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;font-weight:700;}
+  .docket .trow .tinc{font-size:13px;color:var(--ink-2);line-height:1.55;align-self:center;}
+  .docket .trow .tend{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+  .docket .trow .tprice{font-weight:600;font-size:26px;letter-spacing:-.024em;line-height:1;}
+  .docket .trow .tprice small{font-size:.45em;vertical-align:super;color:var(--ink-2);font-weight:600;}
+  .docket .trow .tcta{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
+  .docket .trow:hover .tcta{color:var(--ochre);transform:translateX(3px);}
+  .docket .trow.prim .tcta{color:var(--ochre);}
+  .docket .stamp{margin-top:30px;display:inline-block;border:1.4px solid var(--ochre);color:var(--ochre);border-radius:3px;padding:9px 16px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg);}
   .docket .shot{position:relative;overflow:hidden;min-height:430px;}
   .docket .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 
@@ -124,6 +139,10 @@
   .pfoot .join button{background:var(--ochre);color:#fff;border:0;padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;text-transform:lowercase;}
   .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
   .pfoot .col b{color:var(--paper);font-weight:600;}
+  .pfoot .fnav{display:flex;flex-direction:column;gap:6px;}
+  .pfoot .fnav b{margin-bottom:8px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);}
+  .pfoot .fnav a{color:rgba(231,225,208,.78);transition:color .12s;}
+  .pfoot .fnav a:hover{color:var(--paper);}
 
   /* hero mini-register — clinical sharpness, the winegrowers feel */
   .estats{margin-top:30px;max-width:380px;}
@@ -147,6 +166,8 @@
     .sec .body,.docket .info{padding:48px 22px;}
     .sec .shot,.docket .shot{min-height:300px;border-left:0;border-top:1.4px solid var(--ink);}
     .sec.flip .shot{order:0;border-right:0;}
+    .docket .trow{grid-template-columns:24px 1fr auto;gap:14px;}
+    .docket .trow .tinc{grid-column:2 / 4;font-size:12.5px;}
     .manifesto .in{padding:60px 22px;}
     .pfoot .in{padding:44px 22px;}
   }
@@ -160,9 +181,11 @@
       <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
       <div class="nm">natural wine festival a'dam<br><span>edition 03</span></div>
       <nav>
-        <a href="workshops.html">workshops</a>
+        <a href="about.html">about</a>
         <a href="winemakers.html">winemakers</a>
-        <a href="#supper">winemakers dinner</a>
+        <a href="workshops.html">workshops</a>
+        <a href="winemakers-dinner.html">dinner</a>
+        <a href="for-professionals.html">trade</a>
         <a href="#tickets">tickets</a>
       </nav>
     </div>
@@ -234,12 +257,12 @@
   <!-- §04 the supper -->
   <section class="sec" id="supper">
     <div class="body">
-      <div class="slabel">§ 04 — winemakers dinner · invite only</div>
+      <div class="slabel">§ 04 — the winemaker's dinner</div>
       <h2 class="stitle">sit at the<br>long table.</h2>
-      <div class="slede">one long table, one seating, after the floor closes. the winemakers pour alongside the kitchen — and the stories the labels can't tell. bring a bottle from the floor to share.</div>
-      <a class="scta" href="#supper-request">request a seat · €39,95 →</a>
+      <div class="slede">the night before the festival — saturday 22 nov. one long table, 30 seats, four growers cook with the chef and pour their own wines. four courses, eight pours.</div>
+      <a class="scta" href="winemakers-dinner.html">read more · €145 →</a>
     </div>
-    <div class="shot"><img src="concept-assets/photo-10.jpg" alt="the supper" /><span class="tag">after the floor closes</span></div>
+    <div class="shot"><img src="concept-assets/photo-10.jpg" alt="the winemaker's dinner" /><span class="tag">sat 22 nov · 30 seats</span></div>
   </section>
 
   <!-- §05 the growers — teaser → home-disclosure -->
@@ -254,6 +277,7 @@
         <div class="grow"><span class="g">gut oggau</span><span class="r">burgenland, at</span><span class="ok">biodynamic · &lt;10 mg/l</span></div>
       </div>
       <a class="scta" href="winemakers.html">read the full register →</a>
+      <div class="smore" style="margin-top:14px;">are you a grower? <a href="participate.html" style="color:var(--ochre);border-bottom:1px solid var(--ochre);padding-bottom:1px;">apply for edition 04 →</a></div>
     </div>
     <div class="shot"><img src="concept-assets/photo-7.jpg" alt="oller del mas grower" /><span class="tag">oller del mas · catalonia, es</span></div>
   </section>
@@ -264,6 +288,7 @@
       <div class="lab">§ 06 — below the hype</div>
       <div class="big">it's just <em>common sense</em>, poured into a glass.</div>
       <p>winemaking industrialised in the 20th century: fertiliser, pesticides, added yeasts, sulphites. these growers refused. they farm without chemicals and let the wine reflect the ground it came from — the canaries in the coal mine of agriculture.</p>
+      <a class="scta" href="about.html" style="margin-top:24px;display:inline-block;">read the full piece →</a>
     </div>
   </section>
 
@@ -271,10 +296,42 @@
   <section class="docket" id="tickets">
     <div class="info">
       <div class="slabel">§ 07 — take your place</div>
-      <div class="price">€32,<small>50</small></div>
-      <div class="meta">festival pass · unlimited tasting<br>23 nov '26 · de hallen, amsterdam<br>doors 13:00 – 22:00</div>
+      <h2 class="dtitle">three ways<br>to be in.</h2>
+      <p class="dsub">one festival, three doors. pick the one that fits — every ticket leads to the same long table.</p>
+
+      <div class="tix">
+        <a class="trow prim" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">
+          <div class="tn">01</div>
+          <div class="tname">festival pass<span>consumer · sun 23 nov</span></div>
+          <div class="tinc">unlimited tasting 13:00–18:15 · oyster bar &amp; food court till 22:00 · open workshops.</div>
+          <div class="tend">
+            <div class="tprice">€32,<small>50</small></div>
+            <div class="tcta">buy on eventix →</div>
+          </div>
+        </a>
+
+        <a class="trow" href="for-professionals.html">
+          <div class="tn">02</div>
+          <div class="tname">trade &amp; press<span>industry only · sun 23 nov</span></div>
+          <div class="tinc">early entry · industry-only tasting hour · meet importers, sommeliers, buyers.</div>
+          <div class="tend">
+            <div class="tprice">€18</div>
+            <div class="tcta">read more →</div>
+          </div>
+        </a>
+
+        <a class="trow" href="winemakers-dinner.html">
+          <div class="tn">03</div>
+          <div class="tname">winemaker's dinner<span>sat 22 nov · 30 seats</span></div>
+          <div class="tinc">seated supper · 4 courses · 8 wines · at the long table with the growers themselves.</div>
+          <div class="tend">
+            <div class="tprice">€145</div>
+            <div class="tcta">read more →</div>
+          </div>
+        </a>
+      </div>
+
       <div class="stamp">united by wine</div>
-      <div style="margin-top:26px"><a class="scta" href="#buy">get your tickets →</a></div>
     </div>
     <div class="shot"><img src="concept-assets/photo-4.jpg" alt="" /></div>
   </section>
@@ -288,6 +345,16 @@
           <input type="email" placeholder="your email" aria-label="email" />
           <button>join</button>
         </form>
+      </div>
+      <div class="col fnav">
+        <b>navigate</b>
+        <a href="about.html">about</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="workshops.html">workshops</a>
+        <a href="winemakers-dinner.html">winemaker's dinner</a>
+        <a href="for-professionals.html">for the trade</a>
+        <a href="#tickets">tickets</a>
+        <a href="participate.html">participate '26</a>
       </div>
       <div class="col">
         <b>natural wine festival a'dam</b><br>

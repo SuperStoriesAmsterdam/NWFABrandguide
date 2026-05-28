@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Natural Wine Festival A'dam</title>
+<meta name="description" content="What the Natural Wine Festival A'dam is, and why natural wine matters. United by wine. 23 November 2026, De Hallen, Amsterdam." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+
+  /* topbar */
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;}
+  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .top .nm span{color:var(--ink-2);}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top nav a:hover{color:var(--ink);}
+
+  /* masthead */
+  .mast{padding:6vh 0 4vh;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;}
+  .mast .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .mast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;
+           font-size:clamp(42px,5.6vw,84px);}
+  .mast .sub{font-size:clamp(14px,1.3vw,16.5px);color:var(--ink-2);line-height:1.55;max-width:46ch;}
+
+  /* festival stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .stats .cell{padding:14px 18px;border-right:1px solid var(--rule);}
+  .stats .cell:last-child{border-right:0;}
+  .stats .cell .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .stats .cell .v{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-top:6px;line-height:1.1;text-transform:lowercase;}
+
+  /* §01 lede — what the festival is */
+  .lede{padding:7vh 0 6vh;display:grid;grid-template-columns:1fr 2.3fr;gap:60px;align-items:start;}
+  .lede .label{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:700;padding-top:6px;}
+  .lede .body p{font-size:clamp(17px,1.55vw,22px);line-height:1.5;letter-spacing:-.005em;max-width:60ch;}
+  .lede .body p + p{margin-top:18px;}
+  .lede .body p.first::first-letter{
+    font-family:'Figtree',serif;font-weight:600;float:left;
+    font-size:6.2em;line-height:.82;padding:6px 12px 0 0;color:var(--ochre);
+  }
+
+  /* §02 two columns — winemakers / beyond the hype */
+  .twocol{padding:6vh 0 7vh;border-top:1.4px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .twocol h2{font-weight:600;text-transform:lowercase;letter-spacing:-.025em;line-height:1;
+             font-size:clamp(28px,3.2vw,44px);margin:24px 0 16px;}
+  .twocol .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .twocol p{font-size:15.5px;line-height:1.62;color:rgba(27,42,32,.85);max-width:54ch;}
+  .twocol p + p{margin-top:14px;}
+
+  /* the essay opener — full-width register banner */
+  .ebanner{border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);
+           padding:36px 0;display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;}
+  .ebanner .tag{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .ebanner .title{font-weight:600;text-transform:lowercase;letter-spacing:-.022em;line-height:1;
+                  font-size:clamp(26px,2.6vw,38px);}
+  .ebanner .meta{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ink-2);text-transform:lowercase;letter-spacing:.04em;}
+
+  /* essay body */
+  .essay{padding:7vh 0 8vh;display:grid;grid-template-columns:minmax(140px,180px) 1fr;gap:80px;}
+  .essay aside{position:sticky;top:24px;align-self:start;}
+  .essay aside ol{list-style:none;counter-reset:ch;display:flex;flex-direction:column;gap:10px;}
+  .essay aside li{counter-increment:ch;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-3);line-height:1.4;}
+  .essay aside li a{display:flex;gap:10px;text-transform:lowercase;}
+  .essay aside li a::before{content:counter(ch,decimal-leading-zero);color:var(--ochre);font-weight:700;}
+  .essay aside li a:hover{color:var(--ink);}
+
+  .essay article{max-width:62ch;}
+  .essay article .chapter + .chapter{margin-top:54px;}
+  .essay article .ch{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .essay article h3{font-weight:600;text-transform:lowercase;letter-spacing:-.022em;line-height:1.02;
+                    font-size:clamp(28px,3vw,40px);margin:12px 0 22px;}
+  .essay article p{font-size:17px;line-height:1.66;color:rgba(27,42,32,.9);}
+  .essay article p + p{margin-top:16px;}
+  .essay article .pull{margin:36px 0;padding:18px 0 18px 22px;border-left:2px solid var(--ochre);
+                       font-size:21px;line-height:1.4;font-weight:500;letter-spacing:-.012em;color:var(--ink);max-width:48ch;}
+
+  .nb{margin-top:56px;padding:22px 24px;background:rgba(27,42,32,.045);border:1px solid var(--rule);border-radius:4px;}
+  .nb .lbl{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:10px;}
+  .nb p{font-size:14.5px;line-height:1.62;color:var(--ink-2);}
+
+  /* closing cta */
+  .cta{border-top:1.4px solid var(--ink);padding:9vh 0 8vh;text-align:center;}
+  .cta .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .cta h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.95;
+          font-size:clamp(36px,5vw,72px);margin:18px 0 26px;}
+  .cta .lnk{display:inline-flex;gap:28px;flex-wrap:wrap;justify-content:center;}
+  .cta .lnk a{display:inline-flex;gap:10px;align-items:center;padding:14px 26px;border:1.4px solid var(--ink);
+              font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;
+              transition:.14s;}
+  .cta .lnk a.fill{background:var(--ink);color:var(--paper);}
+  .cta .lnk a:hover{background:var(--ochre);border-color:var(--ochre);color:#fff;}
+
+  /* footer */
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(231,225,208,.4);border-radius:100px;overflow:hidden;max-width:330px;}
+  .pfoot .join input{flex:1;background:transparent;border:0;color:var(--paper);padding:11px 16px;font-family:inherit;font-size:13px;outline:none;}
+  .pfoot .join input::placeholder{color:rgba(231,225,208,.5);}
+  .pfoot .join button{background:var(--ochre);color:#fff;border:0;padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;text-transform:lowercase;}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .mast{grid-template-columns:1fr;gap:24px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .cell:nth-child(2){border-right:0;}
+    .stats .cell:nth-child(1),.stats .cell:nth-child(2){border-bottom:1px solid var(--rule);}
+    .lede{grid-template-columns:1fr;gap:18px;}
+    .twocol{grid-template-columns:1fr;gap:36px;}
+    .ebanner{grid-template-columns:1fr;gap:14px;}
+    .essay{grid-template-columns:1fr;gap:32px;}
+    .essay aside{position:static;}
+    .essay aside ol{flex-direction:row;flex-wrap:wrap;gap:14px;}
+    .top nav{display:none;}
+    .pfoot .in{padding:44px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="top">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>about · edition 03</span></div>
+      <nav>
+        <a href="about.html">about</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="workshops.html">workshops</a>
+        <a href="winemakers-dinner.html">dinner</a>
+        <a href="for-professionals.html">trade</a>
+        <a href="home-event.html#tickets">tickets</a>
+      </nav>
+    </div>
+
+    <header class="mast">
+      <div>
+        <div class="ey">23 november '26 · de hallen, amsterdam · edition 03</div>
+        <h1>united<br>by wine.</h1>
+      </div>
+      <p class="sub">a one-day festival of living wines, the people who farm them, and an honest day of tasting, eating and learning — in the heart of amsterdam.</p>
+    </header>
+
+    <section class="stats">
+      <div class="cell"><div class="k">edition</div><div class="v">03 — 2026</div></div>
+      <div class="cell"><div class="k">venue</div><div class="v">de hallen · denim city</div></div>
+      <div class="cell"><div class="k">tasting</div><div class="v">13:00 — 18:15</div></div>
+      <div class="cell"><div class="k">food &amp; bar</div><div class="v">13:00 — 22:00</div></div>
+    </section>
+
+    <!-- §01 lede — what the festival is -->
+    <section class="lede" id="festival">
+      <div class="label">§01 — the festival</div>
+      <div class="body">
+        <p class="first">natural wine festival a'dam is — for the netherlands — a completely unique wine event. on sunday 23 november we open the doors for both consumers and professionals.</p>
+        <p>having kicked off with a sold-out pilot in 2022 and two epic editions in 2023 and 2024, we look forward to hosting you in the heart of amsterdam — @ de hallen, in the hallen studio's and denim city.</p>
+        <p>NWFA is a love child gone wild. let's share the love.</p>
+      </div>
+    </section>
+
+    <!-- §02 winemakers / beyond the hype -->
+    <section class="twocol">
+      <div>
+        <div class="k">§02 — the growers</div>
+        <h2>winemakers,<br>in person.</h2>
+        <p>curated natural winemakers from all over europe, an extensive workshop program, a one-day restaurant with carefully-paired food, and a mini market.</p>
+        <p>the festival celebrates wines made without pesticides, without herbicides, and with as little added sulphite as possible — wines produced by incredibly skilled farmers, with a story to tell about agriculture that's able to regenerate.</p>
+        <p>NWFA aims to share these wines, and some of the knowledge of the people who make them.</p>
+      </div>
+      <div>
+        <div class="k">§03 — the stance</div>
+        <h2>beyond<br>the hype.</h2>
+        <p>'natural' or 'unconventional' (versus conventional) has a ring of rebelliousness to it. some still call these often unfiltered, cloudy wines "dirty". for others it adds up to a passing hype.</p>
+        <p>but below the hype, there's a deeper story to be unearthed — one of tradition married with innovation, of craft meeting foresight. wines with nothing taken out and nothing added (except tiny doses of sulphite at bottling) are wines that truly reflect the terroir and the fruit. living wines.</p>
+        <p>these wines are simply common sense. and sometimes sticking to common sense requires the single-mindedness of a visionary. or a rebel.</p>
+      </div>
+    </section>
+
+    <!-- essay banner -->
+    <section class="ebanner">
+      <div class="tag">§04 — the long read</div>
+      <div class="title">a bit more context.</div>
+      <div class="meta">how natural wine became, and why it matters · 6 min read</div>
+    </section>
+
+    <!-- the essay -->
+    <section class="essay">
+      <aside>
+        <ol>
+          <li><a href="#ch-1">unconventional &amp; natural</a></li>
+          <li><a href="#ch-2">monoculture &amp; erosion</a></li>
+          <li><a href="#ch-3">nature's fuzzy logic</a></li>
+          <li><a href="#ch-4">times are changing</a></li>
+        </ol>
+      </aside>
+
+      <article>
+        <div class="chapter" id="ch-1">
+          <div class="ch">01 — unconventional &amp; natural</div>
+          <h3>"the punks of wine."</h3>
+          <p>call them 'unconventional', 'low intervention' or 'raw' — natural wines are causing a stir in cities worldwide. 'natural' (versus conventional) sounds kind of cool, with a ring of rebelliousness to it. some winemakers pride themselves on being terroirists. some like to call them the punks of wine. but below the hype, there's a deeper story to be unearthed.</p>
+          <p>winemaking, like all agriculture, rapidly industrialised during the second half of the 20th century. in the service of higher production, stability and consistent flavour profiles year over year, it became heavily reliant on fertilisers, pesticides, tractor tilling, machine picking, added yeasts, large quantities of sulphites, and various other chemicals.</p>
+          <p>as mass production became the norm of modern winemaking, "efficiency" became its motto. and "profit maximisation", of course. greed was good. with three-euro wines in supermarkets all over europe, consumption was democratised. finally, everybody had it all.</p>
+          <div class="pull">but did we really?</div>
+        </div>
+
+        <div class="chapter" id="ch-2">
+          <div class="ch">02 — monoculture &amp; erosion</div>
+          <h3>the winemaker's disease.</h3>
+          <p>industrialised — aka "conventional" — winemaking means monoculture. lands that are vulnerable to erosion. vineyard workers who develop parkinson's en masse (a link that's recognised by the french government). wines containing glyphosates and other chemicals. that stinks a bit, now does it?</p>
+          <p>in the late 1970s, certain winemakers began to realise that this type of agriculture wasn't healthy. not for the workers being doused in roundup, nor for the soil — turning infertile and at times toxic — that has to feed the vines. and it definitely wasn't sustainable for the grapes: the one and only ingredient a wine should in fact contain.</p>
+          <p>in 1981, marcel lapierre made his first sulphite-free wine and became a pioneer of natural wine. he never looked back.</p>
+          <p>most vineyards in the natural-wine domain are small operations run by family, friends, and hired hands in harvest season. from the grape to the bottle, the entire value chain is transparent and centralised. that's unique in the world of processed food (and in manufacturing in general), where chains tend to be complex and opaque. natural winemakers — these individuals who are both farmers and creatives — know like no one else the effects of weather, the timing of picking, basically any intervention on their product. their sensitivity to subtle changes makes them the proverbial canaries in the coal mine of agriculture.</p>
+        </div>
+
+        <div class="chapter" id="ch-3">
+          <div class="ch">03 — nature's fuzzy logic</div>
+          <h3>value the system, the system creates abundance.</h3>
+          <p>these 'rebels' realised they needed to turn their vineyards into biodiverse ecosystems. they did away with the tidy, "bald" vineyards — mathematically straight rows of vines and a total lack of crop or flora diversity. instead, many adopted the biodynamic principles of rudolf steiner, or at the very least worked organically, certified or not.</p>
+          <p>they started to use the incredibly efficient design that comes built-in to nature: value the system and the system will create abundance. cover crops between rows of vines. trees and herbs growing in. sometimes animals grazing. working with nature's apparent chaos to pioneer earthbound means of growing grapes and making wine.</p>
+          <p>true: to the casual onlooker these vineyards may look messy, and the wines they produce may be cloudy and unfiltered. but most of all — they are alive.</p>
+          <div class="pull">somehow we were led to believe that adding sugar, acid, tannin, wood chips and substantial sulphites helped wine to "taste better".</div>
+        </div>
+
+        <div class="chapter" id="ch-4">
+          <div class="ch">04 — times are changing</div>
+          <h3>this should just be normal.</h3>
+          <p>it's only recently that things are changing. wines with nothing taken out and no added substances (except tiny doses of sulphite) are having their moment — all in the service of wines that truly reflect the terroir and the fruit that make up that life force. living wines. when you think about it, this should be normal. it's not cool. it's just common sense.</p>
+          <p>and sometimes sticking to common sense requires the single-mindedness of a visionary. or a rebel.</p>
+          <p>at the natural wine festival a'dam, we salute those wise, stubborn visionaries — the hard-working, hard-headed winemakers. we invite you to come and meet them, and of course to taste their wines with us on 23 november @ de hallen in the heart of amsterdam.</p>
+        </div>
+
+        <div class="nb">
+          <div class="lbl">NB</div>
+          <p>there's no global standard for "natural wines". the term itself can be discussed for days and is as helpful as it is futile. many winemakers who work biodynamically without additives have no desire to be categorised as 'natural winemakers'. so instead of debating too much about criteria — let taste guide you, and talk with the winemaker. hear how they work the land, and how they make their wines.</p>
+        </div>
+      </article>
+    </section>
+
+  </div>
+
+  <!-- closing cta -->
+  <section class="cta">
+    <div class="wrap">
+      <div class="ey">come meet them</div>
+      <h2>23 november '26.<br>de hallen, amsterdam.</h2>
+      <div class="lnk">
+        <a class="fill" href="home-event.html#tickets">get your tickets →</a>
+        <a href="winemakers.html">see the winemakers →</a>
+        <a href="workshops.html">browse the workshops →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the bottle list, every edition.</div>
+        <form class="join" onsubmit="return false">
+          <input type="email" placeholder="your email" aria-label="email" />
+          <button>join</button>
+        </form>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition 03 — 23.11.26<br>
+        de hallen, amsterdam<br><br>
+        instagram · newsletter<br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The winemaker's dinner — Natural Wine Festival A'dam</title>
+<meta name="description" content="A long-table supper with the growers themselves. Saturday 22 November 2026, the night before the festival." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;}
+  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .top .nm span{color:var(--ink-2);}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top nav a:hover{color:var(--ink);}
+
+  /* hero */
+  .dhero{display:grid;grid-template-columns:1.1fr .9fr;gap:0;align-items:stretch;border-bottom:1.4px solid var(--ink);}
+  .dhero-text{padding:7vh 0 5vh;display:flex;flex-direction:column;justify-content:center;}
+  .dhero .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .dhero h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.035em;line-height:.88;
+            font-size:clamp(48px,7vw,118px);}
+  .dhero .reg{margin-top:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2);text-transform:uppercase;}
+  .dhero .reg b{color:var(--ink);font-weight:700;}
+  .dhero-shot{position:relative;overflow:hidden;min-height:520px;}
+  .dhero-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .dhero-shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+
+  /* facts */
+  .facts{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1.4px solid var(--ink);}
+  .facts .c{padding:18px 22px;border-right:1px solid var(--rule);}
+  .facts .c:last-child{border-right:0;}
+  .facts .c .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .facts .c .v{font-size:17px;font-weight:600;letter-spacing:-.014em;margin-top:5px;line-height:1.1;text-transform:lowercase;}
+
+  /* the idea */
+  .idea{padding:7vh 0;display:grid;grid-template-columns:.4fr 1fr;gap:60px;border-bottom:1.4px solid var(--ink);}
+  .idea .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;padding-top:8px;}
+  .idea .body p{font-size:clamp(17px,1.5vw,21px);line-height:1.55;letter-spacing:-.005em;max-width:60ch;}
+  .idea .body p + p{margin-top:18px;}
+  .idea .body p.lead{font-size:clamp(22px,2.2vw,30px);line-height:1.32;letter-spacing:-.012em;color:var(--ink);font-weight:500;}
+
+  /* menu */
+  .menu{padding:7vh 0;border-bottom:1.4px solid var(--ink);}
+  .menu .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
+  .menu h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.95;font-size:clamp(32px,4.2vw,62px);margin-bottom:36px;max-width:14ch;}
+  .menu .course{display:grid;grid-template-columns:60px 1.4fr 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--rule);align-items:baseline;}
+  .menu .course:first-of-type{border-top:1.4px solid var(--ink);}
+  .menu .course .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ochre);font-weight:700;letter-spacing:.04em;}
+  .menu .course .plate{font-weight:600;text-transform:lowercase;font-size:22px;letter-spacing:-.018em;line-height:1.15;}
+  .menu .course .plate span{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:var(--ink-3);letter-spacing:.04em;text-transform:lowercase;margin-top:6px;font-weight:500;}
+  .menu .course .wine{font-size:13.5px;color:var(--ink-2);line-height:1.55;}
+  .menu .course .wine b{color:var(--ochre);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px;font-weight:700;}
+
+  /* hosts */
+  .hosts{padding:7vh 0;border-bottom:1.4px solid var(--ink);}
+  .hosts .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
+  .hosts h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:1;font-size:clamp(28px,3.2vw,46px);margin-bottom:28px;}
+  .hosts .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .hosts .h{padding:24px 22px;border-right:1px solid var(--rule);}
+  .hosts .h:nth-child(3n){border-right:0;}
+  .hosts .h:nth-child(-n+3){border-bottom:1px solid var(--rule);}
+  .hosts .h .n{font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.018em;line-height:1.1;}
+  .hosts .h .r{margin-top:8px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;}
+
+  /* book */
+  .book{padding:8vh 0 9vh;text-align:center;}
+  .book .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .book h2{margin:18px 0 8px;font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.95;font-size:clamp(36px,5vw,72px);}
+  .book .price{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase;}
+  .book .cta{margin-top:32px;display:inline-flex;gap:10px;align-items:center;padding:16px 30px;border:1.4px solid var(--ink);background:var(--ink);color:var(--paper);
+             font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
+  .book .cta:hover{background:var(--ochre);border-color:var(--ochre);}
+  .book .note{margin-top:22px;font-size:12.5px;color:var(--ink-3);max-width:46ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .dhero{grid-template-columns:1fr;}
+    .dhero-shot{order:-1;border-bottom:1.4px solid var(--ink);min-height:340px;}
+    .dhero-text{padding:5vh 0 4vh;}
+    .facts{grid-template-columns:repeat(2,1fr);}
+    .facts .c:nth-child(2){border-right:0;}
+    .facts .c:nth-child(odd){border-right:1px solid var(--rule);}
+    .facts .c:nth-child(-n+4){border-bottom:1px solid var(--rule);}
+    .facts .c:nth-child(5){grid-column:1 / -1;border-right:0;}
+    .idea{grid-template-columns:1fr;gap:18px;padding:48px 0;}
+    .menu .course{grid-template-columns:36px 1fr;gap:14px;}
+    .menu .course .wine{grid-column:2;}
+    .hosts .grid{grid-template-columns:1fr;}
+    .hosts .h{border-right:0;border-bottom:1px solid var(--rule);}
+    .hosts .h:last-child{border-bottom:0;}
+    .top nav{display:none;}
+    .pfoot .in{padding:44px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="top">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>the winemaker's dinner</span></div>
+      <nav>
+        <a href="about.html">about</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="workshops.html">workshops</a>
+        <a href="winemakers-dinner.html">dinner</a>
+        <a href="for-professionals.html">trade</a>
+        <a href="home-event.html#tickets">tickets</a>
+      </nav>
+    </div>
+
+    <section class="dhero">
+      <div class="dhero-text">
+        <div class="ey">22 november '26 · de hallen, amsterdam · the night before</div>
+        <h1>the long<br>table.</h1>
+        <div class="reg"><b>winemaker's dinner</b> · 30 seats · 4 courses · 8 wines</div>
+      </div>
+      <div class="dhero-shot">
+        <img src="concept-assets/photo-7.jpg" alt="" />
+        <span class="tag">the long table · de hallen</span>
+      </div>
+    </section>
+
+    <section class="facts">
+      <div class="c"><div class="k">date</div><div class="v">sat 22 nov</div></div>
+      <div class="c"><div class="k">doors</div><div class="v">19:00</div></div>
+      <div class="c"><div class="k">seats</div><div class="v">30 only</div></div>
+      <div class="c"><div class="k">format</div><div class="v">seated · long table</div></div>
+      <div class="c"><div class="k">price</div><div class="v">€145 pp</div></div>
+    </section>
+
+    <section class="idea">
+      <div class="lab">§ 01 — the idea</div>
+      <div class="body">
+        <p class="lead">the night before the festival. one long table. thirty seats. four growers cook with the chef, pour their own wines, and answer every question you have.</p>
+        <p>this is the room where the festival starts to make sense — before the floor opens to two thousand people. the winemakers fly in, drop bags at the hotel, and come straight to the kitchen. by the time you sit down they're already in the room.</p>
+        <p>seats are limited. they tend to go to people who care about how the wines were grown, and to anyone who wants to actually meet the people behind them — not just taste them quickly between two crowded tables.</p>
+      </div>
+    </section>
+
+    <section class="menu">
+      <div class="lab">§ 02 — what's on the table</div>
+      <h2>four courses,<br>eight pours.</h2>
+
+      <div class="course">
+        <span class="n">course 01</span>
+        <span class="plate">opening<span>oysters, sourdough, cultured butter</span></span>
+        <span class="wine"><b>pour</b>movia · puro rosé nv<br>maison kalder · gespritzter</span>
+      </div>
+      <div class="course">
+        <span class="n">course 02</span>
+        <span class="plate">first plate<span>roasted celeriac, lardo, smoked broth</span></span>
+        <span class="wine"><b>pour</b>celler comunica · garnacha blanca '23<br>dassemus · auxerrois '22</span>
+      </div>
+      <div class="course">
+        <span class="n">course 03</span>
+        <span class="plate">main<span>charcoal-grilled lamb, beetroot, fermented chilli</span></span>
+        <span class="wine"><b>pour</b>movia · veliko rosso '18<br>celler comunica · old vines garnacha '21</span>
+      </div>
+      <div class="course">
+        <span class="n">course 04</span>
+        <span class="plate">close<span>aged comté, honey from de hallen, dried fruit</span></span>
+        <span class="wine"><b>pour</b>maison kalder · spätlese '20<br>movia · puro bianco · disgorged at table</span>
+      </div>
+    </section>
+
+    <section class="hosts">
+      <div class="lab">§ 03 — at the table</div>
+      <h2>four growers,<br>one chef, you.</h2>
+      <div class="grid">
+        <div class="h"><div class="n">movia</div><div class="r">brda, slovenia · biodynamic</div></div>
+        <div class="h"><div class="n">celler comunica</div><div class="r">priorat, es · organic, wild</div></div>
+        <div class="h"><div class="n">maison kalder</div><div class="r">mosel, de · no added so₂</div></div>
+        <div class="h"><div class="n">dassemus</div><div class="r">brabant, nl · biodynamic</div></div>
+        <div class="h"><div class="n">the kitchen</div><div class="r">chef — to be announced</div></div>
+        <div class="h"><div class="n">the guests</div><div class="r">you · 30 seats</div></div>
+      </div>
+    </section>
+
+    <section class="book">
+      <div class="ey">winemaker's dinner — 22 november '26</div>
+      <h2>€145 · 30 seats,<br>then we're done.</h2>
+      <div class="price">includes 4 courses, 8 wines, water · doors 19:00 · de hallen</div>
+      <a class="cta" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">book a seat on eventix →</a>
+      <p class="note">dietary requirements? mention them at checkout — the kitchen plans by hand and adapts where it can.</p>
+    </section>
+
+  </div>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the bottle list, every edition.</div>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition 03 — 23.11.26<br>
+        de hallen, amsterdam<br><br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>

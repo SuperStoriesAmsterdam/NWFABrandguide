@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For the trade — Natural Wine Festival A'dam</title>
+<meta name="description" content="Industry-only entry, early hour, trade rate. NWFA, 23 November 2026, De Hallen Amsterdam." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;}
+  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .top .nm span{color:var(--ink-2);}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top nav a:hover{color:var(--ink);}
+
+  /* masthead */
+  .mast{padding:7vh 0 5vh;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;}
+  .mast .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .mast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;
+           font-size:clamp(42px,5.8vw,92px);}
+  .mast .sub{font-size:clamp(15px,1.35vw,17.5px);color:var(--ink-2);line-height:1.55;max-width:46ch;}
+
+  /* who it's for */
+  .who{padding:6vh 0;border-top:1.4px solid var(--ink);}
+  .who .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .who h2{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.025em;line-height:.98;font-size:clamp(28px,3.2vw,48px);max-width:18ch;}
+  .who .roles{margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .who .roles .r{padding:18px 22px;border-right:1px solid var(--rule);}
+  .who .roles .r:last-child{border-right:0;}
+  .who .roles .r .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .who .roles .r .v{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-top:6px;line-height:1.2;text-transform:lowercase;}
+
+  /* schedule */
+  .sched{padding:7vh 0;border-top:1.4px solid var(--ink);display:grid;grid-template-columns:.95fr 1fr;gap:60px;}
+  .sched .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .sched h2{margin-top:10px;font-weight:600;text-transform:lowercase;letter-spacing:-.025em;line-height:1;font-size:clamp(28px,3.2vw,46px);}
+  .sched p{margin-top:18px;font-size:15.5px;color:var(--ink-2);line-height:1.62;max-width:42ch;}
+
+  .stab{margin-top:6px;}
+  .srow{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:14px 0;border-top:1px solid var(--rule);align-items:baseline;}
+  .srow:first-child{border-top:1.2px solid var(--ink);}
+  .srow.hi{background:rgba(154,102,40,.08);padding-left:14px;padding-right:14px;margin-left:-14px;margin-right:-14px;}
+  .srow .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ochre);font-weight:700;letter-spacing:.04em;}
+  .srow .d{font-size:14.5px;color:var(--ink);line-height:1.5;}
+  .srow .d b{font-weight:700;}
+
+  /* what's included */
+  .inc{padding:7vh 0;border-top:1.4px solid var(--ink);}
+  .inc .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .inc h2{margin-top:10px;font-weight:600;text-transform:lowercase;letter-spacing:-.025em;line-height:1;font-size:clamp(28px,3.2vw,46px);margin-bottom:32px;}
+  .inc .list{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1.4px solid var(--ink);}
+  .inc .item{padding:22px 24px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);}
+  .inc .item:nth-child(2n){border-right:0;}
+  .inc .item .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;letter-spacing:.04em;}
+  .inc .item .h{margin-top:10px;font-weight:600;text-transform:lowercase;font-size:19px;letter-spacing:-.018em;line-height:1.15;}
+  .inc .item .p{margin-top:8px;font-size:14px;color:var(--ink-2);line-height:1.55;}
+
+  /* book */
+  .book{padding:8vh 0 9vh;border-top:1.4px solid var(--ink);text-align:center;}
+  .book .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .book h2{margin:18px 0 8px;font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.95;font-size:clamp(36px,5vw,72px);}
+  .book .price{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--ink-2);letter-spacing:.06em;text-transform:uppercase;}
+  .book .cta{margin-top:32px;display:inline-flex;gap:10px;align-items:center;padding:16px 30px;border:1.4px solid var(--ink);background:var(--ink);color:var(--paper);
+             font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
+  .book .cta:hover{background:var(--ochre);border-color:var(--ochre);}
+  .book .note{margin-top:22px;font-size:12.5px;color:var(--ink-3);max-width:46ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+  .book .note a{color:var(--ink);border-bottom:1px solid var(--rule);}
+
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .mast{grid-template-columns:1fr;gap:24px;}
+    .who .roles{grid-template-columns:repeat(2,1fr);}
+    .who .roles .r:nth-child(2){border-right:0;}
+    .who .roles .r:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+    .sched{grid-template-columns:1fr;gap:32px;}
+    .inc .list{grid-template-columns:1fr;}
+    .inc .item{border-right:0;}
+    .top nav{display:none;}
+    .pfoot .in{padding:44px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="top">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>for the trade · edition 03</span></div>
+      <nav>
+        <a href="about.html">about</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="workshops.html">workshops</a>
+        <a href="winemakers-dinner.html">dinner</a>
+        <a href="for-professionals.html">trade</a>
+        <a href="home-event.html#tickets">tickets</a>
+      </nav>
+    </div>
+
+    <header class="mast">
+      <div>
+        <div class="ey">23 november '26 · de hallen, amsterdam · trade ticket</div>
+        <h1>for<br>the trade.</h1>
+      </div>
+      <p class="sub">a quiet hour before the doors open to the public. one room, all the winemakers, no queue. for importers, sommeliers, buyers, press.</p>
+    </header>
+
+    <section class="who">
+      <div class="lab">§ 01 — who it's for</div>
+      <h2>industry only.<br>buyers and writers.</h2>
+      <div class="roles">
+        <div class="r"><div class="k">importer</div><div class="v">scout new producers</div></div>
+        <div class="r"><div class="k">sommelier</div><div class="v">build the list</div></div>
+        <div class="r"><div class="k">buyer · retail</div><div class="v">find what's next</div></div>
+        <div class="r"><div class="k">press</div><div class="v">talk to the source</div></div>
+      </div>
+    </section>
+
+    <section class="sched">
+      <div>
+        <div class="lab">§ 02 — the day</div>
+        <h2>the trade hour,<br>then the floor.</h2>
+        <p>trade entry opens at 12:00 — a quiet hour with every winemaker on their table before the consumer crowd arrives. after 13:00 the festival opens; your badge stays on for the full day.</p>
+      </div>
+      <div>
+        <div class="stab">
+          <div class="srow hi"><span class="t">12:00</span><span class="d"><b>trade entry opens.</b> badges at the press desk · espresso bar open.</span></div>
+          <div class="srow hi"><span class="t">12:00–13:00</span><span class="d"><b>industry-only tasting hour.</b> every winemaker on the floor. no queues.</span></div>
+          <div class="srow"><span class="t">13:00</span><span class="d"><b>festival opens to the public.</b> trade badge keeps full access.</span></div>
+          <div class="srow"><span class="t">14:00–17:00</span><span class="d"><b>workshops &amp; masterclasses.</b> seats first come first served.</span></div>
+          <div class="srow"><span class="t">18:15</span><span class="d"><b>tasting ends.</b> food court &amp; oyster bar continue till 22:00.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="inc">
+      <div class="lab">§ 03 — what's included</div>
+      <h2>everything the festival is.<br>plus a quiet hour.</h2>
+      <div class="list">
+        <div class="item"><div class="n">01</div><div class="h">early entry — 12:00</div><div class="p">one hour ahead of the public. all winemakers present, all tables open.</div></div>
+        <div class="item"><div class="n">02</div><div class="h">unlimited tasting</div><div class="p">every pour, every winemaker, 12:00 to 18:15.</div></div>
+        <div class="item"><div class="n">03</div><div class="h">workshop access</div><div class="p">one masterclass per badge. priority booking opens after purchase.</div></div>
+        <div class="item"><div class="n">04</div><div class="h">food court &amp; oyster bar</div><div class="p">open through to 22:00. proper plates, not finger food.</div></div>
+        <div class="item"><div class="n">05</div><div class="h">printed bottle list</div><div class="p">every wine on every table — producer, importer, contact.</div></div>
+        <div class="item"><div class="n">06</div><div class="h">a quiet press desk</div><div class="p">somewhere to sit, write, get a coffee. badges and intros handled there.</div></div>
+      </div>
+    </section>
+
+    <section class="book">
+      <div class="ey">trade ticket — 23 november '26</div>
+      <h2>€18 · book once,<br>open all day.</h2>
+      <div class="price">limited to the industry · valid id at the door</div>
+      <a class="cta" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">book trade ticket on eventix →</a>
+      <p class="note">if you're with an established importer, magazine or restaurant and want to talk before booking, drop a line via <a href="mailto:hello@naturalwinefestival.nl">hello@naturalwinefestival.nl</a>.</p>
+    </section>
+
+  </div>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the bottle list, every edition.</div>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition 03 — 23.11.26<br>
+        de hallen, amsterdam<br><br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
