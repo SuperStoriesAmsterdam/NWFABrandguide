@@ -709,7 +709,10 @@
         panel.innerHTML = `
             <div id="ss-panel-header">
                 <span>Annotations · ${open.length} open</span>
-                <button id="ss-panel-close">✕</button>
+                <div class="ss-panel-actions">
+                    <button id="ss-panel-clear" title="Delete all open notes — removes from API + page">clear all</button>
+                    <button id="ss-panel-close" title="Close">✕</button>
+                </div>
             </div>
             ${renderGroup('@claude', claudeOpen, 'var(--primary, #1200CC)')}
             ${renderGroup('@designer', designerOpen, 'var(--accent, #FF2B2B)')}
@@ -720,6 +723,16 @@
         document.getElementById('ss-panel-close').addEventListener('click', () => {
             panelOpen = false;
             panel.remove();
+        });
+        document.getElementById('ss-panel-clear').addEventListener('click', async () => {
+            if (!open.length) return;
+            if (!confirm(`Delete all ${open.length} open notes? This removes them from the API and the page. Cannot be undone.`)) return;
+            for (const a of open) {
+                await storage.remove(a.id);
+            }
+            renderPins();
+            updateCount();
+            if (panelOpen) renderPanel();
         });
     }
 

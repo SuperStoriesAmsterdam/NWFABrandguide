@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Movia — Brda, Slovenia · Natural Wine Festival A'dam</title>
+<meta name="description" content="Movia — Brda, Slovenia. Biodynamic, 8th generation since 1820. Pouring at NWFA, 23 November 2026, De Hallen Amsterdam." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+
+  /* template banner (this profile = example template) */
+  .tpl{background:var(--ink);color:var(--paper);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:8px 16px;}
+
+  /* page header */
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;}
+  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .top .nm span{color:var(--ink-2);}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top nav a:hover{color:var(--ink);}
+  .top nav .back{color:var(--ochre);}
+
+  /* hero — name + region + photo bleeding right */
+  .phero{display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch;border-bottom:1.4px solid var(--ink);}
+  .phero-text{padding:8vh 0 6vh;display:flex;flex-direction:column;justify-content:center;}
+  .phero .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .phero h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.035em;line-height:.86;
+            font-size:clamp(56px,9vw,148px);}
+  .phero .reg{margin-top:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2);text-transform:uppercase;}
+  .phero .reg b{color:var(--ink);font-weight:700;}
+  .phero-shot{position:relative;overflow:hidden;min-height:520px;transform:translateY(-50px);}
+  .phero-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .phero-shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+
+  /* about — clinical register strip + paragraph */
+  .about{padding:74px 0;display:grid;grid-template-columns:.95fr 1fr;gap:64px;border-bottom:1.4px solid var(--ink);}
+  .about .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .about h2{margin-top:12px;font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.96;font-size:clamp(28px,3.2vw,46px);}
+  .about p{margin-top:20px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:46ch;}
+
+  .pstrip{margin-top:6px;}
+  .prow{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-top:1px solid var(--rule);}
+  .prow:first-child{border-top:1.2px solid var(--ink);}
+  .prow .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .prow .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--ink);font-weight:700;letter-spacing:.02em;text-transform:lowercase;}
+  .prow .v.ok{color:var(--ochre);}
+
+  /* bottles */
+  .bottles{padding:74px 0;}
+  .bottles .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
+  .bottles h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.96;font-size:clamp(28px,3.2vw,46px);margin-bottom:22px;}
+  .brow{display:grid;grid-template-columns:1.4fr 1.1fr 1fr;gap:18px;align-items:baseline;padding:14px 0;border-top:1px solid var(--rule);}
+  .brow:first-of-type{border-top:1.4px solid var(--ink);}
+  .brow .n{font-weight:600;text-transform:lowercase;font-size:17px;letter-spacing:-.015em;}
+  .brow .yr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase;}
+  .brow .nt{font-size:13px;color:var(--ink-2);line-height:1.45;}
+
+  /* quote */
+  .quote{padding:74px 0 90px;border-top:1.4px solid var(--ink);}
+  .quote .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .quote blockquote{margin-top:18px;font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:1.05;font-size:clamp(26px,3vw,42px);max-width:24ch;}
+  .quote cite{display:block;margin-top:20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase;font-style:normal;}
+
+  /* back link */
+  .back-strip{padding:0 0 60px;}
+  .back-strip a{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ochre);padding-bottom:4px;}
+
+  /* footer */
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .phero{grid-template-columns:1fr;}
+    .phero-shot{order:-1;border-bottom:1.4px solid var(--ink);min-height:340px;transform:none;}
+    .phero-text{padding:6vh 0 4vh;}
+    .about{grid-template-columns:1fr;gap:40px;padding:48px 0;}
+    .top nav{display:none;}
+    .brow{grid-template-columns:1fr 1fr;}
+    .brow .nt{grid-column:1 / -1;}
+    .pfoot .in{padding:44px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="tpl">profile template · example: movia · same format for every winemaker</div>
+
+  <div class="wrap">
+
+    <div class="top">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>edition 03 · winemaker profile</span></div>
+      <nav>
+        <a class="back" href="winemakers.html">← all winemakers</a>
+        <a href="home-event.html">home</a>
+        <a href="home-event.html#tickets">tickets</a>
+      </nav>
+    </div>
+
+    <section class="phero">
+      <div class="phero-text">
+        <div class="ey">winemaker · profile</div>
+        <h1>movia.</h1>
+        <div class="reg"><b>brda, slovenia</b> · since 1820 · eighth generation</div>
+      </div>
+      <div class="phero-shot">
+        <img src="concept-assets/photo-9.jpg" alt="" />
+        <span class="tag">at the floor · brda, slovenia</span>
+      </div>
+    </section>
+
+    <section class="about">
+      <div>
+        <div class="lab">§ about</div>
+        <h2>eight generations on the<br>italian-slovenian border.</h2>
+        <p>limestone, mediterranean breath, and a family that has been making wine on the same hill since 1820. aleš kristančič pushes natural fermentation to its limits — wines that have lived a long time before they reach the bottle, designed to be poured slowly and remembered.</p>
+      </div>
+      <div class="pstrip">
+        <div class="prow"><span class="k">farming</span><span class="v ok">biodynamic</span></div>
+        <div class="prow"><span class="k">added yeast</span><span class="v ok">none — wild only</span></div>
+        <div class="prow"><span class="k">sulphur</span><span class="v ok">none on most cuvées</span></div>
+        <div class="prow"><span class="k">hectares</span><span class="v">22</span></div>
+        <div class="prow"><span class="k">since</span><span class="v">1820</span></div>
+        <div class="prow"><span class="k">generation</span><span class="v">8th</span></div>
+        <div class="prow"><span class="k">importer (nl)</span><span class="v">vagebond wines</span></div>
+      </div>
+    </section>
+
+    <section class="bottles">
+      <div class="lab">§ pouring at nwfa</div>
+      <h2>four wines on the floor.</h2>
+      <div class="brow"><span class="n">lunar</span><span class="yr">rebula '19 · 3 yrs on skins</span><span class="nt">amber, almost copper. orange peel, dried sage, salt. a wine to chew.</span></div>
+      <div class="brow"><span class="n">puro rosé</span><span class="yr">méthode ancestrale · nv</span><span class="nt">disgorged upside-down, no dosage. wild strawberry, oyster shell.</span></div>
+      <div class="brow"><span class="n">veliko belo</span><span class="yr">white blend '18</span><span class="nt">chardonnay · ribolla · pinot gris. honeyed but bone-dry. years of life ahead.</span></div>
+      <div class="brow"><span class="n">modri pinot</span><span class="yr">pinot noir '20</span><span class="nt">sour cherry, forest floor. low-intervention pinot, alpine-clean.</span></div>
+    </section>
+
+    <section class="quote">
+      <div class="lab">§ in his words</div>
+      <blockquote>"i'm not making wine. i'm letting the place make the wine. my job is to not get in the way."</blockquote>
+      <cite>— aleš kristančič</cite>
+    </section>
+
+    <div class="back-strip">
+      <a href="winemakers.html">← back to all winemakers</a>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the bottle list, every edition.</div>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition 03 — 23.11.26<br>
+        de hallen, amsterdam<br><br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>

@@ -33,3 +33,8 @@
 
 /* ── slight polish on the toolbar so it sits well over the bone-paper hero ── */
 #ss-toolbar { box-shadow:0 6px 26px rgba(0,0,0,.30) !important; }
+
+/* ── "clear all" action in the side-panel header ── */
+#ss-panel-header .ss-panel-actions { display:flex !important; gap:10px !important; align-items:center !important; }
+#ss-panel-clear { background:none !important; border:0 !important; color:rgba(28,42,33,.6) !important; font-family:ui-monospace,'SF Mono',Menlo,monospace !important; font-size:9.5px !important; letter-spacing:.14em !important; text-transform:uppercase !important; font-weight:700 !important; cursor:pointer !important; padding:0 !important; }
+#ss-panel-clear:hover { color:#dc2626 !important; }
