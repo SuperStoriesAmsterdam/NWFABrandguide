@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The workshops — Natural Wine Festival A'dam</title>
+<meta name="description" content="Seven workshops with winemakers and guides at NWFA 2026. De Hallen, Amsterdam, 23 November. Bookable after ticket purchase." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+
+  /* full-width topbar (NWFA pattern) */
+  .topbar{width:100%;border-bottom:1.4px solid var(--ink);background:var(--paper);position:relative;z-index:5;}
+  .topbar-in{max-width:1280px;margin:0 auto;padding:22px 46px 14px;display:flex;align-items:center;gap:14px;}
+  .topbar-in .seal{width:34px;height:34px;flex:0 0 auto;}
+  .topbar-in .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .topbar-in .nm span{color:var(--ink-2);}
+  .topbar-in nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .topbar-in nav a:hover{color:var(--ink);}
+
+  /* masthead */
+  .mast{padding:6vh 0 4vh;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;}
+  .mast .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .mast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;
+           font-size:clamp(42px,5.6vw,84px);}
+  .mast .sub{font-size:clamp(14px,1.3vw,16.5px);color:var(--ink-2);line-height:1.55;max-width:46ch;}
+
+  /* booking notice */
+  .notice{border:1.4px solid var(--ink);padding:14px 18px;margin-top:34px;display:flex;align-items:baseline;gap:16px;}
+  .notice .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;flex:0 0 auto;}
+  .notice p{font-size:13.5px;color:var(--ink);line-height:1.55;}
+
+  /* stats register */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);margin-top:48px;}
+  .stats .cell{padding:14px 18px;border-right:1px solid var(--rule);}
+  .stats .cell:last-child{border-right:0;}
+  .stats .cell .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .stats .cell .v{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-top:6px;line-height:1;}
+  .stats .cell .v small{font-size:.55em;color:var(--ink-2);font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-family:ui-monospace,'SF Mono',Menlo,monospace;margin-left:6px;}
+
+  /* the list */
+  .list{margin-top:48px;padding-bottom:90px;}
+  .list .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+  .list .cap .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .list .cap .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);}
+  .list .head{display:grid;grid-template-columns:1.8fr 1.4fr .55fr .55fr auto;gap:18px;
+              padding:9px 0;border-top:1.4px solid var(--ink);border-bottom:1px solid var(--rule);
+              font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  a.row{display:grid;grid-template-columns:1.8fr 1.4fr .55fr .55fr auto;gap:18px;align-items:baseline;
+        padding:16px 0;border-top:1px solid var(--rule);transition:background .12s;cursor:pointer;}
+  a.row:first-of-type{border-top:0;}
+  a.row:hover{background:rgba(27,42,32,.05);}
+  a.row .n{font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.015em;color:var(--ink);}
+  a.row .h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);letter-spacing:.02em;text-transform:lowercase;}
+  a.row .tm{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:var(--ink);font-weight:700;letter-spacing:.04em;}
+  a.row .du{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ochre);letter-spacing:.02em;text-transform:lowercase;}
+  a.row .arr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--ink-3);transition:color .12s,transform .12s;}
+  a.row:hover .arr{color:var(--ink);transform:translateX(4px);}
+
+  /* footer */
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(231,225,208,.4);border-radius:100px;overflow:hidden;max-width:330px;}
+  .pfoot .join input{flex:1;background:transparent;border:0;color:var(--paper);padding:11px 16px;font-family:inherit;font-size:13px;outline:none;}
+  .pfoot .join input::placeholder{color:rgba(231,225,208,.5);}
+  .pfoot .join button{background:var(--ochre);color:#fff;border:0;padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;text-transform:lowercase;}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .topbar-in{padding:22px 22px 14px;}
+    .topbar-in nav{display:none;}
+    .mast{grid-template-columns:1fr;gap:24px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stats .cell:nth-child(2){border-right:0;}
+    .stats .cell:nth-child(1),.stats .cell:nth-child(2){border-bottom:1px solid var(--rule);}
+    .list .head,a.row{grid-template-columns:1.4fr 1fr auto;gap:14px;}
+    .list .head .col-time,.list .head .col-dur,a.row .tm,a.row .du{display:none;}
+    .pfoot .in{padding:44px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-in">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>workshops · edition 03</span></div>
+      <nav>
+        <a href="home-event.html">home</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="home-event.html#supper">winemakers dinner</a>
+        <a href="home-event.html#tickets">tickets</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <header class="mast">
+      <div>
+        <div class="ey">23 november '26 · de hallen, amsterdam · edition 03</div>
+        <h1>the<br>workshops.</h1>
+      </div>
+      <p class="sub">learn from the source — masterclasses, tastings, and one quiet meditation. led by the winemakers themselves and a handful of trusted guides.</p>
+    </header>
+
+    <aside class="notice">
+      <span class="lab">how to book</span>
+      <p>workshops are booked <b>after</b> you've purchased your festival ticket. you'll receive a reservation link within 24 hours to claim a seat — one workshop per pass, first come first served.</p>
+    </aside>
+
+    <section class="stats">
+      <div class="cell"><div class="k">workshops</div><div class="v">7</div></div>
+      <div class="cell"><div class="k">led by winemakers</div><div class="v">5</div></div>
+      <div class="cell"><div class="k">duration</div><div class="v">60–90<small>min</small></div></div>
+      <div class="cell"><div class="k">included</div><div class="v">festival pass</div></div>
+    </section>
+
+    <section class="list">
+      <div class="cap"><span class="t">the programme · 23 nov '26</span><span class="n">click a title → details (coming soon)</span></div>
+      <div class="head">
+        <span>workshop</span>
+        <span>host</span>
+        <span class="col-time">time</span>
+        <span class="col-dur">duration</span>
+        <span></span>
+      </div>
+
+      <a class="row" href="#"><span class="n">montsant masterclass</span><span class="h">patri morillo · celler comunica</span><span class="tm">14:00</span><span class="du">60 min</span><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="n">talha wine workshop</span><span class="h">teresa caeiro · gerações da talha</span><span class="tm">15:00</span><span class="du">60 min</span><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="n">cider &amp; perry masterclass</span><span class="h">judith sciarone · maison kalder</span><span class="tm">16:00</span><span class="du">60 min</span><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="n">journey through the art of sake</span><span class="h">froukje betten · yoigokochi</span><span class="tm">16:30</span><span class="du">60 min</span><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="n">to so₂ or not to so₂</span><span class="h">nils bugge</span><span class="tm">17:00</span><span class="du">60 min</span><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="n">wood &amp; food</span><span class="h">nicolai</span><span class="tm">18:30</span><span class="du">75 min</span><span class="arr">→</span></a>
+      <a class="row" href="#"><span class="n">in vino veritas — meditation wine</span><span class="h">peter van rhoon</span><span class="tm">19:00</span><span class="du">60 min</span><span class="arr">→</span></a>
+    </section>
+  </div>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the programme, every edition.</div>
+        <form class="join" onsubmit="return false">
+          <input type="email" placeholder="your email" aria-label="email" />
+          <button>join</button>
+        </form>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition 03 — 23.11.26<br>
+        de hallen, amsterdam<br><br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
