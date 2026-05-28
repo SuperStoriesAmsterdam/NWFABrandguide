@@ -71,7 +71,7 @@
   /* ===== shared section blocks (Full Disclosure language) ===== */
   .sec{display:grid;grid-template-columns:1fr 1fr;overflow:visible;}
   .sec .body{padding:74px 56px;display:flex;flex-direction:column;justify-content:center;}
-  .sec .shot{position:relative;min-height:470px;overflow:hidden;transform:translateY(-50px);}
+  .sec .shot{position:relative;min-height:470px;overflow:hidden;}
   .sec.flip .shot{order:-1;}
   .sec .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .sec .shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.65);}
@@ -111,7 +111,7 @@
   .docket .price small{font-size:.3em;vertical-align:super;color:var(--ink-2);font-weight:600;}
   .docket .meta{margin-top:20px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:var(--ink-2);letter-spacing:.04em;line-height:1.85;text-transform:uppercase;}
   .docket .stamp{margin-top:26px;display:inline-block;border:1.4px solid var(--ochre);color:var(--ochre);border-radius:3px;padding:9px 16px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg);}
-  .docket .shot{position:relative;overflow:hidden;min-height:430px;transform:translateY(-50px);}
+  .docket .shot{position:relative;overflow:hidden;min-height:430px;}
   .docket .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 
   /* footer */
@@ -137,7 +137,6 @@
   #lessons{grid-template-columns:1.2fr .8fr;}
   #supper{grid-template-columns:.9fr 1.1fr;}
   #growers{grid-template-columns:1.1fr .9fr;}
-  #day .shot{transform:none;}  /* no overlap into the hero */
 
   @media(max-width:880px){
     .ehero{grid-template-columns:1fr;min-height:auto;padding:24px 0 0;}
