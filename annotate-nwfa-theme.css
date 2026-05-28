@@ -1,0 +1,35 @@
+/* ===== NWFA theme override for the annotate.js widget =====
+   - Recolors the chrome (toolbar / mode-bar / form / panel / bubble) to NWFA: ink · ochre · paper · Figtree.
+   - PRESERVES the functional audience colours: @claude = blue, @designer = red (those mean things).
+   - Loaded BEFORE annotate.js; annotate.js injects its own styles dynamically into <head>, so audience-colour rules below carry !important to win the cascade. ===== */
+
+:root {
+    /* annotate.js reads these via var(--primary)/--accent/--bg/--font-* */
+    --primary: #1c2a21;
+    --accent:  #9a6628;
+    --bg:      #e7e1d0;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+    --font-body: 'Figtree', system-ui, sans-serif;
+}
+
+/* ── @claude = blue · @designer = red (functional, not decorative) ── */
+.ss-pin-claude    { background:#2563eb !important; }
+.ss-pin-designer  { background:#dc2626 !important; }
+#ss-mode-bar button.ss-sel-claude    { background:#2563eb !important; border-color:#2563eb !important; color:#fff !important; }
+#ss-mode-bar button.ss-sel-designer  { background:#dc2626 !important; border-color:#dc2626 !important; color:#fff !important; }
+.ss-bubble-claude   .ss-bubble-meta  { color:#2563eb !important; }
+.ss-bubble-designer .ss-bubble-meta  { color:#dc2626 !important; }
+/* renderPanel emits inline `style="color:var(--primary,…)"` / `var(--accent,…)` on group titles — override via attribute selector */
+.ss-panel-group-title[style*="primary"] { color:#2563eb !important; }
+.ss-panel-group-title[style*="accent"]  { color:#dc2626 !important; }
+
+/* ── retone the leftover Denim-blue inline styles to NWFA tone ── */
+#ss-mode-bar button[data-priority="low"] { border-color:rgba(28,42,33,.45) !important; color:rgba(28,42,33,.55) !important; }
+.ss-panel-group[style*="0000A560"]       { color:rgba(28,42,33,.55) !important; }
+.ss-bubble-actions button                { color:rgba(28,42,33,.55) !important; }
+.ss-bubble-actions button:hover          { color:#9a6628 !important; }
+.ss-panel-item-meta                      { color:rgba(28,42,33,.55) !important; }
+#ss-form label span                      { color:rgba(28,42,33,.55) !important; }
+
+/* ── slight polish on the toolbar so it sits well over the bone-paper hero ── */
+#ss-toolbar { box-shadow:0 6px 26px rgba(0,0,0,.30) !important; }
