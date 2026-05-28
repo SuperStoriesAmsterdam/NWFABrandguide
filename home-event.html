@@ -26,47 +26,53 @@
   .icon{display:inline-block;width:22px;height:22px;background-color:var(--ink);
         -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;flex:0 0 auto;}
 
-  /* full-width topbar — sits above the hero; line under it is page-wide */
-  .topbar{width:100%;border-bottom:1.4px solid var(--ink);background:var(--paper);position:relative;z-index:5;}
-  .topbar-in{max-width:1280px;margin:0 auto;padding:22px 46px 14px;display:flex;align-items:center;gap:14px;}
-  .topbar-in .seal{width:34px;height:34px;flex:0 0 auto;}
-  .topbar-in .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
-  .topbar-in .nm span{color:var(--ink-2);}
-  .topbar-in nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
-  .topbar-in nav a:hover{color:var(--ink);}
+  /* ===== HERO — home-disclosure pattern: photo absolute right, content can overlap ===== */
+  .page{position:relative;min-height:100svh;padding:22px 0 22px;overflow:hidden;display:flex;flex-direction:column;}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 46px;width:100%;}
 
-  /* ===== HERO — event-forward ===== */
-  .ehero{position:relative;min-height:calc(100svh - 80px);display:grid;grid-template-columns:1.05fr .95fr;
-         padding:0 0 22px;overflow:hidden;}
-  .ehero-text{display:flex;flex-direction:column;justify-content:space-between;padding:0 46px;}
-  .ehero-shot{position:relative;overflow:hidden;}
-  .ehero-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%;}
-  .ehero-shot .ovl{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+  /* brand strip */
+  .bs{display:flex;align-items:center;gap:14px;padding-bottom:12px;position:relative;z-index:3;}
+  .bs .seal{width:34px;height:34px;flex:0 0 auto;}
+  .bs .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .bs .nm span{color:var(--ink-2);}
 
-  .ehead{display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1.4px solid var(--ink);}
-  .ehead .seal{width:34px;height:34px;flex:0 0 auto;}
-  .ehead .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
-  .ehead .nm span{color:var(--ink-2);}
-  .ehead nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
-  .ehead nav a:hover{color:var(--ink);}
+  /* nav row — rule above and below; rule extends across the .wrap and is visually terminated by the photo */
+  .navrow{padding:8px 0 14px;border-top:1px solid var(--rule);border-bottom:1.4px solid var(--ink);position:relative;z-index:3;}
+  .navrow nav{display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .navrow nav a:hover{color:var(--ink);}
 
-  .emast{padding:6vh 0 4vh;}
-  .emast .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
-  .emast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.94;
-            font-size:clamp(42px,5.6vw,84px);}
-  .emast .sub{margin-top:20px;max-width:38ch;font-size:clamp(15px,1.4vw,18px);color:var(--ink-2);line-height:1.55;}
+  /* masthead — held in the safe left zone (~60%) */
+  .mast{margin-top:48px;max-width:60%;position:relative;z-index:3;}
+  .mast .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .mast h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.92;font-size:clamp(40px,5.4vw,82px);}
+  .mast .sub{margin-top:18px;font-size:clamp(14px,1.25vw,16px);color:var(--ink-2);max-width:46ch;line-height:1.55;}
 
-  /* the buy block — front and centre */
-  .ebuy{display:flex;flex-direction:column;gap:14px;padding:24px 0 2px;border-top:1.4px solid var(--ink);}
-  .ebuy .when{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase;}
-  .ebuy .when b{color:var(--ink);font-weight:700;}
-  .ebuy .pricerow{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
-  .ebuy .price{font-weight:600;text-transform:lowercase;letter-spacing:-.025em;font-size:clamp(46px,5vw,68px);line-height:.88;}
-  .ebuy .price small{font-size:.36em;vertical-align:super;color:var(--ink-2);font-weight:600;}
-  .ebuy .buybtn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font-weight:600;font-size:14.5px;
-                padding:14px 24px;border-radius:100px;text-transform:lowercase;letter-spacing:.01em;transition:background .15s;}
-  .ebuy .buybtn:hover{background:var(--ochre);}
-  .ebuy .fine{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-2);line-height:1.7;text-transform:uppercase;margin-top:8px;}
+  /* extra register — slightly wider (~64%): the gentle outward step, where text begins to brush the photo */
+  .extra{margin-top:38px;max-width:64%;position:relative;z-index:3;}
+  .extra .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .extra .cap .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .extra .cap .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);}
+  .vrow{display:grid;grid-template-columns:1.4fr 1.1fr 1.1fr .7fr;gap:14px;padding:9px 0;border-top:1px solid var(--rule);font-size:12.5px;letter-spacing:.01em;align-items:baseline;}
+  .vrow:first-of-type{border-top:1.4px solid var(--ink);}
+  .vrow .g{font-weight:600;text-transform:lowercase;font-size:13.5px;}
+  .vrow .c{color:var(--ink-2);font-family:ui-monospace,'SF Mono',Menlo,monospace;text-transform:lowercase;}
+  .vrow .ok{color:var(--ochre);font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+
+  /* ledger — bottom, back in the safe zone */
+  .ledger{margin-top:auto;padding-top:14px;border-top:1.4px solid var(--ink);max-width:60%;position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .ledger .l{font-size:11.5px;letter-spacing:.04em;color:var(--ink-2);line-height:1.7;text-transform:lowercase;}
+  .ledger .l b{color:var(--ink);font-weight:700;}
+  .ledger .cta{font-size:14px;font-weight:600;text-transform:lowercase;border-bottom:1.5px solid var(--ochre);padding-bottom:4px;}
+
+  /* the photo — absolute, runs top→bottom of the hero. narrower than home-disclosure (30vw vs 39vw) */
+  .living{position:absolute;top:0;right:0;bottom:0;width:30vw;border-left:1.4px solid var(--ink);overflow:hidden;z-index:2;}
+  .living img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;}
+  .living .stamp{position:absolute;right:24px;bottom:24px;width:90px;height:90px;border-radius:50%;
+       border:1.4px solid var(--ochre);color:#f0e9d8;display:flex;align-items:center;justify-content:center;text-align:center;
+       font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;line-height:1.5;transform:rotate(-7deg);
+       background:rgba(27,42,32,.34);backdrop-filter:blur(2px);}
+  .living .ovl{position:absolute;left:18px;bottom:24px;color:#f0e9d8;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.65);max-width:48%;line-height:1.5;}
+  .living .ovl b{display:block;font-size:13px;letter-spacing:.04em;margin-top:3px;}
 
   /* ===== shared section blocks (Full Disclosure language) ===== */
   .sec{display:grid;grid-template-columns:1fr 1fr;overflow:visible;}
@@ -158,10 +164,12 @@
   #growers{grid-template-columns:1.1fr .9fr;}
 
   @media(max-width:880px){
-    .ehero{grid-template-columns:1fr;min-height:auto;padding:24px 0 0;}
-    .ehero-shot{border-left:0;border-top:1.4px solid var(--ink);min-height:340px;}
-    .ehero-text{padding:0 22px 28px;}
-    .ehead nav{display:none;}
+    .wrap{padding:0 22px;}
+    .mast,.extra,.ledger{max-width:100%;}
+    .navrow nav{display:none;}
+    .living{position:relative;width:auto;height:320px;border-left:0;border-top:1.4px solid var(--ink);margin-top:32px;}
+    .vrow{grid-template-columns:1.3fr 1fr .7fr;gap:12px;}
+    .vrow .c:nth-child(3){display:none;}
     .sec,.docket{grid-template-columns:1fr;}
     .sec .body,.docket .info{padding:48px 22px;}
     .sec .shot,.docket .shot{min-height:300px;border-left:0;border-top:1.4px solid var(--ink);}
@@ -175,11 +183,13 @@
 </head>
 <body>
 
-  <!-- ====== HERO ====== -->
-  <header class="topbar">
-    <div class="topbar-in">
+  <!-- ====== HERO — photo bleeds top→bottom, extra register touches it ====== -->
+  <div class="page">
+    <div class="wrap bs">
       <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
-      <div class="nm">natural wine festival a'dam<br><span>edition 03</span></div>
+      <div class="nm">natural wine festival a'dam<br><span>edition 03 — 23.11.26</span></div>
+    </div>
+    <div class="wrap navrow">
       <nav>
         <a href="about.html">about</a>
         <a href="winemakers.html">winemakers</a>
@@ -189,35 +199,32 @@
         <a href="#tickets">tickets</a>
       </nav>
     </div>
-  </header>
 
-  <section class="ehero">
-    <div class="ehero-text">
-      <div class="emast">
-        <div class="ey">sat 23 november '26 · de hallen, amsterdam</div>
-        <h1>one long day<br>of living wine.</h1>
-        <div class="estats">
-          <div class="erow"><span class="ek">growers</span><span class="ev">60+</span></div>
-          <div class="erow"><span class="ek">wines</span><span class="ev">300+</span></div>
-          <div class="erow"><span class="ek">classes</span><span class="ev">25+</span></div>
-          <div class="erow"><span class="ek">doors</span><span class="ev">13:00 – 22:00</span></div>
-        </div>
-      </div>
-
-      <div class="ebuy">
-        <div class="pricerow">
-          <div class="price">€32,<small>50</small></div>
-          <a class="buybtn" href="#tickets">take your place →</a>
-        </div>
-        <div class="fine">festival pass · unlimited tasting · doors 13:00 – 22:00</div>
-      </div>
+    <div class="wrap mast">
+      <div class="ey">united by wine</div>
+      <h1>one long day<br>of living wine.</h1>
+      <p class="sub">a one-day festival of living wines, the people who farm them, and an honest day of tasting, eating and learning — in the heart of amsterdam.</p>
     </div>
 
-    <div class="ehero-shot">
+    <div class="wrap extra">
+      <div class="cap"><span class="t">the day at a glance</span><span class="n">edition 03 · 23.11.26</span></div>
+      <div class="vrow"><span class="g">60+ growers</span><span class="c">all named, all declared</span><span class="c">11 countries</span><span class="ok">→ register</span></div>
+      <div class="vrow"><span class="g">300+ wines</span><span class="c">tasting 13:00 – 18:15</span><span class="c">unlimited pours</span><span class="ok">→ floor</span></div>
+      <div class="vrow"><span class="g">25+ classes</span><span class="c">14:00 onward</span><span class="c">60–90 min · 18 seats</span><span class="ok">→ workshops</span></div>
+      <div class="vrow"><span class="g">oyster bar &amp; kitchen</span><span class="c">13:00 – 22:00</span><span class="c">all day</span><span class="ok">→ the day</span></div>
+    </div>
+
+    <div class="wrap ledger">
+      <div class="l"><b>festival pass · €32,50</b><br>doors 13:00 – 22:00 · de hallen, amsterdam</div>
+      <a class="cta" href="#tickets">take your place →</a>
+    </div>
+
+    <div class="living" aria-hidden="true">
       <img src="concept-assets/photo-3.jpg" alt="" />
-      <span class="ovl">on the floor · edition 03</span>
+      <div class="ovl">on the floor<br><b>the living bottle</b></div>
+      <div class="stamp">united<br>by<br>wine</div>
     </div>
-  </section>
+  </div>
 
   <!-- §02 the day -->
   <section class="sec" id="day">
