@@ -26,9 +26,18 @@
   .icon{display:inline-block;width:22px;height:22px;background-color:var(--ink);
         -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;flex:0 0 auto;}
 
+  /* full-width topbar — sits above the hero; line under it is page-wide */
+  .topbar{width:100%;border-bottom:1.4px solid var(--ink);background:var(--paper);position:relative;z-index:5;}
+  .topbar-in{max-width:1280px;margin:0 auto;padding:22px 46px 14px;display:flex;align-items:center;gap:14px;}
+  .topbar-in .seal{width:34px;height:34px;flex:0 0 auto;}
+  .topbar-in .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .topbar-in .nm span{color:var(--ink-2);}
+  .topbar-in nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .topbar-in nav a:hover{color:var(--ink);}
+
   /* ===== HERO — event-forward ===== */
-  .ehero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;
-         padding:26px 0 22px;overflow:hidden;}
+  .ehero{position:relative;min-height:calc(100svh - 80px);display:grid;grid-template-columns:1.05fr .95fr;
+         padding:0 0 22px;overflow:hidden;}
   .ehero-text{display:flex;flex-direction:column;justify-content:space-between;padding:0 46px;}
   .ehero-shot{position:relative;overflow:hidden;}
   .ehero-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%;}
@@ -57,7 +66,7 @@
   .ebuy .buybtn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font-weight:600;font-size:14.5px;
                 padding:14px 24px;border-radius:100px;text-transform:lowercase;letter-spacing:.01em;transition:background .15s;}
   .ebuy .buybtn:hover{background:var(--ochre);}
-  .ebuy .perks{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-2);line-height:1.7;text-transform:uppercase;}
+  .ebuy .fine{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-2);line-height:1.7;text-transform:uppercase;margin-top:8px;}
 
   /* ===== shared section blocks (Full Disclosure language) ===== */
   .sec{display:grid;grid-template-columns:1fr 1fr;overflow:visible;}
@@ -124,10 +133,11 @@
   .erow .ev{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;color:var(--ink);font-weight:700;letter-spacing:.04em;}
 
   /* per-section grid ratios — varying widths build the irregular rhythm */
-  #day{grid-template-columns:.85fr 1.2fr;}
-  #lessons{grid-template-columns:1.1fr .9fr;}
+  #day{grid-template-columns:.95fr 1.05fr;}
+  #lessons{grid-template-columns:1.2fr .8fr;}
   #supper{grid-template-columns:.9fr 1.1fr;}
   #growers{grid-template-columns:1.1fr .9fr;}
+  #day .shot{transform:none;}  /* no overlap into the hero */
 
   @media(max-width:880px){
     .ehero{grid-template-columns:1fr;min-height:auto;padding:24px 0 0;}
@@ -146,19 +156,21 @@
 <body>
 
   <!-- ====== HERO ====== -->
+  <header class="topbar">
+    <div class="topbar-in">
+      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <div class="nm">natural wine festival a'dam<br><span>edition 03</span></div>
+      <nav>
+        <a href="#lessons">workshops</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="#supper">winemakers dinner</a>
+        <a href="#tickets">tickets</a>
+      </nav>
+    </div>
+  </header>
+
   <section class="ehero">
     <div class="ehero-text">
-      <div class="ehead">
-        <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
-        <div class="nm">natural wine festival a'dam<br><span>edition 03</span></div>
-        <nav>
-          <a href="#day">the day</a>
-          <a href="#lessons">the lessons</a>
-          <a href="winemakers.html">the winemakers</a>
-          <a href="#tickets">tickets</a>
-        </nav>
-      </div>
-
       <div class="emast">
         <div class="ey">sat 23 november '26 · de hallen, amsterdam</div>
         <h1>one long day<br>of living wine.</h1>
@@ -171,12 +183,11 @@
       </div>
 
       <div class="ebuy">
-        <div class="when"><b>doors 13:00 – 22:00</b> · oyster bar all day · the kitchen til close</div>
         <div class="pricerow">
           <div class="price">€32,<small>50</small></div>
           <a class="buybtn" href="#tickets">take your place →</a>
         </div>
-        <div class="perks">festival pass · unlimited tasting · 60+ growers · 25+ classes · the market</div>
+        <div class="fine">festival pass · unlimited tasting · doors 13:00 – 22:00</div>
       </div>
     </div>
 
@@ -206,7 +217,7 @@
   <!-- §03 the lessons — flipped (the irregularity) -->
   <section class="sec flip" id="lessons">
     <div class="body">
-      <div class="slabel">§ 03 — the lessons</div>
+      <div class="slabel">§ 03 — workshops</div>
       <h2 class="stitle">go beyond<br>the hype.</h2>
       <div class="slede">learn from the source — 25+ classes across the day. a sample from the timetable:</div>
       <div class="manifest">
@@ -223,7 +234,7 @@
   <!-- §04 the supper -->
   <section class="sec" id="supper">
     <div class="body">
-      <div class="slabel">§ 04 — the supper · invite only</div>
+      <div class="slabel">§ 04 — winemakers dinner · invite only</div>
       <h2 class="stitle">sit at the<br>long table.</h2>
       <div class="slede">one long table, one seating, after the floor closes. the winemakers pour alongside the kitchen — and the stories the labels can't tell. bring a bottle from the floor to share.</div>
       <a class="scta" href="#supper-request">request a seat · €39,95 →</a>
