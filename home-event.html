@@ -27,9 +27,9 @@
         -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;flex:0 0 auto;}
 
   /* ===== HERO — system grid: same x=56 alignment as sections; rules terminate at photo edge ===== */
-  :root{--photo-w:30vw; --img-cascade:94px;}
+  :root{--photo-w:30vw; --img-cascade:94px; --gutter:80px;}
   .page{position:relative;min-height:100svh;padding:22px 0 22px;overflow:hidden;display:flex;flex-direction:column;}
-  .wrap{padding:0 56px;width:100%;max-width:none;}
+  .wrap{padding:0 var(--gutter);width:100%;max-width:none;}
 
   /* brand strip */
   .bs{display:flex;align-items:center;gap:14px;padding-bottom:12px;padding-right:calc(var(--photo-w) + 12px);position:relative;z-index:3;}
@@ -37,8 +37,8 @@
   .bs .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
   .bs .nm span{color:var(--ink-2);}
 
-  /* nav row — element narrowed so its top/bottom rules terminate at photo's left edge */
-  .navrow{padding:8px 0 14px;border-top:1px solid var(--rule);border-bottom:1.4px solid var(--ink);position:relative;z-index:3;width:calc(100% - var(--photo-w) - 1.4px);max-width:none;box-sizing:border-box;}
+  /* nav row — width compensates for the right gutter so its rules terminate AT the photo's left edge */
+  .navrow{padding:8px 0 14px;border-top:1px solid var(--rule);border-bottom:1.4px solid var(--ink);position:relative;z-index:3;width:calc(100% + var(--gutter) - var(--photo-w) - 1.4px);max-width:none;box-sizing:border-box;}
   .navrow nav{display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
   .navrow nav a:hover{color:var(--ink);}
 
@@ -92,7 +92,7 @@
   }
 
   /* ===== shared section blocks — absolute image right-anchored, headlines aligned with hero h1 ===== */
-  .sec{position:relative;padding:74px 56px;min-height:520px;background:var(--paper);overflow:hidden;}
+  .sec{position:relative;padding:74px var(--gutter);min-height:520px;background:var(--paper);overflow:hidden;transition:background .9s ease-out;}
   .sec .body{position:relative;z-index:3;max-width:clamp(420px,56vw,800px);display:flex;flex-direction:column;justify-content:center;min-height:calc(520px - 148px);padding:0;}
   .sec .shot{position:absolute;top:0;right:0;bottom:0;width:calc(var(--photo-w) + var(--img-cascade));overflow:hidden;z-index:2;border-left:1.4px solid var(--ink);transition:transform .8s ease-out;}
   .sec .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s ease-out;}
@@ -100,8 +100,14 @@
   .sec .shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.65);z-index:4;}
 
   /* flipped — image on the LEFT, copy on the right (mirror of the default) */
-  .sec.flip{padding-left:calc(var(--photo-w) + var(--img-cascade) + 56px);padding-right:56px;}
+  .sec.flip{padding-left:calc(var(--photo-w) + var(--img-cascade) + var(--gutter));padding-right:var(--gutter);}
   .sec.flip .shot{right:auto;left:0;border-left:0;border-right:1.4px solid var(--ink);}
+
+  /* scroll-color: progressive backgrounds shift warmer through the page */
+  #day{background:var(--paper);}
+  #lessons{background:#e3dccb;}
+  #supper{background:#ddd5c1;}
+  #growers{background:#d6ccb2;}
   .slabel{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
   .stitle{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.98;font-size:clamp(30px,3.4vw,52px);margin-top:12px;}
   .slede{font-size:14px;color:var(--ink-2);max-width:42ch;margin-top:16px;line-height:1.55;}
@@ -125,7 +131,7 @@
 
   /* manifesto — ink color block. §07's image touches its bottom edge for visual flow */
   .manifesto{background:var(--ink);color:var(--paper);border-top:1.4px solid var(--ink);position:relative;overflow:hidden;}
-  .manifesto .in{max-width:none;margin:0;padding:96px 56px;position:relative;z-index:3;}
+  .manifesto .in{max-width:none;margin:0;padding:96px var(--gutter);position:relative;z-index:3;}
   .manifesto .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:26px;}
   .manifesto .big{font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:1.0;font-size:clamp(32px,4.6vw,72px);max-width:17ch;color:var(--paper);}
   .manifesto .big em{font-style:normal;color:var(--ochre);}
@@ -134,26 +140,26 @@
   .manifesto .scta:hover{border-color:var(--paper);}
   .manifesto-stamp{position:absolute;right:6vw;top:50%;width:104px;height:104px;margin-top:-52px;border-radius:50%;border:1.4px solid var(--ochre);color:var(--ochre);display:flex;align-items:center;justify-content:center;text-align:center;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;line-height:1.6;font-weight:700;animation:seal-rotate 60s linear infinite;z-index:2;}
 
-  /* tickets docket — ink color block continuing the §06 band */
-  .docket{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;}
-  .docket .info{padding:72px 56px 80px;position:relative;z-index:3;max-width:calc(100% - var(--photo-w) - var(--img-cascade) - 30px);box-sizing:border-box;}
+  /* tickets docket — paper backdrop, same absolute-image pattern as sections */
+  .docket{position:relative;background:var(--paper);color:var(--ink);overflow:hidden;}
+  .docket .info{padding:72px var(--gutter) 80px;position:relative;z-index:3;max-width:calc(100% - var(--photo-w) - var(--img-cascade) - 30px);box-sizing:border-box;}
   .docket .slabel{color:var(--ochre);}
-  .docket .dtitle{font-weight:600;letter-spacing:-.03em;font-size:clamp(40px,5.4vw,80px);line-height:.92;text-transform:lowercase;margin-top:14px;color:var(--paper);}
-  .docket .dsub{margin-top:16px;font-size:15px;color:rgba(231,225,208,.7);max-width:42ch;line-height:1.55;}
-  .docket .tix{margin-top:40px;border-top:1.4px solid rgba(231,225,208,.4);}
-  .docket .trow{display:grid;grid-template-columns:32px 1.6fr 1fr auto;gap:22px;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(231,225,208,.18);cursor:pointer;transition:background .14s;}
-  .docket .trow:last-child{border-bottom:1.4px solid rgba(231,225,208,.4);}
-  .docket .trow:hover{background:rgba(231,225,208,.05);}
-  .docket .trow.prim{background:rgba(154,102,40,.16);}
-  .docket .trow.prim:hover{background:rgba(154,102,40,.24);}
+  .docket .dtitle{font-weight:600;letter-spacing:-.03em;font-size:clamp(40px,5.4vw,80px);line-height:.92;text-transform:lowercase;margin-top:14px;}
+  .docket .dsub{margin-top:16px;font-size:15px;color:var(--ink-2);max-width:42ch;line-height:1.55;}
+  .docket .tix{margin-top:40px;border-top:1.4px solid var(--ink);}
+  .docket .trow{display:grid;grid-template-columns:32px 1.6fr 1fr auto;gap:22px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .14s;}
+  .docket .trow:last-child{border-bottom:1.4px solid var(--ink);}
+  .docket .trow:hover{background:rgba(27,42,32,.05);}
+  .docket .trow.prim{background:rgba(154,102,40,.06);}
+  .docket .trow.prim:hover{background:rgba(154,102,40,.11);}
   .docket .trow .tn{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;letter-spacing:.04em;align-self:start;padding-top:5px;}
-  .docket .trow .tname{font-weight:600;text-transform:lowercase;font-size:22px;letter-spacing:-.018em;line-height:1.1;color:var(--paper);}
-  .docket .trow .tname span{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:rgba(231,225,208,.5);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;font-weight:700;}
-  .docket .trow .tinc{font-size:13px;color:rgba(231,225,208,.7);line-height:1.55;align-self:center;}
+  .docket .trow .tname{font-weight:600;text-transform:lowercase;font-size:22px;letter-spacing:-.018em;line-height:1.1;}
+  .docket .trow .tname span{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;font-weight:700;}
+  .docket .trow .tinc{font-size:13px;color:var(--ink-2);line-height:1.55;align-self:center;}
   .docket .trow .tend{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-  .docket .trow .tprice{font-weight:600;font-size:26px;letter-spacing:-.024em;line-height:1;color:var(--paper);}
-  .docket .trow .tprice small{font-size:.45em;vertical-align:super;color:rgba(231,225,208,.5);font-weight:600;}
-  .docket .trow .tcta{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:rgba(231,225,208,.5);text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
+  .docket .trow .tprice{font-weight:600;font-size:26px;letter-spacing:-.024em;line-height:1;}
+  .docket .trow .tprice small{font-size:.45em;vertical-align:super;color:var(--ink-2);font-weight:600;}
+  .docket .trow .tcta{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
   .docket .trow:hover .tcta{color:var(--ochre);transform:translateX(3px);}
   .docket .trow.prim .tcta{color:var(--ochre);}
   .docket .stamp{margin-top:30px;display:inline-block;border:1.4px solid var(--ochre);color:var(--ochre);border-radius:3px;padding:9px 16px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg);}
@@ -162,7 +168,7 @@
 
   /* footer */
   .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
-  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .in{max-width:none;margin:0;padding:58px var(--gutter) 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
   .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
   .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(231,225,208,.4);border-radius:100px;overflow:hidden;max-width:330px;}
   .pfoot .join input{flex:1;background:transparent;border:0;color:var(--paper);padding:11px 16px;font-family:inherit;font-size:13px;outline:none;}
@@ -183,7 +189,7 @@
   .erow .ev{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;color:var(--ink);font-weight:700;letter-spacing:.04em;}
 
   @media(max-width:880px){
-    .wrap{padding:0 30px;}
+    :root{--gutter:30px;}
     .mast,.extra,.ledger{max-width:100%;}
     .navrow{width:100%;}
     .navrow nav{display:none;}
@@ -193,11 +199,10 @@
     .vrow{grid-template-columns:1.3fr 1fr .7fr;gap:12px;}
     .vrow .c:nth-child(3){display:none;}
     .sec{padding:48px 30px;min-height:auto;}
-    .sec.flip{padding-left:30px;}
+    .sec.flip{padding-left:30px;padding-right:30px;}
     .sec .body{max-width:100%;min-height:auto;}
     .sec .shot{position:relative;width:auto;height:280px;border-left:0;border-top:1.4px solid var(--ink);margin-top:32px;}
     .sec.flip .shot{border-right:0;}
-    .manifesto .in{padding:60px 30px;}
     .manifesto-stamp{display:none;}
     .docket .info{max-width:100%;padding:48px 30px;}
     .docket .shot{position:relative;width:auto;height:280px;border-left:0;border-top:1.4px solid var(--ink);}
