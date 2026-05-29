@@ -71,24 +71,40 @@
 
   /* animations */
   .mast .ey .l{display:inline-block;opacity:0;transform:translateY(4px);animation:letter-fade .55s ease-out forwards;}
+  .mast h1 .l{display:inline-block;opacity:0;transform:translateY(10px);animation:letter-fade .7s cubic-bezier(.2,.7,.2,1) forwards;}
   @keyframes letter-fade{to{opacity:1;transform:translateY(0);}}
   @keyframes ken-burns{from{transform:scale(1) translate(0,0);}to{transform:scale(1.08) translate(-2%,-1%);}}
   @keyframes seal-rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
   /* scroll-fade: content fades up as each section enters the viewport */
-  html{scroll-behavior:smooth;}
   .sec .body, .manifesto .in, .docket .info{opacity:0;transform:translateY(22px);transition:opacity 1s ease-out .05s, transform 1s ease-out .05s;}
   .sec.in-view .body, .manifesto.in-view .in, .docket.in-view .info{opacity:1;transform:translateY(0);}
   /* nav link underline-grow on hover */
   .navrow nav a{position:relative;padding-bottom:3px;}
   .navrow nav a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--ochre);transition:width .25s ease-out;}
   .navrow nav a:hover::after{width:100%;}
+
+  /* scroll progress bar — thin ochre line at the very top */
+  .scrollbar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--ochre);z-index:9999;transition:width .08s linear;pointer-events:none;}
+
+  /* stats counter — number pulses slightly when finishing the rollup */
+  .vrow .num{font-variant-numeric:tabular-nums;}
+
+  /* marquee ticker between sections */
+  .ticker{overflow:hidden;background:var(--ink);color:var(--paper);border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .ticker-track{display:flex;gap:32px;padding:14px 0;white-space:nowrap;animation:ticker-scroll 48s linear infinite;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;will-change:transform;}
+  .ticker-track > span{flex:0 0 auto;padding-left:32px;}
+  .ticker-track > span.dot{color:var(--ochre);padding-left:0;}
+  @keyframes ticker-scroll{from{transform:translate3d(0,0,0);}to{transform:translate3d(-50%,0,0);}}
+
   /* respect reduced motion */
   @media (prefers-reduced-motion: reduce){
     .living img{animation:none;}
     .manifesto-stamp{animation:none;}
-    .mast .ey .l{opacity:1;transform:none;animation:none;}
+    .mast .ey .l, .mast h1 .l{opacity:1;transform:none;animation:none;}
     .sec .body, .manifesto .in, .docket .info{opacity:1;transform:none;transition:none;}
+    .ticker-track{animation:none;}
+    .scrollbar{display:none;}
   }
 
   /* ===== shared section blocks — absolute image right-anchored, headlines aligned with hero h1 ===== */
@@ -214,6 +230,8 @@
 </head>
 <body>
 
+  <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
+
   <!-- ====== HERO — photo bleeds top→bottom, extra register touches it ====== -->
   <div class="page">
     <div class="wrap bs">
@@ -289,6 +307,14 @@
     </div>
     <div class="shot"><img src="concept-assets/photo-8.jpg" alt="wine tasting and workshops" /><span class="tag">wine tasting &amp; workshops</span></div>
   </section>
+
+  <!-- ticker between §03 and §04 — festival heartbeat -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>23.11.26</span><span class="dot">·</span><span>de hallen, amsterdam</span><span class="dot">·</span><span>60+ growers</span><span class="dot">·</span><span>300+ wines</span><span class="dot">·</span><span>25+ classes</span><span class="dot">·</span><span>doors 13:00 — 22:00</span><span class="dot">·</span><span>united by wine</span><span class="dot">·</span>
+      <span>23.11.26</span><span class="dot">·</span><span>de hallen, amsterdam</span><span class="dot">·</span><span>60+ growers</span><span class="dot">·</span><span>300+ wines</span><span class="dot">·</span><span>25+ classes</span><span class="dot">·</span><span>doors 13:00 — 22:00</span><span class="dot">·</span><span>united by wine</span><span class="dot">·</span>
+    </div>
+  </div>
 
   <!-- §04 the supper -->
   <section class="sec" id="supper">
@@ -402,8 +428,42 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
   <script>
-    /* letter-fade for the hero eyebrow */
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ===== Lenis smooth scroll ===== */
+    if (!reduceMotion && typeof Lenis !== 'undefined') {
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        smoothTouch: false,
+      });
+      function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href').slice(1);
+          if (!id) return;
+          const target = document.getElementById(id);
+          if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -20 }); }
+        });
+      });
+    }
+
+    /* ===== scroll progress bar ===== */
+    function updateBar(){
+      const bar = document.getElementById('scrollbar');
+      if (!bar) return;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? (window.scrollY / h) * 100 : 0;
+      bar.style.width = p + '%';
+    }
+    window.addEventListener('scroll', updateBar, { passive: true });
+    updateBar();
+
+    /* letter-fade for the hero eyebrow + h1 */
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.mast .ey').forEach(el => {
         const text = el.textContent;
@@ -417,6 +477,21 @@
         });
       });
 
+      /* letter-fade for the hero H1 — kicks in after the eyebrow */
+      document.querySelectorAll('.mast h1').forEach(el => {
+        const html = el.innerHTML;
+        const parts = html.split(/<br\s*\/?>/i);
+        let charIndex = 0;
+        const startDelay = 650;
+        el.innerHTML = parts.map(part => {
+          return [...part].map(ch => {
+            const delay = startDelay + (charIndex++ * 32);
+            const c = ch === ' ' ? ' ' : ch;
+            return '<span class="l" style="animation-delay:' + delay + 'ms">' + c + '</span>';
+          }).join('');
+        }).join('<br>');
+      });
+
       /* scroll-fade: reveal sections as they enter the viewport */
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -427,6 +502,36 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
       document.querySelectorAll('.sec, .docket, .manifesto').forEach(el => obs.observe(el));
+
+      /* stats counter rollup — 60+, 300+, 25+ ... */
+      function rollup(numEl, target, duration){
+        const start = performance.now();
+        function tick(now){
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          numEl.textContent = Math.round(target * eased);
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.querySelectorAll('.g').forEach(g => {
+            const m = g.textContent.match(/^(\d+)(\+)?\s+(.+)$/);
+            if (!m) return;
+            const target = parseInt(m[1], 10);
+            const plus = m[2] || '';
+            const rest = m[3];
+            g.innerHTML = '<span class="num">0</span>' + plus + ' ' + rest;
+            const numEl = g.querySelector('.num');
+            if (reduceMotion) { numEl.textContent = target; return; }
+            rollup(numEl, target, 950);
+          });
+          counterObs.unobserve(e.target);
+        });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('.extra').forEach(el => counterObs.observe(el));
     });
   </script>
 
