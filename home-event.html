@@ -75,12 +75,33 @@
   @keyframes ken-burns{from{transform:scale(1) translate(0,0);}to{transform:scale(1.08) translate(-2%,-1%);}}
   @keyframes seal-rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
+  /* scroll-fade: content fades up as each section enters the viewport */
+  html{scroll-behavior:smooth;}
+  .sec .body, .manifesto .in, .docket .info{opacity:0;transform:translateY(22px);transition:opacity 1s ease-out .05s, transform 1s ease-out .05s;}
+  .sec.in-view .body, .manifesto.in-view .in, .docket.in-view .info{opacity:1;transform:translateY(0);}
+  /* nav link underline-grow on hover */
+  .navrow nav a{position:relative;padding-bottom:3px;}
+  .navrow nav a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--ochre);transition:width .25s ease-out;}
+  .navrow nav a:hover::after{width:100%;}
+  /* respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .living img{animation:none;}
+    .manifesto-stamp{animation:none;}
+    .mast .ey .l{opacity:1;transform:none;animation:none;}
+    .sec .body, .manifesto .in, .docket .info{opacity:1;transform:none;transition:none;}
+  }
+
   /* ===== shared section blocks — absolute image right-anchored, headlines aligned with hero h1 ===== */
   .sec{position:relative;padding:74px 56px;min-height:520px;background:var(--paper);overflow:hidden;}
   .sec .body{position:relative;z-index:3;max-width:clamp(420px,56vw,800px);display:flex;flex-direction:column;justify-content:center;min-height:calc(520px - 148px);padding:0;}
-  .sec .shot{position:absolute;top:0;right:0;bottom:0;width:calc(var(--photo-w) + var(--img-cascade));overflow:hidden;z-index:2;border-left:1.4px solid var(--ink);}
-  .sec .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .sec .shot{position:absolute;top:0;right:0;bottom:0;width:calc(var(--photo-w) + var(--img-cascade));overflow:hidden;z-index:2;border-left:1.4px solid var(--ink);transition:transform .8s ease-out;}
+  .sec .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s ease-out;}
+  .sec .shot:hover img{transform:scale(1.03);}
   .sec .shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.65);z-index:4;}
+
+  /* flipped — image on the LEFT, copy on the right (mirror of the default) */
+  .sec.flip{padding-left:calc(var(--photo-w) + var(--img-cascade) + 56px);padding-right:56px;}
+  .sec.flip .shot{right:auto;left:0;border-left:0;border-right:1.4px solid var(--ink);}
   .slabel{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
   .stitle{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.98;font-size:clamp(30px,3.4vw,52px);margin-top:12px;}
   .slede{font-size:14px;color:var(--ink-2);max-width:42ch;margin-top:16px;line-height:1.55;}
@@ -115,7 +136,7 @@
 
   /* tickets docket — ink color block continuing the §06 band */
   .docket{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;}
-  .docket .info{padding:72px 56px 80px;position:relative;z-index:3;max-width:calc(100% - var(--photo-w) - 30px);}
+  .docket .info{padding:72px 56px 80px;position:relative;z-index:3;max-width:calc(100% - var(--photo-w) - var(--img-cascade) - 30px);box-sizing:border-box;}
   .docket .slabel{color:var(--ochre);}
   .docket .dtitle{font-weight:600;letter-spacing:-.03em;font-size:clamp(40px,5.4vw,80px);line-height:.92;text-transform:lowercase;margin-top:14px;color:var(--paper);}
   .docket .dsub{margin-top:16px;font-size:15px;color:rgba(231,225,208,.7);max-width:42ch;line-height:1.55;}
@@ -162,7 +183,7 @@
   .erow .ev{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;color:var(--ink);font-weight:700;letter-spacing:.04em;}
 
   @media(max-width:880px){
-    .wrap{padding:0 22px;}
+    .wrap{padding:0 30px;}
     .mast,.extra,.ledger{max-width:100%;}
     .navrow{width:100%;}
     .navrow nav{display:none;}
@@ -171,16 +192,18 @@
     .living img{animation:none;}
     .vrow{grid-template-columns:1.3fr 1fr .7fr;gap:12px;}
     .vrow .c:nth-child(3){display:none;}
-    .sec{padding:48px 22px;min-height:auto;}
+    .sec{padding:48px 30px;min-height:auto;}
+    .sec.flip{padding-left:30px;}
     .sec .body{max-width:100%;min-height:auto;}
     .sec .shot{position:relative;width:auto;height:280px;border-left:0;border-top:1.4px solid var(--ink);margin-top:32px;}
-    .manifesto .in{padding:60px 22px;}
+    .sec.flip .shot{border-right:0;}
+    .manifesto .in{padding:60px 30px;}
     .manifesto-stamp{display:none;}
-    .docket .info{max-width:100%;padding:48px 22px;}
+    .docket .info{max-width:100%;padding:48px 30px;}
     .docket .shot{position:relative;width:auto;height:280px;border-left:0;border-top:1.4px solid var(--ink);}
     .docket .trow{grid-template-columns:24px 1fr auto;gap:14px;}
     .docket .trow .tinc{grid-column:2 / 4;font-size:12.5px;}
-    .pfoot .in{padding:44px 22px;}
+    .pfoot .in{padding:44px 30px;}
   }
 </style>
 </head>
@@ -244,8 +267,8 @@
     <div class="shot"><img src="concept-assets/photo-2.jpg" alt="oyster bar" /><span class="tag">oyster bar · all day</span></div>
   </section>
 
-  <!-- §03 the lessons -->
-  <section class="sec" id="lessons">
+  <!-- §03 the lessons — flipped: image left, copy right -->
+  <section class="sec flip" id="lessons">
     <div class="body">
       <div class="slabel">§ 03 — workshops</div>
       <h2 class="stitle">go beyond<br>the hype.</h2>
@@ -273,8 +296,8 @@
     <div class="shot"><img src="concept-assets/photo-10.jpg" alt="the winemaker's dinner" /><span class="tag">sat 22 nov · 30 seats</span></div>
   </section>
 
-  <!-- §05 the growers -->
-  <section class="sec gteaser" id="growers">
+  <!-- §05 the growers — flipped: image left, copy right -->
+  <section class="sec flip gteaser" id="growers">
     <div class="body">
       <div class="slabel">§ 05 — the growers</div>
       <h2 class="stitle">every bottle,<br>on the record.</h2>
@@ -369,8 +392,7 @@
         <b>natural wine festival a'dam</b><br>
         edition 03 — 23.11.26<br>
         de hallen, amsterdam<br><br>
-        instagram · newsletter<br>
-        united by wine
+        instagram · newsletter
       </div>
     </div>
   </footer>
@@ -389,6 +411,17 @@
           el.appendChild(s);
         });
       });
+
+      /* scroll-fade: reveal sections as they enter the viewport */
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.sec, .docket, .manifesto').forEach(el => obs.observe(el));
     });
   </script>
 
