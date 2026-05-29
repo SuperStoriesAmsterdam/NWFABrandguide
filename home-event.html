@@ -27,7 +27,7 @@
         -webkit-mask:center/contain no-repeat;mask:center/contain no-repeat;flex:0 0 auto;}
 
   /* ===== HERO — system grid: same x=56 alignment as sections; rules terminate at photo edge ===== */
-  :root{--photo-w:30vw; --img-cascade:94px; --gutter:80px;}
+  :root{--photo-w:30vw; --img-cascade:94px; --gutter:max(96px, 7vw);}
   .page{position:relative;min-height:100svh;padding:22px 0 22px;overflow:hidden;display:flex;flex-direction:column;}
   .wrap{padding:0 var(--gutter);width:100%;max-width:none;}
 
@@ -217,7 +217,7 @@
   <!-- ====== HERO — photo bleeds top→bottom, extra register touches it ====== -->
   <div class="page">
     <div class="wrap bs">
-      <div class="seal"><img src="concept-assets/rose.svg" alt="NWFA" /></div>
+      <a class="seal" href="home-event.html" aria-label="NWFA — home"><img src="concept-assets/rose.svg" alt="NWFA" /></a>
       <div class="nm">natural wine festival a'dam<br><span>edition 03 — 23.11.26</span></div>
     </div>
     <div class="wrap navrow">
