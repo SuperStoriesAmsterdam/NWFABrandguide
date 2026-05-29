@@ -36,8 +36,8 @@
   .top nav .back{color:var(--ochre);}
 
   /* hero — name + region + photo bleeding right */
-  .phero{display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch;border-bottom:1.4px solid var(--ink);}
-  .phero-text{padding:8vh 0 6vh;display:flex;flex-direction:column;justify-content:center;}
+  .phero{display:grid;grid-template-columns:1.15fr .85fr;gap:0;align-items:stretch;}
+  .phero-text{padding:8vh 0 6vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1.4px solid var(--ink);padding-bottom:6vh;}
   .phero .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
   .phero h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.035em;line-height:.86;
             font-size:clamp(56px,9vw,148px);}
@@ -48,10 +48,11 @@
   .phero-shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6);}
 
   /* about — clinical register strip + paragraph */
-  .about{padding:74px 0;display:grid;grid-template-columns:.95fr 1fr;gap:64px;border-bottom:1.4px solid var(--ink);}
+  .about{padding:74px 0;display:grid;grid-template-columns:1.25fr .85fr;gap:64px;border-bottom:1.4px solid var(--ink);}
   .about .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
   .about h2{margin-top:12px;font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.96;font-size:clamp(28px,3.2vw,46px);}
-  .about p{margin-top:20px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:46ch;}
+  .about p{margin-top:22px;font-size:16px;color:var(--ink-2);line-height:1.62;max-width:62ch;}
+  .about p + p{margin-top:14px;}
 
   .pstrip{margin-top:6px;}
   .prow{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-top:1px solid var(--rule);}
@@ -60,15 +61,15 @@
   .prow .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--ink);font-weight:700;letter-spacing:.02em;text-transform:lowercase;}
   .prow .v.ok{color:var(--ochre);}
 
-  /* bottles */
-  .bottles{padding:74px 0;}
-  .bottles .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
-  .bottles h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.96;font-size:clamp(28px,3.2vw,46px);margin-bottom:22px;}
-  .brow{display:grid;grid-template-columns:1.4fr 1.1fr 1fr;gap:18px;align-items:baseline;padding:14px 0;border-top:1px solid var(--rule);}
+  /* bottles — six wines, compact */
+  .bottles{padding:64px 0 70px;}
+  .bottles .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:10px;}
+  .bottles h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.96;font-size:clamp(28px,3.2vw,46px);margin-bottom:18px;}
+  .brow{display:grid;grid-template-columns:1.3fr 1.1fr 1.1fr;gap:18px;align-items:baseline;padding:10px 0;border-top:1px solid var(--rule);}
   .brow:first-of-type{border-top:1.4px solid var(--ink);}
-  .brow .n{font-weight:600;text-transform:lowercase;font-size:17px;letter-spacing:-.015em;}
-  .brow .yr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase;}
-  .brow .nt{font-size:13px;color:var(--ink-2);line-height:1.45;}
+  .brow .n{font-weight:600;text-transform:lowercase;font-size:15.5px;letter-spacing:-.012em;}
+  .brow .yr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase;}
+  .brow .nt{font-size:12.5px;color:var(--ink-2);line-height:1.45;}
 
   /* quote */
   .quote{padding:74px 0 90px;border-top:1.4px solid var(--ink);}
@@ -150,11 +151,13 @@
 
     <section class="bottles">
       <div class="lab">§ pouring at nwfa</div>
-      <h2>four wines on the floor.</h2>
+      <h2>six wines on the floor.</h2>
       <div class="brow"><span class="n">lunar</span><span class="yr">rebula '19 · 3 yrs on skins</span><span class="nt">amber, almost copper. orange peel, dried sage, salt. a wine to chew.</span></div>
       <div class="brow"><span class="n">puro rosé</span><span class="yr">méthode ancestrale · nv</span><span class="nt">disgorged upside-down, no dosage. wild strawberry, oyster shell.</span></div>
-      <div class="brow"><span class="n">veliko belo</span><span class="yr">white blend '18</span><span class="nt">chardonnay · ribolla · pinot gris. honeyed but bone-dry. years of life ahead.</span></div>
+      <div class="brow"><span class="n">veliko belo</span><span class="yr">white blend '18</span><span class="nt">chardonnay · ribolla · pinot gris. honeyed but bone-dry.</span></div>
+      <div class="brow"><span class="n">veliko rosso</span><span class="yr">red blend '17</span><span class="nt">merlot · cabernet · pinot noir. long maceration. iron, tobacco, plum.</span></div>
       <div class="brow"><span class="n">modri pinot</span><span class="yr">pinot noir '20</span><span class="nt">sour cherry, forest floor. low-intervention pinot, alpine-clean.</span></div>
+      <div class="brow"><span class="n">ribolla gialla</span><span class="yr">orange '21 · amphora</span><span class="nt">amphora-aged. honey, beeswax, walnut skin. structured, ageable.</span></div>
     </section>
 
     <section class="quote">
