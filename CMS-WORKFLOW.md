@@ -1,5 +1,11 @@
 # NWFA — Content Workflow
 
+> ⚠️ SUPERSEDED (2026-07-01) by `docs/STACK-CONVENTION.md`. This brief describes the old
+> Airtable (inbox) → Sanity (truth) → Astro flow. The plan changed: the content source of
+> truth is now **git + Sveltia** (Sanity is dropped). Airtable stays as the public intake
+> form + triage, with a one-way Claude-Code sync into git. The PM roles and the one-way,
+> "submitters never log in" principles below still apply — just read "Sanity" as "Sveltia".
+
 A briefing for the project manager. How content gets onto the NWFA website, who owns what, and how we build the system together.
 
 ---

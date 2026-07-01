@@ -1,5 +1,11 @@
 # CMS & Content — Natural Wine Festival A'dam
 
+> ⚠️ SUPERSEDED (2026-07-01) by `STACK-CONVENTION.md`. The CMS direction below
+> (data-as-files, no Astro/Sanity) is no longer the plan: the site now runs on Astro +
+> Sveltia (git-based CMS). Airtable is kept only as the public intake form + triage, with a
+> one-way Claude-Code sync into git/Sveltia. Kept for history. Forms-routing and email
+> nuance still hold.
+>
 > How content is managed for the custom static site, and where forms point.
 > Decided May 2026. Companion to `MARKETING-TECH-STACK.md` and `REDESIGN-PLAN.md`.
 
