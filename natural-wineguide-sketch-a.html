@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wineguide — schets A · Descent</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+    --dark:#121a15;
+    --gutter:max(28px,6vw);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  img{display:block;max-width:100%;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 var(--gutter);}
+
+  /* top strip */
+  .top{padding:18px 0 12px;}
+  .top .row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .top .brand{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;}
+  .top .brand span{color:var(--ink-2);}
+  .top .meta{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);}
+
+  /* ticker — dark band, punch */
+  .ticker{overflow:hidden;background:var(--ink);color:var(--paper);border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .ticker-track{display:flex;gap:0;padding:12px 0;white-space:nowrap;animation:tick 42s linear infinite;
+                font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;will-change:transform;}
+  .ticker-track>span{flex:0 0 auto;padding:0 22px;}
+  .ticker-track>span.d{color:var(--ochre);}
+  @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* hero — brutal scale */
+  .hero{padding:60px 0 30px;position:relative;}
+  .hero .ey{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .hero h1{margin-top:16px;font-weight:600;text-transform:lowercase;letter-spacing:-.045em;line-height:.84;
+           font-size:clamp(58px,14vw,168px);}
+  .hero h1 em{font-style:normal;color:var(--ochre);}
+  .hero .sub{margin-top:26px;max-width:44ch;font-size:clamp(15px,1.6vw,18px);color:var(--ink-2);line-height:1.55;}
+  .heroline{margin-top:34px;display:flex;gap:22px;flex-wrap:wrap;align-items:baseline;border-top:1.4px solid var(--ink);padding-top:14px;}
+  .heroline .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);}
+  .heroline .v{font-weight:600;text-transform:lowercase;font-size:15px;}
+  .heroline .v b{color:var(--ochre);}
+
+  .stripimg{margin-top:36px;height:220px;overflow:hidden;border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);position:relative;}
+  .stripimg img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;filter:saturate(1.05);}
+  .stripimg .cap{position:absolute;left:16px;bottom:12px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.7);}
+
+  /* section labels */
+  .zone{padding:52px 0 8px;}
+  .zone .zl{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1.4px solid currentColor;padding-bottom:12px;}
+  .zone .zl .t{font-weight:600;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(26px,4vw,44px);}
+  .zone .zl .n{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.5;}
+
+  /* flight rows */
+  .stop{display:grid;grid-template-columns:96px minmax(0,1fr);gap:26px;padding:30px 0;border-top:1px solid var(--rule);align-items:start;}
+  .stop:first-child{border-top:none;}
+  .stop .num{font-weight:600;letter-spacing:-.04em;font-size:64px;line-height:.8;}
+  .stop .std{margin-top:10px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;opacity:.5;line-height:1.5;}
+  .stop .std b{display:block;color:var(--ochre);font-size:13px;letter-spacing:0;margin-top:2px;}
+  .stop .g{font-weight:600;text-transform:lowercase;font-size:clamp(24px,3vw,34px);letter-spacing:-.03em;line-height:1;}
+  .stop .place{margin-top:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.6;}
+  .stop .pour{margin-top:16px;display:flex;gap:12px;align-items:baseline;}
+  .stop .pour .pl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;opacity:.45;flex:0 0 auto;}
+  .stop .pour .pn{font-weight:600;font-size:16px;}
+  .stop .why{margin-top:12px;font-size:14px;line-height:1.6;max-width:56ch;opacity:.85;}
+  .stop .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px;}
+  .tag{font-size:10px;letter-spacing:.05em;text-transform:lowercase;border:1px solid var(--rule);padding:4px 10px;opacity:.75;}
+  .tag.funk{border-color:var(--ochre);color:var(--ochre);opacity:1;}
+
+  /* progressive warming toward the dark tip */
+  #z1{background:var(--paper);}
+  #z2{background:#ddd5c1;}
+  /* THE TIP — omver lives in the dark */
+  .dark{background:var(--dark);color:var(--paper);margin-top:20px;}
+  .dark .zone{color:var(--paper);}
+  .dark .tag{border-color:rgba(231,225,208,.22);}
+  .dark .stop{border-top-color:rgba(231,225,208,.14);}
+  .dark .stop.star .num{color:var(--ochre);text-shadow:0 0 34px rgba(154,102,40,.85);}
+  .dark .stop.star .g{text-shadow:0 0 30px rgba(231,225,208,.25);}
+  .dark .glowline{color:var(--ochre);}
+  .dark .tag.funk{color:#e7c98a;border-color:#e7c98a;}
+  .darkintro{padding:56px 0 6px;}
+  .darkintro .ey{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .darkintro h2{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.04em;line-height:.9;font-size:clamp(40px,8vw,96px);}
+  .darkintro p{margin-top:18px;max-width:46ch;color:rgba(231,225,208,.6);font-size:15px;line-height:1.6;}
+
+  /* seal */
+  .foot{padding:60px 0 90px;display:flex;align-items:center;gap:22px;}
+  .foot .seal{width:64px;height:64px;flex:0 0 auto;opacity:.9;animation:spin 44s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .foot .ft{font-size:12.5px;color:rgba(231,225,208,.55);max-width:40ch;line-height:1.6;}
+  .foot .ft b{color:var(--paper);}
+  @media(prefers-reduced-motion:reduce){.ticker-track,.foot .seal{animation:none;}}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <div class="row">
+    <div class="brand">the natural wineguide <span>· nwfa a'dam</span></div>
+    <div class="meta mono">schets a · descent · design</div>
+  </div>
+</div>
+
+<div class="ticker"><div class="ticker-track" id="tick"></div></div>
+
+<div class="wrap hero">
+  <div class="ey mono">jouw route · in balans · 5 stops</div>
+  <h1>thuis,<br>en dan<br><em>omver.</em></h1>
+  <p class="sub">Vijftig makers, één middag. We beginnen bij wat je kent en zakken af naar het wilde eind. Loop 'm van boven naar beneden.</p>
+  <div class="heroline">
+    <div><div class="k mono">anker</div><div class="v">frisse witte · soepel rood</div></div>
+    <div><div class="k mono">dosis</div><div class="v"><b>in balans</b></div></div>
+    <div><div class="k mono">stemming</div><div class="v">om te ontrafelen</div></div>
+  </div>
+</div>
+
+<div class="stripimg">
+  <img src="photography-/HOI_1741.jpg" alt="" onerror="this.parentNode.style.display='none'" />
+  <div class="cap mono">de markt · de hallen a'dam</div>
+</div>
+
+<!-- THUIS zone -->
+<section id="z1">
+  <div class="wrap zone">
+    <div class="zl"><div class="t">thuis</div><div class="n mono">waar je landt · 01–02</div></div>
+  </div>
+  <div class="wrap">
+    <div class="stop">
+      <div><div class="num">01</div><div class="std mono">stand<b>volgt</b></div></div>
+      <div>
+        <div class="g">clos du renard</div>
+        <div class="place mono">loire · frankrijk · biologisch</div>
+        <div class="pour"><span class="pl mono">wij schenken</span><span class="pn">chenin sur lie '24</span></div>
+        <div class="why">Dicht bij wat je al lekker vindt. Strak en mineraal, veegt je mond schoon. Hier ijk je je gehemelte.</div>
+        <div class="tags"><span class="tag funk">klassiek · 2/5</span><span class="tag">glou-glou</span><span class="tag">wit</span><span class="tag">beetje sulfiet</span><span class="tag">€€</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="z2">
+  <div class="wrap">
+    <div class="stop">
+      <div><div class="num">02</div><div class="std mono">stand<b>volgt</b></div></div>
+      <div>
+        <div class="g">weinhof freiluft</div>
+        <div class="place mono">steiermark · oostenrijk · biologisch</div>
+        <div class="pour"><span class="pl mono">wij schenken</span><span class="pn">blaufränkisch glou '24</span></div>
+        <div class="why">Nog binnen bereik, net iets losser. Koel te drinken, laag tannine, rood dat drinkt als sap.</div>
+        <div class="tags"><span class="tag funk">tussenin · 3/5</span><span class="tag">glou-glou</span><span class="tag">rood</span><span class="tag">beetje sulfiet</span><span class="tag">€</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DARK TIP — omver -->
+<div class="dark">
+  <div class="wrap darkintro">
+    <div class="ey mono">het diepe · waar het wild wordt</div>
+    <h2>omver.</h2>
+    <p>Vanaf hier staan de wijnen die je niet had verwacht. Verder dan waar je normaal komt, en precies waarvoor je hier bent. De ★ blazen je omver.</p>
+  </div>
+  <div class="wrap zone" style="color:var(--paper)">
+    <div class="zl" style="border-color:rgba(231,225,208,.25)"><div class="t">de sprongen</div><div class="n mono">03–05</div></div>
+  </div>
+  <div class="wrap">
+    <div class="stop star">
+      <div><div class="num">★</div><div class="std mono">stand<b>volgt</b></div></div>
+      <div>
+        <div class="g">bodega tierra cruda</div>
+        <div class="place mono">catalonië · spanje · biologisch</div>
+        <div class="pour"><span class="pl mono">wij schenken</span><span class="pn glowline">xarel·lo brisat '23</span></div>
+        <div class="why">De eerste sprong. Op de schil vergist, sinaasappelschil en grip. De brug naar oranje wijn, zero-zero.</div>
+        <div class="tags"><span class="tag funk">funky · 4/5</span><span class="tag">glou-glou</span><span class="tag">oranje</span><span class="tag">zero-zero</span><span class="tag">€</span></div>
+      </div>
+    </div>
+    <div class="stop star">
+      <div><div class="num">★</div><div class="std mono">stand<b>volgt</b></div></div>
+      <div>
+        <div class="g">kmetija kamnik</div>
+        <div class="place mono">brda · slovenië · biodynamisch</div>
+        <div class="pour"><span class="pl mono">wij schenken</span><span class="pn glowline">rebula maceration '22</span></div>
+        <div class="why">Dieper het skin-contact-eind in. Weken op de schil, thee en tannine als rode wijn. Compromisloos.</div>
+        <div class="tags"><span class="tag funk">wild · 5/5</span><span class="tag">culinair</span><span class="tag">oranje</span><span class="tag">zero-zero</span><span class="tag">€€</span></div>
+      </div>
+    </div>
+    <div class="stop star">
+      <div><div class="num">★</div><div class="std mono">stand<b>volgt</b></div></div>
+      <div>
+        <div class="g">okro's marani</div>
+        <div class="place mono">kakheti · georgië · biodynamisch</div>
+        <div class="pour"><span class="pl mono">wij schenken</span><span class="pn glowline">rkatsiteli qvevri '22</span></div>
+        <div class="why">De oervorm. In amfoor onder de grond vergist, amber en aarde. Zo wild als het eerlijk wordt, en het eindpunt van je route.</div>
+        <div class="tags"><span class="tag funk">wild · 5/5</span><span class="tag">culinair</span><span class="tag">oranje</span><span class="tag">zero-zero</span><span class="tag">€€</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot">
+    <img class="seal" src="logos-/logo-dark-church.svg" alt="" onerror="this.style.display='none'" />
+    <div class="ft"><b>Nog niet uitgeproefd?</b> Draai 'm een stap wilder, of neem de andere hoek. Standnummers verschijnen zodra de plattegrond er is.</div>
+  </div>
+</div>
+
+<!-- annotation review tool (remove before production) -->
+<script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+<script src="annotate.js" defer></script>
+<script>
+  const names=["clos du renard","weingut sonnenblick","quinta do vento","weinhof freiluft","mas de la cigale","cascina bricco","château vent sauvage","podere lucciola","domaine pierre froide","bodega tierra cruda","cantina salso","kmetija kamnik","okro's marani","maison craie"];
+  const t=document.getElementById('tick');
+  const build=()=>names.map(n=>`<span>${n}</span><span class="d">◆</span>`).join('');
+  t.innerHTML=build()+build();
+</script>
+</body>
+</html>

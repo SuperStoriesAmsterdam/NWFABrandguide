@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Natural Wineguide — Natural Wine Festival A'dam</title>
+<meta name="description" content="Bouw je eigen route over de grootste natuurwijnmarkt van Nederland. Vertel wat je al lekker vindt en hoe ver je wil gaan, wij brengen je thuis én omver." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+    --gutter:max(28px,6vw);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 var(--gutter);}
+
+  header.top{padding:20px 0 14px;border-bottom:1.4px solid var(--ink);margin-bottom:34px;}
+  .top .row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .top .brand{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;}
+  .top .brand span{color:var(--ink-2);}
+  .top .meta{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);}
+
+  .stage{padding-bottom:80px;}
+  .step{display:none;animation:fade .5s ease-out both;}
+  .step.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  .ey{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  h1{font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.94;
+     font-size:clamp(34px,5.4vw,68px);margin-top:14px;}
+  .lede{margin-top:20px;font-size:clamp(15px,1.5vw,18px);color:var(--ink-2);max-width:52ch;line-height:1.6;}
+
+  .qhead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1.4px solid var(--ink);padding-bottom:12px;margin-bottom:22px;}
+  .qhead .n{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);}
+  .q{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,3.4vw,40px);line-height:1.02;}
+  .qsub{margin-top:0;margin-bottom:26px;color:var(--ink-2);font-size:14.5px;max-width:58ch;line-height:1.55;}
+
+  .opts{display:grid;gap:12px;}
+  .opts.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .opts.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  @media(max-width:720px){.opts.cols-3,.opts.cols-2{grid-template-columns:1fr;}}
+
+  .opt{border:1.4px solid var(--rule);background:transparent;text-align:left;padding:18px 18px 20px;cursor:pointer;
+       transition:border-color .18s,background .18s,transform .18s;color:inherit;font-family:inherit;position:relative;overflow-wrap:anywhere;}
+  .opt:hover{border-color:var(--ink);transform:translateY(-2px);}
+  .opt.sel{border-color:var(--ink);background:rgba(27,42,32,.05);}
+  .opt.sel::after{content:"✓";position:absolute;top:13px;right:15px;color:var(--ochre);font-weight:700;font-size:15px;}
+  .opt .ot{font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.01em;}
+  .opt .od{margin-top:7px;color:var(--ink-2);font-size:12.5px;line-height:1.5;}
+
+  /* favourite-wine chips */
+  .chipwrap{display:flex;flex-wrap:wrap;gap:10px;}
+  .fav{border:1.4px solid var(--rule);background:transparent;color:inherit;font-family:inherit;font-size:14px;
+       text-transform:lowercase;padding:11px 16px;cursor:pointer;transition:border-color .18s,background .18s;}
+  .fav:hover{border-color:var(--ink);}
+  .fav.sel{border-color:var(--ink);background:var(--ink);color:var(--paper);}
+  .freetext{margin-top:20px;}
+  .freetext label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+  .freetext input{width:100%;background:transparent;border:none;border-bottom:1.4px solid var(--rule);
+       font-family:inherit;font-size:15px;color:var(--ink);padding:8px 0;}
+  .freetext input:focus{outline:none;border-bottom-color:var(--ochre);}
+  .freetext .hint{margin-top:8px;font-size:11.5px;color:var(--ink-3);line-height:1.5;}
+
+  .navb{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--rule);padding-top:20px;}
+  .btn{font-family:inherit;font-size:14px;font-weight:600;text-transform:lowercase;cursor:pointer;background:none;border:none;color:inherit;}
+  .btn.back{color:var(--ink-3);}
+  .btn.back:hover{color:var(--ink);}
+  .btn.next{background:var(--ink);color:var(--paper);padding:13px 26px;letter-spacing:.01em;transition:opacity .18s;}
+  .btn.next:hover{opacity:.86;}
+  .btn.next[disabled]{opacity:.3;cursor:not-allowed;}
+  .btn.ghost{border-bottom:1.5px solid var(--ochre);padding-bottom:3px;}
+
+  .start{margin-top:40px;}
+  .prog{display:flex;gap:6px;margin-top:22px;margin-bottom:4px;}
+  .prog i{height:3px;flex:1;background:var(--rule);transition:background .3s;}
+  .prog i.done{background:var(--ochre);}
+  .mapnote{margin-top:18px;font-size:12px;color:var(--ink-3);letter-spacing:.02em;}
+
+  /* results / flight */
+  .res-head{border-bottom:1.4px solid var(--ink);padding-bottom:18px;margin-bottom:6px;}
+  .res-head .ey{color:var(--ochre);}
+  .res-head h2{font-weight:600;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(28px,4.4vw,50px);line-height:.98;margin-top:12px;}
+  .res-head .sum{margin-top:16px;color:var(--ink-2);font-size:14.5px;line-height:1.6;max-width:62ch;}
+  .res-head .sum b{color:var(--ink);font-weight:600;}
+
+  .flight{margin-top:4px;}
+  .stop{display:grid;grid-template-columns:58px 1fr;gap:18px;padding:24px 0;border-top:1px solid var(--rule);align-items:start;}
+  .stop:first-child{border-top:none;}
+  .stop .idx .num{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1;}
+  .stop .idx .stand{margin-top:8px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);line-height:1.4;}
+  .stop .idx .stand b{display:block;color:var(--ochre);font-size:14px;letter-spacing:0;margin-top:2px;}
+  .role{display:inline-block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:9px;}
+  .role.thuis{color:var(--ink-3);}
+  .role.omver{color:var(--ochre);}
+  .stop .card .g{font-weight:600;text-transform:lowercase;font-size:22px;letter-spacing:-.02em;}
+  .stop .card .place{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:5px;}
+  .stop .card .why{margin-top:13px;font-size:14px;line-height:1.6;color:var(--ink);max-width:60ch;}
+  .stop .card .pour{margin-top:13px;border-left:2px solid var(--ochre);padding:2px 0 2px 14px;}
+  .stop .card .pour .tl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);}
+  .stop .card .pour .tn{font-weight:600;font-size:15px;margin-top:3px;}
+  .stop .card .pour .td{color:var(--ink-2);font-size:13px;margin-top:4px;line-height:1.5;}
+  .stop .card .tags{margin-top:13px;display:flex;flex-wrap:wrap;gap:7px;}
+  .tag{font-size:10px;letter-spacing:.05em;text-transform:lowercase;border:1px solid var(--rule);padding:4px 9px;color:var(--ink-2);}
+  .tag.funk{border-color:var(--ochre);color:var(--ochre);}
+  .stop.omver{background:rgba(154,102,40,.05);margin:0 calc(-1 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter);}
+  .stop.omver .idx .num{color:var(--ochre);}
+
+  .replay{margin-top:38px;border-top:1.4px solid var(--ink);padding-top:24px;}
+  .replay .rt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;}
+  .replay .rbtns{display:flex;flex-wrap:wrap;gap:12px;}
+  .rbtn{border:1.4px solid var(--rule);background:transparent;color:inherit;font-family:inherit;font-size:13.5px;
+        text-transform:lowercase;padding:12px 18px;cursor:pointer;transition:border-color .18s,background .18s;}
+  .rbtn:hover{border-color:var(--ink);}
+  .rbtn.primary{border-color:var(--ochre);}
+  .rbtn.primary:hover{background:var(--ochre);color:var(--paper);}
+
+  .save{margin-top:30px;border:1px solid var(--rule);padding:22px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;}
+  .save .st{font-size:13.5px;color:var(--ink-2);max-width:40ch;line-height:1.5;}
+  .save .st b{color:var(--ink);}
+  .save .sb{background:var(--ink);color:var(--paper);padding:12px 22px;font-size:13.5px;font-weight:600;text-transform:lowercase;cursor:pointer;border:none;font-family:inherit;}
+  .stub{display:inline-block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);border:1px solid var(--ochre);padding:2px 6px;margin-left:8px;vertical-align:middle;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap row">
+    <div class="brand">the natural wineguide <span>· nwfa a'dam</span></div>
+    <div class="meta mono">prototype · stub-motor · dummy-data</div>
+  </div>
+</header>
+
+<div class="wrap stage">
+
+  <!-- STEP 0 -->
+  <section class="step active" data-step="0">
+    <div class="ey mono">de grootste natuurwijnmarkt van nederland · één dag</div>
+    <h1>vijftig makers.<br>eén middag.<br>jouw route.</h1>
+    <p class="lede">Niemand proeft vijftig makers. Vertel ons wat je al lekker vindt en hoe ver je vandaag wil gaan, dan bouwen we je eigen route over de markt. Een paar wijnen die je snapt, en een paar die je omverblazen. Maak 'm zo vaak je wil, elke keer een andere hoek.</p>
+    <div class="start"><button class="btn next" data-go="1">bouw je route →</button></div>
+    <p class="mapnote mono">4 vragen · standnummers verschijnen zodra de plattegrond er is</p>
+  </section>
+
+  <!-- STEP 1 — anchor: favourites -->
+  <section class="step" data-step="1">
+    <div class="prog"></div>
+    <div class="qhead"><div class="q">wat vind je al lekker?</div><div class="n mono">01 / 04</div></div>
+    <p class="qsub">Tik aan wat je normaal graag drinkt. Dit is je anker: het ijkpunt waarvandaan we je verrassen. Meerdere mag.</p>
+    <div class="chipwrap" id="favs"></div>
+    <div class="freetext">
+      <label class="mono">of typ je lievelingswijnen <span class="stub">stub</span></label>
+      <input type="text" id="favtext" placeholder="bijv. een rijpe rioja, sancerre, een fruitige beaujolais..." />
+      <div class="hint">In de echte versie leest TrueSomm hier vrije wijnnamen uit en plaatst ze in dezelfde smaakruimte. Nu stuurt alleen je selectie hierboven de match.</div>
+    </div>
+    <div class="navb"><button class="btn back" data-go="0">← terug</button><button class="btn next" data-go="2" disabled>volgende →</button></div>
+  </section>
+
+  <!-- STEP 2 — colour -->
+  <section class="step" data-step="2">
+    <div class="prog"></div>
+    <div class="qhead"><div class="q">waar grijp je naar?</div><div class="n mono">02 / 04</div></div>
+    <p class="qsub">Je kleurvoorkeur als drinker. Meerdere mag, of laat 'm open als je overal voor in bent.</p>
+    <div class="opts cols-3" data-multi="colors">
+      <button class="opt" data-val="wit"><div class="ot">wit</div></button>
+      <button class="opt" data-val="rood"><div class="ot">rood</div></button>
+      <button class="opt" data-val="rosé"><div class="ot">rosé</div></button>
+      <button class="opt" data-val="oranje"><div class="ot">oranje</div></button>
+      <button class="opt" data-val="bubbels"><div class="ot">bubbels</div></button>
+      <button class="opt" data-val="alles"><div class="ot">maakt me niet uit</div></button>
+    </div>
+    <div class="navb"><button class="btn back" data-go="1">← terug</button><button class="btn next" data-go="3" disabled>volgende →</button></div>
+  </section>
+
+  <!-- STEP 3 — dose dial -->
+  <section class="step" data-step="3">
+    <div class="prog"></div>
+    <div class="qhead"><div class="q">hoe ver mogen we je duwen?</div><div class="n mono">03 / 04</div></div>
+    <p class="qsub">Jij zet de dosis, wij kiezen de wijnen. Geen foute keuze, alleen een andere dag.</p>
+    <div class="opts cols-3" data-single="dose">
+      <button class="opt" data-val="1"><div class="ot">trefzeker</div><div class="od">Geef me raak. Wijnen waar ik vrij zeker van ga houden, met één uitstapje.</div></button>
+      <button class="opt" data-val="2"><div class="ot">in balans</div><div class="od">Grond onder de voeten, en een paar sprongen het onbekende in.</div></button>
+      <button class="opt" data-val="3"><div class="ot">gooi me in het diepe</div><div class="od">Ik ben hier om omver geblazen te worden. Neem risico's met me.</div></button>
+    </div>
+    <div class="navb"><button class="btn back" data-go="2">← terug</button><button class="btn next" data-go="4" disabled>volgende →</button></div>
+  </section>
+
+  <!-- STEP 4 — lens -->
+  <section class="step" data-step="4">
+    <div class="prog"></div>
+    <div class="qhead"><div class="q">en waar ben je vandaag voor?</div><div class="n mono">04 / 04</div></div>
+    <p class="qsub">De stemming van deze ronde. Volgende keer draai je 'm gewoon de andere kant op.</p>
+    <div class="opts cols-3" data-single="lens">
+      <button class="opt" data-val="glou"><div class="ot">makkelijk wegdrinken</div><div class="od">Glou-glou. Sappig, licht, direct plezier.</div></button>
+      <button class="opt" data-val="balans"><div class="ot">geen voorkeur</div><div class="od">Verras me met allebei.</div></button>
+      <button class="opt" data-val="culinair"><div class="ot">om te ontrafelen</div><div class="od">Culinair. Structuur, spanning, wijn bij eten.</div></button>
+    </div>
+    <div class="navb"><button class="btn back" data-go="3">← terug</button><button class="btn next" data-go="5" disabled>bouw mijn route →</button></div>
+  </section>
+
+  <!-- STEP 5 — results -->
+  <section class="step" data-step="5"><div id="results"></div></section>
+
+</div>
+
+<!-- annotation review tool (remove before production) -->
+<script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+<script src="annotate.js" defer></script>
+
+<script>
+/* =====================================================================
+   THE NATURAL WINEGUIDE — prototype
+   Front-end experience on a LOCAL STUB ENGINE + dummy data.
+   The engine (deriveCoords + buildFlight) is deliberately isolated so it
+   can be swapped for the real TrueSomm calls later. Nothing else changes.
+   ===================================================================== */
+
+/* ---------- dummy data: FACTS ONLY (mirrors the Airtable schema) ------ */
+/* method: skin | amphora | petnat | carbonic | oak | oxidative | none    */
+/* sulfite: zero | low   farming: organic | biodynamic                    */
+const MAKERS = [
+  {maker:"clos du renard", region:"loire", country:"frankrijk", farming:"organic", wines:[
+    {name:"chenin sur lie", year:"'24", color:"wit", grapes:["chenin"], method:["none"], sulfite:"low", abv:12.5, price:"€€"},
+    {name:"gamay soif", year:"'24", color:"rood", grapes:["gamay"], method:["carbonic"], sulfite:"low", abv:11.5, price:"€€"},
+  ]},
+  {maker:"weingut sonnenblick", region:"pfalz", country:"duitsland", farming:"organic", wines:[
+    {name:"riesling trocken", year:"'23", color:"wit", grapes:["riesling"], method:["none"], sulfite:"low", abv:11.5, price:"€€"},
+    {name:"riesling pét-nat", year:"'24", color:"bubbels", grapes:["riesling"], method:["petnat"], sulfite:"low", abv:11, price:"€€"},
+  ]},
+  {maker:"quinta do vento", region:"vinho verde", country:"portugal", farming:"organic", wines:[
+    {name:"loureiro", year:"'24", color:"wit", grapes:["loureiro"], method:["none"], sulfite:"low", abv:11, price:"€"},
+    {name:"vinhão tinto", year:"'24", color:"rood", grapes:["vinhão"], method:["carbonic"], sulfite:"low", abv:11.5, price:"€"},
+  ]},
+  {maker:"weinhof freiluft", region:"steiermark", country:"oostenrijk", farming:"organic", wines:[
+    {name:"blaufränkisch glou", year:"'24", color:"rood", grapes:["blaufränkisch"], method:["carbonic"], sulfite:"low", abv:12, price:"€"},
+    {name:"welschriesling pét-nat", year:"'24", color:"bubbels", grapes:["welschriesling"], method:["petnat"], sulfite:"low", abv:11, price:"€"},
+  ]},
+  {maker:"mas de la cigale", region:"languedoc", country:"frankrijk", farming:"organic", wines:[
+    {name:"cinsault soif", year:"'24", color:"rood", grapes:["cinsault"], method:["carbonic"], sulfite:"low", abv:12, price:"€"},
+    {name:"grenache gris", year:"'23", color:"wit", grapes:["grenache gris"], method:["skin"], sulfite:"low", abv:12.5, price:"€€"},
+  ]},
+  {maker:"cascina bricco", region:"piemonte", country:"italië", farming:"organic", wines:[
+    {name:"barbera", year:"'22", color:"rood", grapes:["barbera"], method:["none"], sulfite:"low", abv:13, price:"€€"},
+    {name:"nebbiolo", year:"'21", color:"rood", grapes:["nebbiolo"], method:["oak"], sulfite:"low", abv:14, price:"€€€"},
+  ]},
+  {maker:"château vent sauvage", region:"roussillon", country:"frankrijk", farming:"biodynamic", wines:[
+    {name:"carignan vieilles vignes", year:"'22", color:"rood", grapes:["carignan"], method:["oak"], sulfite:"low", abv:14, price:"€€"},
+  ]},
+  {maker:"podere lucciola", region:"etna", country:"italië", farming:"biodynamic", wines:[
+    {name:"carricante", year:"'23", color:"wit", grapes:["carricante"], method:["none"], sulfite:"low", abv:12.5, price:"€€€"},
+    {name:"nerello mascalese", year:"'22", color:"rood", grapes:["nerello"], method:["oak"], sulfite:"low", abv:13.5, price:"€€€"},
+  ]},
+  {maker:"domaine pierre froide", region:"jura", country:"frankrijk", farming:"biodynamic", wines:[
+    {name:"poulsard", year:"'23", color:"rood", grapes:["poulsard"], method:["none"], sulfite:"low", abv:12, price:"€€€"},
+    {name:"savagnin ouillé", year:"'21", color:"wit", grapes:["savagnin"], method:["oxidative"], sulfite:"low", abv:13.5, price:"€€€"},
+  ]},
+  {maker:"bodega tierra cruda", region:"catalonië", country:"spanje", farming:"organic", wines:[
+    {name:"xarel·lo brisat", year:"'23", color:"oranje", grapes:["xarel·lo"], method:["skin"], sulfite:"zero", abv:12, price:"€"},
+    {name:"sumoll glou", year:"'24", color:"rood", grapes:["sumoll"], method:["carbonic"], sulfite:"zero", abv:12, price:"€"},
+  ]},
+  {maker:"cantina salso", region:"emilia", country:"italië", farming:"organic", wines:[
+    {name:"lambrusco col fondo", year:"'24", color:"bubbels", grapes:["lambrusco"], method:["petnat"], sulfite:"zero", abv:11, price:"€"},
+  ]},
+  {maker:"kmetija kamnik", region:"brda", country:"slovenië", farming:"biodynamic", wines:[
+    {name:"rebula maceration", year:"'22", color:"oranje", grapes:["rebula"], method:["skin","amphora"], sulfite:"zero", abv:13, price:"€€"},
+  ]},
+  {maker:"okro's marani", region:"kakheti", country:"georgië", farming:"biodynamic", wines:[
+    {name:"rkatsiteli qvevri", year:"'22", color:"oranje", grapes:["rkatsiteli"], method:["amphora","skin"], sulfite:"zero", abv:12.5, price:"€€"},
+    {name:"saperavi qvevri", year:"'22", color:"rood", grapes:["saperavi"], method:["amphora"], sulfite:"zero", abv:13, price:"€€"},
+  ]},
+  {maker:"maison craie", region:"champagne", country:"frankrijk", farming:"biodynamic", wines:[
+    {name:"blanc de blancs extra brut", year:"NV", color:"bubbels", grapes:["chardonnay"], method:["oak"], sulfite:"low", abv:12.5, price:"€€€"},
+  ]},
+];
+
+/* ============ THE ENGINE (stub — swap for TrueSomm) ============ */
+/* Derive interpretive coordinates from the factual sheet.        */
+/* funk 1..5 (klassiek→wild) · comp 1..5 (glou→culinair)          */
+function deriveCoords(w){
+  let funk = 2;
+  if(w.method.includes("skin")) funk += 2;
+  if(w.method.includes("amphora")) funk += 1;
+  if(w.method.includes("petnat")) funk += 1;
+  if(w.method.includes("carbonic")) funk += 0.5;
+  if(w.method.includes("oxidative")) funk += 1.5;
+  if(w.sulfite === "zero") funk += 1;
+  funk = Math.max(1, Math.min(5, Math.round(funk)));
+
+  let comp = 3;
+  if(w.abv < 12) comp -= 1;
+  if(w.abv >= 13.5) comp += 1;
+  if(w.method.includes("oak")) comp += 1;
+  if(w.method.includes("amphora")) comp += 1;
+  if(w.method.includes("oxidative")) comp += 1;
+  if(w.method.includes("carbonic")) comp -= 1;
+  if(w.method.includes("petnat")) comp -= 0.5;
+  comp = Math.max(1, Math.min(5, Math.round(comp)));
+
+  return {funk, comp};
+}
+
+/* a plain-language character line, derived from the facts */
+function characterOf(w){
+  if(w.method.includes("amphora")) return "in amfoor onder de grond vergist, amber en aarde, fijne grip";
+  if(w.method.includes("skin")) return "op de schil vergist, thee en sinaasappelschil, tannine als rode wijn";
+  if(w.method.includes("oxidative")) return "oxidatief opgevoed, noten en curry, eigenwijs";
+  if(w.method.includes("petnat")) return "troebele natuurbubbels, sappig en levend";
+  if(w.method.includes("carbonic")) return "koel te drinken, laag tannine, rood dat drinkt als sap";
+  if(w.method.includes("oak")) return "structuur en lengte, wijn om bij te zitten";
+  if(w.color === "wit") return "strak en mineraal, veegt je mond schoon";
+  return "puur en direct, gemaakt zonder toeters";
+}
+
+/* anchor styles → target coordinates + colours */
+const FAV_STYLES = [
+  {id:"fris-wit",   label:"frisse witte",             funk:2, comp:2, colors:["wit"]},
+  {id:"vol-wit",    label:"volle, rijpe witte",       funk:2, comp:4, colors:["wit"]},
+  {id:"rose",       label:"rosé",                     funk:2, comp:2, colors:["rosé","rood"]},
+  {id:"licht-rood", label:"soepel, licht rood",       funk:2, comp:2, colors:["rood"]},
+  {id:"stevig-rood",label:"stevig, krachtig rood",    funk:2, comp:4, colors:["rood"]},
+  {id:"bubbels",    label:"bubbels",                  funk:2, comp:3, colors:["bubbels"]},
+  {id:"natuur",     label:"ik drink al natuur/oranje",funk:4, comp:4, colors:["oranje","rood","wit"]},
+];
+
+/* Build the flight: anchors (thuis) + leaps (omver), ordered as an arc. */
+function buildFlight(profile){
+  const chosen = FAV_STYLES.filter(s => profile.favs.includes(s.id));
+  const base = chosen.length ? chosen : [FAV_STYLES[0]];
+  const anchorFunk = base.reduce((a,s)=>a+s.funk,0)/base.length;
+  const anchorComp = base.reduce((a,s)=>a+s.comp,0)/base.length;
+  const anchorColors = [...new Set(base.flatMap(s=>s.colors))];
+  const openColor = profile.colors.includes("alles") || profile.colors.length===0;
+  const drinkerColors = openColor ? [] : profile.colors;
+
+  const reach = {1:1, 2:2, 3:3}[profile.dose];
+  const lensBias = {glou:-1, balans:0, culinair:1}[profile.lens];
+
+  // flatten every wine with its coordinates + parent maker
+  const wines = [];
+  MAKERS.forEach(m => m.wines.forEach(w => {
+    wines.push({...w, ...deriveCoords(w), maker:m.maker, region:m.region, country:m.country, farming:m.farming});
+  }));
+
+  const colorFit = (w) => {
+    let f = 0;
+    if(anchorColors.includes(w.color)) f += 1.2;
+    if(drinkerColors.length && drinkerColors.includes(w.color)) f += 1.5;
+    return f;
+  };
+
+  // THUIS: close to the anchor on funk + complexity, colour-aware
+  const thuisScore = (w) =>
+    -(Math.abs(w.funk - anchorFunk)*1.6) - (Math.abs(w.comp - (anchorComp+lensBias))*0.8) + colorFit(w);
+  // OMVER: beyond the anchor's funk by the dose's reach, still complexity/colour-aware
+  const omverScore = (w) => {
+    const beyond = w.funk - anchorFunk;
+    if(beyond < Math.max(1, reach-1)) return -99;              // not a real leap
+    return -(Math.abs(beyond - reach)*1.1) - (Math.abs(w.comp-(anchorComp+lensBias))*0.5) + (openColor?0.6:colorFit(w)*0.5) + w.funk*0.15;
+  };
+
+  const uniqueByMaker = (list) => {
+    const seen = new Set(), out = [];
+    for(const w of list){ if(!seen.has(w.maker)){ seen.add(w.maker); out.push(w); } }
+    return out;
+  };
+
+  const thuisN = {1:4, 2:3, 3:2}[profile.dose];
+  const omverN = {1:1, 2:2, 3:3}[profile.dose];
+
+  const thuis = uniqueByMaker(wines.slice().sort((a,b)=>thuisScore(b)-thuisScore(a))).slice(0, thuisN)
+                  .map(w=>({...w, role:"thuis"}));
+  const usedMakers = new Set(thuis.map(w=>w.maker));
+  let omver = uniqueByMaker(wines.filter(w=>!usedMakers.has(w.maker) && omverScore(w) > -50)
+                  .sort((a,b)=>omverScore(b)-omverScore(a))).slice(0, omverN)
+                  .map(w=>({...w, role:"omver"}));
+
+  // guarantee at least one real leap when the dose asks for it
+  if(omver.length === 0 && profile.dose > 1){
+    const leap = wines.filter(w=>!usedMakers.has(w.maker)).sort((a,b)=>b.funk-a.funk)[0];
+    if(leap) omver = [{...leap, role:"omver"}];
+  }
+
+  // the arc: land first, leap last → order by funk ascending
+  return [...thuis, ...omver].sort((a,b)=>a.funk-b.funk);
+}
+
+/* ============ STATE + FLOW ============ */
+const S = {favs:[], colors:[], dose:null, lens:null};
+let current = 0;
+
+const steps = [...document.querySelectorAll('.step')];
+function show(n){
+  steps.forEach(s=>s.classList.toggle('active', +s.dataset.step===n));
+  current = n; window.scrollTo({top:0,behavior:'smooth'}); drawProg(n);
+  if(n===5) renderResults();
+}
+function drawProg(n){
+  document.querySelectorAll('.prog').forEach(p=>{
+    p.innerHTML=''; for(let i=1;i<=4;i++){const b=document.createElement('i'); if(i<=n)b.classList.add('done'); p.appendChild(b);}
+  });
+}
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(+b.dataset.go)));
+
+/* favourites chips */
+const favWrap = document.getElementById('favs');
+FAV_STYLES.forEach(s=>{
+  const b=document.createElement('button'); b.className='fav'; b.textContent=s.label; b.dataset.val=s.id;
+  b.addEventListener('click',()=>{
+    const i=S.favs.indexOf(s.id);
+    if(i>-1){S.favs.splice(i,1); b.classList.remove('sel');} else {S.favs.push(s.id); b.classList.add('sel');}
+    refreshNext();
+  });
+  favWrap.appendChild(b);
+});
+
+/* single + multi groups */
+document.querySelectorAll('[data-single]').forEach(grp=>{
+  const key=grp.dataset.single;
+  grp.querySelectorAll('.opt').forEach(opt=>opt.addEventListener('click',()=>{
+    grp.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+    opt.classList.add('sel'); S[key]=isNaN(+opt.dataset.val)?opt.dataset.val:+opt.dataset.val; refreshNext();
+  }));
+});
+document.querySelectorAll('[data-multi]').forEach(grp=>{
+  const key=grp.dataset.multi;
+  grp.querySelectorAll('.opt').forEach(opt=>opt.addEventListener('click',()=>{
+    const v=opt.dataset.val;
+    if(v==="alles"){ // exclusive
+      const on=!opt.classList.contains('sel');
+      grp.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel')); S[key]=[];
+      if(on){opt.classList.add('sel'); S[key]=["alles"];}
+    } else {
+      grp.querySelector('.opt[data-val="alles"]')?.classList.remove('sel');
+      S[key]=S[key].filter(x=>x!=="alles");
+      const i=S[key].indexOf(v);
+      if(i>-1){S[key].splice(i,1); opt.classList.remove('sel');} else {S[key].push(v); opt.classList.add('sel');}
+    }
+    refreshNext();
+  }));
+});
+
+function refreshNext(){
+  const step=steps.find(s=>+s.dataset.step===current); if(!step) return;
+  const next=step.querySelector('.btn.next'); if(!next) return;
+  let ok=true;
+  if(current===1) ok=S.favs.length>0;
+  if(current===2) ok=S.colors.length>0;
+  if(current===3) ok=S.dose!==null;
+  if(current===4) ok=S.lens!==null;
+  next.disabled=!ok;
+}
+
+/* ============ RENDER ============ */
+const FUNKW={1:"klassiek",2:"klassiek",3:"tussenin",4:"funky",5:"wild"};
+const COMPW={1:"glou-glou",2:"glou-glou",3:"middenin",4:"culinair",5:"culinair"};
+const cap = s => s.charAt(0).toUpperCase()+s.slice(1);
+
+function whyLine(w){
+  if(w.role==="thuis")
+    return `Dicht bij wat je al lekker vindt. ${cap(characterOf(w))}. Hier land je, en ijk je je gehemelte.`;
+  return `De sprong. ${cap(characterOf(w))}. Verder dan waar je normaal komt, en precies waarvoor je hier bent.`;
+}
+
+function stopHTML(w, i){
+  const tags=[
+    `<span class="tag funk">${FUNKW[w.funk]} · ${w.funk}/5</span>`,
+    `<span class="tag">${COMPW[w.comp]}</span>`,
+    `<span class="tag">${w.color}</span>`,
+    `<span class="tag">${w.sulfite==="zero"?"zero-zero":"beetje sulfiet"}</span>`,
+    `<span class="tag">${w.price}</span>`,
+  ].join('');
+  return `
+   <div class="stop ${w.role}">
+     <div class="idx">
+       <div class="num">${w.role==="omver"?"★":i}</div>
+       <div class="stand mono">stand<b>volgt</b></div>
+     </div>
+     <div class="card">
+       <span class="role ${w.role}">${w.role==="omver"?"omver →":"thuis"}</span>
+       <div class="g">${w.maker}</div>
+       <div class="place mono">${w.region} · ${w.country} · ${w.farming==="biodynamic"?"biodynamisch":"biologisch"}</div>
+       <div class="why">${whyLine(w)}</div>
+       <div class="pour">
+         <div class="tl mono">wij schenken je hier</div>
+         <div class="tn">${w.name} ${w.year}</div>
+         <div class="td">Druif: ${w.grapes.join(", ")}.</div>
+       </div>
+       <div class="tags">${tags}</div>
+     </div>
+   </div>`;
+}
+
+function renderResults(){
+  const flight = buildFlight(S);
+  const thuisCount = flight.filter(w=>w.role==="thuis").length;
+  const omverCount = flight.filter(w=>w.role==="omver").length;
+  const doseW = {1:"trefzeker", 2:"in balans", 3:"in het diepe"}[S.dose];
+  const lensW = {glou:"makkelijk wegdrinken", balans:"allebei", culinair:"om te ontrafelen"}[S.lens];
+
+  document.getElementById('results').innerHTML = `
+    <div class="res-head">
+      <div class="ey mono">jouw route · ${flight.length} stops · ${thuisCount} thuis, ${omverCount} omver</div>
+      <h2>jouw route over de markt</h2>
+      <div class="sum">Gebouwd rond je anker, op de dosis <b>${doseW}</b> en de stemming <b>${lensW}</b>. Loop 'm van boven naar beneden: we beginnen bij wat je herkent en bouwen op naar het wildere eind. De ★ zijn de wijnen die je omver kunnen blazen.</div>
+    </div>
+    <div class="flight">${flight.map((w,i)=>stopHTML(w,i+1)).join('')}</div>
+
+    <div class="replay">
+      <div class="rt mono">nog niet uitgeproefd? draai 'm opnieuw</div>
+      <div class="rbtns">
+        <button class="rbtn primary" id="wilder">een stap wilder →</button>
+        <button class="rbtn" id="omgekeerd">de andere hoek</button>
+        <button class="rbtn" id="opnieuw">helemaal opnieuw</button>
+      </div>
+    </div>
+
+    <div class="save">
+      <div class="st"><b>Mail mij mijn route.</b> Bewaar 'm, open 'm op je telefoon bij de ingang, pas 'm daar aan. <span class="stub">stub</span></div>
+      <button class="sb" id="mailbtn">mail mij mijn route</button>
+    </div>
+  `;
+
+  // replay = exploration across runs (demonstrates the memory principle)
+  document.getElementById('wilder').onclick   = ()=>{ S.dose=Math.min(3,S.dose+1); renderResults(); window.scrollTo({top:0,behavior:'smooth'}); };
+  document.getElementById('omgekeerd').onclick= ()=>{ S.lens = S.lens==="glou"?"culinair":"glou"; renderResults(); window.scrollTo({top:0,behavior:'smooth'}); };
+  document.getElementById('opnieuw').onclick  = ()=>{ S.favs=[];S.colors=[];S.dose=null;S.lens=null;
+    document.querySelectorAll('.fav.sel,.opt.sel').forEach(e=>e.classList.remove('sel')); show(1); };
+  document.getElementById('mailbtn').onclick  = ()=>alert("In de echte versie krijg je hier je route in de mail, met een link die je op de dag zelf kunt bijstellen.");
+}
+</script>
+</body>
+</html>
