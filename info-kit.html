@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Info kit — Natural Wine Festival A'dam</title>
+<meta name="description" content="The winemaker & distributor info kit for Natural Wine Festival A'dam, edition #5, 15 & 16 November '26 at De Hallen, Amsterdam. Programme, contribution, selection criteria, logistics and team." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#e7e1d0;
+    --ink:#1b2a20;
+    --ink-2:rgba(27,42,32,.60);
+    --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20);
+    --ochre:#9a6628;
+    --gutter:46px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
+
+  /* ===== running head ===== */
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;}
+  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .top .nm span{color:var(--ink-2);}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top nav a:hover{color:var(--ink);}
+
+  /* ===== cover ===== */
+  .cover{padding:8vh 0 5vh;}
+  .cover .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .cover h1{margin-top:16px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.9;
+            font-size:clamp(46px,8.4vw,132px);}
+  .cover .when{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 28px;font-family:ui-monospace,'SF Mono',Menlo,monospace;
+               font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);}
+  .cover .when b{color:var(--ink);font-weight:700;}
+  /* four pillars */
+  .pillars{margin-top:5vh;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .pillars .p{padding:26px 22px 28px;border-right:1px solid var(--rule);}
+  .pillars .p:last-child{border-right:0;}
+  .pillars .p .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;letter-spacing:.04em;}
+  .pillars .p .h{margin-top:12px;font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.018em;line-height:1.1;}
+  .pillars .p .d{margin-top:8px;font-size:13px;color:var(--ink-2);line-height:1.5;}
+
+  /* ===== section frame ===== */
+  section{padding:7vh 0;border-bottom:1.4px solid var(--ink);}
+  .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  h2{font-weight:600;text-transform:lowercase;letter-spacing:-.025em;line-height:1;font-size:clamp(28px,3.4vw,52px);}
+  .lead{font-size:clamp(22px,2.3vw,32px);line-height:1.28;letter-spacing:-.012em;font-weight:500;max-width:24ch;}
+
+  /* the festival */
+  .fest .lead{margin-top:16px;max-width:30ch;}
+  .stats{margin-top:5vh;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.4px solid var(--ink);}
+  .stats .s{padding:26px 22px;border-right:1px solid var(--rule);}
+  .stats .s:last-child{border-right:0;}
+  .stats .s .big{font-weight:600;font-size:clamp(38px,4.4vw,60px);letter-spacing:-.03em;line-height:1;}
+  .stats .s .cap{margin-top:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);line-height:1.5;}
+  .days{margin-top:6vh;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
+  .day .dh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1.4px solid var(--ink);padding-top:14px;}
+  .day .dh .t{font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.015em;}
+  .day .dh .who{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre);font-weight:700;text-align:right;}
+  .day ul{list-style:none;margin-top:6px;}
+  .day li{display:grid;grid-template-columns:16px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:14.5px;line-height:1.5;color:var(--ink-2);}
+  .day li .c{color:var(--ochre);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;font-weight:700;}
+  .day li b{color:var(--ink);font-weight:600;}
+
+  /* generic two-col with photo */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;border-top:1.4px solid var(--ink);}
+  .split .txt{padding:40px 56px 40px 0;}
+  .split .fig{border-left:1.4px solid var(--ink);overflow:hidden;min-height:420px;position:relative;}
+  .split .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .split.rev .txt{padding:40px 0 40px 56px;order:2;}
+  .split.rev .fig{border-left:0;border-right:1.4px solid var(--ink);order:1;}
+
+  /* contribution */
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 30px;}
+  .tier{border:1.4px solid var(--ink);padding:24px 22px;}
+  .tier .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .tier .price{margin-top:12px;font-weight:600;font-size:clamp(32px,4vw,50px);letter-spacing:-.03em;line-height:1;}
+  .tier .price small{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ink-2);font-weight:500;letter-spacing:.04em;margin-left:6px;text-transform:uppercase;}
+  .tier .d{margin-top:12px;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
+  .incl{list-style:none;border-top:1.4px solid var(--ink);}
+  .incl li{display:grid;grid-template-columns:20px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink);line-height:1.5;}
+  .incl li:first-child{border-top:0;}
+  .incl li .c{color:var(--ochre);font-weight:700;}
+  .note{margin-top:24px;font-size:14.5px;line-height:1.6;color:var(--ink);max-width:52ch;}
+  .note b{color:var(--ochre);}
+
+  /* criteria grid */
+  .crit-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.4px solid var(--ink);margin-top:30px;}
+  .crit-list .item{padding:22px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+  .crit-list .item:nth-child(3n){border-right:0;}
+  .crit-list .item .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;}
+  .crit-list .item .h{margin-top:10px;font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.018em;line-height:1.15;}
+  .crit-list .item .p{margin-top:8px;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
+
+  /* small meta blocks */
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:36px;border-top:1.4px solid var(--ink);padding-top:26px;margin-top:30px;}
+  .meta .mh{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
+  .meta p{font-size:14.5px;color:var(--ink-2);line-height:1.7;}
+  .meta p b{color:var(--ink);font-weight:600;}
+  .meta a{color:var(--ink);border-bottom:1px solid var(--rule);}
+
+  .prose p{font-size:15.5px;line-height:1.62;color:var(--ink-2);max-width:56ch;}
+  .prose p + p{margin-top:16px;}
+  .prose p b{color:var(--ink);font-weight:600;}
+  .sub-h{margin-top:28px;font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.015em;}
+
+  /* schedule rows */
+  .srow{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;}
+  .srow .tt{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ochre);font-weight:700;letter-spacing:.03em;}
+  .srow .dd{font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+  .srow .dd b{color:var(--ink);font-weight:600;}
+  .sday{margin-top:26px;}
+  .sday:first-of-type{margin-top:30px;}
+  .sday .sh{font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.015em;margin-bottom:2px;}
+  .srow.head{border-top:1.4px solid var(--ink);}
+
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1.4px solid var(--ink);margin-top:30px;}
+  .team .m{padding:24px 24px 24px 0;border-bottom:1px solid var(--rule);}
+  .team .m:nth-child(2n){padding-left:24px;border-left:1px solid var(--rule);}
+  .team .m .nm2{font-weight:600;font-size:19px;letter-spacing:-.015em;}
+  .team .m .role{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:6px;}
+  .team .m a{display:inline-block;margin-top:10px;font-size:14px;color:var(--ochre);border-bottom:1px solid var(--rule);}
+
+  /* cover cta */
+  .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);border:1.4px solid var(--ink);
+       padding:15px 28px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;cursor:pointer;}
+  .btn:hover{background:var(--ochre);border-color:var(--ochre);}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+
+  /* ===== sign-up form ===== */
+  .signup{background:var(--ink);color:var(--paper);border-bottom:0;}
+  .signup .inner{max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
+  .signup .lab{color:#d9b877;}
+  .signup h2{color:var(--paper);margin-top:10px;max-width:20ch;}
+  .signup .head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:18px;}
+  .signup .head .metanote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:rgba(231,225,208,.6);letter-spacing:.06em;text-transform:uppercase;line-height:1.8;text-align:right;}
+  .signup .intro{margin-top:16px;font-size:15.5px;color:rgba(231,225,208,.72);line-height:1.62;max-width:60ch;}
+  .signup .intro b{color:var(--paper);font-weight:600;}
+  .aform{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;max-width:940px;}
+  .aform .fld{display:flex;flex-direction:column;gap:8px;}
+  .aform .full{grid-column:1 / -1;}
+  .aform label{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(231,225,208,.66);font-weight:700;}
+  .aform label .req{color:#d9b877;}
+  .aform input,.aform select,.aform textarea{font-family:inherit;font-size:15px;color:var(--paper);background:rgba(231,225,208,.06);border:1.4px solid rgba(231,225,208,.28);padding:13px 15px;outline:none;width:100%;border-radius:0;}
+  .aform input::placeholder,.aform textarea::placeholder{color:rgba(231,225,208,.4);}
+  .aform input:focus,.aform select:focus,.aform textarea:focus{border-color:#d9b877;box-shadow:0 0 0 3px rgba(217,184,119,.22);}
+  .aform select{color:var(--paper);}
+  .aform select option{color:#1b2a20;}
+  .aform textarea{min-height:120px;resize:vertical;line-height:1.5;}
+  .aform .submit{justify-self:start;background:var(--ochre);color:var(--paper);border:1.4px solid var(--ochre);padding:16px 32px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;cursor:pointer;transition:.14s;}
+  .aform .submit:hover{background:#b9803a;border-color:#b9803a;}
+  .aform .fnote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:rgba(231,225,208,.5);letter-spacing:.04em;line-height:1.6;}
+  .aform .fnote a{color:var(--paper);border-bottom:1px solid rgba(231,225,208,.3);}
+  .signup .done-msg{display:none;margin-top:34px;border:1.4px solid rgba(231,225,208,.28);padding:30px 28px;}
+  .signup.sent .aform{display:none;}
+  .signup.sent .done-msg{display:block;animation:reveal .5s ease-out;}
+  @keyframes reveal{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .signup .done-msg .big{font-weight:600;text-transform:lowercase;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;}
+  .signup .done-msg p{margin-top:12px;font-size:15px;color:rgba(231,225,208,.72);line-height:1.6;max-width:52ch;}
+
+  /* footer */
+  .pfoot{background:var(--ink);color:var(--paper);border:0;border-top:1.4px solid rgba(231,225,208,.16);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:64px var(--gutter) 48px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.4vw,48px);max-width:16ch;line-height:1.04;}
+  .pfoot .big em{font-style:normal;color:var(--ochre);}
+  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+  .pfoot .col a{color:rgba(231,225,208,.82);}
+
+  @media(max-width:900px){
+    :root{--gutter:22px;}
+    .cover h1{font-size:clamp(44px,13vw,88px);}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .pillars .p:nth-child(2n){border-right:0;}
+    .pillars .p:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+    .stats{grid-template-columns:1fr;}
+    .stats .s{border-right:0;border-bottom:1px solid var(--rule);}
+    .days{grid-template-columns:1fr;gap:40px 0;}
+    .split,.split.rev{grid-template-columns:1fr;}
+    .split .txt,.split.rev .txt{padding:32px 0;order:2;}
+    .split .fig,.split.rev .fig{border-left:0;border-right:0;border-top:1.4px solid var(--ink);min-height:300px;order:1;}
+    .tiers,.meta,.team{grid-template-columns:1fr;}
+    .crit-list{grid-template-columns:1fr;}
+    .crit-list .item{border-right:0;}
+    .team .m:nth-child(2n){padding-left:0;border-left:0;}
+    .aform{grid-template-columns:1fr;}
+    .signup .head{flex-direction:column;align-items:flex-start;}
+    .signup .head .metanote{text-align:left;}
+    .top nav{display:none;}
+  }
+
+  @media print{
+    :root{--gutter:0;}
+    body{background:#fff;}
+    .top nav{display:none;}
+    section{break-inside:avoid;}
+    .split .fig{min-height:320px;}
+    .pfoot{background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="top">
+      <a class="seal" href="index.html" aria-label="NWFA — home"><img src="concept-assets/rose.svg" alt="NWFA" /></a>
+      <div class="nm">natural wine festival a'dam<br><span>info kit · edition #5</span></div>
+      <nav>
+        <a href="index.html">home</a>
+        <a href="participate.html">participate</a>
+        <a href="winemakers.html">winemakers</a>
+        <a href="workshops.html">workshops</a>
+        <a href="for-professionals.html">trade</a>
+      </nav>
+    </div>
+
+    <!-- ===== COVER ===== -->
+    <header class="cover">
+      <div class="ey">for winemakers &amp; distributors · united by wine</div>
+      <h1>natural wine<br>festival a'dam.</h1>
+      <div class="when">
+        <span><b>edition #5</b></span>
+        <span>sunday &amp; monday, <b>15 &amp; 16 november '26</b></span>
+        <span>de hallen, amsterdam</span>
+      </div>
+      <div class="pillars">
+        <div class="p"><div class="n">01</div><div class="h">winemakers</div><div class="d">40+ growers pouring their own wines across two days.</div></div>
+        <div class="p"><div class="n">02</div><div class="h">workshops</div><div class="d">going beyond the hype, from viticulture to blind tastings.</div></div>
+        <div class="p"><div class="n">03</div><div class="h">wine bar</div><div class="d">an all-day bar for the wines visitors want more of.</div></div>
+        <div class="p"><div class="n">04</div><div class="h">food market</div><div class="d">craft food market and oyster bar alongside the floor.</div></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#signup">sign up to pour →</a>
+        <a class="btn ghost" href="#festival">read the info kit</a>
+      </div>
+    </header>
+
+    <!-- ===== §01 THE FESTIVAL ===== -->
+    <section class="fest" id="festival">
+      <div class="lab">§ 01 — the festival</div>
+      <p class="lead" style="margin-top:16px;">a two-day celebration of natural wine, for professionals, consumers and horeca, in the heart of amsterdam.</p>
+
+      <div class="stats">
+        <div class="s"><div class="big">40+</div><div class="cap">winemakers present</div></div>
+        <div class="s"><div class="big">1000+</div><div class="cap">visitors expected</div></div>
+        <div class="s"><div class="big">10+</div><div class="cap">workshops &amp; masterclasses</div></div>
+      </div>
+
+      <div class="days">
+        <div class="day">
+          <div class="dh"><span class="t">day 1 · sunday 15 nov</span><span class="who">professionals &amp; consumers</span></div>
+          <ul>
+            <li><span class="c">✦</span><span><b>Wine tasting.</b> Professionals only 11.00–13.00, then all 13.00–18.15.</span></li>
+            <li><span class="c">✦</span><span><b>Craft food market, oyster bar &amp; wine bar.</b> 13.00–22.00.</span></li>
+            <li><span class="c">✦</span><span><b>Winemakers' Dinner.</b> 19.00–22.30.</span></li>
+            <li><span class="c">✦</span><span><b>Bottle sales.</b> Sell directly to visitors, bring your own mobile POS and earn back part, or all, of your participation fee.</span></li>
+            <li><span class="c">✦</span><span><b>Workshops.</b> NWFA is an educational hub, from ecological viticulture to blind tastings.</span></li>
+          </ul>
+        </div>
+        <div class="day">
+          <div class="dh"><span class="t">day 2 · monday 16 nov</span><span class="who">professionals / horeca only</span></div>
+          <ul>
+            <li><span class="c">✦</span><span><b>Wine tasting.</b> 10.00–16.00.</span></li>
+            <li><span class="c">✦</span><span>Free entrance for vetted professionals and horeca. A quieter trade day for the deeper conversations that don't happen on a busy floor.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §02 CONTRIBUTION ===== -->
+    <section>
+      <div class="lab">§ 02 — contribution per winemaker</div>
+      <div class="split">
+        <div class="txt">
+          <div class="tiers">
+            <div class="tier">
+              <div class="t">one day · sunday 15 nov</div>
+              <div class="price">€425 <small>ex. vat</small></div>
+              <div class="d">per winemaker, the consumer &amp; professional day.</div>
+            </div>
+            <div class="tier">
+              <div class="t">two days · 15 &amp; 16 nov</div>
+              <div class="price">€575 <small>ex. vat</small></div>
+              <div class="d">adds the monday trade &amp; horeca day.</div>
+            </div>
+          </div>
+          <ul class="incl">
+            <li><span class="c">✓</span><span>Table for wines, cooling facilities and spittoons.</span></li>
+            <li><span class="c">✓</span><span>Winemaker description on naturalwinefestival.nl.</span></li>
+            <li><span class="c">✓</span><span>Distributor description on naturalwinefestival.nl.</span></li>
+            <li><span class="c">✓</span><span>One dedicated winemaker post on @naturalwinefestival.ams.</span></li>
+            <li><span class="c">✓</span><span>Option to sell bottles directly to consumers.</span></li>
+            <li><span class="c">✓</span><span>Lunch provided by NWFA.</span></li>
+            <li><span class="c">✓</span><span>Invitation to the Winemakers' Dinner (approx. €39.50 p.p.).</span></li>
+          </ul>
+          <p class="note"><b>Build success together.</b> We keep the fee low on purpose, and you can earn part or all of it back by selling bottles straight from your table. Bring your own mobile POS.</p>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-6.jpg" alt="A winemaker pouring at the tasting floor" /></div>
+      </div>
+      <div class="meta" style="border-top:1.4px solid var(--ink);">
+        <div>
+          <div class="mh">what the visitor's ticket includes</div>
+          <p>Access to the tasting space, with sample pours provided by winemakers, plus all workshops and the mini-market and wine bar.</p>
+        </div>
+        <div>
+          <div class="mh">the adjacent hall</div>
+          <p>A dedicated event hall with a wine bar, craft food market and oyster bar, for visitors who want to enjoy more of their favourite wines.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §03 LOCATION ===== -->
+    <section>
+      <div class="lab">§ 03 — location</div>
+      <div class="split rev">
+        <div class="txt">
+          <h2>de hallen, amsterdam.</h2>
+          <div class="prose" style="margin-top:18px;">
+            <p>A monumental and sustainable venue in the heart of Amsterdam. It houses, among others:</p>
+          </div>
+          <ul class="incl" style="margin-top:18px;">
+            <li><span class="c">01</span><span><b>De Hallen Studios.</b> A spectacular 1,000m² event location. dehallenstudios.nl</span></li>
+            <li><span class="c">02</span><span><b>Denim City.</b> A hub combining event space, lab and educational facilities.</span></li>
+          </ul>
+          <div class="prose" style="margin-top:18px;">
+            <p>Both teams and venues jointly host the Natural Wine Festival A'dam.</p>
+          </div>
+          <div class="sub-h">workshops &amp; masterclasses</div>
+          <div class="prose" style="margin-top:8px;">
+            <p>Three dedicated spaces are available, complimentary, to host 30–45 minute workshops for professionals and consumers. Ask us for details.</p>
+          </div>
+          <div class="meta" style="grid-template-columns:1fr;gap:0;">
+            <div>
+              <div class="mh">address</div>
+              <p><b>De Hallen</b><br>Hannie Dankbaarpassage 47<br>1053 RT Amsterdam</p>
+            </div>
+          </div>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-1.jpg" alt="The oyster bar at De Hallen" /></div>
+      </div>
+    </section>
+
+    <!-- ===== §04 PHILOSOPHY & SELECTION ===== -->
+    <section>
+      <div class="lab">§ 04 — philosophy</div>
+      <h2 style="margin-top:10px;max-width:16ch;">building success together, so everybody wins.</h2>
+      <div class="split" style="margin-top:34px;">
+        <div class="txt">
+          <div class="prose">
+            <p>Participation fees are kept low, with the option for winemakers to earn back part of their fee through direct bottle sales at NWFA.</p>
+            <p>Distributors and winemakers are encouraged to promote their attendance via mailing lists and social media. NWFA provides creative assets to support outreach.</p>
+          </div>
+          <div class="sub-h">transparency</div>
+          <div class="prose" style="margin-top:8px;">
+            <p>Non-distributed winemakers are asked to provide a chemical analysis of their wines. Sulphur levels and farming practices, organic, biodynamic and so on, are published on winemaker profiles on the NWFA website.</p>
+          </div>
+          <div class="sub-h">zero-zero wines</div>
+          <div class="prose" style="margin-top:8px;">
+            <p>Zero-zero wines are highlighted with a special label, so visitors taste with their eyes open.</p>
+          </div>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-10.jpg" alt="A visitor tasting at the festival" /></div>
+      </div>
+
+      <div class="lab" style="margin-top:6vh;">selection criteria</div>
+      <h2 style="margin-top:10px;max-width:18ch;">wines must reflect terroir and the hand of the winemaker.</h2>
+      <div class="crit-list">
+        <div class="item"><div class="n">01</div><div class="h">organic at minimum</div><div class="p">Organic, biodynamic or regenerative vineyard work. Certification is not mandatory.</div></div>
+        <div class="item"><div class="n">02</div><div class="h">no pesticides or herbicides</div><div class="p">Nothing synthetic in the vineyard, no shortcuts in the growing.</div></div>
+        <div class="item"><div class="n">03</div><div class="h">indigenous ferments</div><div class="p">Native yeast fermentation. The ground and the vintage do the work.</div></div>
+        <div class="item"><div class="n">04</div><div class="h">nothing added</div><div class="p">No acidification, no chaptalization, no artificial adjustments.</div></div>
+        <div class="item"><div class="n">05</div><div class="h">light hand in the cellar</div><div class="p">No or only light filtering and fining, always vegan.</div></div>
+        <div class="item"><div class="n">06</div><div class="h">low / no added so₂</div><div class="p">No or low sulphur, added only at bottling if at all.</div></div>
+      </div>
+    </section>
+
+    <!-- ===== §05 SCHEDULE ===== -->
+    <section>
+      <div class="lab">§ 05 — schedule</div>
+      <div class="split rev">
+        <div class="txt">
+          <h2>door to door.</h2>
+
+          <div class="sday">
+            <div class="sh">saturday 14 november</div>
+            <div class="srow head"><span class="tt">13.00 – 17.00</span><span class="dd"><b>Drop-off of wines.</b> Or the next morning during set-up.</span></div>
+          </div>
+
+          <div class="sday">
+            <div class="sh">sunday 15 november · consumers &amp; professionals</div>
+            <div class="srow head"><span class="tt">09.30 – 11.00</span><span class="dd"><b>Unloading, set-up &amp; welcome.</b></span></div>
+            <div class="srow"><span class="tt">11.00 – 13.00</span><span class="dd"><b>Tasting.</b> Professionals only.</span></div>
+            <div class="srow"><span class="tt">13.00 – 18.15</span><span class="dd"><b>Tasting.</b> Professionals &amp; consumers.</span></div>
+            <div class="srow"><span class="tt">13.00 – 22.00</span><span class="dd">Wine bar, oyster bar &amp; mini market open.</span></div>
+            <div class="srow"><span class="tt">19.00 – 22.30</span><span class="dd"><b>Winemakers' Dinner.</b> Winemakers, distributors, crew &amp; professionals.</span></div>
+          </div>
+
+          <div class="sday">
+            <div class="sh">monday 16 november · trade &amp; horeca only</div>
+            <div class="srow head"><span class="tt">10.00 – 16.00</span><span class="dd"><b>Wine tasting.</b> Free entrance for vetted professionals and horeca.</span></div>
+          </div>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-4.jpg" alt="The festival floor in full flow" /></div>
+      </div>
+    </section>
+
+    <!-- ===== §06 TEAM ===== -->
+    <section style="border-bottom:0;">
+      <div class="lab">§ 06 — team nwfa</div>
+      <h2 style="margin-top:10px;">your contacts.</h2>
+      <div class="team">
+        <div class="m">
+          <div class="nm2">Peter van Rhoon</div>
+          <div class="role">communications &amp; winemakers</div>
+          <a href="mailto:peter@greenisgolden.co">peter@greenisgolden.co</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Luuk de Jonge</div>
+          <div class="role">project manager winemakers</div>
+          <a href="mailto:wine@greenisgolden.co">wine@greenisgolden.co</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Mariette Hoitink</div>
+          <div class="role">collaborations</div>
+          <a href="mailto:mariette@greenisgolden.co">mariette@greenisgolden.co</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Fleur Burggraaf</div>
+          <div class="role">event production</div>
+          <a href="mailto:fleur@dehallenstudios.nl">fleur@dehallenstudios.nl</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== §07 SIGN-UP FORM ===== -->
+  <section class="signup" id="signup">
+    <div class="inner">
+      <div class="head">
+        <div>
+          <div class="lab">§ 07 — sign up</div>
+          <h2>want to pour at nwfa?</h2>
+        </div>
+        <div class="metanote">~ 3 minutes<br>we read every submission<br>reply within 2 weeks</div>
+      </div>
+      <p class="intro">Leave your details and tell us about your wines. We'll come back to you about a table at edition #5, <b>15 &amp; 16 November '26</b>. No commitment.</p>
+
+      <form class="aform" id="signupForm" novalidate>
+        <div class="fld">
+          <label for="winery">winemaker / domaine <span class="req">*</span></label>
+          <input id="winery" name="winery" required autocomplete="organization" />
+        </div>
+        <div class="fld">
+          <label for="region">country &amp; region <span class="req">*</span></label>
+          <input id="region" name="region" required />
+        </div>
+        <div class="fld">
+          <label for="contact">your name <span class="req">*</span></label>
+          <input id="contact" name="contact" required autocomplete="name" />
+        </div>
+        <div class="fld">
+          <label for="email">email <span class="req">*</span></label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="fld">
+          <label for="web">website or instagram</label>
+          <input id="web" name="web" placeholder="optional" />
+        </div>
+        <div class="fld">
+          <label for="days">which days?</label>
+          <select id="days" name="days">
+            <option>two days · 15 &amp; 16 nov</option>
+            <option>one day · sunday 15 nov</option>
+            <option>not sure yet</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="distributed">distributed in the netherlands?</label>
+          <select id="distributed" name="distributed">
+            <option>not yet</option>
+            <option>yes</option>
+            <option>in progress</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="role">i am a…</label>
+          <select id="role" name="role">
+            <option>winemaker</option>
+            <option>distributor / importer</option>
+            <option>winemaker &amp; distributor</option>
+          </select>
+        </div>
+        <div class="fld full">
+          <label for="about">tell us about your wines <span class="req">*</span></label>
+          <textarea id="about" name="about" required placeholder="farming, ferments, sulphur, and what makes them yours."></textarea>
+        </div>
+        <button class="submit full" type="submit">sign up &amp; we'll be in touch →</button>
+        <div class="fnote full">prefer email? write to <a href="mailto:wine@greenisgolden.co">wine@greenisgolden.co</a>.</div>
+      </form>
+
+      <div class="done-msg">
+        <div class="big">thank you, we've got it.</div>
+        <p>We read every submission and reply within two weeks with the table details and next steps. If it's urgent, mail <a href="mailto:wine@greenisgolden.co" style="color:#d9b877;border-bottom:1px solid rgba(217,184,119,.4);">wine@greenisgolden.co</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">want to pour? <em>sign up</em> and we'll send the details.</div>
+        <a class="col" href="#signup" style="display:inline-block;margin-top:22px;color:var(--paper);border-bottom:1.5px solid var(--ochre);padding-bottom:3px;font-size:14px;font-weight:600;">sign up → </a>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition #5 — 15 &amp; 16 nov '26<br>
+        de hallen, amsterdam<br><br>
+        <a href="mailto:wine@greenisgolden.co">wine@greenisgolden.co</a><br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    /* Paste a Tally / Formspree / GHL or Airtable webhook URL here to capture leads.
+       Until it is set, the form still confirms and the entry is kept in localStorage. */
+    var LEAD_ENDPOINT = "";
+    var form = document.getElementById('signupForm');
+    var wrap = document.getElementById('signup');
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
+        data.page='info-kit'; data.edition='#5'; data.ts=new Date().toISOString();
+        try{ localStorage.setItem('nwfa_infokit_lead', JSON.stringify(data)); }catch(err){}
+        if(LEAD_ENDPOINT){
+          fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+        }
+        wrap.classList.add('sent');
+        wrap.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    }
+  })();
+  </script>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
