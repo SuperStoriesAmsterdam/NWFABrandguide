@@ -184,6 +184,9 @@
   .pfoot .col b{color:var(--bg);font-weight:600;}
   .zone.txt{padding-top:2px;border-top:2px solid var(--amber);align-self:start;}
   .zone.txt .zk{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;display:block;}
+  .fp{margin-top:44px;}
+  .fp .fp-note{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.02em;color:var(--ink-3);max-width:60ch;margin-bottom:18px;}
+  .floorplan{width:100%;height:auto;display:block;}
   .lr-band{margin-top:44px;background:var(--ink);color:var(--bg);border-radius:6px;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:32px 38px;transition:background .14s;}
   .lr-band:hover{background:#243a2e;}
   .lr-band .lrk{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);}
@@ -345,11 +348,88 @@
       <a class="zone txt" href="specials.html"><span class="zk">the floor</span><div class="zn">the specials</div><div class="zd">the listening room, the yoikokochi sake tasting, the frenchman.</div></a>
       <a class="zone txt" href="winemakers-dinner.html"><span class="zk">the supper</span><div class="zn">the winemakers dinner</div><div class="zd">five courses, sunday night. this edition, open to visitors.</div></a>
     </div>
+    <div class="fp">
+      <div class="fp-note">a schematic of the floor. the real map, with stand numbers, lands closer to the date.</div>
+      <svg class="floorplan" viewBox="0 0 1200 760" role="img" aria-label="Schematic floor plan of the fair">
+        <style>
+          .floorplan text{font-family:'Figtree',system-ui,sans-serif;}
+          .floorplan .zt{font-size:19px;font-weight:600;fill:#1B3326;}
+          .floorplan .zt.big{font-size:24px;}
+          .floorplan .zt.cream{fill:#ECE6D6;}
+          .floorplan .zs{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;fill:rgba(27,51,38,.55);letter-spacing:.03em;}
+          .floorplan .zs.cream{fill:rgba(236,230,214,.6);}
+          .floorplan .ent{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.16em;fill:#9F6E29;font-weight:700;text-transform:uppercase;}
+        </style>
+        <!-- hall outline, gap at bottom-centre for the entrance -->
+        <path d="M16 26 Q16 16 26 16 L1174 16 Q1184 16 1184 26 L1184 706 Q1184 716 1174 716 L672 716 M528 716 L26 716 Q16 716 16 706 Z"
+              fill="#ece6d6" stroke="#1B3326" stroke-width="2.5" stroke-linejoin="round"/>
+        <text class="ent" x="600" y="742" text-anchor="middle">entrance</text>
+        <path d="M588 724 L600 712 L612 724" fill="none" stroke="#9F6E29" stroke-width="2"/>
+
+        <!-- workshops (top strip) -->
+        <rect x="318" y="44" width="560" height="60" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <image href="icons-tuned/the-lessons.svg" x="338" y="52" width="27" height="44"/>
+        <text class="zt" x="384" y="72">workshops</text>
+        <text class="zs" x="384" y="92">3 rooms · masterclasses</text>
+
+        <!-- tasting floor -->
+        <rect x="318" y="118" width="560" height="456" rx="4" fill="#f4eede" stroke="#1B3326" stroke-width="1.4"/>
+        <image href="icons-tuned/the-makers.svg" x="340" y="140" width="34" height="55"/>
+        <text class="zt big" x="392" y="166">the tasting floor</text>
+        <text class="zs" x="392" y="188">40+ winemakers · pouring their own</text>
+        <g stroke="rgba(27,51,38,.20)" stroke-width="3" stroke-linecap="round">
+          <line x1="352" y1="256" x2="844" y2="256"/>
+          <line x1="352" y1="302" x2="844" y2="302"/>
+          <line x1="352" y1="348" x2="844" y2="348"/>
+          <line x1="352" y1="394" x2="844" y2="394"/>
+          <line x1="352" y1="440" x2="844" y2="440"/>
+          <line x1="352" y1="486" x2="844" y2="486"/>
+          <line x1="352" y1="532" x2="844" y2="532"/>
+        </g>
+
+        <!-- left column: wine bar / food market / oyster -->
+        <rect x="44" y="118" width="250" height="150" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <image href="icons-tuned/bar-brut-nature.svg" x="62" y="134" width="28" height="45"/>
+        <text class="zt" x="62" y="222">wine bar</text>
+        <text class="zs" x="62" y="242">all day · 13–22h</text>
+
+        <rect x="44" y="284" width="250" height="150" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <image href="icons-tuned/market.svg" x="62" y="300" width="28" height="45"/>
+        <text class="zt" x="62" y="388">food market</text>
+        <text class="zs" x="62" y="408">craft food, all day</text>
+
+        <rect x="44" y="450" width="250" height="124" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <circle cx="70" cy="476" r="6" fill="#9F6E29"/>
+        <text class="zt" x="62" y="528">oyster bar</text>
+        <text class="zs" x="62" y="548">shucked to order</text>
+
+        <!-- right column: listening room (dark) / yoikokochi / frenchman -->
+        <rect x="902" y="118" width="252" height="206" rx="4" fill="#1B3326"/>
+        <circle cx="928" cy="146" r="6" fill="#eeba3f"/>
+        <text class="zt cream" x="922" y="212">the listening room</text>
+        <text class="zs cream" x="922" y="232">rare vintages · sake · sushi</text>
+
+        <rect x="902" y="340" width="252" height="104" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <circle cx="928" cy="366" r="6" fill="#9F6E29"/>
+        <text class="zt" x="922" y="418">yoikokochi</text>
+
+        <rect x="902" y="460" width="252" height="114" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <circle cx="928" cy="486" r="6" fill="#9F6E29"/>
+        <text class="zt" x="922" y="538">the frenchman</text>
+        <text class="zs" x="922" y="558">cheese &amp; charcuterie</text>
+
+        <!-- winemakers dinner (bottom strip) -->
+        <rect x="44" y="592" width="1110" height="90" rx="4" fill="#efe8d7" stroke="#1B3326" stroke-width="1.4"/>
+        <image href="icons-tuned/the-supper.svg" x="64" y="606" width="28" height="45"/>
+        <text class="zt" x="112" y="632">the winemakers dinner</text>
+        <text class="zs" x="112" y="654">sunday night · post-event</text>
+      </svg>
+    </div>
     <a class="lr-band" href="natural-wineguide.html">
       <div>
         <div class="lrk">the wineguide</div>
         <div class="lrn">fifty makers, one afternoon. your route.</div>
-        <div class="lrt">nobody tastes fifty makers. tell us what you already like and how far you want to go, and we build your route across the floor. a graphic map of the fair is on the way.</div>
+        <div class="lrt">nobody tastes fifty makers. tell us what you already like and how far you want to go, and we build your route across this floor.</div>
       </div>
       <div class="lrgo">build your route →</div>
     </a>
