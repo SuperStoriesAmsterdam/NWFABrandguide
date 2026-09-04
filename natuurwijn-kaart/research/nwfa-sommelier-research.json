@@ -1,0 +1,2135 @@
+{
+  "generated": "2026-07-01",
+  "venues": 126,
+  "note": "NL natural-wine restaurants: sommelier + socials, from Raisin venue list + web research (verified). Business/professional context only.",
+  "rows": [
+    {
+      "name": "4850",
+      "sommeliers": [
+        {
+          "name": "Daniel Schein",
+          "role": "Owner / Sommelier (wine buyer)",
+          "verified": true,
+          "verifyNote": "Confirmed current. Daniel Schein is founder/owner and sommelier/wine buyer at 4850 (Camperstraat 48-50, Amsterdam Oost). Corroborated by the venue's own site, LinkedIn, De Buik van Amsterdam profiles, and the Star Wine List of the Year 2025 (Belgium & Netherlands) Special Jury Prize awarded to 4850. Co-founder Rikard Andersson is also named in some sources, but Schein is consistently the wine lead/buyer."
+        }
+      ],
+      "instagram": "https://www.instagram.com/4850nl",
+      "facebook": "https://www.facebook.com/4850nl",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Coffee-and-wine bar turning restaurant in the evening (Amsterdam Oost, Camperstraat). Co-founder Daniel Schein runs and buys the wine list and is repeatedly described as the sommelier (previously poured at BAK and In de Wulf); co-founded with Swedish chef Rikard Andersson. Wine list (~700 refs) mixes natural/low-intervention with classic producers; venue is widely listed in Amsterdam natural-wine guides. Corroborated by European Coffee Trip, The Morning Claret and Star Wine List.",
+      "sources": [
+        "https://www.4850.nl/",
+        "https://europeancoffeetrip.com/4850-in-amsterdam-combining-the-love-of-coffee-food-and-natural-wine/",
+        "https://themorningclaret.com/p/amsterdam-natural-wine-scene",
+        "https://starwinelist.com/wine-place/4850"
+      ]
+    },
+    {
+      "name": "Alba",
+      "sommeliers": [
+        {
+          "name": "Steven Macleod",
+          "role": "Owner / wine-responsible (curates the natural-wine list)",
+          "verified": true,
+          "verifyNote": "Confirmed as current owner of Alba Restaurant & Wijnbar (Wibautstraat 105HS, Amsterdam-Oost); the natural-wine-focused concept is his (opened 2020, Bib Gourmand 2024) and he is the venue's face in recent press (debuik.nl). Caveat: the natural-wine list/pairings are curated by consultant sommelier Mohamed Aous (ex-Geranium, Sat Bains), so if 'wine lead' means the hands-on list curator, that is Aous rather than Macleod, who is owner/overall wine-responsible."
+        }
+      ],
+      "instagram": "https://www.instagram.com/alba.ams/",
+      "facebook": "https://www.facebook.com/Restaurant-Alba-103217414528097/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant + wijnbar on Wibautstraat, opened 2020. Site states wines are made naturally with minimal additives/intervention. Owner Steven Macleod (with partner Eva Kolstee) drives the natural-wine focus and curates the list; he is not formally titled 'sommelier' but is the wine-responsible person. No separate house sommelier is publicly named for Alba itself (a separate venue Macleod co-opened in 2024 involves sommelier Mohamed Aous, but that is not Alba).",
+      "sources": [
+        "https://alba-amsterdam.nl/",
+        "https://www.entreemagazine.nl/culinair-chefs/george-kataras-vanderveen-nu-executive-chef-van-alba-in-amsterdam",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "BAK Restaurant",
+      "sommeliers": [
+        {
+          "name": "Alessandro da Fies",
+          "role": "co-owner / restaurant manager / sommelier",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/bakrestaurant/",
+      "facebook": "https://www.facebook.com/BAKRESTAURANT",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "40+ natural bottles; da Fies named on venue IG + Star Wine List.",
+      "sources": []
+    },
+    {
+      "name": "Balthazar's Keuken",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/balthazarskeuken/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Small family restaurant on Elandsgracht, Amsterdam (since 1995), now run by son Beau with his wife Zwaan and chef Wanne. No one is publicly named as sommelier or wine director. The wine list is not marketed as natural, but it does carry natural-winemaker Radikon (older vintages), so a natural-wine leaning is possible but not explicitly stated; marked unknown.",
+      "sources": [
+        "https://balthazarskeuken.nl/site/en/overons/",
+        "https://balthazarskeuken.nl/site/en/wijnkaart/",
+        "https://www.instagram.com/balthazarskeuken/"
+      ]
+    },
+    {
+      "name": "Bar Berta",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/barbertarotterdam/",
+      "facebook": "https://www.facebook.com/barbertarotterdam/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Spanish-oriented tapas bar (tapas, vermut, vinos, cavas) in Rotterdam's Scheepvaartkwartier, Calandstraat 6B. Owner is Magdalena; no sommelier is publicly named. The bar's own wine focus is vermouth and Spanish wines; its sister venue Bistro Eddie (same owners) is the one that explicitly advertises natural wines, so Bar Berta's own natural-wine status is unclear. Listed on Raisin and rated by Gault&Millau.",
+      "sources": [
+        "https://barberta.nl/",
+        "https://barberta.nl/bistro-eddie/",
+        "https://www.instagram.com/barbertarotterdam/",
+        "https://www.facebook.com/barbertarotterdam/",
+        "https://www.gault-millau.nl/en/restaurants/bar-berta-rotterdam",
+        "https://culinaireambiance.com/nl/articles/bar-berta-rotterdam"
+      ]
+    },
+    {
+      "name": "Bar Bocht",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/bar_bocht/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Specialty coffee, lunch and natuurwijnbar on Goudsesingel, Rotterdam. Opened by the Restaurant Rotonde team (Birk Heijkants, Jord Coree, Roy Lammers); explicitly a natural-wine bar (only wines without additives). No individual sommelier/wine director is publicly named, so left empty. No Facebook page found.",
+      "sources": [
+        "https://barbocht.nl/",
+        "https://www.instagram.com/bar_bocht/",
+        "https://www.entreemagazine.nl/openingen-design/bar-bocht-in-rotterdam-geopend-door-eigenaren-restaurant-rotonde"
+      ]
+    },
+    {
+      "name": "Bar Laak",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/laak.bar/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Restaurant/bar in Den Haag (Laak district), listed on Raisin as a natural-wine venue but no explicit natural-wine statement found in press. Venue Instagram is @laak.bar ('Restaurant Bar Laak'). No sommelier or wine director is publicly named anywhere I could find, so left empty rather than guess. Raisin listed no website; a possible site laak.club could not be confirmed as the same venue.",
+      "sources": [
+        "https://www.instagram.com/laak.bar/",
+        "https://www.het-menu.nl/den-haag/restaurant/bar_laak",
+        "https://www.raisin.digital/en/explore/netherlands/south-holland/the-hague/"
+      ]
+    },
+    {
+      "name": "Basaal",
+      "sommeliers": [
+        {
+          "name": "Edmée van Zwieten de Blom",
+          "role": "Hostess / sommelier (co-owner)",
+          "verified": true,
+          "verifyNote": "Confirmed current: Basaal (Dunne Bierkade, Den Haag) has been run since 2021 by chef Daan van Munster and gastvrouw/sommelier Edmée van Zwieten de Blom (co-owners). Lekker.nl still lists her as hostess/sommelier, and a 2026 review describes her in the same role, so the info is current, not stale."
+        }
+      ],
+      "instagram": "https://www.instagram.com/restaurant_basaal/",
+      "facebook": "https://www.facebook.com/restaurantbasaal/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "The Hague (Dunne Bierkade), Michelin Bib Gourmand. Run since 1 Jan 2021 by patron-cuisinier Daan van Munster (chef) and hostess/sommelier Edmée van Zwieten de Blom, who previously handled wine at Bedales on Borough Market, London. Wine list is all-European and bio-dynamic. Sommelier role corroborated by Gault&Millau/denhaag.com, Misset Horeca and ChefsFriends. Open Wed-Sun.",
+      "sources": [
+        "https://www.restaurantbasaal.nl/",
+        "https://www.gault-millau.nl/en/restaurants/basaal-den-haag",
+        "https://www.missethoreca.nl/352909/bib-gourmand-restaurant-basaal-den-haag-overgenomen",
+        "https://chefsfriends.nl/haags-bib-gourmand-restaurant-basaal-in-andere-handen/"
+      ]
+    },
+    {
+      "name": "Bennies",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/benniesamsterdam/",
+      "facebook": "https://www.facebook.com/people/Bennies-Amsterdam/61560855583063/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Modern casual eatery in the Schinkel District, Amsterdam (Helicopterstraat 28). Opened by chef Rick Swinkels with partner Isidoor van Esch; press describes modern dishes with fine natural wines and an extensive wine list. No individual is publicly named as sommelier/wine director, so the list is empty. Rick Swinkels and Isidoor van Esch are owners/chef, not titled wine roles.",
+      "sources": [
+        "https://www.benniesrestaurant.nl/",
+        "https://schinkeldistrict.com/press/bennies-amsterdam-trendy-restaurant-in-the-schinkel-district/",
+        "https://www.residence.nl/Bennies",
+        "https://www.instagram.com/benniesamsterdam/",
+        "https://www.facebook.com/people/Bennies-Amsterdam/61560855583063/"
+      ]
+    },
+    {
+      "name": "Bistro Flores",
+      "sommeliers": [
+        {
+          "name": "Elroy Slijkhuis",
+          "role": "owner and sommelier",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/flores_nijmegen/",
+      "facebook": "https://www.facebook.com/floresnijmegen/",
+      "naturalWine": "yes",
+      "status": "rebranded",
+      "notes": "REBRANDED to 'Flores'; bistroflores.nl 301-redirects to flores.nl. Michelin Green Star 2025.",
+      "sources": []
+    },
+    {
+      "name": "Bistro Goeswijn",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/goeswijn/",
+      "facebook": "https://www.facebook.com/p/Bistro-Goeswijn-100090259785438/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Natural-wine bistro on Choorlammersteeg, Leiden; site explicitly promotes 'natuurwijn'. Founded by Justus Hoogenboom (chef) and Lou Eisenberger (host). No sommelier is publicly named for Goeswijn. Caution: an early search result attributed sommelier 'Maike Zitman-Heezen' to Goeswijn, but verification showed she is the sommelier at a different Leiden venue (Bistro Bord'o), not Goeswijn, so no sommelier is reported here.",
+      "sources": [
+        "https://www.goeswijn.nl/",
+        "https://lieverinleiden.nl/ondernemers/wijnbar-burgemeester-goeswijn/",
+        "https://www.raisin.digital/en/explore/netherlands/south-holland/venues/bistro-goeswijn-20528/"
+      ]
+    },
+    {
+      "name": "Bistro Numero Zero",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/numero_zero_amst/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Unconventional Italian bistro in Amsterdam specialising in natural wines; described as the 'older brother' of @ecco_sandwich.lab and appears on curated Amsterdam natural-wine lists. No individual sommelier/wine director is publicly named, so the array is left empty. No venue website in the source data (Raisin/Instagram only); no Facebook page found.",
+      "sources": [
+        "https://www.instagram.com/numero_zero_amst/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/bistro-numero-zero-30895/"
+      ]
+    },
+    {
+      "name": "Bistrot Regent",
+      "sommeliers": [
+        {
+          "name": "Heleen",
+          "role": "Sommelier / wine selector (full surname not published)",
+          "verified": false,
+          "verifyNote": "Venue CLOSED. Bistrot Regent (Nijmegen) served its final menu on 28 June 2026 and shut permanently after nine years; owners Heleen Bron (sommelier/wine selector) and chef Robbert van Sonsbeek announced closure in May 2026. Heleen's full surname is Bron. She is no longer sommelier there because the restaurant no longer operates. (regent-nijmegen.nl, drimble.nl)"
+        }
+      ],
+      "instagram": "https://www.instagram.com/bistrotregent.nijmegen/",
+      "facebook": "https://www.facebook.com/bistrotregent.nijmegen/",
+      "naturalWine": "yes",
+      "status": "closed",
+      "notes": "Nijmegen. PERMANENTLY CLOSED as of 28 June 2024 (nine-year run). While open, Heleen selected French wines from artisanal, organic/biodynamic domains; chefs/co-owners Robbert and Huib. Only first names published.",
+      "sources": [
+        "https://www.regent-nijmegen.nl"
+      ]
+    },
+    {
+      "name": "Blije Wijnen",
+      "sommeliers": [
+        {
+          "name": "Maud van Berlo",
+          "role": "owner / founder & natural-wine buyer-importer",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/blijewijnen/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Importer + shop + bar (Fenix Food Factory); no own FB page found.",
+      "sources": []
+    },
+    {
+      "name": "BOTTLESHOP",
+      "sommeliers": [
+        {
+          "name": "Freek Kattenberg",
+          "role": "Founder / wine buyer (also owner of importer Libre Wines / Sec Wines)",
+          "verified": true,
+          "verifyNote": "Confirmed. Freek Kattenberg is founder/wine buyer of The Bottleshop (Wibautstraat 130, Amsterdam-Oost; bottleshopams.nl) and owner of natural-wine importer Libre Wines / Sec Wines. He opened the bar with Niels Vermeer and chef Janneau Torres Peralta. Matches the stated role. Sources: unbottledguide.nl, natuurwijnen.nl (Sec), starwinelist.com."
+        }
+      ],
+      "instagram": "https://www.instagram.com/bottleshop.ams/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Natural-wine bar/shop and restaurant on Wibautstraat 130, Amsterdam Oost; 350+ natural wines, list tagged 'conventionally incorrect'. Founded by Freek Kattenberg (also owner of wine importer Libre Wines / Sec Wines), who curates the wine, together with Niels Vermeer and chef Janneau Torres Peralta. Freek is the de-facto wine director rather than a titled 'sommelier'. No own Facebook page found.",
+      "sources": [
+        "https://www.bottleshopams.nl",
+        "https://unbottledguide.nl/amsterdam-oost/the-bottleshop-amsterdam-oost/",
+        "https://www.archyde.com/taste-one-of-the-350-different-natural-wines-at-the-bottleshop-in-the-wibautstraat/",
+        "https://starwinelist.com/wine-place/bottleshop-amsterdam",
+        "https://www.instagram.com/bottleshop.ams/"
+      ]
+    },
+    {
+      "name": "Bouzy",
+      "sommeliers": [
+        {
+          "name": "Martijn Verbruggen",
+          "role": "Sommelier & co-owner (Bouzy group)",
+          "verified": true,
+          "verifyNote": "Confirmed: Martijn Verbruggen co-founded Bouzy (wine & food, The Hague) with Stefan Verleer and works as sommelier/co-owner. Ex maitre-sommelier at Savelberg, Seinpost, Catch by Simonis. Note the group is The Hague-based, not Rotterdam. (Misset Horeca, LinkedIn, Star Wine List)"
+        },
+        {
+          "name": "Stefan Verleer",
+          "role": "Sommelier & co-owner (Bouzy group)",
+          "verified": true,
+          "verifyNote": "Confirmed: Stefan Verleer co-founded Bouzy with Verbruggen; sommelier/co-owner and ondernemer/eigenaar of the Bouzy wine bar/restaurant group (The Hague). Ex maitre-sommelier at De Zoute Zoen and South of Houston. (Misset Horeca, LinkedIn)"
+        },
+        {
+          "name": "Bas Oonk",
+          "role": "Chef & co-owner",
+          "verified": true,
+          "verifyNote": "Confirmed: Bas Oonk, former chef/owner of Basaal (Den Haag), joined Bouzy as chef/co-owner responsible for the modern Dutch bistro kitchen after Verleer and Verbruggen sought a chef for the Bouzy restaurant on the Mauritskade. (denhaagcentraal.net, wijnspijs.nl)"
+        }
+      ],
+      "instagram": "https://www.instagram.com/bouzy_denhaag/",
+      "facebook": "https://www.facebook.com/Bouzyprinsestraat",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Bouzy Prinsestraat, Den Haag — part of the same company as Bouzy Denneweg and Bouzy Wineshop (shared wine assortment). Sommeliers Martijn Verbruggen and Stefan Verleer are co-owners/founders of the Bouzy group; Bas Oonk is chef/co-owner. Focus is small terroir-driven producers and champagne; no explicit natural-wine positioning found, so marked unknown.",
+      "sources": [
+        "https://www.bouzy.nl/over-bouzy-prinsestraat",
+        "https://www.heerlijk.nl/nieuws/bouzy-wine-en-food-heeft-haar-deuren-geopend/2371",
+        "https://wijntjesmetesther.nl/wijnbar-bouzy/"
+      ]
+    },
+    {
+      "name": "Box Sociaal",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/boxsociaal",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Neighbourhood brunch/dinner cafe (Plantage + Jordaan, Amsterdam) with a small rotating hand-picked natural-wine list including orange wine; listed on iamsterdam and Raisin natural-wine guides. No sommelier or wine director is publicly named on the site or in press, so the array is empty. Instagram @boxsociaal confirmed on the site; a Facebook page is referenced but no verified URL was found.",
+      "sources": [
+        "http://www.boxsociaal.com/",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/box-sociaal-5474/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "Brasserie Nieuwe Meer",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/brasserienieuwemeer",
+      "facebook": "https://www.facebook.com/brasserienieuwemeer/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Chef-owner Albert Pielanen, gastvrouw Inge van Broekhoven; no sommelier titled.",
+      "sources": []
+    },
+    {
+      "name": "BROEI",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/broei.utrecht/",
+      "facebook": "https://www.facebook.com/broei.utrecht/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "100% plant-based restaurant on the Oosterkade in Utrecht, founded by Stijn Knaapen and Danny Simon (owners/chefs, not described as sommeliers). Listed among Utrecht natural-wine venues (Raisin) and works with small-scale local growers. No sommelier or wine director is publicly named, so sommeliers left empty. Official site is restaurant-broei.com; the .com in the source data (broei-utrecht.com) had a TLS certificate error.",
+      "sources": [
+        "https://www.restaurant-broei.com/utrecht",
+        "https://www.instagram.com/broei.utrecht/",
+        "https://www.facebook.com/broei.utrecht/",
+        "https://www.raisin.digital/en/explore/netherlands/utrecht/utrecht/",
+        "https://www.duic.nl/horeca/op-bezoek-bij-broei-op-de-oosterkade-we-koken-vanuit-de-kracht-van-groente/"
+      ]
+    },
+    {
+      "name": "Buffet van Odette",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/buffetvanodette/",
+      "facebook": "https://www.facebook.com/Buffet-van-Odette-170719466280876/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant founded 1994 by Odette Rigterink. Site (which redirects buffetvanodette.nl -> buffet-amsterdam.nl) confirms a natural-wine focus, e.g. it recruits bar staff 'met interesse in natuurlijke wijnen.' No sommelier or wine director is publicly named, so sommeliers left empty.",
+      "sources": [
+        "https://buffet-amsterdam.nl/",
+        "https://www.instagram.com/buffetvanodette/",
+        "https://www.facebook.com/Buffet-van-Odette-170719466280876/"
+      ]
+    },
+    {
+      "name": "Bureau",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/barbistrobureau/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "closed",
+      "notes": "CLOSED as restaurant 2026-01-31; site atthebureau.amsterdam dead. Consider removing from map.",
+      "sources": []
+    },
+    {
+      "name": "Buurtcafé De Tros",
+      "sommeliers": [
+        {
+          "name": "Thiago De Sena",
+          "role": "Sommelier and co-owner (wine list; also runs adjoining natural-wine shop De Kaaf)",
+          "verified": true,
+          "verifyNote": "Confirmed current as of a Jan 30, 2026 oost-online.nl article: Thiago is co-owner and wine lead of De Tros (works the floor 3-4 days/week alongside co-owners Bart and Floris) and co-founded the adjoining natural-wine shop De Kaaf, opened Dec 2025 and stocked from the café's wine list. Note: the article describes him as co-owner/wine-driven and says the café has 'two sommeliers in house' but does not explicitly title Thiago himself 'sommelier'; the role and wine-lead/De Kaaf details otherwise match."
+        }
+      ],
+      "instagram": "https://instagram.com/buurtcafe.detros",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Modern neighbourhood cafe in Amsterdam-Oost, co-owners Floris Baltus, Bart Hendriks and Thiago De Sena (also of Bar Turbo). The wine list is curated by co-owner/sommelier Thiago De Sena; in Dec they opened adjoining wine shop De Kaaf stocking natural wines (pet nat to champagne, orange/red/white). De Kaaf has its own Instagram @wijnwinkel.dekaaf.",
+      "sources": [
+        "https://oosterpark.nl/en/buurtcafedetros_barturbo/",
+        "https://oost-online.nl/buurtcafe-de-tros-viert-drie-jaar-en-breidt-uit-met-wijnwinkel-de-kaaf/",
+        "https://www.entreemagazine.nl/openingen-design/modern-culinair-buurtcafe-de-tros-geopend-amsterdam-oost"
+      ]
+    },
+    {
+      "name": "Café Cooth",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafe.cooth/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restobar on Van Coothplein, Breda, opened early May by Gijs Stokvis (chef-kok) and Pepijn Cockx (front-of-house, drives the wine programme). Wine list features many organic and natural wines ('veel biologische en natuurwijnen'), pragmatic rather than dogmatic. Neither owner is explicitly titled sommelier/wijnverantwoordelijke, so the array is left empty; Pepijn Cockx is the front-of-house/wine-facing partner. No Facebook page found.",
+      "sources": [
+        "https://www.cafe-cooth.nl/",
+        "https://www.entreemagazine.nl/openingen-design/restobar-cafe-cooth-opent-in-breda-goed-eten-goede-wijn-maar-niet-stijf",
+        "https://www.raisin.digital/en/explore/netherlands/north-brabant/venues/cafe-cooth-31693/",
+        "https://www.instagram.com/cafe.cooth/"
+      ]
+    },
+    {
+      "name": "Café de Klepel",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafe_deklepel",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Amsterdam (Prinsenstraat, Jordaan). Wijncafé met uitsluitend Franse wijnen (300+ flessen, ~25 per glas), Goud Beste Korte Wijnkaart 2021. Geen individuele sommelier bij naam genoemd; bronnen zeggen 'iedereen die er werkt is sommelier'. Natuurwijn niet expliciet vermeld, daarom unknown. Sommeliers-array leeg gehouden (geen naam geverifieerd).",
+      "sources": [
+        "https://cafedeklepel.nl/",
+        "https://starwinelist.com/wine-place/cafe-de-klepel",
+        "https://www.spottedbylocals.com/amsterdam/cafe-de-klepel/"
+      ]
+    },
+    {
+      "name": "Café Kiem",
+      "sommeliers": [
+        {
+          "name": "Kamiel",
+          "role": "Sommelier (only first name publicly given)",
+          "verified": true,
+          "verifyNote": "Confirmed current: Star Wine List's Café Kiem profile names Kamiel as the sommelier (natural-wine specialist, prior experience at Restaurant Lux and Bar Cult; fan of Champagne, Loire, French Alps). Venue is open and active (listed on Gault&Millau NL; recent 'great wine bars in Rotterdam 2026' guide). Only his first name is publicly given. Café Kiem's own site (cafekiem.nl/wines) confirms an in-house sommelier but does not name them. Note: the venue is in Rotterdam, not Amsterdam. Primary confirming source is Star Wine List (single named source), but it is credible and current-looking."
+        }
+      ],
+      "instagram": "https://www.instagram.com/cafekiem/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Table d'hote restaurant in Rotterdam (Proveniersstraat 29a) started by two wine-loving chefs (ex Très, Renilde, Heroine, de Matroos en het Meisje). Natural wine is the core concept, list mainly from France with low/no added sulphur. Sommelier is Kamiel, described as a natural-wine specialist with experience at Restaurant Lux and Bar Cult - only his first name appears in public sources (Star Wine List / De Buik). No Facebook page found.",
+      "sources": [
+        "https://www.cafekiem.nl/wines",
+        "https://starwinelist.com/wine-place/cafe-kiem",
+        "https://www.debuik.nl/rotterdam/restaurant/cafe-kiem",
+        "https://www.gault-millau.nl/en/restaurants/cafe-kiem-rotterdam"
+      ]
+    },
+    {
+      "name": "Cafe Klein",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafeklein.nijmegen/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "French bistro in Nijmegen (Van Welderenstraat 56/58) with a strong natural-wine focus (orange wines, Jura, European natural producers). The wine list is described as curated by 'our sommelier' but no individual is named on the site or in press, so sommelier left empty. IG @cafeklein.nijmegen (~6k followers). No Facebook page found.",
+      "sources": [
+        "https://www.cafe-klein.nl/",
+        "https://www.instagram.com/cafeklein.nijmegen/",
+        "https://www.raisin.digital/en/explore/netherlands/gelderland/venues/cafe-klein-22345/",
+        "https://dewijchengids.nl/cafe-klein-opent-bijna-in-nijmegen-een-huiselijk-cafe-met-een-moderne-saus-vol-natuurwijn-en-lekkere-happen-/"
+      ]
+    },
+    {
+      "name": "Café Marktzicht",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/marktzicht_amersfoort/",
+      "facebook": "https://www.facebook.com/marktzichtamersfoort/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Café at Lieve Vrouwekerkhof 2, Amersfoort (operated under Zwaco). Site explicitly promotes a selection of biodynamic and natural wines ('biodynamische en natuurlijke wijnen'). No sommelier or wine-responsible person is publicly named, so sommeliers left empty.",
+      "sources": [
+        "https://www.marktzichtamersfoort.nl/",
+        "https://www.instagram.com/marktzicht_amersfoort/",
+        "https://www.facebook.com/marktzichtamersfoort/"
+      ]
+    },
+    {
+      "name": "Cafe Marseille",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/marseille_rotterdam/",
+      "facebook": "https://www.facebook.com/MarseilleRotterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "South-French bistro in Rotterdam by chef/co-owner Derk Jan Wooldrik and co-owner Kristian de Leeuw (Double Trouble Hospitality). Serves natuurwijn with wine-food pairings; press notes 'the sommelier can explain pairings' but no individual sommelier is named, so sommeliers left empty. NOTE: the website field in the source data (tandoor16.com) is stale and now redirects to an unrelated site; the real site is cafemarseille.nl.",
+      "sources": [
+        "https://cafemarseille.nl/",
+        "https://www.instagram.com/marseille_rotterdam/",
+        "https://www.facebook.com/MarseilleRotterdam/",
+        "https://www.debuik.nl/rotterdam/restaurant/marseille",
+        "https://weekendsinrotterdam.com/natural-wines-rotterdam/"
+      ]
+    },
+    {
+      "name": "Cafe Maurits",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafemaurits/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant at Hoofddorpplein 1, Amsterdam, with a curated natural-wine list (listed on Star Wine List with a White Star since Jul 2025, and on iamsterdam's natural-wine guide; Gault&Millau listed). Local/seasonal/organic food. No sommelier or wine director publicly named, so sommeliers left empty.",
+      "sources": [
+        "https://cafemaurits.nl",
+        "https://starwinelist.com/wine-place/cafe-maurits",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/cafe-maurits-20915/",
+        "https://www.gault-millau.nl/en/restaurants/cafe-maurits-amsterdam"
+      ]
+    },
+    {
+      "name": "Café Modern",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafemodernamsterdam/",
+      "facebook": "https://www.facebook.com/modernamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Team wine service; chef/co-owner Sander van Melick.",
+      "sources": []
+    },
+    {
+      "name": "Cafe Remouillage",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafe_remouillage/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam restaurant/bar with organic, biodynamic and naturally vinified wines; awarded Gold Star for Best Austrian Wine List at Star Wine List of the Year Belgium & Netherlands 2025. Chef named as Jonathan Sparber; no sommelier / wine director is publicly named (Star Wine List page returned 403, deBuik article not retrievable), so sommeliers left empty rather than guessed. No own Facebook page found.",
+      "sources": [
+        "https://cafe.remouillage.com/",
+        "https://www.instagram.com/cafe_remouillage/",
+        "https://starwinelist.com/wine-place/remouillage",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/cafe-remouillage-8880/"
+      ]
+    },
+    {
+      "name": "Cafe Restaurant Flora",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/caferestaurant.flora/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "On the top floor of a former KPN telephone exchange, De Constant Rebecquestraat, Den Haag. Extensive wine list heavy on major natural-wine producers (Gault&Millau); kitchen led by chef Sijbren Bartlema (ex-BAK Amsterdam). Press notes a wine-fanatic owner who previously worked at Amsterdam's Parlotte, but no name is published, so sommeliers left empty. Working website is caferestaurantflora.nl (Raisin's caferestaurant.flora link is broken). No Facebook page found.",
+      "sources": [
+        "https://caferestaurantflora.nl/",
+        "https://www.gault-millau.nl/en/restaurants/flora-den-haag",
+        "https://www.instagram.com/caferestaurant.flora/",
+        "https://starwinelist.com/wine-place/cafe-restaurant-flora"
+      ]
+    },
+    {
+      "name": "Cafe Restaurant Metro",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/caferestaurantmetro/",
+      "facebook": "https://www.facebook.com/people/Cafe-Restaurant-Metro/61565984464031/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "All-day cafe/restaurant at Asterweg 22, Amsterdam Noord, by Xander Waller (also behind Restaurant Entrepot); natural wine plays a large role ('much - but not all - wines are naturally made and available by the glass'). No named sommelier/wine director is published, so sommeliers left empty (not invented); Xander Waller is the owner.",
+      "sources": [
+        "https://caferestaurantmetro.nl",
+        "https://www.raisin.digital/en/cafe-restaurant-metro-21665/",
+        "https://www.debuik.nl/amsterdam/top-10/18x-restaurants-met-geweldige-natuurwijn-bij-je-gerecht",
+        "https://www.instagram.com/caferestaurantmetro/",
+        "https://www.facebook.com/people/Cafe-Restaurant-Metro/61565984464031/"
+      ]
+    },
+    {
+      "name": "Cafe soleil",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/cafesoleilamsterdam/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Mediterranean cafe-restaurant in Amsterdam-Noord (Sunday jazz, terrace). No sommelier, wine director or wijnverantwoordelijke is publicly named on the site or in press. No explicit mention of natural wine found.",
+      "sources": [
+        "https://www.cafesoleilamsterdam.nl/",
+        "https://www.instagram.com/cafesoleilamsterdam/",
+        "https://www.yourlittleblackbook.me/en/cafe-soleil-amsterdam/"
+      ]
+    },
+    {
+      "name": "Café Verward",
+      "sommeliers": [
+        {
+          "name": "Ward de Zeeuw",
+          "role": "Eigenaar / sommelier (verantwoordelijk voor de dranken)",
+          "verified": true,
+          "verifyNote": "Confirmed current owner/sommelier of wijnbar Verward (Hoogstraat, Rotterdam), which he opened in 2016 with partner Bas Fraterman. Venue is still open (verward.nl active, 2025 hours listed) and multiple sources (De Buik, Okhuysen) describe him as eigenaar/sommelier."
+        }
+      ],
+      "instagram": "https://www.instagram.com/cafeverward",
+      "facebook": "https://www.facebook.com/cafeverward",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Rotterdam wijnbar/café op de Hoogstraat. Ward de Zeeuw (opgeleid en gewerkt als sommelier) doet de dranken, co-eigenaar Bas Fraterman doet het eten. Kaart met vin nature, biologische en natuurlijk vergiste wijnen, ~50 wijnen. Sommelier bevestigd via twee bronnen (anne-wies.nl en hoogkwartier.nl).",
+      "sources": [
+        "https://verward.nl/",
+        "https://www.anne-wies.nl/verward-nieuwe-wijnbar-rotterdam/",
+        "https://hoogkwartier.nl/verhalen/ward-en-bas-verward/",
+        "https://www.instagram.com/cafeverward/"
+      ]
+    },
+    {
+      "name": "Café-Brasserie 'Nationaal'",
+      "sommeliers": [
+        {
+          "name": "Paul Fonderie",
+          "role": "Sommelier (wine selection)",
+          "verified": true,
+          "verifyNote": "Confirmed on the venue's own About page (cafebrasserienationaal.nl/en/over-nationaal/): 'Our wines are selected by sommelier Paul Fonderie.' Named alongside chef Jermain Huisman, bartender Carl Tjong-a-Tjoe, and maître Lucas Winckers. This is the Café-Brasserie Nationaal in The Hague (Den Haag). Current as of the live venue site."
+        }
+      ],
+      "instagram": "https://www.instagram.com/cafebrasserienationaal/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "French/Brussels-style brasserie at Prinsegracht 2, Den Haag. Own 'over Nationaal' page names sommelier Paul Fonderie (wines), maître Lucas Winckers, chef Jermain Huisman (ex-Capriole), bartender Carl Tjong-a-Tjoe. No explicit natural-wine claim found. No Facebook page located.",
+      "sources": [
+        "https://cafebrasserienationaal.nl/en/over-nationaal/",
+        "https://cafebrasserienationaal.nl/",
+        "https://www.instagram.com/cafebrasserienationaal/"
+      ]
+    },
+    {
+      "name": "Café-Restaurant Terroir",
+      "sommeliers": [
+        {
+          "name": "Janneke van der Kuip",
+          "role": "Sommelier",
+          "verified": true,
+          "verifyNote": "Confirmed as sommelier at Café-Restaurant Terroir, Utrecht by Gault&Millau (current listing names her as sommelier) and her LinkedIn. Note: a 2023 Instagram post 'Terroir zoekt sommelier' exists but appears to be an additional hire; current sources still name Janneke as the sommelier."
+        }
+      ],
+      "instagram": "@caferestaurantterroir",
+      "facebook": "https://www.facebook.com/caferestaurantterroir/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Utrecht restaurant with ~500-wine list at fixed markups. Gault&Millau credits sommelier Janneke van der Kuip guiding the wine selection. Wine list is described as classic/broad, not specifically natural wine, so naturalWine left unknown.",
+      "sources": [
+        "https://www.gault-millau.nl/en/restaurants/terroir-utrecht",
+        "https://www.caferestaurantterroir.nl/",
+        "https://starwinelist.com/wine-place/cafe-restaurant-terroir"
+      ]
+    },
+    {
+      "name": "CatuaBar",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/catuabaramsterdam/",
+      "facebook": "https://www.facebook.com/people/CatuaBar/61554560843058/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Brazilian/South African cocktail bar-restaurant in Amsterdam. Small wine list that includes a few natural wines; listed among Amsterdam natural-wine spots by I amsterdam. Named team is Chef Gui (kitchen), Alex (cocktails), Saskia (front of house) - no dedicated sommelier is publicly named, so sommelier left empty.",
+      "sources": [
+        "https://www.catuabar.nl/about-us",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine",
+        "https://www.facebook.com/people/CatuaBar/61554560843058/"
+      ]
+    },
+    {
+      "name": "Choux",
+      "sommeliers": [
+        {
+          "name": "Figo van Onna",
+          "role": "co-owner / sommelier",
+          "verified": true
+        },
+        {
+          "name": "Olivier van Brackel",
+          "role": "sommelier",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/chouxrestaurant",
+      "facebook": "https://www.facebook.com/chouxamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Van Onna founded importer Zuiver Wijnen; 100% natural.",
+      "sources": []
+    },
+    {
+      "name": "Christiaan Smit",
+      "sommeliers": [
+        {
+          "name": "Abel van Schoonhoven",
+          "role": "Sommelier (verantwoordelijk voor de wijnkaart)",
+          "verified": true,
+          "verifyNote": "Confirmed as Sommelier at Restaurant Christiaan Smit (Amsterdam, Jordaan/Prinsenstraat 20). Gault&Millau NL's 2026 restaurant page lists him under Team as 'Abel van Schoonhoven — Sommelier', and multiple recent press/listing sources describe him as the restaurant's sommelier providing the accompanying wines. Source credible and current as of 2026."
+        }
+      ],
+      "instagram": "https://www.instagram.com/christiaansmit.amsterdam/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Intimate restaurant in the Jordaan (Prinsenstraat), opened by the team behind Kikkie van de Prinsensluis. Chef Simon van Lith; sommelier Abel van Schoonhoven is named as responsible for the wine list (corroborated by two sources: Broersma The Edit and Your Little Black Book). No explicit natural-wine statement found. Listed in Gault&Millau NL.",
+      "sources": [
+        "https://www.christiaansmit.amsterdam/",
+        "https://www.instagram.com/christiaansmit.amsterdam/",
+        "https://www.broersma.nl/theedit/hollandse-pracht-aan-de-keizergracht/",
+        "https://www.yourlittleblackbook.me/en/christiaan-smit-amsterdam/",
+        "https://www.gault-millau.nl/en/restaurants/christiaan-smit-amsterdam"
+      ]
+    },
+    {
+      "name": "Cornerstore Amsterdam",
+      "sommeliers": [],
+      "instagram": "@cornerstore.ams",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Asian-inspired restaurant in Amsterdam-Noord (Papaverweg 11) with a mostly natural-wine list (producers like Dufour, Feneuil, Lassaigne, Selosse). Owners: Bob Nagel, Maarten Bloem, Guus Lourijsen, Michaël Coehorst. No individual publicly named as sommelier. Facebook page not found.",
+      "sources": [
+        "https://csnoord.com/",
+        "https://www.bartsboekje.com/en/cornerstore-amsterdam-noord/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "Cul Sec",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/culsec.resto/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Cul Sec Resto.Bar.Wijntuin in Culemborg (Parallelweg West 18), the tasting room of De Fruitslagers; hyper-local kitchen with natural wines and their own non-alcoholic pairings. Reopened Easter weekend, open Fri-Sun. No sommelier publicly named (Emile Corré is a Fruitslagers founder but not identified as the venue's sommelier). No dedicated Facebook page found (posts via Fruitslagers). JSON website points to fruitslagers.nl listing.",
+      "sources": [
+        "https://en.fruitslagers.nl/bedrijven/cul-sec-resto",
+        "https://www.instagram.com/culsec.resto/",
+        "https://www.culemborgsecourant.nl/nieuws/nieuws/458311/heropening-cul-sec-resto-bar-wijntuin-in-paasweekend",
+        "https://nl.restaurantguru.com/amp/Cul-Sec-Culemborg"
+      ]
+    },
+    {
+      "name": "Dapper Cafe",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/dapper.cafe/",
+      "facebook": "https://www.facebook.com/dapperamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam Oud-West bar/restaurant (borrel, diner, lunch) in the Dapper neighbourhood; Raisin lists it as serving natural wines. No sommelier or wine director is publicly named on Instagram or in press, so left empty. JSON had website:null; main presence is Instagram @dapper.cafe.",
+      "sources": [
+        "https://www.instagram.com/dapper.cafe/",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/dapper-cafe-27729/",
+        "https://www.amsterdamnow.com/en/restaurants/discover-the-dapper-cafe-the-heartbeat-of-the-dapper-neighborhood/"
+      ]
+    },
+    {
+      "name": "De Graanhandel",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/degraanhandel/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Informal restaurant/bar at Tilburg's Piushaven serving (natural) wines, special beers and seasonal dishes. Run by three owners: Dries Michels (Friandries), Sander Overweg (De Houtloods/De Wagon) and Lotte Kerkhof. Natural wine is mentioned but no one is publicly titled sommelier/wine director, so the list is empty.",
+      "sources": [
+        "https://degraanhandel.nl/",
+        "https://www.piushaven.nl/aan-het-woord/ontmoet-graanhandel-de-nieuwe-hotspot-van-de-piushaven",
+        "https://www.bartsboekje.com/de-graanhandel-tilburg/",
+        "https://www.instagram.com/degraanhandel/"
+      ]
+    },
+    {
+      "name": "De Matroos en het Meisje",
+      "sommeliers": [
+        {
+          "name": "Taco de Vos",
+          "role": "Sommelier & co-owner (maître)",
+          "verified": true,
+          "verifyNote": "Confirmed current. His LinkedIn lists him as 'Mede-eigenaar' (co-owner) at De Matroos en het Meisje (Katendrecht, Rotterdam), and Star Wine List coverage from the 2026 Star Wine List of the Year competition (held in Rotterdam) describes him as sommelier and co-owner who looks after the wine; he won Gold Star for Best Short List NL and became Rotterdam ambassador in 2026. Strong, very recent sourcing. Venue is owned/founded by Eva Eekman; De Vos joined to run the wine and is now co-owner. Sources: starwinelist.com/wine-place/de-matroos-en-het-meisje, LinkedIn taco-de-vos-4a8100109."
+        }
+      ],
+      "instagram": "https://www.instagram.com/dematroosenhetmeisje/",
+      "facebook": "https://www.facebook.com/dematroosenhetmeisje/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Neighbourhood gastrobistro in Katendrecht, Rotterdam. Taco de Vos (sommelier & co-owner) runs the wine program; corroborated by Star Wine List and De Buik van Rotterdam. Wine list is mostly small artisanal/organic producers, some natural. Co-owner Eva Eekman.",
+      "sources": [
+        "https://starwinelist.com/wine-place/de-matroos-en-het-meisje",
+        "https://www.debuik.nl/rotterdam/uit-eten/de-matroos-en-het-meisje-een-kaapse-enclave-in-de-wereldstad-rotterdam",
+        "https://www.facebook.com/dematroosenhetmeisje/",
+        "https://www.dematroosenhetmeisje.nl/en/wine/"
+      ]
+    },
+    {
+      "name": "De Nada",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/denada.amsterdam/",
+      "facebook": "https://www.facebook.com/p/De-Nada-Amsterdam-100063831140490/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam (Uiterwaardenstraat, former Riverside bar). Casual music & wine bar; 'all wines are natuurwijnen', confirmed by De Buik and iamsterdam. Walk-ins only, DJs on Fridays. No sommelier / wine director publicly named, so sommeliers left empty. Open Mon-Sat, closed Sun.",
+      "sources": [
+        "https://www.denada.amsterdam/",
+        "https://www.debuik.nl/amsterdam/uit-eten/natuurwijn-en-lekkere-vinyl-dat-is-de-nada",
+        "https://www.facebook.com/p/De-Nada-Amsterdam-100063831140490/"
+      ]
+    },
+    {
+      "name": "De Nieuwe Winkel",
+      "sommeliers": [
+        {
+          "name": "Gauthier Cauwels",
+          "role": "sommelier / wine director",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/restaurantdenieuwewinkel/",
+      "facebook": "https://www.facebook.com/RestaurantDeNieuweWinkel/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "2 Michelin; Cauwels confirmed by Perswijn 2024.",
+      "sources": []
+    },
+    {
+      "name": "de zoute kater",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/dezoutekater/",
+      "facebook": "https://www.facebook.com/p/De-zoute-kater-100086550314719/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant & wine bar of owner/chef Eva Wijma in the Zeeheldenkwartier, The Hague (opened April 2023 via crowdfunding). Mix of natural and conventional wines, partly supplied by local merchant Marius. Eva Wijma runs it; no separate sommelier is publicly named, so sommeliers left empty.",
+      "sources": [
+        "https://www.debuik.nl/den-haag/mensen/eva-wijma-doet-bij-de-zoute-kater-waar-ze-zin-in-heeft",
+        "https://dezoutekater.nl/",
+        "https://www.zeeheldenkwartier.com/zaak/de-zoute-kater"
+      ]
+    },
+    {
+      "name": "Diepnoord",
+      "sommeliers": [
+        {
+          "name": "Sam Hofstaetter",
+          "role": "Verantwoordelijk voor de bar/dranken incl. natuurwijnen (not formally titled sommelier)",
+          "verified": true,
+          "verifyNote": "Multiple current Rotterdam dining sources (De Buik, dining guides) confirm Sam Hofstaetter runs the bar-bistro at the front of Diepnoord with cocktails, beers and natural wines. Not formally titled sommelier, consistent with the stated role. Venue's own site does not list staff names, but secondary coverage is consistent and recent."
+        }
+      ],
+      "instagram": "@diepnoord",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Bar-bistro in Rotterdam Noord; chef Rokus de Jong, front-of-house/drinks by Sam Hofstaetter who curates cocktails, beers and natural wines. No one is formally titled 'sommelier' in press; Hofstaetter is the wine/drinks lead. Facebook page not found.",
+      "sources": [
+        "https://www.diepnoord.nl/",
+        "https://www.vogue.nl/living/food/beste-restaurants-rotterdam/",
+        "https://weekendsinrotterdam.com/natural-wines-rotterdam/"
+      ]
+    },
+    {
+      "name": "Dona Restaurant",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/restaurante_dona",
+      "facebook": "https://www.facebook.com/restaurantedonaamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Portuguese 'living-room' restaurant in Amsterdam Oud-West (Nicolaas Beetsstraat 47), 10 tables/evening. Owners Diogo Campanico (chef/kitchen) and Sjors Nouwens (front of house). Extensive Portuguese natural-wine list (Douro to Alentejo). No one is publicly titled sommelier; Sjors runs front of house and the wine but is not named as sommelier, so sommeliers left empty (not invented).",
+      "sources": [
+        "https://www.donarestaurant.com/",
+        "https://www.raisin.digital/en/dona-restaurant-21509/",
+        "https://www.yourlittleblackbook.me/en/restaurante-dona-amsterdam-west/",
+        "https://www.facebook.com/restaurantedonaamsterdam/"
+      ]
+    },
+    {
+      "name": "Eatmosfera Oost",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/eatmosferaoost.amsterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Italian family-owned neo-Neapolitan sourdough pizzeria in Amsterdam Oost (Sumatrastraat 47). Explicitly works with natural wine from small Italian producers; listed by Raisin as at least 30% natural wine. No sommelier is publicly named (family-run, no individual credited). IG @eatmosferaoost.amsterdam (~2.8k). No Facebook page found.",
+      "sources": [
+        "https://www.eatmosfera.nl/",
+        "https://www.raisin.digital/en/eatmosfera-oost-23251/wines/",
+        "https://www.instagram.com/eatmosferaoost.amsterdam/"
+      ]
+    },
+    {
+      "name": "EAUX posse",
+      "sommeliers": [
+        {
+          "name": "Paul Posse",
+          "role": "Sommelier / maître (co-owner, also co-chef)",
+          "verified": true,
+          "verifyNote": "Confirmed as owner, restaurateur and chef of EAUX POSSE (Galileistraat 15b, Rotterdam), who also handles the wine program (~60% natural wines) and advises guests on pairings; multiple listings (De Buik, Heerlijk) describe him as chef/sommelier/maitre. His own bio page emphasises owner/chef/photographer, but front-of-house sommelier duties are attributed to him. Gault&Millau 13 pts / 1 Toque."
+        }
+      ],
+      "instagram": "https://www.instagram.com/eauxposse/",
+      "facebook": "https://www.facebook.com/eauxposse/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Rotterdam (Delfshaven/M4H, Galileistraat 15) plant-forward restaurant, Basque/southern-French inspired, pairs mostly with natural wine (vin nature). Paul Posse is sommelier and maître alongside co-chef Daan van Dijk. 13 points / 1 toque in Gault&Millau.",
+      "sources": [
+        "https://eauxposse.nl/",
+        "https://www.gault-millau.nl/en/restaurants/eaux-posse-rotterdam",
+        "https://www.debuik.nl/rotterdam/restaurant/eaux-posse",
+        "https://www.instagram.com/eauxposse/",
+        "https://www.facebook.com/eauxposse/"
+      ]
+    },
+    {
+      "name": "Europa",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/europa.rest/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Counter-dining tasting-menu restaurant in Amsterdam-Noord (Hamerkanaal). Chef/owner Rein op 't Root with co-owner Bastiaan de Groot. Serves a selection of natural wines; listed by Raisin and I amsterdam among natural-wine venues, in Gault&Millau and Star Wine List. No individual sommelier is publicly named, so sommelier left empty (op 't Root and de Groot are chef/owners, not credited as sommelier).",
+      "sources": [
+        "https://www.europa.rest/en",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/europa-22888/",
+        "https://www.gault-millau.nl/en/restaurants/europa-amsterdam",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "Europizza Restaurant",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/europizza.rest/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam-Noord (Gedempt Hamerkanaal), sourdough wood-fired pizza with a natural-wine list ('funky, fresh, playful'). Natural wine confirmed by site and press (hotspotjes.nl, Raisin). No sommelier / wine director publicly named, so sommeliers left empty. No own Facebook page found.",
+      "sources": [
+        "https://www.europizza.rest/",
+        "https://hotspotjes.nl/euro-pizza-amsterdam/",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/europizza-restaurant-13196/"
+      ]
+    },
+    {
+      "name": "Fabus",
+      "sommeliers": [
+        {
+          "name": "Nada Benić",
+          "role": "Co-founder & sommelier",
+          "verified": true,
+          "verifyNote": "Confirmed. Nada Benić is co-founder and host/sommelier of Fabus (De Clercqstraat 105H, Amsterdam Oud-West), a women-led natural-wine bar/restaurant she founded with Qian Lu. She pours and advises on the natural/biodynamic list. Venue is operating."
+        }
+      ],
+      "instagram": "https://www.instagram.com/fabus_amsterdam/",
+      "facebook": "https://www.facebook.com/fabuswineandfood/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Levantine restaurant and natural-wine bar at De Clercqstraat 105H, Oud-West. Women-led partnership founded by Nada Benić and Qian Lu; Nada Benić is the sommelier (co-founder). Wine program is explicitly natural wine from underrepresented regions. Sommelier role corroborated by Roxanich winery profile and AmsterdamNow.",
+      "sources": [
+        "https://www.fabusamsterdam.com/",
+        "https://www.roxanich.com/post/fabus",
+        "https://www.amsterdamnow.com/en/restaurants/fabus-winebar-amsterdam/",
+        "https://www.instagram.com/fabus_amsterdam/"
+      ]
+    },
+    {
+      "name": "FC Hyena",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/fchyena/",
+      "facebook": "https://www.facebook.com/fchyenaamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Wine as house philosophy; owners Lotte Smit & Joris Brieffies, not titled sommelier.",
+      "sources": []
+    },
+    {
+      "name": "Franco James",
+      "sommeliers": [
+        {
+          "name": "Luc",
+          "role": "Co-owner / wine-responsible (natural wine); full surname not published",
+          "verified": true,
+          "verifyNote": "Confirmed: Franco James (Priemstraat 9, Nijmegen) is run by owners Luc and Willem, whose first names appear on the front door; they share a passion for food and natural wines. Full surname not published publicly. (francojames.bar, intonijmegen.com, FollowFox)"
+        },
+        {
+          "name": "Willem",
+          "role": "Co-owner / wine-responsible (natural wine); full surname not published",
+          "verified": true,
+          "verifyNote": "Confirmed: Willem is co-owner of Franco James (Nijmegen) alongside Luc, jointly responsible for the food and natural-wine program. Full surname not published. (francojames.bar, intonijmegen.com)"
+        }
+      ],
+      "instagram": "https://www.instagram.com/francojames.bar/",
+      "facebook": "https://www.facebook.com/francojames.bar/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Nijmegen natural-wine bar (Priemstraat 9), listed on Raisin as natural wines. Owners Luc & Willem curate the natural wine program (only first names are published; no dedicated titled sommelier named). Wine list includes low-intervention/pet-nat and brut nature options.",
+      "sources": [
+        "https://www.francojames.bar/",
+        "https://followfox.nl/franco-james/",
+        "https://www.raisin.digital/en/explore/netherlands/gelderland/venues/franco-james-16398/"
+      ]
+    },
+    {
+      "name": "Gebr. Hartering",
+      "sommeliers": [
+        {
+          "name": "Niek Hartering",
+          "role": "Verantwoordelijk voor bediening en wijnkaart",
+          "verified": true,
+          "verifyNote": "Confirmed. The restaurant's own site and Gault&Millau describe Niek Hartering as running front-of-house and responsible for the (France-dominated, largely natural/organic) wine list, while brother Paul heads the kitchen."
+        },
+        {
+          "name": "Margot Los",
+          "role": "Sommelier (Sommelier van het Jaar 2023)",
+          "verified": false,
+          "correction": "Niek Hartering",
+          "verifyNote": "Margot Los is Sommelier van het Jaar 2023 (Gault&Millau), but she is NOT associated with Gebr. Hartering. She is co-owner/sommelier of Café Parlotte in Amsterdam. The wine lead at Gebr. Hartering is Niek Hartering. This entry conflates two unrelated venues."
+        }
+      ],
+      "instagram": "https://www.instagram.com/gebrhartering",
+      "facebook": "https://www.facebook.com/Gebr.Hartering",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam (Lastage). Eigenaar/chef Paul Hartering (Gault&Millau Vakman van het Jaar 2019); broer Niek Hartering doet bediening en stelde de wijnkaart samen. Sommelier Margot Los (Sommelier van het Jaar 2023) schenkt de bijzondere flessen. Wijnen doorgaans biologisch/biodynamisch, minimale interventie, soms echte vins nature. Namen geverifieerd via Proefschrift en Star Wine List.",
+      "sources": [
+        "https://www.gebr-hartering.nl/",
+        "https://proefschrift.nl/gerechten-van-gebr-hartering-met-eigentijdse-wijnen/",
+        "https://starwinelist.com/wine-place/gebr-hartering"
+      ]
+    },
+    {
+      "name": "Gertrude",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/gertrudeamsterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam Oud-West (Bosboom Toussaintstraat). Chefs Amadou Dia and Billy Wattimena. Listed on iamsterdam's natural-wine restaurant guide; site and reviews reference 'a sommelier' and natural wines (e.g. PurJus by Ruhlmann-Dirring) but no individual sommelier / wine director is named, so sommeliers left empty. No own Facebook page found. Open daily.",
+      "sources": [
+        "https://www.gertrudeamsterdam.nl/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine",
+        "https://www.bysam.nl/gertrude-amsterdam-wijnbar-restaurant-west/"
+      ]
+    },
+    {
+      "name": "GIST",
+      "sommeliers": [
+        {
+          "name": "Lenore",
+          "role": "Co-owner, responsible for the wine (natural wines) / front of house",
+          "verified": true,
+          "verifyNote": "Confirmed. GIST is a bistro-restaurant at Langestraat 65, Tilburg (gisttilburg.nl), founded May 2023 by Lenore Inkelaar and chef Niek Gaertner. Lenore is co-owner/hostess responsible for hospitality and the (natural) wine list; Niek runs the open kitchen. Matches the stated role. Full name: Lenore Inkelaar. Sources: tilburg.com, missethoreca.nl, gisttilburg.nl/over-ons."
+        }
+      ],
+      "instagram": "https://www.instagram.com/gisttilburg/",
+      "facebook": "https://www.facebook.com/people/GIST-Tilburg/100092550407604/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Bistro in Tilburg (Langestraat 65). Run by couple Lenore and Niek: Niek in the open kitchen, Lenore serves the natural wines (effectively the wijnverantwoordelijke). No surname is published and no formal 'sommelier' title is used, so only first name available. Explicitly natural-wine focused (also orange wine). Open. No sommelier corroborated beyond first name via press.",
+      "sources": [
+        "https://gisttilburg.nl",
+        "https://tilburg.com/nieuws/nieuw-restaurant-opent-in-de-binnenstad-gist/",
+        "https://www.bartsboekje.com/en/gist-tilburg/",
+        "https://www.raisin.digital/en/explore/netherlands/north-brabant/venues/gist-21003/"
+      ]
+    },
+    {
+      "name": "Gitane",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/gitane_amsterdam/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Restaurant in Amsterdam West opened July 2023 by chef Angelo Kremmydas (also of sister venue Massalia in Amsterdam Oost). Praised, Star Wine List 'White Star' wine list, mentioned in Michelin guide. Sister venue Massalia explicitly lists natural wines, but Gitane's own natural-wine stance is not explicitly stated, so marked unknown. No sommelier is publicly named (Kremmydas is the chef/owner).",
+      "sources": [
+        "https://www.restaurantgitane.nl/en",
+        "https://starwinelist.com/wine-place/gitane",
+        "https://www.missethoreca.nl/401857/angelo-kremmydas-opent-restobar-massalia-in-amsterdam-oost"
+      ]
+    },
+    {
+      "name": "Héron Petit Restaurant",
+      "sommeliers": [
+        {
+          "name": "Victor",
+          "role": "Mede-oprichter, verantwoordelijk voor wijnkennis/wijnselectie (geen formele sommelier-titel vermeld)",
+          "verified": true,
+          "verifyNote": "Victor Stukker, co-founder of Héron (Utrecht, opened 2016). The restaurant's own team page describes Victor as the founder with extensive wine knowledge (plus foraging). No formal sommelier title stated, consistent with the given role."
+        }
+      ],
+      "instagram": "https://www.instagram.com/heronpetitrestaurant",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Utrecht. Eigen site noemt geen persoon met de titel 'sommelier'; mede-oprichter Victor wordt genoemd als degene met de wijnkennis/wijnselectie, Joyce doet de non-alcoholische pairings. Werkt expliciet met biologische, biodynamische en natuurwijn van kleine importeurs (o.a. Wijnen van 't Fort). Alleen voornamen gepubliceerd; achternaam niet vermeld.",
+      "sources": [
+        "http://www.heronrestaurant.nl/",
+        "https://www.instagram.com/heronpetitrestaurant/"
+      ]
+    },
+    {
+      "name": "Hofaanzee",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/hofaanzee/",
+      "facebook": "https://www.facebook.com/hofaanzeedishoek/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "New Nordic-style restaurant in a historic farmhouse at the foot of the Dishoek dunes, Koudekerke (Zeeland); MICHELIN-listed. States it aims to serve wines as natural and pure as possible in line with its kitchen philosophy. No sommelier is publicly named, so the array is empty. Instagram @hofaanzee and Facebook hofaanzeedishoek confirmed.",
+      "sources": [
+        "https://www.hofaanzee.nl/",
+        "https://guide.michelin.com/us/en/zeeland/koudekerke/restaurant/hof-aan-zee",
+        "https://www.instagram.com/hofaanzee/",
+        "https://www.facebook.com/hofaanzeedishoek/"
+      ]
+    },
+    {
+      "name": "Hotel de Goudfazant",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/hotel_de_goudfazant/",
+      "facebook": "https://www.facebook.com/pages/Hotel-de-Goudfazant/172951059391743",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "100% natural since 2014; no individual sommelier named.",
+      "sources": []
+    },
+    {
+      "name": "Kaapse Maria",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/kaapsemaria/",
+      "facebook": "https://www.facebook.com/kaapsemaria/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Weekly rotating natural-wine menu; wine advice by bar staff, no named sommelier.",
+      "sources": []
+    },
+    {
+      "name": "Kikkie van de Prinsensluis",
+      "sommeliers": [
+        {
+          "name": "Bram Kemme",
+          "role": "Assistent sommelier",
+          "verified": true,
+          "verifyNote": "His LinkedIn profile currently lists 'Assistent sommelier - Kikkie van de Prinsensluis' (Amsterdam wine-focused eetcafe), matching the stated role. Caveat: the only confirming source is his own self-reported LinkedIn; the venue site (kikkie.amsterdam) lists no staff names and there is no press corroboration. He also runs a wine business 'Kemme Wines', but LinkedIn shows the Kikkie role as current with no end date."
+        }
+      ],
+      "instagram": "https://www.instagram.com/kikkie.amsterdam/",
+      "facebook": "https://www.facebook.com/kikkie.amsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Eetcafe on a Jordaan canal corner, open daily. Explicitly features a curated selection of natural wines, many by the glass; listed on I amsterdam's natural-wine restaurants guide and on Raisin. Only publicly named wine-team member is Bram Kemme, who lists his role as 'Assistent sommelier' at Kikkie on LinkedIn; no head sommelier is publicly named.",
+      "sources": [
+        "https://kikkie.amsterdam/",
+        "https://www.linkedin.com/in/bram-kemme-023709235/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine",
+        "https://www.instagram.com/kikkie.amsterdam/",
+        "https://www.facebook.com/kikkie.amsterdam/"
+      ]
+    },
+    {
+      "name": "Klaproos",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/klaproosamsterdam/",
+      "facebook": "https://www.facebook.com/klaproosamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Wood-fired pizza and fresh-pasta spot at Papaverweg 39, Amsterdam-Noord (grew from a pop-up); short wine list with an emphasis on natural wines, featured in multiple Amsterdam natuurwijn guides and Gault&Millau. No sommelier or wine director is publicly named, so the array is empty. Instagram @klaproosamsterdam and Facebook klaproosamsterdam confirmed.",
+      "sources": [
+        "https://klaproosamsterdam.nl/",
+        "https://www.gault-millau.nl/en/restaurants/klaproos-amsterdam",
+        "https://hotspotjes.nl/klaproos-amsterdam/",
+        "https://www.instagram.com/klaproosamsterdam/"
+      ]
+    },
+    {
+      "name": "Konijnenvoer",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/restaurant.konijnenvoer",
+      "facebook": "https://www.facebook.com/Restaurant.Konijnenvoer/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "High-end plant-based/vegan restaurant in Arnhem (Italian classics with a plant-based twist), chef Demian Parasmo. Michelin- and Gault&Millau-listed. The site refers to 'onze sommelier' (our sommelier) who pairs each course, and the drinks include organic and orange wines, but the sommelier is not named publicly and natural wine is not explicitly stated (organic/orange only). Note: Misset Horeca reported the restaurant is relocating, so the address may change.",
+      "sources": [
+        "https://www.konijnenvoer.com/",
+        "https://www.gault-millau.nl/en/restaurants/konijnenvoer-arnhem",
+        "https://guide.michelin.com/us/en/gelderland/arnhem/restaurant/konijnenvoer",
+        "https://www.missethoreca.nl/413521/restaurant-konijnenvoer-van-chef-demian-parasmo-verhuist-het-is-tijd",
+        "https://www.facebook.com/Restaurant.Konijnenvoer/",
+        "https://www.instagram.com/restaurant.konijnenvoer"
+      ]
+    },
+    {
+      "name": "La Maria",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/lamariaamsterdam/",
+      "facebook": "https://www.facebook.com/La-Maria-107632055927349/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Owner-chef imports wines; only first name 'Rohan' on aggregators, unverified.",
+      "sources": []
+    },
+    {
+      "name": "Levain et le Vin",
+      "sommeliers": [
+        {
+          "name": "Judith ter Veld",
+          "role": "Wine manager / wijnverantwoordelijke (managing the wine daily since summer 2022)",
+          "verified": true,
+          "verifyNote": "Confirmed on the venue's own live About page (levainetlevin.com): 'Headbaker Jake Partridge and manager Laura van Rijs lead the team together, assisted by Judith ter Veld managing the wine, on a daily basis since summer 2022.' Levain et le Vin is an Amsterdam sourdough bakery + natural-wine shop/restaurant; Judith ter Veld is the day-to-day wine lead (WSET2/WSET3, ex-Bolomey Wijnimport). No formal 'sommelier' title is used, but the wine-manager/wijnverantwoordelijke role is confirmed. Site is live and the copy still reads as current."
+        }
+      ],
+      "instagram": "https://www.instagram.com/levainetlevin/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Bakery/restaurant/wine venue founded by Florence Gramende and Constantijn. The venue website explicitly describes its wine program as natural wine (minimal intervention, little to no added sulphites) and names Judith ter Veld as running the wine since summer 2022. Corroboration limited to the venue's own site; role stated verbatim there. No Facebook page found.",
+      "sources": [
+        "https://www.levainetlevin.com/"
+      ]
+    },
+    {
+      "name": "Little Collins West",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/littlecollinsamsterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Australian-inspired restaurant/bar in De Pijp, Amsterdam, listed among Amsterdam natural-wine venues (Raisin, iamsterdam). The De Pijp/West locations share the 'littlecollinsamsterdam' Instagram. No sommelier or wine director is publicly named.",
+      "sources": [
+        "https://www.littlecollins.nl/",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/little-collins-west-7560/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "Local Dealer Food Inc",
+      "sommeliers": [],
+      "instagram": "https://instagram.com/localdealerfoodinc",
+      "facebook": "https://facebook.com/localdealerfoodinc/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Family-owned Mexican taqueria in Amsterdam-Oost (Dapperplein 23). Offers a selection of natural wines alongside agave spirits (mezcal/tequila/sotol) and cocktails. No sommelier or wine director is publicly named, so sommeliers left empty.",
+      "sources": [
+        "https://localdealer.nl",
+        "https://www.raisin.digital/en/local-dealer-food-inc-20371/",
+        "https://unbookables.com/local-dealer-food-inc/"
+      ]
+    },
+    {
+      "name": "Locale Kaap",
+      "sommeliers": [],
+      "instagram": "@localekaap",
+      "facebook": "https://www.facebook.com/VislokaalKaap",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Owners Emmy Walburg and Rob Baris; they personally source biological/natural (vins naturels) wines from French producers. No individual publicly named as sommelier, so left empty.",
+      "sources": [
+        "https://localekaap.nl/"
+      ]
+    },
+    {
+      "name": "Lux",
+      "sommeliers": [
+        {
+          "name": "Machteld Lottman",
+          "role": "gastvrouw / sommelier",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/luxrotterdam/",
+      "facebook": "https://www.facebook.com/luxrotterdam010/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Chef-owner Milan Gataric (not sommelier).",
+      "sources": []
+    },
+    {
+      "name": "Massalia",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/massalia.restobar/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "French-Greek restobar at Beukenplein 21, Amsterdam-Oost (own site restobarmassalia.nl). Owner/chef Angelo Kremmydas (also owns Gitane). Reads as a natural-wine bar: list ranges from Jura/Burgundy classics to natural wines from Ikaria. No one is publicly named as sommelier/wine director, so the list is empty. Note: the source JSON had no website; the venue's actual site is https://www.restobarmassalia.nl/.",
+      "sources": [
+        "https://www.restobarmassalia.nl/en/about",
+        "https://hotspotjes.nl/massalia-amsterdam/",
+        "https://www.yourlittleblackbook.me/en/massalia-amsterdam/",
+        "https://starwinelist.com/wine-place/massalia-restobar",
+        "https://www.instagram.com/massalia.restobar/"
+      ]
+    },
+    {
+      "name": "Mecca",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/oasis_rotterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "rebranded",
+      "notes": "Rebranded: 'Mecca Oasis' in Rotterdam has become 'Oasis Rotterdam' (meccaoasis.nl now 301-redirects to oasisrotterdam.nl; the site states 'Born as Mecca Oasis... so did our name'). Petit grand cafe focused on specialty coffee and natural wine; Middle-Eastern/Mediterranean kitchen. Walk-in only. Chef Michalis Sofokleous mentioned in posts, but no sommelier/wine director is publicly named. Instagram moved from @meccaoasis to @oasis_rotterdam.",
+      "sources": [
+        "https://oasisrotterdam.nl/",
+        "https://oasisrotterdam.nl/mecca/",
+        "https://www.rotterdam.info/en/visit/finder-locations/mecca",
+        "https://weekendsinrotterdam.com/natural-wines-rotterdam/"
+      ]
+    },
+    {
+      "name": "Mevrouw Meijer",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/mevrouwmeijer.rotterdam/",
+      "facebook": null,
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Cosy quasi-French restaurant in Rotterdam-Noord, taken over in 2018 by former employee Nils Wijnbergh (chef/owner); his wife Maria works as hostess. Serves a small wine list with per-course pairings but no sommelier or wine director is publicly named (Gault&Millau lists only Nils Wijnbergh as chef), so the array is left empty. No explicit natural-wine positioning found, hence 'unknown'. No Facebook page found.",
+      "sources": [
+        "https://www.mevrouwmeijer.nl/",
+        "https://www.gault-millau.nl/en/restaurants/mevrouw-meijer-rotterdam",
+        "https://www.debuik.nl/rotterdam/restaurant/mevrouw-meijer",
+        "https://www.instagram.com/mevrouwmeijer.rotterdam/"
+      ]
+    },
+    {
+      "name": "Multi Café",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/multimulti.cafe/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Lunch cafe & catering studio (Multi / Multi Multi) near Rotterdam Centraal, led by Laurence van Bergeijk and Lieke van der Wel; primarily a daytime lunch venue. Listed among Rotterdam's natural-wine venues on Raisin. No sommelier or wine director publicly named; owners are not identified as sommeliers.",
+      "sources": [
+        "https://www.instagram.com/multimulti.cafe/",
+        "https://www.rotterdam.info/en/visit/finder-locations/multi-cafe",
+        "https://www.debuik.nl/rotterdam/restaurant/multi-multi",
+        "https://www.raisin.digital/en/explore/netherlands/south-holland/rotterdam/"
+      ]
+    },
+    {
+      "name": "NAKED Amsterdam",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/naked.espresso/",
+      "facebook": "https://www.facebook.com/NAKEDespressoNL/",
+      "naturalWine": "no",
+      "status": "open",
+      "notes": "Listed as restaurant/bar but is an espresso/coffee bar at Dam 8 (part of the Dam8 venue), emphasising award-winning baristas rather than a wine program. No sommelier or wine director; no natural-wine offering found. Possible mismatch with the festival's wine focus.",
+      "sources": [
+        "https://dam8.nl/naked-espresso/",
+        "https://www.instagram.com/naked.espresso/",
+        "https://www.facebook.com/NAKEDespressoNL/"
+      ]
+    },
+    {
+      "name": "Night Kitchen",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/night.kitchen.amsterdam/",
+      "facebook": "https://www.facebook.com/NKAMSTERDAM",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Mediterranean neo-bistro & bar in Amsterdam Oud-West. Wine list is mostly organic with some natural wines, all from small producers; listed on Raisin as a natural-wine venue. No sommelier or wine director is publicly named on the site or in press.",
+      "sources": [
+        "https://www.nightkitchenamsterdam.com/",
+        "https://www.nightkitchenamsterdam.com/drinks",
+        "https://www.raisin.digital/en/night-kitchen-19457/"
+      ]
+    },
+    {
+      "name": "No Man’s Art Gallery & de bar",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/debar.nomansart",
+      "facebook": "https://www.facebook.com/debar.nomansart",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Amsterdam gallery bar. No sommelier or wine-responsible person publicly named (site lists only open kitchen/floor job postings). No explicit natural-wine claim found.",
+      "sources": [
+        "https://www.nomansart.com/debar"
+      ]
+    },
+    {
+      "name": "Nomono",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/nomono.utrecht/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "closed",
+      "notes": "Restaurant & listening bar on Europalaan, Utrecht. Site states it closed as of 31 January 2026 after the head tenant terminated the lease (relocation being explored). Selection of natural and traditional wines. Founders Naresh Ramdjas and Johan Kuin; no sommelier publicly named.",
+      "sources": [
+        "https://www.nomono-utrecht.nl/",
+        "https://www.bartsboekje.com/nomono-utrecht/",
+        "https://www.raisin.digital/en/explore/netherlands/utrecht/utrecht/"
+      ]
+    },
+    {
+      "name": "Ô bistro",
+      "sommeliers": [
+        {
+          "name": "Daniele",
+          "role": "Host / sommelier (Italian; runs floor and wine service)",
+          "verified": true,
+          "verifyNote": "Confirmed. Full name Daniele Gaudiello, Italian sommelier and co-owner of Ô Bistro (Lindengracht 248, Jordaan, Amsterdam), running the floor and wine service alongside French chef/co-owner Pierre Buffard. Confirmed by Star Wine List and multiple current venue writeups; venue is operating."
+        }
+      ],
+      "instagram": "https://www.instagram.com/obistro_amsterdam/",
+      "facebook": "https://www.facebook.com/obistroamsterdam/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Small French bistro on Lindengracht 248, Jordaan. Run by French chef/owner Pierre and Italian host/sommelier Daniele, who curates the wine list. Listed on Star Wine List (a sommelier-focused wine-list directory). First name Daniele is corroborated across Star Wine List summary and a Dutch Culi Amsterdam feature; surname not reliably verifiable so only the first name is reported. No explicit natural-wine positioning found on the site.",
+      "sources": [
+        "https://obistro.nl/",
+        "https://starwinelist.com/wine-place/o-bistro",
+        "https://culi-amsterdam.nl/o-bistro-frans-restaurant-in-de-jordaan-in-amsterdam/",
+        "https://www.facebook.com/obistroamsterdam/"
+      ]
+    },
+    {
+      "name": "Oficina",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/oficina.amsterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Daily canteen, culinary studio and shop (Jan van Galenstraat 147, Amsterdam), guided by cooks and designers. Works explicitly with natural wine, listing producers such as Domaine Matassa, Jerome Saurigny, Jean-Pierre Robinot and Franz Strohmeier. No individual sommelier is publicly named; wine program is team-run.",
+      "sources": [
+        "https://oficinaoficina.com/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine",
+        "https://drops.wine/en/blogs/wein-wissen/natural-wine-inamsterdam"
+      ]
+    },
+    {
+      "name": "Olidò!",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/olido_amsterdam/",
+      "facebook": "https://www.facebook.com/p/Olid%C3%B2-100043234677141/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Wood-oven pizzeria in Amsterdam Oost, founded by Enrico Cantelmi and Tommaso Morelli (pizzaiolo) — owners, not sommeliers, so sommeliers left empty. Own site describes 'biologische wijnen' (organic); repeatedly listed in Amsterdam natural-wine roundups (De Buik, I amsterdam), hence naturalWine=yes.",
+      "sources": [
+        "https://www.olido.amsterdam/",
+        "https://www.olido.amsterdam/over-ons/",
+        "https://www.instagram.com/olido_amsterdam/",
+        "https://www.debuik.nl/amsterdam/top-10/18x-restaurants-met-geweldige-natuurwijn-bij-je-gerecht"
+      ]
+    },
+    {
+      "name": "Onda",
+      "sommeliers": [
+        {
+          "name": "Juan Trentadue",
+          "role": "Co-owner & host, wine selection",
+          "verified": true,
+          "verifyNote": "Confirmed current. Onda (Bierkade, Den Haag) is co-owned by Sanne Havinga, Juan Trentadue and Jelle Hamstra; Trentadue is co-owner/host and curated the wine list (all natural wine, largely own import from Argentina; he also runs Envido Imports). Onda won Best New Restobar 2025 at the Entree Awards and is active into 2026 (Gault&Millau listed). Sources: entreemagazine.nl/entreeawards/onda-in-den-haag-is-best-new-restobar-2025, denhaag.com/en/onda-kissa, gault-millau.nl/en/restaurants/onda-den-haag, LinkedIn juan-trentadue-97927325."
+        }
+      ],
+      "instagram": "https://www.instagram.com/onda.dh/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant & HiFi listening bar in The Hague (Best New Restobar 2025). Wine list is entirely natural wine, curated by co-owner/host Juan Trentadue; corroborated by Entree Magazine and Gault&Millau. Founded with Sanne Havinga and Jelle Hamstra (who also run nearby De Kade). Cocktails by Jonathan 'Jono' van Lamoen.",
+      "sources": [
+        "https://www.entreemagazine.nl/openingen-design/restaurant-en-luisterbar-onda-nieuwe-hotspot-in-den-haag",
+        "https://www.gault-millau.nl/en/restaurants/onda-den-haag",
+        "https://www.onda.bar/",
+        "https://www.instagram.com/onda.dh/"
+      ]
+    },
+    {
+      "name": "OX",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/oxrotterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Underground/speakeasy-style contemporary Chinese restaurant and cocktail bar in central Rotterdam. Site states they work with small producers and natural wines; list of 50+ wines mixing classics and natural wines. Chef Alexander Wong leads the kitchen and Jacopo Di Domenico does cocktails, but no one is publicly named as sommelier/wine director, so the list is empty. No official Facebook page confirmed (the 'udesly' link on the site is the website builder, not the venue's page).",
+      "sources": [
+        "https://www.ox-rotterdam.nl/",
+        "https://insiderotterdam.nl/ox/",
+        "https://www.gault-millau.nl/en/restaurants/ox-rotterdam",
+        "https://www.instagram.com/oxrotterdam/"
+      ]
+    },
+    {
+      "name": "Paindemie",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/paindemie_amsterdam/",
+      "facebook": "https://www.facebook.com/Paindemieamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Smash-burger/sando joint with speakeasy bar, Kinkerstraat 122, Amsterdam. Explicitly promotes 'NATURAL WINE' on its own site. Only first names Liva and Christina mentioned (front of house), no sommelier/wine director named, so sommeliers left empty.",
+      "sources": [
+        "https://paindemie-amsterdam.com/",
+        "https://www.facebook.com/Paindemieamsterdam/",
+        "https://www.instagram.com/paindemie_amsterdam/"
+      ]
+    },
+    {
+      "name": "Parc Broekhuizen",
+      "sommeliers": [
+        {
+          "name": "Nils Snitselaar",
+          "role": "sommelier (Restaurant Voltaire)",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/parcbroekhuizen/",
+      "facebook": "https://www.facebook.com/ParcBroekhuizenLeersum",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Biodynamic + vins nature; venue copy uses 'schone en eerlijke wijnen'.",
+      "sources": []
+    },
+    {
+      "name": "Pianeta Terra",
+      "sommeliers": [
+        {
+          "name": "Laura Martini",
+          "role": "Sommelier / wine list (co-owner, Fabio Antonini's partner)",
+          "verified": true,
+          "verifyNote": "Confirmed current. Restaurant descriptions (heerlijk.nl, culi-amsterdam.nl, official pianetaterra-restaurant.nl) consistently list Laura Martini as sommelier and co-owner who compiles the entirely organic/biodynamic/natural Italian wine list, and as chef Fabio Antonini's partner. Pianeta Terra remains active (recently ranked best Italian restaurant in NL, 50 Top Italy)."
+        }
+      ],
+      "instagram": "https://instagram.com/pianeta_terra_restaurant",
+      "facebook": "https://facebook.com/pianeta.terra.129",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Italian slow-food restaurant, Beulingstraat Amsterdam (ranked 50 Top Italy). Sommelier Laura Martini curates the wine list, selecting small producers 'with a soul'; corroborated by Culi Amsterdam and Italiamo/Foodies press. Wines are described as organic/small-producer but the venue does not explicitly brand itself as a natural-wine house, so naturalWine set to unknown. Chef/co-owner Fabio Antonini, manager Raul Mini.",
+      "sources": [
+        "https://pianetaterra-restaurant.nl/",
+        "https://culi-amsterdam.nl/pianeta-terra/",
+        "https://italiamo.nl/50-top-italy-2025-pianeta-terra-aroma/",
+        "https://www.foodiesmagazine.nl/travel/pianeta-terra/"
+      ]
+    },
+    {
+      "name": "Piccolo Forno Vinz",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/piccolofornovinz",
+      "facebook": "https://www.facebook.com/piccolofornohaarlem",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Neapolitan sourdough pizzeria in Haarlem (Nassaustraat 24) pairing pizza with natural wines. Open Wed-Sat. No sommelier or wine-responsible person is publicly named on the site or in press, so sommeliers left empty (not invented).",
+      "sources": [
+        "https://www.piccoloforno.net",
+        "https://www.raisin.digital/en/piccolo-forno-vinz-21004/",
+        "https://www.facebook.com/piccolofornohaarlem/",
+        "https://www.instagram.com/piccolofornovinz/"
+      ]
+    },
+    {
+      "name": "Pizza Lievito",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/lievitomonnickendam/",
+      "facebook": "https://www.facebook.com/Lievitomonnickendam/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Casual pizzeria in Monnickendam (Haringburgwal 1a) with thin crispy pizzas, weekly specials and an 'extensive wine selection' ('wijnen uit alle windstreken'). No explicit mention of natural wine and no sommelier named; it is a small owner-run pizza cafe.",
+      "sources": [
+        "http://pizzalievito.nl/",
+        "https://www.instagram.com/lievitomonnickendam/",
+        "https://www.facebook.com/Lievitomonnickendam/"
+      ]
+    },
+    {
+      "name": "Pizzacafé DESEM",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/pizzacafedesem/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Pizza cafe in Nijmegen with a dedicated 'Natuurwijn' section on its site and natural-wine partners (2Naturkinder, Zuiver Wijnen, Bron Wines, producer Thomas Patek). A Facebook page named 'Pizza-café-DESEM' exists but I could not verify a clean canonical URL, so left null. No individual is publicly named as sommelier/wine director.",
+      "sources": [
+        "http://pizzacafedesem.nl/",
+        "https://pizzacafedesem.nl/natuurwijn/",
+        "https://www.instagram.com/pizzacafedesem/"
+      ]
+    },
+    {
+      "name": "Portfolio-Restaurant",
+      "sommeliers": [
+        {
+          "name": "Remco van Antwerpen",
+          "role": "Gastheer / sommelier (mede-oprichter)",
+          "verified": true,
+          "verifyNote": "Gastheer/sommelier and co-founder of Portfolio (The Hague), partnership with chef Kasper Verlinden since 2017. Restaurant reopened at a new address (Dunne Bierkade 35) around April 2026 with the same team/formula. Confirmed current."
+        }
+      ],
+      "instagram": "https://www.instagram.com/portfolio_restaurant",
+      "facebook": "https://www.facebook.com/Portfoliorestaurantdenhaag",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Den Haag, opgericht nov 2017 als samenwerking van chef Kasper Verlinden en sommelier Remco van Antwerpen. Site: 'Onze wijnen zijn over het algemeen natuurwijnen (vins naturelles)', plus biodynamisch en biologisch. Sommelier expliciet op eigen site vermeld.",
+      "sources": [
+        "https://portfolio-restaurant.nl/"
+      ]
+    },
+    {
+      "name": "Puick",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/puickbreda/",
+      "facebook": "https://www.facebook.com/PuiCkBreda/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Family-run tasting-menu restaurant in Breda (started 2015). Site explicitly pours a selection of classic and natural wines ('klassieke en natuurwijnen'); a house sommelier presents the pairings but no individual sommelier is named publicly. No Michelin star.",
+      "sources": [
+        "https://www.puick.nl/",
+        "https://www.puick.nl/diner",
+        "https://www.facebook.com/PuiCkBreda/"
+      ]
+    },
+    {
+      "name": "Putaine restaurant & bar",
+      "sommeliers": [
+        {
+          "name": "Jacqueline (Jacq) van 't Zelfde",
+          "role": "Sommelier / wine list",
+          "verified": true,
+          "verifyNote": "Confirmed as the sommelier responsible for Putaine's wine list. Entree Magazine and JAM Horeca coverage credit 'sommelier Jacqueline van 't Zelfde' with compiling the ~200-wine (largely biodynamic/natural) list; bartender Ben Lobos does cocktails. Owners are Eva Eekman and Michael Schook (same duo behind De Matroos en het Meisje and Heroine). Caveat: the most explicit 'sommelier' naming comes from opening/launch coverage (2022 JAM article) and the venue is now also branded 'Cafe Putaine'; the current site lists no staff roster, so I could not find a 2026-dated source re-confirming she is still in post. No evidence she has left. Sources: entreemagazine.nl, jamhoreca.nl, gault-millau.nl/en/restaurants/cafe-putaine-rotterdam."
+        }
+      ],
+      "instagram": "https://www.instagram.com/restaurantputaine/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Floating restaurant/bar in the Rijnhaven (FOR building), Kop van Zuid, Rotterdam; owners Eva Eekman & Michael Schook (also Heroine). Now also styled 'Cafe Putaine'. Wine list (~200 wines, mostly biodynamic, mix of conventional and natural) compiled by sommelier Jacqueline van 't Zelfde; corroborated by JAM! Horeca and Entree Magazine. Also collaborates with Rutger van de Pol (Bar Cult) for natural wines. JSON website field was null; live site is restaurantputaine.nl. Instagram handle inferred from site/brand, treat as best-effort.",
+      "sources": [
+        "https://jamhoreca.nl/rotterdams-restaurant-putaine-zoekt-succesvol-de-randjes-op/",
+        "https://www.entreemagazine.nl/openingen-design/nieuw-drijvend-restaurant-putaine-in-rotterdam",
+        "https://restaurantputaine.nl/",
+        "https://guide.michelin.com/us/en/zuid-holland/rotterdam/restaurant/putaine"
+      ]
+    },
+    {
+      "name": "Restaurant Arles",
+      "sommeliers": [
+        {
+          "name": "Laurence Reintjens",
+          "role": "head sommelier (natural focus)",
+          "verified": true
+        },
+        {
+          "name": "Bette Hamersma",
+          "role": "gastvrouw en sommelier (WSET3)",
+          "verified": true
+        }
+      ],
+      "instagram": "https://www.instagram.com/restaurantarles/",
+      "facebook": "https://www.facebook.com/Restaurant-Arles-106367995364462",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "100% French list, monthly rotation, many naturals.",
+      "sources": []
+    },
+    {
+      "name": "Restaurant De Kade",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/restaurant.dekade/",
+      "facebook": "https://www.facebook.com/restaurant.dekade/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Bistro at Dunne Bierkade 1A, The Hague; describes itself as the first 100% natural-wine restaurant in the city with one of the largest natural-wine selections (70+). No sommelier is publicly named by the venue; a single Tripadvisor review mentions a server 'Artie' recommending wines, which is not enough to confirm a named sommelier, so the array is left empty. Local/biodynamic small plates. Opened 2017 in the former 'Blij' location.",
+      "sources": [
+        "https://www.raisin.digital/en/explore/netherlands/south-holland/venues/restaurant-de-kade-5057/",
+        "https://www.instagram.com/restaurant.dekade/",
+        "https://www.facebook.com/restaurant.dekade/",
+        "https://natuurwijnen.nl/categorie/horeca/restaurant-de-kade-den-haag/"
+      ]
+    },
+    {
+      "name": "Restaurant Entrepot",
+      "sommeliers": [
+        {
+          "name": "Jorrim Prins",
+          "role": "Wijnselectie / wijnverantwoordelijke",
+          "verified": true,
+          "verifyNote": "Entrepot's own current wine page names Jorrim Prins (with Xander Waller) as composing the wine list; his LinkedIn lists Sommelier at Restaurant Entrepot. He is also associated with wine retailer Wijnkameel, but the venue site still credits him for wine, so role stands."
+        },
+        {
+          "name": "Xander Waller",
+          "role": "Eigenaar, betrokken bij de wijnselectie",
+          "verified": true,
+          "verifyNote": "Owner/maître of Restaurant Entrepot (Amsterdam, opened Nov 2017). Current venue wine page states Xander Waller and Jorrim Prins together curate the wine list. Confirmed."
+        }
+      ],
+      "instagram": null,
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam, Entrepotdok 8. Van dezelfde ondernemers als Metro en Sandberg; eigenaar Xander Waller. Natuurwijn speelt een grote rol. Wijnpagina van de site vermeldt Xander Waller en Jorrim Prins als samenstellers van de wijnkaart (geen expliciete titel 'sommelier'). Geen officieel IG/FB via de site teruggevonden; niet ingevuld om verzinnen te voorkomen.",
+      "sources": [
+        "https://restaurantentrepot.nl/wijn/",
+        "https://www.debuik.nl/amsterdam/top-10/18x-restaurants-met-geweldige-natuurwijn-bij-je-gerecht"
+      ]
+    },
+    {
+      "name": "Restaurant JA",
+      "sommeliers": [
+        {
+          "name": "Amy Delorme",
+          "role": "Gastvrouw / sommelier",
+          "verified": true,
+          "verifyNote": "Confirmed by the venue's own 'Over ons' page and an Entree Magazine interview: Amy Delorme is gastvrouw and co-owner of Restaurant JA (De Pijp, Amsterdam), which she runs with chef/partner Julius Busscher with no other staff. She curated the wine list (natural + classic) and does the wine service/pairings, functioning as sommelier, though the venue text notes she is not 'formally titled' sommelier. Role 'Gastvrouw / sommelier' is accurate."
+        }
+      ],
+      "instagram": "https://www.instagram.com/restaurantja/",
+      "facebook": "https://www.facebook.com/restaurantjaAmsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Intimate fine-dining home restaurant in De Pijp, Amsterdam, run by chef Julius Busscher and hostess Amy Delorme with no other staff. Amy Delorme handles service and the wine program as gastvrouw/sommelier, focusing on natural wine, classic wines and pairings. Listed on I amsterdam and De Buik van Amsterdam natural-wine guides.",
+      "sources": [
+        "https://restaurantja.nl/",
+        "https://www.gault-millau.nl/en/restaurants/ja-amsterdam",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine",
+        "https://www.instagram.com/restaurantja/",
+        "https://www.facebook.com/restaurantjaAmsterdam/"
+      ]
+    },
+    {
+      "name": "Restaurant ñ",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/restobar_n/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Spanish tapas bar/restaurant, Nobelstraat 22, The Hague; Bib Gourmand (Michelin Guide NL 2025). Explicitly serves natural wines. Chef is Thomas Vandenhecke, but no dedicated sommelier/wine director is publicly named, so sommeliers left empty. IG @restobar_n; no venue Facebook page found.",
+      "sources": [
+        "https://restaurant-n.nl/q/",
+        "https://guide.michelin.com/us/en/zuid-holland/den-haag/restaurant/restaurant-n",
+        "https://www.raisin.digital/en/explore/netherlands/south-holland/venues/restaurant-n-13878/"
+      ]
+    },
+    {
+      "name": "Restaurant Renilde",
+      "sommeliers": [
+        {
+          "name": "Sjanne Vlug",
+          "role": "Sommelier",
+          "verified": true,
+          "verifyNote": "Confirmed and current: Sjanne Vlug (ex-Fermin) is sommelier at Renilde (rooftop of Depot Boijmans, Rotterdam), managing the natural-wine list. Named as Renilde's sommelier in a 2026 ProefCast Wine Professional session with chef Jim de Jong. (debuik.nl, proefschrift.nl 2026)"
+        },
+        {
+          "name": "Jim de Jong",
+          "role": "Chef / owner",
+          "verified": true,
+          "verifyNote": "Confirmed: Jim de Jong (ex-Restaurant De Jong, Gault Millau Young Top Chef 2019) is chef/owner of Renilde, creating a daily-changing menu. Still active per 2026 sources. (debuik.nl, wijnspijs.nl, dehavenloods.nl)"
+        }
+      ],
+      "instagram": null,
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Rooftop restaurant on Depot Boijmans Van Beuningen, Rotterdam. Sommelier Sjanne Vlug manages an adventurous wine list with many natural wines from independent winemakers (corroborated by Wijnspijs and Wine Professional 2026, where the Renilde team paired natural wines). Chef Jim de Jong. Runs under Boijmans; no separate venue Instagram/Facebook identified.",
+      "sources": [
+        "https://www.wijnspijs.nl/magazine/renilde/",
+        "https://www.wine-professional.nl/programma/programma-2026/wine-professional-2026-programma-dinsdag-13-januari/",
+        "https://www.boijmans.nl/restaurant-renilde"
+      ]
+    },
+    {
+      "name": "Restaurant Rotonde",
+      "sommeliers": [
+        {
+          "name": "Birk Heijkants",
+          "role": "Sommelier / wine director (natural wine program)",
+          "verified": true,
+          "verifyNote": "Confirmed on the live Rotonde site (restaurantrotonde.nl), which lists Birk Heijkants on the team as the wine/hospitality lead running its natural-wine-only program; he is also a co-founder (with chef Jord Coree and Roy Lammers, opened Dec 2021). Corroborated by De Buik 'Proef op de sommelier' feature and 360 Eat Guide."
+        }
+      ],
+      "instagram": "https://www.instagram.com/restaurant_rotonde/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Rotterdam. Michelin Bib Gourmand + Green Star, tagline 'Seizoensgroenten, vuur & natuurwijn'. Sommelier Birk Heijkants (former food/drink journalist) runs a strictly natural-wine, no-additives, Europe-only program; corroborated by the venue site, De Buik ('Proef op de sommelier met Birk Heijkants') and 360 Eat Guide. Team also: chef Jord Coree, host Roy Lammers. Open Tue-Sat.",
+      "sources": [
+        "https://restaurantrotonde.nl/",
+        "https://www.debuik.nl/rotterdam/mensen/proef-op-de-sommelier-met-birk-heijkants-van-restaurant-rotonde",
+        "https://360eatguide.com/rotonde-birk-heijkants/"
+      ]
+    },
+    {
+      "name": "Restaurant Tres",
+      "sommeliers": [
+        {
+          "name": "Emy Koster",
+          "role": "Sommelier (and co-owner)",
+          "verified": true,
+          "verifyNote": "Confirmed as sommelier/head sommelier, hostess and co-owner of Tres (Rotterdam), alongside chef Michael van der Kroft, per De Buik van Rotterdam, Gault&Millau and Falstaff. Self-taught sommelier; venue active (Green Michelin Star 2025)."
+        }
+      ],
+      "instagram": "@tresrotterdam",
+      "facebook": "https://www.facebook.com/tresrdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "16-seat tasting-menu restaurant at Kop van Zuid, Rotterdam. Co-owners Emy Koster and Michael van der Kroft; Emy Koster is the sommelier (profiled in De Buik 'De Proef op de Sommelier'). Wine program favours organic/biodynamic and natural wines. ~95% of guests take the pairing.",
+      "sources": [
+        "https://www.tresrotterdam.com/",
+        "https://www.debuik.nl/rotterdam/mensen/de-proef-op-de-sommelier-met-emy-koster",
+        "https://guide.michelin.com/us/en/zuid-holland/rotterdam/restaurant/tres",
+        "https://www.facebook.com/tresrdam/"
+      ]
+    },
+    {
+      "name": "Restobar Rosie",
+      "sommeliers": [
+        {
+          "name": "Yora Galjaard",
+          "role": "Gastheer / verantwoordelijk voor wijnselectie (not formally titled sommelier)",
+          "verified": true,
+          "verifyNote": "Confirmed as co-owner and host of Restobar Rosie (Utrecht) responsible for the wine selection (~200 wines by the glass), per De RestaurantKrant and dining guides. Not formally titled sommelier, matching the stated role. Still active; he and Jac Rijks opened a second venue."
+        }
+      ],
+      "instagram": "@rosie_utrecht",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Utrecht eatbar. Chef Jac Rijks; host Yora Galjaard leads wine buying trips with importer Pieksman Wijnimport and works with natural-wine producers. No one is formally titled 'sommelier'; Galjaard is the wine lead. Facebook not confirmed.",
+      "sources": [
+        "https://rosieutrecht.nl/"
+      ]
+    },
+    {
+      "name": "Rijsel",
+      "sommeliers": [
+        {
+          "name": "Eelke Leeuwerink",
+          "role": "Sommelier",
+          "verified": true,
+          "verifyNote": "Confirmed current. Rijsel's own website (rijsel.com/en) names Eelke Leeuwerink as sommelier alongside owners Pieter Smits & Stephanie Lucken, chef Iwan Driessen and maitre Merel Schenkeveld. A Dec 2025 press item (Girls Who Magazine) shows him curating wine pairings for a Dec 13 2025 dinner, so the role is current."
+        }
+      ],
+      "instagram": null,
+      "facebook": "https://www.facebook.com/caferijsel/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "French bistro in a former school (Amsterdam Oost). Sommelier Eelke Leeuwerink confirmed on the venue site and corroborated by Gault&Millau and lekker.nl (which has a dedicated 'sommelier Eelke Leeuwerink' person page). Wine list is French-led (with German/Italian), 25+ by the glass; no explicit natural-wine positioning found, so naturalWine is unknown. No own Instagram found on the site.",
+      "sources": [
+        "https://rijsel.com/en/",
+        "https://www.gault-millau.nl/en/restaurants/rijsel-amsterdam",
+        "https://lekker.nl/persoon/sommelier-eelke-leeuwerink",
+        "https://www.facebook.com/caferijsel/"
+      ]
+    },
+    {
+      "name": "Ristorante La Scala",
+      "sommeliers": [],
+      "instagram": null,
+      "facebook": "https://www.facebook.com/ristorantelascalaamersfoort/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Italian restaurant in Amersfoort since 1986. Works with biological and natural wines from small producers, partly via their own import 'Troppo Giovane'. No sommelier is publicly named by title; a hostess named 'Tosca' is praised in reviews for wine recommendations but is not identified as a titled sommelier, so sommeliers left empty. Site (WebFetch) did not list staff; corroborated via Raisin and eet.nu.",
+      "sources": [
+        "https://www.ristorantelascala.nl/",
+        "https://www.raisin.digital/en/explore/netherlands/utrecht/venues/ristorante-la-scala-12254/",
+        "https://en.eet.nu/amersfoort/la-scala",
+        "https://www.facebook.com/ristorantelascalaamersfoort/"
+      ]
+    },
+    {
+      "name": "SAAR",
+      "sommeliers": [
+        {
+          "name": "Sandra",
+          "role": "Co-owner; selects and pours the natural wines (wijnverantwoordelijke). No formal 'sommelier' title published.",
+          "verified": true,
+          "verifyNote": "Confirmed current. SAAR is a natural-wine cafe-restaurant in Utrecht (Catharijnesingel), co-owned by Sandra and Ramon (partner Ramon cooks; Sandra runs front-of-house). The live site lists Sandra first among those who 'serve the wines' and the venue is built around vin nature / biodynamic and natural wines, matching the 'co-owner, wijnverantwoordelijke, no formal sommelier title' description. Note: venue is in Utrecht, not Amsterdam. Sources: en.saar-utrecht.nl, duic.nl, exploreutrecht.nl."
+        }
+      ],
+      "instagram": "https://www.instagram.com/cafe.saar/",
+      "facebook": "https://www.facebook.com/saar.utrecht/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Cafe-restaurant on Catharijnesingel, Utrecht (since 2018). Explicitly a natural-wine venue ('GOOD FOOD & NATURAL WINES', love for 'onbewerkte, wilde wijnen'; suppliers Vinatura, Wilde Wijnen, Clavelin, Zuiver wijnen). Owners are Sandra and Ramon; Sandra handles the wine. No named chef-sommelier; wine service is shared across the floor team, so I did not assert a formal sommelier beyond Sandra as the wine-responsible co-owner.",
+      "sources": [
+        "https://www.saar-utrecht.nl/",
+        "https://en.saar-utrecht.nl/",
+        "https://www.duic.nl/horeca/nieuw-cafe-saar-aan-de-catharijnesingel-opent-de-deuren/",
+        "https://beaufood.nl/saar-utrecht-top-eten-natuurwijnen-en-gezellige-huiskamersfeer/"
+      ]
+    },
+    {
+      "name": "Satiata",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/satiata.tilburg/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant, bar and adjoining natural-wine shop (Satiata Wine & Liquor, @satiatastore) at Piushaven 5, Tilburg. Run by two hosts named Mattijs and Midas, who personally handle the wine and pairings; no one is publicly titled 'sommelier'/'wine director', so the sommelier list is left empty. Explicitly a natural-wine venue.",
+      "sources": [
+        "https://www.satiatarestaurant.nl/",
+        "https://www.raisin.digital/en/explore/netherlands/north-brabant/venues/satiata-23669/",
+        "https://www.instagram.com/satiata.tilburg/",
+        "https://wanderlog.com/place/details/13320637/satiata"
+      ]
+    },
+    {
+      "name": "Schout bij nacht",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/schout_bij_nacht_/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Restaurant & bar in the Jordaan (Westerstraat 76-78), opened end of May 2025; becomes a music/vinyl bar in the evening. Wine list explicitly features natural and biodynamic wines, mostly Old World. No individual sommelier/wine director publicly named.",
+      "sources": [
+        "https://www.schout-bij-nacht.com/",
+        "https://www.instagram.com/schout_bij_nacht_/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "Sec Marché",
+      "sommeliers": [
+        {
+          "name": "Freek Kattenberg",
+          "role": "Eigenaar / wijnverantwoordelijke (natuurwijn-specialist)",
+          "verified": true,
+          "verifyNote": "Company.info / KVK registration (86251112) for Sec Marché in Hattem lists 'Kattenberg, F.' as management since 2022. Press (Drimble/Trouw, 2022) describes Freek Kattenberg (then 24, from Zwolle) as the founder and natural-wine specialist who opened Sec's natural-wine shop in Hattem, matching the 'Eigenaar / wijnverantwoordelijke (natuurwijn-specialist)' role. Note: Sec Marché is based in Hattem (Ridderstraat 13), not Amsterdam, though partner/pour-out venues exist in Amsterdam. No source found indicating he has left; the strongest corroboration (KVK listing) is undated as to present status, so treat as current-but-not-freshly-reconfirmed."
+        }
+      ],
+      "instagram": null,
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "rebranded",
+      "notes": "Natural-wine shop with tasting cellar at Ridderstraat 13, Hattem (300+ wines, focus on natural wine, plus cheese/charcuterie). Owner Freek Kattenberg curates and presents the wines — corroborated by a Drimble/regional news feature and the Sec Wines site. Original listed domain sec-utrecht.nl is now a casino/parked site; the live domain is secwines.nl (contact marche@secwines.nl), so status flagged as rebranded/domain-changed. No verified venue-specific Instagram/Facebook found (left null).",
+      "sources": [
+        "https://www.secwines.nl/",
+        "https://drimble.nl/regio/gelderland/noord-veluwe/85652750/in-deze-winkel-laat-freek-24-mensen-kennismaken-met-natuurwijn-dit-is-zeker-geen-trend.html",
+        "https://www.bartsboekje.com/en/natuurwijn-hattem/",
+        "https://www.raisin.digital/en/sec-marche-15172/"
+      ]
+    },
+    {
+      "name": "September",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/september.amsterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam venue: small owner-run winebar/restaurant at Baffinstraat 1 (De Baarsjes), in the former Wijnhuis Somm building. Run by three friends Matthew, Lizzy and Valentijn; seasonal French-influenced menu, ~1/3 of wines natural, biodynamic produce. IG bio: 'big plates, small menu & (natural) wines'. No named sommelier (owner-run), so sommeliers left empty. No own Facebook page found. (This is the Amsterdam September, distinct from September in The Hague.)",
+      "sources": [
+        "https://septemberamsterdam.nl/",
+        "https://www.debuik.nl/amsterdam/restaurant/september",
+        "https://www.dewestkrant.nl/met-september-heeft-de-baarsjes-er-een-droomrestaurant-bij/",
+        "https://www.instagram.com/september.amsterdam/"
+      ]
+    },
+    {
+      "name": "September",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/septembergrotemarkt/",
+      "facebook": "https://www.facebook.com/septembergrotemarkt/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Wine, Jazz & Food bar on the Grote Markt, The Hague; wine list of 100+ wines, tapas by chefs Dave & Bobby, weekly live jazz. No sommelier or wine buyer is publicly named. No explicit natural-wine statement found on the reachable pages (wine-list page not accessible).",
+      "sources": [
+        "https://september.nl/",
+        "https://september.nl/en/menukaart/",
+        "https://www.instagram.com/septembergrotemarkt/",
+        "https://www.facebook.com/septembergrotemarkt/"
+      ]
+    },
+    {
+      "name": "SILK",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/silk_ams/",
+      "facebook": "https://www.facebook.com/p/Silk-Amsterdam-61576572852151/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Modern Asian restaurant & bar in Amsterdam Oud-West (Bilderdijkstraat) serving natural wines and cocktails. From Limau Chen and Paolo Manzo (Salvo Bakehouse). No dedicated sommelier/wine director publicly named, so left empty.",
+      "sources": [
+        "https://www.silk-amsterdam.nl/",
+        "https://www.instagram.com/silk_ams/",
+        "https://www.facebook.com/p/Silk-Amsterdam-61576572852151/"
+      ]
+    },
+    {
+      "name": "Sip First",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/sip.first/",
+      "facebook": "https://www.facebook.com/sipfirstbreda/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Breda brewbar & kitchen (St. Janstraat 24), primarily a specialty-coffee/brunch venue; Raisin lists a selection of natural wines. Owned by Teun and Inge Fransen (owners, not described as sommeliers), so no sommelier named. Second Instagram @sip.firstfloor is an events space.",
+      "sources": [
+        "https://www.sipfirst.nl/",
+        "https://www.raisin.digital/en/explore/netherlands/north-brabant/venues/sip-first-27901/",
+        "https://www.instagram.com/sip.first/",
+        "https://www.facebook.com/sipfirstbreda/",
+        "https://thecoffeevine.com/reviews/cafes/thenetherlands/breda/sip-first-breda/"
+      ]
+    },
+    {
+      "name": "Skatecafe",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/skatecafeamsterdam/",
+      "facebook": "https://www.facebook.com/skatecafeamsterdam/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam-Noord bistro/bar with skate ramp, run by Karin & Yvonne. Serves seasonal food and natural/organic wines (listed among Amsterdam natural-wine spots). No sommelier or wine director is publicly named on the site or in press; owners Karin & Yvonne are named but not as sommeliers, so sommeliers left empty rather than invented.",
+      "sources": [
+        "https://www.skatecafe.nl/",
+        "https://www.instagram.com/skatecafeamsterdam/",
+        "https://www.facebook.com/skatecafeamsterdam/",
+        "https://www.amsterdamnow.com/en/restaurants/skatecafe-restaurant-seasonal-cuisine-nature-wine/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    },
+    {
+      "name": "Stiel",
+      "sommeliers": [
+        {
+          "name": "Wendy Persoon",
+          "role": "Sommelier / restaurant manager (co-founder)",
+          "verified": true,
+          "verifyNote": "Confirmed as sommelier/gastvrouw and co-owner of Stiel (Rotterdam), alongside chef/co-owner Mattia Sabino Caso; formerly sommelier at Restaurant Renilde. Venue is active but currently renovating/moving to a new location in Crooswijk (with a temporary Oogstmarkt presence on Saturdays from Aug 1), so the physical restaurant is in transition though her role stands."
+        }
+      ],
+      "instagram": "https://www.instagram.com/stiel_rotterdam",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Rotterdam restaurant (Station Bergweg) opened by chef Mattia Caso and sommelier/restaurant manager Wendy Persoon; she selects the wines (mainly Germany/France, small responsible producers), natural and artisanal. Wendy Persoon is former sommelier/manager of Restaurant Renilde. JSON had website:null; actual site is https://stielrestaurant.nl/. No Facebook found.",
+      "sources": [
+        "https://www.uitagendarotterdam.nl/alle-artikelen/stiel-opent-een-intiem-pop-up-restaurant-in-station-bergweg/",
+        "https://www.raisin.digital/en/stiel-27592/",
+        "https://stielrestaurant.nl/",
+        "https://www.stationbergweg.nl/stiel"
+      ]
+    },
+    {
+      "name": "TestTafel",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/testtafel",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam restaurant; own website offers 'low-intervention and natural wines' as pairings. No sommelier or wine director named on the site, Instagram bio, or press, so left empty. No Facebook page found; also on TikTok @desering.testtafel.",
+      "sources": [
+        "https://testtafel.nl/",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/testtafel-28193/"
+      ]
+    },
+    {
+      "name": "The Green Rose",
+      "sommeliers": [
+        {
+          "name": "Jin Hu",
+          "role": "Chef-owner; started his career as a sommelier and curates the wine program (biodynamic and natural wines).",
+          "verified": true,
+          "verifyNote": "Confirmed current. Jin Hu is chef-owner of The Green Rose in Arnhem (still operating, on 2026 Michelin/Gault&Millau guides; site shows 'HOME 2026'). Multiple sources (Misset Horeca opening piece, Wijnspijs) state he began his career as a sommelier and prioritises fine/natural and biodynamic wines on the menu, so he curates the wine program. Sources: thegreenrose.nl, missethoreca.nl, wijnspijs.nl, guide.michelin.com."
+        }
+      ],
+      "instagram": "https://www.instagram.com/thegreenrose_arnhem/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Cafe-bistro on Koningstraat, Arnhem, opened by Jin Hu (2018). Multiple sources note Jin Hu began as a sommelier before cooking; the wine program features classic, organic, biodynamic and natural wines (including some without sulfites). No separate named sommelier; the wine responsibility sits with chef-owner Jin Hu.",
+      "sources": [
+        "http://www.thegreenrose.nl/",
+        "https://www.missethoreca.nl/309181/jin-hu-opent-cafe-bistro-the-green-rose-in-arnhem",
+        "https://intoarnhem.nl/verhaal/the-green-rose/",
+        "https://www.gault-millau.nl/en/restaurants/the-green-rose-arnhem"
+      ]
+    },
+    {
+      "name": "The Meets",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/themeetsrestaurant/",
+      "facebook": "https://www.facebook.com/The-Meets-912591685473616/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Vegetarian/vegan Italian-influenced restaurant in Amsterdam's Indische Buurt (Javastraat). Works with natural wines (confirmed via Star Wine List and venue IG). No sommelier or wine director publicly named, so sommeliers left empty.",
+      "sources": [
+        "https://www.themeets.nl/",
+        "https://www.instagram.com/themeetsrestaurant/",
+        "https://starwinelist.com/wine-guide/top-wine-bars-in-amsterdam",
+        "https://www.facebook.com/The-Meets-912591685473616/"
+      ]
+    },
+    {
+      "name": "Turbo Amsterdam",
+      "sommeliers": [
+        {
+          "name": "Thiago De Sena",
+          "role": "Sommelier / co-owner (wine curation) — single-source, treat as unconfirmed",
+          "verified": false,
+          "verifyNote": "Could not confirm Thiago De Sena as sommelier/co-owner at Turbo specifically. A local source (oosterpark.nl) identifies him as sommelier AND co-owner of De Tros, the sister venue — but the same source lists Bar Turbo's owners as Floris Baltes, Pierre de Wit, Henty van Holthe, Mats van der Sluijs and Bart Hendriks, WITHOUT Thiago De Sena. Turbo's own website (turboamsterdam.nl) names no sommelier or wine curator at all. His confirmed role is at De Tros, not Turbo. No confirmed current Turbo sommelier found. Note: Turbo and De Tros share ownership but the Turbo-specific wine attribution to De Sena is unverified (matches the single-source caveat in the input)."
+        }
+      ],
+      "instagram": "https://www.instagram.com/turbo.amsterdam/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Coffee spot / snack bar serving brunch, dinner, specialty coffee and natural wine (stated on own site) at Reinwardtstraat 1, Amsterdam Oost. From the Café de Tros team (Floris Baltes and co-owners). One source (Oosterpark BIZ article) names Thiago De Sena as sommelier and co-owner curating the wine list; only a single source, so treat as unconfirmed. No Facebook page found.",
+      "sources": [
+        "https://www.turboamsterdam.nl/",
+        "https://www.instagram.com/turbo.amsterdam/",
+        "https://oosterpark.nl/en/buurtcafedetros_barturbo/"
+      ]
+    },
+    {
+      "name": "V&A Bar Bistro",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/vabarbistro/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "French bistro in the Jordaan (Prinsengracht 274), formerly 'Venus & Adonis'; venusenadonis.nl now redirects to vabarbistro.nl. Owner is Joyce Lieven. 80+ wine list with natural wines from their 'Vleck' collection. A Tripadvisor review names a 'Tim' as sommelier, but this is not corroborated by the venue or a second source, so sommeliers left empty. IG @vabarbistro; no venue Facebook page confirmed.",
+      "sources": [
+        "https://www.vabarbistro.nl/",
+        "https://www.venusenadonis.nl/en/about-english/",
+        "https://www.bartsboekje.com/en/venus-adonis-amsterdam/",
+        "https://www.raisin.digital/en/venus-adonis-14707/"
+      ]
+    },
+    {
+      "name": "Vert restaurant",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/vert.restaurant/",
+      "facebook": "https://www.facebook.com/vertrestaurant/",
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Middelburg. Run by owners Richard & Julia. Wines are biodynamic/naturally made (unfiltered, natural fermentation, no additives). Sommelier advice/wine pairings offered but no individual sommelier is publicly named, so left empty rather than invent one.",
+      "sources": [
+        "http://www.vertrestaurant.nl/",
+        "https://jouwzaken.nl/vert-middelburg-een-culinaire-ervaring-om-nooit-te-vergeten/",
+        "https://www.uitinmiddelburg.nl/en/eten-en-drinken/vert-restaurant"
+      ]
+    },
+    {
+      "name": "Villa Augustus",
+      "sommeliers": [],
+      "instagram": null,
+      "facebook": "https://www.facebook.com/augustus.villa/",
+      "naturalWine": "unknown",
+      "status": "open",
+      "notes": "Hotel and garden-to-table restaurant in a former water tower, Dordrecht. No sommelier or wine-director is publicly named. Wine list is modest and by-the-glass; some natural wines appear (white/orange from Vignoble Klur, Alsace) but there is no explicit natural-wine positioning, so naturalWine set to unknown. Site returned HTTP 403 to automated fetch; findings from web search and Facebook.",
+      "sources": [
+        "https://www.villa-augustus.nl/en/restaurant/",
+        "https://www.facebook.com/augustus.villa/"
+      ]
+    },
+    {
+      "name": "VRR",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/vrr.rest/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Amsterdam-Oost (Conradstraat). Bakery-by-day / restaurant-by-dinner concept (VRR = 'Voorheen Rosa en Rita'), owned by Sander Overeinder. Wine program is explicitly 'biodynamisch en vooral natuurwijnen' from France, Italy and Germany, with a self-serve wine room. No sommelier / wine director is publicly named on the site or in press, so sommeliers left empty. Open for dinner Tue-Sat from 18:00.",
+      "sources": [
+        "https://vrr.rest/",
+        "https://oost-online.nl/van-brood-in-de-ochtend-tot-diner-in-de-avond-bij-restaurant-vrr-en-stadsbakkerij-as/",
+        "https://www.raisin.digital/en/explore/netherlands/north-holland/venues/vrr-13023/"
+      ]
+    },
+    {
+      "name": "Zomer loket",
+      "sommeliers": [],
+      "instagram": "https://www.instagram.com/zomer.loket/",
+      "facebook": null,
+      "naturalWine": "yes",
+      "status": "open",
+      "notes": "Seasonal natural-wine pop-up bar run by Amsterdam natural-wine importer/collective Sebonsa (@sebonsa.ams), relocated in May 2025 to the Marineterrein (near Scheepskameel). It is a bar rather than a full restaurant, so no individual sommelier/wine director is publicly named; the wine program is curated by Sebonsa. Explicitly a natural-wine venue. Note it operates seasonally (roughly Thu-Sun in summer).",
+      "sources": [
+        "https://www.instagram.com/zomer.loket/",
+        "https://www.sebonsa.com/",
+        "https://www.yourlittleblackbook.me/en/zomer-loket-amsterdam/",
+        "https://www.iamsterdam.com/en/see-and-do/restaurant-and-bars/best-restaurants-for-natural-wine"
+      ]
+    }
+  ]
+}

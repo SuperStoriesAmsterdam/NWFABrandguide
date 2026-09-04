@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italiaanse natuurwijn — Uitgeefdossier · Josje van Oostrom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=Henny+Penny&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux-deep:#3A0E16; --bordeaux:#5A1722; --wine:#7E2433;
+    --amber:#C8772E; --terracotta:#A8492A; --gold:#C39A4E;
+    --cream:#F8F2E6; --parchment:#F0E7D5; --ink:#231A16; --muted:#7C6B5C; --line:#E1D5C0;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.5;overflow-x:hidden}
+  ::selection{background:var(--amber);color:#fff}
+  a{color:inherit}
+  .wrap{max-width:1152px;margin:0 auto;padding:0 24px;width:100%}
+  @media(min-width:640px){.wrap{padding:0 40px}}
+  .serif{font-family:var(--serif)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Eyebrow */
+  .eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+  .eyebrow .n{color:var(--gold);font-family:var(--serif);font-size:1.125rem;font-weight:600}
+  .eyebrow .ln{height:1px;width:48px;background:var(--line)}
+  .eyebrow .lb{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;color:var(--muted)}
+  .dark .eyebrow .ln{background:rgba(248,242,230,.28)}
+  .dark .eyebrow .lb{color:rgba(248,242,230,.72)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bordeaux-deep) 92%, transparent);border-bottom:1px solid rgba(201,154,78,.25);backdrop-filter:blur(6px)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+  header .logo{display:flex;flex-direction:column;line-height:1.05}
+  header .logo .name{font-family:'Henny Penny',cursive;color:var(--cream);font-size:1.35rem;letter-spacing:.01em}
+  header .logo .sub{font-family:'Cinzel',serif;color:rgba(248,242,230,.75);font-size:.56rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;margin-top:3px}
+  header .tag{color:rgba(248,242,230,.6);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em}
+  @media(max-width:639px){header .tag{display:none}}
+
+  section{padding:80px 0}
+  @media(min-width:640px){section{padding:112px 0}}
+  h2.head{font-family:var(--serif);font-weight:500;font-size:1.875rem;line-height:1.15;max-width:48rem}
+  @media(min-width:640px){h2.head{font-size:2.25rem}}
+
+  /* Hero */
+  .hero{position:relative;color:var(--cream);background:radial-gradient(120% 90% at 80% 0%, var(--bordeaux) 0%, var(--bordeaux-deep) 60%)}
+  .hero .wrap{position:relative;padding-top:96px;padding-bottom:96px}
+  @media(min-width:640px){.hero .wrap{padding-top:128px;padding-bottom:128px}}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:3rem;line-height:.98;max-width:56rem}
+  @media(min-width:640px){.hero h1{font-size:4.5rem}}
+  .hero .lead{margin-top:32px;max-width:42rem;font-size:1.125rem;color:rgba(248,242,230,.82)}
+  @media(min-width:640px){.hero .lead{font-size:1.25rem}}
+  .hero .meta{margin-top:48px;padding-top:28px;border-top:1px solid rgba(201,154,78,.3);display:flex;flex-wrap:wrap;gap:16px 48px}
+  .hero .meta .big{font-family:var(--serif);color:var(--amber);font-size:1.5rem}
+  .hero .meta .sm{color:rgba(248,242,230,.6);font-size:.875rem}
+  .amphora-bg{position:absolute;pointer-events:none}
+
+  /* Stat cards */
+  .grid{display:grid;gap:24px}
+  .g3{grid-template-columns:1fr}
+  @media(min-width:640px){.g3{grid-template-columns:repeat(3,1fr)}}
+  .card{border-radius:16px;padding:32px;height:100%}
+  .stat{font-family:var(--serif);font-weight:500;font-size:3rem;line-height:1}
+  @media(min-width:640px){.stat{font-size:3.75rem}}
+  .stat-lab{margin-top:16px;font-size:.875rem;line-height:1.6}
+
+  /* Section 02 */
+  .two{display:grid;gap:48px;align-items:center}
+  @media(min-width:1024px){.two{grid-template-columns:1fr 1fr}}
+  .mini-grid{display:grid;gap:20px}
+  @media(min-width:640px){.mini-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:1024px){.mini-grid{grid-template-columns:1fr}}
+  .mini{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .mini .v{font-family:var(--serif);font-weight:500;color:var(--wine);font-size:2.25rem;line-height:1}
+  @media(min-width:640px){.mini .v{font-size:3rem}}
+  .mini .l{margin-top:12px;font-size:.875rem;color:var(--muted)}
+
+  /* Markets */
+  .g3m{display:grid;gap:24px}
+  @media(min-width:768px){.g3m{grid-template-columns:repeat(3,1fr)}}
+  .mk{display:flex;flex-direction:column;height:100%;border-radius:16px;padding:32px;background:rgba(248,242,230,.05);border:1px solid rgba(201,154,78,.25)}
+  .mk .sub{color:var(--gold);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em}
+  .mk h3{font-family:var(--serif);font-weight:500;color:var(--cream);margin-top:8px;font-size:1.5rem}
+  .mk .stats{margin-top:24px;padding-top:20px;border-top:1px solid rgba(201,154,78,.2);display:flex;flex-direction:column;gap:16px}
+  .mk .stats .v{font-family:var(--serif);color:var(--amber);font-size:1.5rem}
+  .mk .stats .l{color:rgba(248,242,230,.66);font-size:.75rem}
+
+  /* Table */
+  .tbl-wrap{margin-top:48px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;text-align:left;font-size:.875rem}
+  thead tr{border-bottom:2px solid var(--wine)}
+  th{padding:16px;font-weight:500}
+  th.author{font-family:var(--serif);color:var(--wine);font-size:1.05rem}
+  th.minor{color:var(--muted)}
+  tbody tr{border-bottom:1px solid var(--line)}
+  td{padding:16px}
+  td.crit{font-weight:500;color:var(--ink);padding-left:0}
+  td.you{background:rgba(200,119,46,.08);color:var(--ink);font-weight:500}
+  td.other{color:var(--muted)}
+
+  /* Author */
+  .auth-grid{display:grid;gap:48px}
+  @media(min-width:1024px){.auth-grid{grid-template-columns:1fr 1fr}}
+  .auth-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .acard{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:24px;height:100%}
+  .acard .v{font-family:var(--serif);font-weight:500;color:var(--wine);font-size:1.875rem}
+  .acard .l{margin-top:8px;font-size:.875rem;line-height:1.35;color:var(--muted)}
+  p.body{color:var(--muted);font-size:1rem;line-height:1.7}
+  p.body strong{color:var(--ink)}
+
+  /* Themes */
+  .g2{display:grid;gap:24px}
+  @media(min-width:640px){.g2{grid-template-columns:repeat(2,1fr)}}
+  .theme{display:flex;gap:20px;height:100%;background:var(--cream);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:16px;padding:28px}
+  .theme h3{font-family:var(--serif);font-weight:500;color:var(--wine);font-size:1.25rem}
+  .theme p{margin-top:8px;font-size:.875rem;line-height:1.6;color:var(--muted)}
+  .theme svg{flex-shrink:0;margin-top:2px}
+
+  /* Reach */
+  .reach{margin-top:48px;border:1px solid rgba(201,154,78,.25);border-radius:16px;overflow:hidden}
+  .reach .row{background:rgba(248,242,230,.04);padding:28px;display:grid;gap:16px;border-bottom:1px solid rgba(201,154,78,.12)}
+  .reach .row:last-child{border-bottom:none}
+  @media(min-width:640px){.reach .row{grid-template-columns:repeat(12,1fr);align-items:baseline}}
+  .reach .k{color:var(--gold);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em}
+  .reach .t{font-family:var(--serif);font-weight:500;color:var(--cream);font-size:1.125rem}
+  .reach .d{color:rgba(248,242,230,.72);font-size:.875rem;line-height:1.6}
+  @media(min-width:640px){.reach .k{grid-column:span 3}.reach .t{grid-column:span 3}.reach .d{grid-column:span 6}}
+
+  /* Dark sections */
+  .dark{color:var(--cream)}
+  .sec-kruispunt{background:linear-gradient(180deg,var(--bordeaux) 0%,var(--bordeaux-deep) 100%)}
+  .sec-slag{background:linear-gradient(180deg,var(--bordeaux) 0%,var(--bordeaux-deep) 100%)}
+  .sec-parchment{background:var(--parchment)}
+
+  /* Closing */
+  .close{position:relative;background:var(--bordeaux-deep);color:var(--cream);padding:112px 0}
+  @media(min-width:640px){.close{padding:144px 0}}
+  .close .kicker{color:var(--gold);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em}
+  .close h2{font-family:var(--serif);font-weight:500;line-height:1.05;margin-top:28px;max-width:60rem;font-size:2.25rem}
+  @media(min-width:640px){.close h2{font-size:3.75rem}}
+  .close .lead{margin-top:32px;max-width:42rem;font-size:1.125rem;color:rgba(248,242,230,.82)}
+  .close .meta{margin-top:56px;padding-top:32px;border-top:1px solid rgba(201,154,78,.3);display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px 48px}
+  .close .meta .big{font-family:var(--serif);color:var(--amber);font-size:1.5rem}
+  .close .meta .sm{color:rgba(248,242,230,.62);font-size:.875rem}
+
+  footer{background:var(--bordeaux-deep);color:rgba(248,242,230,.4);border-top:1px solid rgba(201,154,78,.15);padding:32px 0;text-align:center;font-size:.75rem}
+
+  /* Kleurkiezer (review tool — verwijderen vóór finale productie) */
+  .theme-ui{position:fixed;left:20px;bottom:20px;z-index:1000;font-family:var(--sans)}
+  .theme-fab{display:flex;align-items:center;gap:9px;background:var(--bordeaux-deep);color:var(--cream);border:1px solid rgba(201,154,78,.4);border-radius:999px;padding:10px 16px;cursor:pointer;font-size:.8rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+  .theme-fab .sw{width:14px;height:14px;border-radius:50%;background:var(--bordeaux);border:1px solid var(--gold)}
+  .theme-panel{display:none;position:absolute;left:0;bottom:54px;width:264px;background:var(--cream);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 14px 44px rgba(35,26,22,.3)}
+  .theme-ui.open .theme-panel{display:block}
+  .theme-panel h4{font-family:var(--serif);font-weight:500;font-size:1.05rem;margin-bottom:4px;color:var(--wine)}
+  .theme-panel .hint{font-size:.72rem;color:var(--muted);margin-bottom:14px;line-height:1.45}
+  .theme-swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+  .theme-swatch{cursor:pointer;border:2px solid transparent;border-radius:10px;padding:2px;background:none}
+  .theme-swatch .chip{height:38px;border-radius:7px}
+  .theme-swatch .nm{display:block;font-size:.62rem;font-weight:600;color:var(--muted);margin-top:5px;text-align:center;letter-spacing:.02em}
+  .theme-swatch.active{border-color:var(--gold)}
+  .theme-swatch:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .theme-custom{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .theme-custom label{font-size:.75rem;font-weight:600;color:var(--ink)}
+  .theme-custom input[type=color]{width:40px;height:32px;border:1px solid var(--line);border-radius:8px;background:none;cursor:pointer;padding:2px}
+  .theme-custom .hex{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:auto}
+  .theme-reset{margin-top:12px;background:none;border:none;color:var(--wine);font-size:.72rem;font-weight:600;cursor:pointer;text-decoration:underline;padding:0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo"><span class="name">Divino Natura</span><span class="sub">Italiaanse wijn, natuurlijk!</span></div>
+    <span class="tag">Uitgeefdossier</span>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <svg class="amphora-bg" width="340" height="510" viewBox="0 0 64 96" fill="none" style="right:-40px;top:10%">
+    <path d="M25 7h14" stroke="rgba(201,154,78,.12)" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M27 8c0 6-3 9-3 13M37 8c0 6 3 9 3 13" stroke="rgba(201,154,78,.12)" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M24 21C11 29 9 48 17 64c4 13 8 21 15 23 7-2 11-10 15-23 8-16 6-35-7-43" stroke="rgba(201,154,78,.12)" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M24 25c-9 0-13 11-8 17M40 25c9 0 13 11 8 17" stroke="rgba(201,154,78,.12)" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap">
+    <div class="reveal eyebrow dark"><span class="ln"></span><span class="lb">Italiaanse natuurwijn · het dossier</span></div>
+    <h1 class="reveal" style="transition-delay:.08s">De markt beweegt.<br><span style="color:var(--amber)">Het boek bestaat nog niet.</span></h1>
+    <p class="reveal lead" style="transition-delay:.16s">Er is geen boek over Italiaanse natuurwijn — niet in het Nederlands, niet in het Engels. En er is in Nederland precies één auteur met zowel de kwalificaties als de kilometers om het te schrijven.</p>
+    <div class="reveal meta" style="transition-delay:.24s">
+      <div><div class="big">Josje van Oostrom</div><div class="sm">Italiaans sommelier · Divino Natura</div></div>
+      <div><div class="big">Manuscript gereed</div><div class="sm">~90.000 woorden · negen thema's</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 De verschuiving -->
+<section>
+  <div class="wrap">
+    <div class="reveal eyebrow"><span class="n">01</span><span class="ln"></span><span class="lb">De verschuiving</span></div>
+    <h2 class="reveal head" style="transition-delay:.06s">Terwijl conventionele wijn terrein verliest, groeit natuurwijn structureel.</h2>
+    <div class="grid g3" style="margin-top:56px">
+      <div class="reveal card" style="background:var(--parchment)">
+        <div class="stat" data-count="9" data-prefix="–" data-suffix="%" style="color:var(--terracotta)">–0%</div>
+        <p class="stat-lab" style="color:var(--muted)">Wereldwijde consumptie conventionele wijn (OIV)</p>
+      </div>
+      <div class="reveal card dark" style="background:var(--bordeaux);transition-delay:.09s">
+        <div class="stat" data-count="60" data-prefix="+" data-suffix="%" style="color:var(--amber)">+0%</div>
+        <p class="stat-lab" style="color:rgba(248,242,230,.78)">Natuurwijnlocaties wereldwijd, 2021 → 2024</p>
+      </div>
+      <div class="reveal card dark" style="background:var(--bordeaux);transition-delay:.18s">
+        <div class="stat" data-count="8000" data-suffix="+" style="color:var(--amber)">0+</div>
+        <p class="stat-lab" style="color:rgba(248,242,230,.78)">Locaties wereldwijd in 2025 (horeca &amp; retail)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 Nederland -->
+<section class="sec-parchment">
+  <div class="wrap">
+    <div class="reveal eyebrow"><span class="n">02</span><span class="ln"></span><span class="lb">Nederland — koploper</span></div>
+    <div class="two">
+      <div class="reveal">
+        <h2 class="head">Nederland behoort — samen met Italië — tot de snelste stijgers ter wereld.</h2>
+        <p class="body" style="margin-top:24px">Het natuurwijnpubliek concentreert zich in stedelijke hubs en wordt gedreven door millennials en Gen Z: een loyale, premium doelgroep die bewust meer betaalt per fles. Precies waar conventionele wijnboeken terrein verliezen, opent zich de markt van de bewuste consument die het échte verhaal achter de fles zoekt.</p>
+      </div>
+      <div class="mini-grid">
+        <div class="reveal mini"><div class="v" data-count="1276.9" data-dec="1" data-prefix="+" data-suffix="%">+0%</div><p class="l">Groei natuurwijnlocaties NL, 2016 → 2024</p></div>
+        <div class="reveal mini" style="transition-delay:.09s"><div class="v" data-count="33.83" data-dec="2" data-suffix="%">0%</div><p class="l">Samengestelde jaarlijkse groei (CAGR)</p></div>
+        <div class="reveal mini" style="transition-delay:.18s"><div class="v" data-count="190" data-suffix="+">0+</div><p class="l">Geregistreerde locaties in Nederland</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Het kruispunt -->
+<section class="sec-kruispunt dark">
+  <div class="wrap">
+    <div class="reveal eyebrow dark"><span class="n">03</span><span class="ln"></span><span class="lb">Het kruispunt</span></div>
+    <h2 class="reveal head" style="color:var(--cream);transition-delay:.06s">Dit boek staat op het snijpunt van drie uiterst actieve markten.</h2>
+    <div class="g3m" style="margin-top:56px" id="markets"></div>
+  </div>
+</section>
+
+<!-- 04 Het gat -->
+<section>
+  <div class="wrap">
+    <div class="reveal eyebrow"><span class="n">04</span><span class="ln"></span><span class="lb">Het gat in de markt</span></div>
+    <h2 class="reveal head" style="transition-delay:.06s">Er is wel ínteresse, maar geen autoriteit. Tot nu toe.</h2>
+    <div class="reveal tbl-wrap" style="transition-delay:.12s">
+      <table>
+        <thead>
+          <tr>
+            <th class="minor"></th>
+            <th class="author">Josje van Oostrom</th>
+            <th class="minor">NL · 2021</th>
+            <th class="minor">BE</th>
+          </tr>
+        </thead>
+        <tbody id="compare"></tbody>
+      </table>
+    </div>
+    <p class="reveal body" style="margin-top:24px;max-width:48rem;font-size:.875rem;transition-delay:.16s">De bestaande titels zijn algemeen, consumentgericht of behandelen meerdere landen door elkaar. Geen ervan is gebouwd op jaren reizen, wonen en proeven in Italië zelf.</p>
+  </div>
+</section>
+
+<!-- 05 De auteur -->
+<section class="sec-parchment">
+  <div class="wrap">
+    <div class="reveal eyebrow"><span class="n">05</span><span class="ln"></span><span class="lb">De auteur</span></div>
+    <div class="auth-grid">
+      <div class="reveal">
+        <h2 class="head">De enige in Nederland met zowel de internationale titels als de geleefde ervaring.</h2>
+        <p class="body" style="margin-top:24px">Josje is als enige in Nederland zowel <strong>Italian Wine Ambassador</strong> (de prestigieuze opleiding van Vinitaly, waarvoor weinigen de eerste keer slagen) als <strong>Italian Wine Scholar met highest honours</strong>. Ze reisde heel Italië door, bezocht alle wijngebieden en honderden wijnmakers, en raakte onderweg bekeerd tot de natuurwijn.</p>
+        <p class="body" style="margin-top:16px">Daarna woonde ze vier jaar in Italië, bezocht de natuurwijnbeurzen en proefde duizenden natuurwijnen. In Nederland verzorgt ze masterclasses, lezingen, cursussen, wijnreizen en events.</p>
+      </div>
+      <div class="auth-cards" id="authcards"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 De thema's -->
+<section>
+  <div class="wrap">
+    <div class="reveal eyebrow"><span class="n">06</span><span class="ln"></span><span class="lb">Thema's die internationaal in trek zijn</span></div>
+    <h2 class="reveal head" style="transition-delay:.06s">Niet de hele wijnkaart — maar precies de onderwerpen waar de wijnwereld nú naar kijkt.</h2>
+    <div class="g2" style="margin-top:56px" id="themes"></div>
+  </div>
+</section>
+
+<!-- 07 De slagkracht -->
+<section class="sec-slag dark">
+  <div class="wrap">
+    <div class="reveal eyebrow dark"><span class="n">07</span><span class="ln"></span><span class="lb">De slagkracht — netwerk &amp; afzet</span></div>
+    <h2 class="reveal head" style="color:var(--cream);transition-delay:.06s">Het boek komt niet koud op de markt — het komt binnen via warme kanalen.</h2>
+    <div class="reach" id="reach"></div>
+  </div>
+</section>
+
+<!-- Slot -->
+<section class="close">
+  <svg class="amphora-bg" width="300" height="450" viewBox="0 0 64 96" fill="none" style="left:-30px;bottom:0">
+    <path d="M25 7h14" stroke="rgba(201,154,78,.10)" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M27 8c0 6-3 9-3 13M37 8c0 6 3 9 3 13" stroke="rgba(201,154,78,.10)" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M24 21C11 29 9 48 17 64c4 13 8 21 15 23 7-2 11-10 15-23 8-16 6-35-7-43" stroke="rgba(201,154,78,.10)" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M24 25c-9 0-13 11-8 17M40 25c9 0 13 11 8 17" stroke="rgba(201,154,78,.10)" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>
+  <div class="wrap" style="position:relative">
+    <p class="reveal kicker">De vraag</p>
+    <h2 class="reveal" style="transition-delay:.08s">Op welk moment wordt het voor u interessant om een boek over Italiaanse natuurwijn uit te geven?</h2>
+    <p class="reveal lead" style="transition-delay:.16s">De markt is er. De expertise is er. Een compleet manuscript ligt klaar. De vorm — omvang, opzet, uitvoering — ontwerpen we graag samen.</p>
+    <div class="reveal meta" style="transition-delay:.24s">
+      <div><div class="big">Josje van Oostrom</div><div class="sm">Divino Natura · Wijk bij Duurstede</div></div>
+      <a href="mailto:divinonatura@gmail.com" class="sm" style="text-decoration:underline;text-underline-offset:4px">divinonatura@gmail.com</a>
+      <span class="sm">06 – 24 15 76 88</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Uitgeefdossier · Italiaanse natuurwijn · Cijfers o.b.v. OIV en Raisin-marktrapport 2025</div>
+</footer>
+
+<script>
+  function amphora(size,color){
+    return '<svg width="'+size+'" height="'+(size)+'" viewBox="0 0 64 96" fill="none">'
+    +'<path d="M25 7h14" stroke="'+color+'" stroke-width="1.4" stroke-linecap="round"/>'
+    +'<path d="M27 8c0 6-3 9-3 13M37 8c0 6 3 9 3 13" stroke="'+color+'" stroke-width="1.4" stroke-linecap="round"/>'
+    +'<path d="M24 21C11 29 9 48 17 64c4 13 8 21 15 23 7-2 11-10 15-23 8-16 6-35-7-43" stroke="'+color+'" stroke-width="1.4" stroke-linejoin="round"/>'
+    +'<path d="M24 25c-9 0-13 11-8 17M40 25c9 0 13 11 8 17" stroke="'+color+'" stroke-width="1.4" stroke-linecap="round"/></svg>';
+  }
+
+  // Markets
+  var MARKETS=[
+    {title:"Natuur- & biowijn",sub:"De groeimarkt",stats:[["+33,83%","jaarlijkse groei NL (CAGR)"],["190+","natuurwijnlocaties in NL"],["8.000+","locaties wereldwijd, 2025"]]},
+    {title:"Wijnprofessionals",sub:"Het B2B-netwerk",stats:[["1.400+","speciaalzaken & slijterijen"],["16.000+","restaurants"],["15.000","oplage Perswijn"]]},
+    {title:"Italië-liefhebbers",sub:"De cultuurmarkt",stats:[["120.000","lezers per editie Italië-media"],["1.300+","Italiaanse restaurants"],["50.000","bezoekers Italië Evenement"]]}
+  ];
+  document.getElementById('markets').innerHTML=MARKETS.map(function(m,i){
+    return '<div class="reveal mk" style="transition-delay:'+(i*.1)+'s"><span class="sub">'+m.sub+'</span><h3>'+m.title+'</h3><div class="stats">'+
+      m.stats.map(function(s){return '<div><div class="v">'+s[0]+'</div><div class="l">'+s[1]+'</div></div>';}).join('')+'</div></div>';
+  }).join('');
+
+  // Compare table
+  var COMPARE=[
+    ["Specifiek Italiaanse natuurwijn","Het hele boek","Nee — algemeen","Nee — mix van landen"],
+    ["Natuurwijnen geproefd","Duizenden","Enkele tientallen","Beperkt"],
+    ["Wijnmakers bezocht","Honderden, heel Italië","Nauwelijks","Beperkt"],
+    ["In Italië gewoond","4 jaar","Nee","Nee"],
+    ["Kwalificatie","IW Ambassador + IW Scholar","—","Sommelier"]
+  ];
+  document.getElementById('compare').innerHTML=COMPARE.map(function(r){
+    return '<tr><td class="crit">'+r[0]+'</td><td class="you">'+r[1]+'</td><td class="other">'+r[2]+'</td><td class="other">'+r[3]+'</td></tr>';
+  }).join('');
+
+  // Author cards
+  var AUTH=[["Heel Italië","doorgereisd, alle wijngebieden"],["4 jaar","in Italië gewoond"],["Duizenden","natuurwijnen geproefd"],["Honderden","wijnmakers persoonlijk bezocht"]];
+  document.getElementById('authcards').innerHTML=AUTH.map(function(a,i){
+    return '<div class="reveal acard" style="transition-delay:'+(i*.08)+'s"><div class="v">'+a[0]+'</div><p class="l">'+a[1]+'</p></div>';
+  }).join('');
+
+  // Themes
+  var THEMES=[
+    {t:"Oranjewijn",d:"Superpopulair in wijnbars en betere restaurants. Sinds 2025 officiële DOC-status voor gemacereerde witte wijnen in Collio."},
+    {t:"Wijn in amfora",d:"Eeuwenoude terracotta-traditie, in Friuli herleefd en als een olievlek over Italië verspreid. Er zijn inmiddels eigen congressen en beurzen aan gewijd."},
+    {t:"Oude stokken",d:"Jancis Robinson startte de Old Vine Registry; er wordt gelobbyd voor een eigen wijncategorie. Nog geen enkel boek behandelt dit in de diepte."},
+    {t:"Vergeten druiven",d:"Natuurwijnmakers als bewaarders die bijna verloren rassen aan de vergetelheid ontrukken — erfgoed én biodiversiteit."}
+  ];
+  document.getElementById('themes').innerHTML=THEMES.map(function(t,i){
+    return '<div class="reveal theme" style="transition-delay:'+(i*.09)+'s">'+amphora(34,"#C8772E")+'<div><h3>'+t.t+'</h3><p>'+t.d+'</p></div></div>';
+  }).join('');
+
+  // Reach
+  var REACH=[
+    ["Lancering & B2B","Wine Professional","Boeklancering gekoppeld aan masterclass; verkend wordt een ticketbundel — gegarandeerde basisafname onder restaurateurs, sommeliers en importeurs."],
+    ["Media & publiek","Il Giornale + Italië Evenement","Vaste gastredacteur; mediapartner bij verschijning: redactie, interview, nieuwsbrief van 19.000+ en een podium voor 50.000 Italië-fans."],
+    ["Retail & importeurs","Zuiver · Vleck · Vinum Naturale e.a.","Warme connecties voor bundeldeals, signeersessies en directe verkoop via webshops en winkels — de wijnmakers uit het boek zitten in hún portfolio."],
+    ["Events & tour","Vi.No.So en meer","Gerichte promotietour langs de toonaangevende (natuur)wijn- en Italië-evenementen, met live proeverijen naast de makers uit het boek."]
+  ];
+  document.getElementById('reach').innerHTML=REACH.map(function(r,i){
+    return '<div class="reveal row" style="transition-delay:'+(i*.07)+'s"><span class="k">'+r[0]+'</span><h3 class="t">'+r[1]+'</h3><p class="d">'+r[2]+'</p></div>';
+  }).join('');
+
+  // Count-up
+  function runCount(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    var dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    var pre=el.getAttribute('data-prefix')||'';
+    var suf=el.getAttribute('data-suffix')||'';
+    var dur=1700, start=null;
+    function fmt(v){return pre+v.toLocaleString('nl-NL',{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;}
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*eased);
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Observers
+  var revObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
+
+  var cntObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ runCount(e.target); cntObs.unobserve(e.target);} });
+  },{threshold:.4});
+  document.querySelectorAll('[data-count]').forEach(function(el){cntObs.observe(el);});
+</script>
+
+<!-- Kleurkiezer voor de creative director (review tool — verwijderen vóór finale productie) -->
+<div class="theme-ui" id="themeUI">
+  <button class="theme-fab" id="themeFab" aria-expanded="false" aria-controls="themePanel"><span class="sw"></span>Kleur</button>
+  <div class="theme-panel" id="themePanel">
+    <h4>Achtergrondkleur</h4>
+    <p class="hint">Kies een sfeer of stel je eigen kleur in. Je keuze blijft bewaard op dit apparaat.</p>
+    <div class="theme-swatches" id="themeSwatches"></div>
+    <div class="theme-custom">
+      <label for="themeColor">Eigen kleur</label>
+      <input type="color" id="themeColor" value="#5A1722" aria-label="Eigen achtergrondkleur">
+      <span class="hex" id="themeHex">#5A1722</span>
+    </div>
+    <button class="theme-reset" id="themeReset">Terug naar standaard</button>
+  </div>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  var PRESETS=[
+    {key:'bordeaux',nm:'Bordeaux',deep:'#3A0E16',mid:'#5A1722',wine:'#7E2433'},
+    {key:'navy',nm:'Nachtblauw',deep:'#0E1A2B',mid:'#17263B',wine:'#2C4257'},
+    {key:'forest',nm:'Woudgroen',deep:'#0E211A',mid:'#163A2A',wine:'#285141'},
+    {key:'aubergine',nm:'Aubergine',deep:'#200F26',mid:'#341A3E',wine:'#4E2A58'},
+    {key:'charcoal',nm:'Antraciet',deep:'#161619',mid:'#24242A',wine:'#3A3A44'},
+    {key:'espresso',nm:'Espresso',deep:'#201510',mid:'#33231A',wine:'#4C3527'}
+  ];
+  var ci=document.getElementById('themeColor'), hx=document.getElementById('themeHex');
+  function apply(deep,mid,wine){
+    root.style.setProperty('--bordeaux-deep',deep);
+    root.style.setProperty('--bordeaux',mid);
+    root.style.setProperty('--wine',wine);
+    var sw=document.querySelector('.theme-fab .sw'); if(sw) sw.style.background=mid;
+  }
+  function hexToHsl(h){h=h.replace('#','');var r=parseInt(h.substr(0,2),16)/255,g=parseInt(h.substr(2,2),16)/255,b=parseInt(h.substr(4,2),16)/255;var mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,s=0,hh=0;if(mx!==mn){var d=mx-mn;s=l>.5?d/(2-mx-mn):d/(mx+mn);hh=mx===r?(g-b)/d+(g<b?6:0):mx===g?(b-r)/d+2:(r-g)/d+4;hh/=6;}return[hh*360,s*100,l*100];}
+  function hslToHex(hh,s,l){hh/=360;s/=100;l/=100;var r,g,b;if(s===0){r=g=b=l;}else{var q=l<.5?l*(1+s):l+s-l*s,p=2*l-q,t=function(t){if(t<0)t+=1;if(t>1)t-=1;if(t<1/6)return p+(q-p)*6*t;if(t<1/2)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p;};r=t(hh+1/3);g=t(hh);b=t(hh-1/3);}var f=function(x){return('0'+Math.round(x*255).toString(16)).slice(-2);};return'#'+f(r)+f(g)+f(b);}
+  function fromBase(hex){var h=hexToHsl(hex);return[hslToHex(h[0],Math.min(h[1]+6,72),Math.max(h[2]-9,6)),hex,hslToHex(h[0],h[1],Math.min(h[2]+14,42))];}
+  function mark(key){document.querySelectorAll('.theme-swatch').forEach(function(s){s.classList.toggle('active',s.dataset.key===key);});}
+  function save(v){try{v?localStorage.setItem('josje-theme',JSON.stringify(v)):localStorage.removeItem('josje-theme');}catch(e){}}
+
+  var wrap=document.getElementById('themeSwatches');
+  PRESETS.forEach(function(p){
+    var b=document.createElement('button');b.className='theme-swatch';b.dataset.key=p.key;b.setAttribute('title',p.nm);
+    b.innerHTML='<span class="chip" style="background:linear-gradient(135deg,'+p.mid+' 0%,'+p.deep+' 100%)"></span><span class="nm">'+p.nm+'</span>';
+    b.addEventListener('click',function(){apply(p.deep,p.mid,p.wine);save({t:'preset',key:p.key});mark(p.key);ci.value=p.mid;hx.textContent=p.mid.toUpperCase();});
+    wrap.appendChild(b);
+  });
+  ci.addEventListener('input',function(){var d=fromBase(ci.value);apply(d[0],d[1],d[2]);hx.textContent=ci.value.toUpperCase();save({t:'custom',hex:ci.value});mark(null);});
+  document.getElementById('themeReset').addEventListener('click',function(){apply('#3A0E16','#5A1722','#7E2433');save(null);mark('bordeaux');ci.value='#5A1722';hx.textContent='#5A1722';});
+
+  var ui=document.getElementById('themeUI'),fab=document.getElementById('themeFab');
+  fab.addEventListener('click',function(){var open=ui.classList.toggle('open');fab.setAttribute('aria-expanded',open?'true':'false');});
+  document.addEventListener('click',function(e){if(!ui.contains(e.target))ui.classList.remove('open');});
+
+  (function load(){try{var v=JSON.parse(localStorage.getItem('josje-theme'));
+    if(!v){mark('bordeaux');return;}
+    if(v.t==='preset'){var p=PRESETS.filter(function(x){return x.key===v.key;})[0];if(p){apply(p.deep,p.mid,p.wine);mark(p.key);ci.value=p.mid;hx.textContent=p.mid.toUpperCase();}}
+    else if(v.t==='custom'){var d=fromBase(v.hex);apply(d[0],d[1],d[2]);ci.value=v.hex;hx.textContent=v.hex.toUpperCase();mark(null);}
+  }catch(e){mark('bordeaux');}})();
+})();
+</script>
+
+<!-- SuperStories review annotation tool — remove before final production deploy -->
+<script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"josje"};</script>
+<script src="js/annotate.js" defer></script>
+</body>
+</html>

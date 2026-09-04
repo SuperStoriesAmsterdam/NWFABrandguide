@@ -34,10 +34,10 @@
   .sitenav .lk a.tix{background:#9F6E29;color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
   .sitenav .lk a.tix:hover{background:#875d22;color:#fff;}
   .sitenav .has{position:relative;}
-  .sitenav .has>.top{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
-  .sitenav .has>.top::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
-  .sitenav .has:hover>.top,.sitenav .has:focus-within>.top{color:#1B3326;}
-  .sitenav .has:hover>.top::after,.sitenav .has:focus-within>.top::after{opacity:.85;transform:rotate(45deg) translateY(0);}
+  .sitenav .has>button{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
+  .sitenav .has>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
+  .sitenav .has:hover>button,.sitenav .has:focus-within>button{color:#1B3326;}
+  .sitenav .has:hover>button::after,.sitenav .has:focus-within>button::after{opacity:.85;transform:rotate(45deg) translateY(0);}
   .sitenav .drop{position:absolute;top:100%;right:0;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:90;}
   .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
   .sitenav .drop .panel{min-width:274px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
@@ -95,14 +95,14 @@
       <a href="winemakers.html">winemakers</a>
       <a href="workshops.html">workshops</a>
       <div class="has">
-        <button class="top" type="button" aria-haspopup="true">winemakers dinner</button>
+        <button type="button" aria-haspopup="true">winemakers dinner</button>
         <div class="drop"><div class="panel">
           <a href="winemakers-dinner.html"><b>for visitors</b><span>new this edition · five courses, €65</span></a>
           <a href="winemakers-dinner-crew.html"><b>winemakers &amp; crew</b><span>the table this dinner grew from</span></a>
         </div></div>
       </div>
       <div class="has">
-        <button class="top" type="button" aria-haspopup="true">specials</button>
+        <button type="button" aria-haspopup="true">specials</button>
         <div class="drop"><div class="panel">
           <a href="specials.html#listening-room"><b>the listening room</b><span>rare vintages on an outrageous system</span></a>
           <a href="specials.html#yoikokochi"><b>yoikokochi</b><span>a big sake tasting</span></a>
@@ -112,7 +112,7 @@
         </div></div>
       </div>
       <div class="has">
-        <button class="top" type="button" aria-haspopup="true">plan your visit</button>
+        <button type="button" aria-haspopup="true">plan your visit</button>
         <div class="drop"><div class="panel">
           <a href="natural-wineguide.html"><b>the wineguide</b><span>fifty makers, one afternoon, your route</span></a>
           <a href="natural-wine.html"><b>what is natural wine</b><span>new to this? start here</span></a>
@@ -120,7 +120,7 @@
         </div></div>
       </div>
       <div class="has">
-        <button class="top" type="button" aria-haspopup="true">for professionals</button>
+        <button type="button" aria-haspopup="true">for professionals</button>
         <div class="drop mega"><div class="panel">
           <div><div class="col-h">winemakers</div>
             <a href="participate.html"><b>present at the fair</b><span>pour for buyers, sommeliers and press</span></a>

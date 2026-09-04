@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Participate — Natural Wine Festival A'dam</title>
-<meta name="description" content="For winemakers & distributors who want to pour at NWFA edition #5, 28 February & 1 March '27. Tell us who you are to unlock the price and logistics." />
+<meta name="description" content="For winemakers & distributors who want to pour at NWFA edition #5, 28 February & 1 March '27. Tell us who you are and how to present." />
 <style>
   @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   :root{
@@ -171,29 +171,87 @@
     .top nav a:not(.btn){display:none;}
     .pfoot .in{padding:44px 22px;}
   }
+  /* ===== site nav (canonical) ===== */
+  .sitenav{display:flex;align-items:center;gap:24px;padding:24px 0;font-size:14px;position:relative;z-index:80;}
+  .sitenav .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:#1B3326;}
+  .sitenav .bm span{display:block;}
+  .sitenav .lk{margin-left:auto;display:flex;gap:22px;align-items:center;font-weight:500;}
+  .sitenav .lk>a{color:rgba(27,51,38,.84);}
+  .sitenav .lk>a:hover{color:#1B3326;}
+  .sitenav .lk a.tix{background:#9F6E29;color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .sitenav .lk a.tix:hover{background:#875d22;color:#fff;}
+  .sitenav .has{position:relative;}
+  .sitenav .has>button{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
+  .sitenav .has>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
+  .sitenav .has:hover>button,.sitenav .has:focus-within>button{color:#1B3326;}
+  .sitenav .has:hover>button::after,.sitenav .has:focus-within>button::after{opacity:.85;transform:rotate(45deg) translateY(0);}
+  .sitenav .drop{position:absolute;top:100%;right:0;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:90;}
+  .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
+  .sitenav .drop .panel{min-width:274px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
+  .sitenav .drop a{display:block;padding:11px 14px;color:#1B3326;transition:background .12s;}
+  .sitenav .drop a:hover{background:rgba(27,51,38,.06);}
+  .sitenav .drop a b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;}
+  .sitenav .drop a span{display:block;font-size:11.5px;color:rgba(27,51,38,.62);margin-top:3px;line-height:1.4;font-weight:500;}
+  .sitenav .drop.mega .panel{min-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
+  .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
+  @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a:not(.tix){display:none;}}
 </style>
 </head>
 <body>
 
   <div class="wrap">
 
-    <div class="top">
-      <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
-      <nav>
-        <a href="winemakers.html">the makers</a>
-        <a href="workshops.html">the lessons</a>
-        <a href="winemakers-dinner.html">the supper</a>
-        <a href="for-professionals.html">trade</a>
-        <a class="btn" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">take your place</a>
-      </nav>
+  <nav class="sitenav">
+    <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
+    <div class="lk">
+      <a href="winemakers.html">winemakers</a>
+      <a href="workshops.html">workshops</a>
+      <div class="has">
+        <button type="button" aria-haspopup="true">winemakers dinner</button>
+        <div class="drop"><div class="panel">
+          <a href="winemakers-dinner.html"><b>for visitors</b><span>new this edition &middot; five courses, &euro;65</span></a>
+          <a href="winemakers-dinner-crew.html"><b>winemakers &amp; crew</b><span>the table this dinner grew from</span></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button type="button" aria-haspopup="true">specials</button>
+        <div class="drop"><div class="panel">
+          <a href="specials.html#listening-room"><b>the listening room</b><span>rare vintages on an outrageous system</span></a>
+          <a href="specials.html#yoikokochi"><b>yoikokochi</b><span>a big sake tasting</span></a>
+          <a href="specials.html#cheese"><b>the frenchman</b><span>cheese &amp; charcuterie</span></a>
+          <a href="specials.html#oyster"><b>the oyster bar</b><span>open all day</span></a>
+          <a href="specials.html"><b>all specials &rarr;</b></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button type="button" aria-haspopup="true">plan your visit</button>
+        <div class="drop"><div class="panel">
+          <a href="natural-wineguide.html"><b>the wineguide</b><span>fifty makers, one afternoon, your route</span></a>
+          <a href="natural-wine.html"><b>what is natural wine</b><span>new to this? start here</span></a>
+          <a href="about.html"><b>when &amp; where</b><span>dates, times, de hallen</span></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button type="button" aria-haspopup="true">for professionals</button>
+        <div class="drop mega"><div class="panel">
+          <div><div class="col-h">winemakers</div>
+            <a href="participate.html"><b>present at the fair</b><span>pour for buyers, sommeliers and press</span></a>
+          </div>
+          <div><div class="col-h">horeca</div>
+            <a href="for-professionals.html"><b>the trade day</b><span>monday 1 march &middot; free for vetted pros</span></a>
+          </div>
+        </div></div>
+      </div>
+      <a class="tix" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">tickets</a>
     </div>
+  </nav>
 
     <header class="mast">
       <div>
         <div class="ey">for winemakers &amp; distributors · edition #5 — 28 feb &amp; 1 mar '27</div>
         <h1>pour at<br>nwfa.</h1>
       </div>
-      <p class="sub">two days of natural wine in amsterdam, 28 february &amp; 1 march '27. sign up below and you'll receive the full info and pricing straight away.</p>
+      <p class="sub">two days of natural wine in amsterdam, 28 february &amp; 1 march '27. sign up below and you'll hear back with what we look for and how it works.</p>
     </header>
 
 
@@ -208,7 +266,7 @@
         </div>
         <div class="meta">~ 3 minutes<br>we read every submission<br>reply within 2 weeks</div>
       </div>
-      <p class="intro">tell us who you are and leave your details. you'll receive the full info right away — <b>what we look for</b>, <b>what you get</b>, the <b>fee</b> and the <b>day-by-day logistics</b> — and it tells us you'd like to join.</p>
+      <p class="intro">tell us who you are and leave your details. you'll hear back with the full info — <b>what we look for</b>, <b>what you get</b> and the <b>day-by-day logistics</b> — and it tells us you'd like to join.</p>
 
       <form class="aform" id="gateForm" novalidate>
         <div class="fld">
@@ -251,7 +309,7 @@
     <!-- ===== GATED CONTENT — revealed after the form is sent ===== -->
     <div class="gated" id="gated">
 
-      <div class="unlockbar"><span class="dot"></span>unlocked · price &amp; logistics below · we'll be in touch</div>
+      <div class="unlockbar"><span class="dot"></span>the full info below · we'll be in touch</div>
     <section class="why">
       <div class="lab">§ 01 — what this is</div>
       <div class="body">
@@ -294,33 +352,6 @@
     </section>
 
 
-      <section class="fee">
-        <div class="lab">§ 04 — the fee</div>
-        <h2>what it costs.</h2>
-        <div class="tiers">
-          <div class="tier">
-            <div class="t">one day · sunday 28 feb</div>
-            <div class="price">€425 <small>ex. vat</small></div>
-            <div class="d">per winemaker, the consumer &amp; professional day.</div>
-          </div>
-          <div class="tier">
-            <div class="t">two days · 28 feb &amp; 1 mar</div>
-            <div class="price">€575 <small>ex. vat</small></div>
-            <div class="d">adds the monday trade &amp; horeca day.</div>
-          </div>
-        </div>
-        <div class="incl">
-          <div class="i"><span class="c">✓</span><span>table for wines, cooling facilities and spittoons</span></div>
-          <div class="i"><span class="c">✓</span><span>winemaker description on naturalwinefestival.nl</span></div>
-          <div class="i"><span class="c">✓</span><span>distributor description on naturalwinefestival.nl</span></div>
-          <div class="i"><span class="c">✓</span><span>one dedicated post on @naturalwinefestival.ams</span></div>
-          <div class="i"><span class="c">✓</span><span>option to sell bottles directly to consumers</span></div>
-          <div class="i"><span class="c">✓</span><span>lunch provided by nwfa</span></div>
-          <div class="i"><span class="c">✓</span><span>invitation to the winemakers' dinner (approx. €39.50 p.p.)</span></div>
-          <div class="i"><span class="c">✓</span><span>optional workshop room, complimentary</span></div>
-        </div>
-        <p class="earn"><b>build success together.</b> we keep the fee low on purpose, and you can earn part or all of it back by selling bottles straight from your table. bring your own mobile pos.</p>
-      </section>
 
       <section class="log">
         <div class="lab">§ 05 — logistics</div>

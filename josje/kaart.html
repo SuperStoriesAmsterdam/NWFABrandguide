@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natuurwijn in Nederland — Kaart</title>
+<meta name="description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/leaflet.css">
+<link rel="stylesheet" href="css/MarkerCluster.css">
+<link rel="stylesheet" href="css/MarkerCluster.Default.css">
+<style>
+  :root{
+    --bordeaux-deep:#3A0E16; --bordeaux:#5A1722; --wine:#7E2433;
+    --amber:#C8772E; --terracotta:#A8492A; --gold:#C39A4E;
+    --cream:#F8F2E6; --parchment:#F0E7D5; --ink:#231A16; --muted:#7C6B5C; --line:#E1D5C0;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --bar:#A8492A; --restaurant:#7E2433; --shop:#C39A4E; --other:#7C6B5C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.5;overflow:hidden}
+  ::selection{background:var(--amber);color:#fff}
+
+  .app{display:grid;grid-template-rows:auto 1fr;height:100dvh}
+
+  /* Header */
+  header{background:var(--bordeaux-deep);color:var(--cream);border-bottom:1px solid rgba(201,154,78,.3);
+    display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 20px;z-index:1000}
+  header h1{font-family:var(--serif);font-weight:500;font-size:1.25rem;line-height:1}
+  header h1 span{color:var(--amber)}
+  header .count{font-size:.78rem;letter-spacing:.04em;color:rgba(248,242,230,.7)}
+  header .spacer{flex:1}
+  .search{position:relative}
+  .search input{font-family:var(--sans);font-size:.85rem;color:var(--ink);background:var(--cream);
+    border:1px solid var(--gold);border-radius:999px;padding:8px 14px 8px 34px;width:200px;outline:none}
+  .search input:focus{box-shadow:0 0 0 3px rgba(201,154,78,.35)}
+  .search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--muted)}
+
+  /* Filter chips */
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.02em;cursor:pointer;
+    border:1px solid rgba(201,154,78,.45);background:transparent;color:rgba(248,242,230,.85);
+    border-radius:999px;padding:6px 13px;display:flex;align-items:center;gap:7px;transition:all .15s ease}
+  .chip .dot{width:9px;height:9px;border-radius:50%}
+  .chip[aria-pressed="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+  .chip:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+  /* Body: list + map */
+  .body{display:grid;grid-template-columns:340px 1fr;min-height:0}
+  @media(max-width:760px){.body{grid-template-columns:1fr;grid-template-rows:40% 60%}}
+
+  .list{overflow-y:auto;background:var(--parchment);border-right:1px solid var(--line)}
+  .list .empty{padding:32px 20px;color:var(--muted);font-size:.875rem}
+  .item{display:block;width:100%;text-align:left;background:transparent;border:none;border-bottom:1px solid var(--line);
+    padding:14px 18px;cursor:pointer;font-family:var(--sans);transition:background .12s ease}
+  .item:hover,.item.active{background:#fff}
+  .item .nm{font-family:var(--serif);font-weight:500;font-size:1rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .item .nm .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .item .meta{margin-top:3px;font-size:.78rem;color:var(--muted)}
+  .item:focus-visible{outline:2px solid var(--amber);outline-offset:-2px}
+
+  #map{height:100%;width:100%;background:var(--parchment)}
+
+  /* Popup */
+  .leaflet-popup-content-wrapper{border-radius:12px}
+  .pop{font-family:var(--sans);min-width:180px}
+  .pop .nm{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--wine);margin-bottom:4px}
+  .pop .ty{display:inline-block;font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+    color:#fff;border-radius:4px;padding:2px 7px;margin-bottom:8px}
+  .pop .ad{font-size:.8rem;color:var(--muted);line-height:1.4}
+  .pop .tag-new{display:inline-block;margin-left:6px;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--gold);border:1px solid var(--gold);border-radius:4px;padding:2px 6px;vertical-align:middle}
+  .pop .desc{margin-top:8px;font-size:.82rem;color:var(--ink);line-height:1.45}
+  .pop .somm{margin-top:8px;font-size:.82rem;color:var(--ink)}
+  .pop .somm .lbl{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:1px}
+  .pop .contact{margin-top:10px;font-size:.8rem;font-weight:600;line-height:1.6}
+  .pop .contact a{color:var(--amber);text-decoration:none}
+  .pop .contact a:hover{text-decoration:underline}
+  .pop .contact .sep{color:var(--line);margin:0 6px}
+
+  .marker-dot{border-radius:50%;border:2px solid var(--cream);box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  .cluster-ic{background:var(--bordeaux);color:var(--cream);border:2px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:600;font-size:.82rem;
+    box-shadow:0 2px 7px rgba(58,14,22,.45)}
+  .marker-cluster,.marker-cluster div{background:transparent}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Natuurwijn in <span>Nederland</span></h1>
+    <span class="count" id="count">laden…</span>
+    <div class="spacer"></div>
+    <div class="chips" id="chips"></div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="search" type="search" placeholder="Zoek op naam of stad" aria-label="Zoek locatie">
+    </div>
+  </header>
+  <div class="body">
+    <div class="list" id="list" role="list"></div>
+    <div id="map"></div>
+  </div>
+</div>
+
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="data/venues.js"></script>
+<script>
+(function(){
+  var VENUES = (window.VENUES || []).filter(function(v){return v && typeof v.lat==='number' && typeof v.lng==='number';});
+
+  // Type buckets -> color + label
+  // Types are compound ("Restaurant and a Bar and a Wine shop"); bucket by the
+  // FIRST-mentioned (primary) type, which is how Raisin lists them.
+  function bucket(t){
+    t=(t||'').toLowerCase();
+    var pos=function(s){var i=t.indexOf(s);return i<0?9999:i;};
+    var c=[['shop',pos('shop')],['restaurant',pos('restaurant')],['bistro',pos('bistro')],['bar',pos('bar')],['cave',pos('cave')]];
+    c.sort(function(a,b){return a[1]-b[1];});
+    if(c[0][1]===9999) return 'other';
+    if(c[0][0]==='shop') return 'shop';
+    if(c[0][0]==='restaurant'||c[0][0]==='bistro') return 'restaurant';
+    return 'bar';
+  }
+  var TYPES=[
+    {key:'restaurant',label:'Restaurant',color:getCSS('--restaurant')},
+    {key:'bar',label:'Bar / wijnbar',color:getCSS('--bar')},
+    {key:'shop',label:'Wijnwinkel',color:getCSS('--shop')},
+    {key:'other',label:'Overig',color:getCSS('--other')}
+  ];
+  function getCSS(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+  function colorOf(b){for(var i=0;i<TYPES.length;i++)if(TYPES[i].key===b)return TYPES[i].color;return getCSS('--other');}
+
+  VENUES.forEach(function(v){v._b=bucket(v.type);});
+
+  // ---- Map ----
+  var map=L.map('map',{scrollWheelZoom:true,zoomControl:true}).setView([52.15,5.3],7.4);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+    attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19
+  }).addTo(map);
+
+  // Cluster group keeps dense cities (Amsterdam ~100) readable at country zoom.
+  var cluster=L.markerClusterGroup({
+    maxClusterRadius:44, showCoverageOnHover:false, spiderfyDistanceMultiplier:1.4,
+    iconCreateFunction:function(cl){
+      var n=cl.getChildCount(), s=n<10?34:n<50?40:46;
+      return L.divIcon({html:'<div class="cluster-ic" style="width:'+s+'px;height:'+s+'px">'+n+'</div>',
+        className:'', iconSize:[s,s]});
+    }
+  });
+  map.addLayer(cluster);
+
+  var markers={};
+  function makeIcon(color){
+    return L.divIcon({className:'',html:'<div class="marker-dot" style="width:15px;height:15px;background:'+color+'"></div>',
+      iconSize:[15,15],iconAnchor:[7,7],popupAnchor:[0,-8]});
+  }
+  function popupHtml(v){
+    var c=colorOf(v._b);
+    var h='<div class="pop"><div class="nm">'+esc(v.name||'Onbekend')+'</div>'+
+      '<span class="ty" style="background:'+c+'">'+esc(v.type||'Locatie')+'</span>';
+    if(v.source==='editorial') h+='<span class="tag-new" title="Niet op Raisin gevonden">buiten Raisin</span>';
+    if(v.address) h+='<div class="ad">'+esc(v.address.replace(/, Netherlands$/,''))+'</div>';
+    else if(v.city) h+='<div class="ad">'+esc(v.city)+'</div>';
+    if(v.description) h+='<div class="desc">'+esc(v.description)+'</div>';
+    if(v.sommeliers && v.sommeliers.length){
+      h+='<div class="somm"><span class="lbl">Sommelier</span>'+
+        v.sommeliers.map(function(s){return esc(s.name);}).join(', ')+'</div>';
+    }
+    var contact=[];
+    if(v.website) contact.push('<a href="'+encodeURI(v.website)+'" target="_blank" rel="noopener">Website</a>');
+    if(v.instagram) contact.push('<a href="'+encodeURI(v.instagram)+'" target="_blank" rel="noopener">Instagram</a>');
+    if(v.facebook) contact.push('<a href="'+encodeURI(v.facebook)+'" target="_blank" rel="noopener">Facebook</a>');
+    if(v.phone) contact.push('<a href="tel:'+esc(v.phone.replace(/\s+/g,''))+'">'+esc(v.phone)+'</a>');
+    if(v.email) contact.push('<a href="mailto:'+esc(v.email)+'">E-mail</a>');
+    if(contact.length) h+='<div class="contact">'+contact.join('<span class="sep">·</span>')+'</div>';
+    h+='</div>';return h;
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  VENUES.forEach(function(v,i){
+    var m=L.marker([v.lat,v.lng],{icon:makeIcon(colorOf(v._b)),title:v.name});
+    m.bindPopup(popupHtml(v));
+    m.on('click',function(){highlight(i,false);});
+    v._m=m; markers[i]=m;
+  });
+
+  // ---- State / filters ----
+  var active={restaurant:true,bar:true,shop:true,other:true};
+  var query='';
+  var listEl=document.getElementById('list');
+  var countEl=document.getElementById('count');
+
+  function visible(v){
+    if(!active[v._b]) return false;
+    if(query){
+      var hay=((v.name||'')+' '+(v.city||'')+' '+(v.address||'')).toLowerCase();
+      if(hay.indexOf(query)<0) return false;
+    }
+    return true;
+  }
+
+  function render(){
+    var shown=0; listEl.innerHTML='';
+    VENUES.forEach(function(v,i){
+      if(visible(v)){
+        if(!cluster.hasLayer(v._m)) cluster.addLayer(v._m);
+        shown++;
+        var btn=document.createElement('button');
+        btn.className='item'; btn.setAttribute('role','listitem'); btn.dataset.i=i;
+        btn.innerHTML='<div class="nm"><span class="dot" style="background:'+colorOf(v._b)+'"></span>'+esc(v.name||'Onbekend')+'</div>'+
+          '<div class="meta">'+esc([v.city,typeLabel(v._b)].filter(Boolean).join(' · '))+'</div>';
+        btn.addEventListener('click',function(){highlight(i,true);});
+        listEl.appendChild(btn);
+      } else {
+        if(cluster.hasLayer(v._m)) cluster.removeLayer(v._m);
+      }
+    });
+    if(shown===0) listEl.innerHTML='<div class="empty">Geen locaties gevonden.</div>';
+    countEl.textContent=shown+' van '+VENUES.length+' locaties';
+  }
+  function typeLabel(b){var t=TYPES.filter(function(x){return x.key===b;})[0];return t?t.label:'';}
+
+  var activeItem=null;
+  function highlight(i,fly){
+    var v=VENUES[i]; if(!v) return;
+    // works whether the marker is clustered or free: expand the cluster, then open.
+    if(cluster.hasLayer(v._m)) cluster.zoomToShowLayer(v._m,function(){ v._m.openPopup(); });
+    else { if(fly) map.flyTo([v.lat,v.lng],Math.max(map.getZoom(),14),{duration:.6}); v._m.openPopup(); }
+    if(activeItem) activeItem.classList.remove('active');
+    var el=listEl.querySelector('.item[data-i="'+i+'"]');
+    if(el){el.classList.add('active');el.scrollIntoView({block:'nearest'});activeItem=el;}
+  }
+
+  // ---- Chips ----
+  var chipsEl=document.getElementById('chips');
+  TYPES.forEach(function(t){
+    var c=document.createElement('button');
+    c.className='chip'; c.setAttribute('aria-pressed','true');
+    c.innerHTML='<span class="dot" style="background:'+t.color+'"></span>'+t.label;
+    c.addEventListener('click',function(){
+      active[t.key]=!active[t.key];
+      c.setAttribute('aria-pressed',active[t.key]?'true':'false');
+      render();
+    });
+    chipsEl.appendChild(c);
+  });
+
+  // ---- Search ----
+  var si=document.getElementById('search');
+  si.addEventListener('input',function(){query=si.value.trim().toLowerCase();render();});
+
+  render();
+  if(VENUES.length){
+    var b=L.latLngBounds(VENUES.map(function(v){return [v.lat,v.lng];}));
+    map.fitBounds(b,{padding:[40,40]});
+  }
+})();
+</script>
+</body>
+</html>
