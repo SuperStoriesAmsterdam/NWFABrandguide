@@ -234,6 +234,25 @@
   .sitenav .drop.mega .panel{min-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
   .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
   @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a:not(.tix){display:none;}}
+  /* ===== access gate (client-side UI toggle only) ===== */
+  .lockrow{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border:1.4px solid var(--ochre);background:rgba(154,102,40,.06);padding:14px 16px;margin-bottom:4px;}
+  .lockrow .lk-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .lockrow input{max-width:210px;}
+  .lockrow .lk-hint{font-size:12.5px;color:var(--ink-2);}
+  .lockrow .lk-ok{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3f9142;font-weight:700;display:none;}
+  body.nwfa-unlocked .lockrow .lk-ok{display:inline;}
+  body.nwfa-unlocked .lockrow .lk-hint{display:none;}
+  .locked-note{border:1.4px dashed var(--rule);padding:20px 22px;color:var(--ink-2);font-size:14.5px;line-height:1.6;}
+  .locked-note a{color:var(--ochre);border-bottom:1px solid var(--ochre);}
+  .gated-price{display:none;}
+  body.nwfa-unlocked .gated-price{display:block;}
+  body.nwfa-unlocked .locked-note{display:none;}
+  .booking-only{display:none!important;}
+  body.nwfa-unlocked .booking-only{display:flex!important;}
+  body.nwfa-unlocked .enquiry-only{display:none;}
+  .btn-booking{display:none;}
+  body.nwfa-unlocked .btn-booking{display:block;}
+  body.nwfa-unlocked .btn-enquiry{display:none;}
 </style>
 </head>
 <body>
@@ -353,6 +372,8 @@
       <div class="lab">§ 02 — contribution per winemaker</div>
       <div class="split">
         <div class="txt">
+          <div class="locked-note">The contribution (one or two days, per winemaker) shows here once you enter your access code below. No code yet? <a href="#signup">Send an enquiry</a> and we'll be in touch.</div>
+          <div class="gated-price">
           <div class="tiers">
             <div class="tier">
               <div class="t">one day · sunday 28 feb</div>
@@ -364,6 +385,7 @@
               <div class="price"><span class="mark">€575</span> <small>ex. vat</small></div>
               <div class="d">adds the monday trade &amp; horeca day.</div>
             </div>
+          </div>
           </div>
           <ul class="incl">
             <li><span class="c">✓</span><span>Table for wines, cooling facilities and spittoons.</span></li>
@@ -528,6 +550,12 @@
       <p class="intro">Leave your details and tell us about your wines. We'll come back to you about a table at edition #5, <b>28 February &amp; 1 March '27</b>. No commitment.</p>
 
       <form class="aform" id="signupForm" novalidate>
+        <div class="lockrow">
+          <span class="lk-h">access code</span>
+          <input id="accesscode" name="accesscode" autocomplete="off" placeholder="if a distributor gave you one" />
+          <span class="lk-hint">have a code? enter it to book &amp; see the contribution.</span>
+          <span class="lk-ok">✓ unlocked — booking mode</span>
+        </div>
         <div class="fld">
           <label for="first">first name <span class="req">*</span></label>
           <input id="first" name="first" required autocomplete="given-name" />
@@ -588,7 +616,24 @@
           <label for="about">tell us about your wines <span class="req">*</span></label>
           <textarea id="about" name="about" required placeholder="farming, ferments, sulphur, and what makes them yours."></textarea>
         </div>
-        <button class="submit full" type="submit">sign up &amp; we'll be in touch →</button>
+        <div class="fld full enquiry-only">
+          <label>samples</label>
+          <p style="font-size:13.5px;color:rgba(27,42,32,.6);line-height:1.6;margin-top:2px;">If we take it further, we'll ask you to send a few sample bottles for the tasting and selection. We'll tell you where to ship them when we reply.</p>
+        </div>
+        <div class="fld booking-only">
+          <label for="billco">billing name / company</label>
+          <input id="billco" name="billco" autocomplete="organization" />
+        </div>
+        <div class="fld booking-only">
+          <label for="vat">vat number</label>
+          <input id="vat" name="vat" />
+        </div>
+        <div class="fld full booking-only">
+          <label for="billaddr">billing address</label>
+          <input id="billaddr" name="billaddr" />
+        </div>
+        <button class="submit full btn-enquiry" type="submit">sign up &amp; we'll be in touch →</button>
+        <button class="submit full btn-booking" type="submit">confirm booking — we'll invoice →</button>
         <div class="fnote full">prefer email? write to <a href="mailto:wine@greenisgolden.co">wine@greenisgolden.co</a>.</div>
       </form>
 
@@ -620,6 +665,14 @@
     /* Paste a Tally / Formspree / GHL or Airtable webhook URL here to capture leads.
        Until it is set, the form still confirms and the entry is kept in localStorage. */
     var LEAD_ENDPOINT = "";
+    /* Single shared access code. CLIENT-SIDE ONLY: this toggles the UI and tags the
+       submission. The real gate + invoicing must live server-side (GHL / Airtable). */
+    var ACCESS_CODE = "NWFA-2027"; // TODO: Peter sets the real shared code
+    function checkCode(v){ if((v||"").trim().toLowerCase()===ACCESS_CODE.toLowerCase()){ document.body.classList.add('nwfa-unlocked'); return true; } return false; }
+    var codeInput = document.getElementById('accesscode');
+    var urlCode = new URLSearchParams(location.search).get('code');
+    if(urlCode){ if(codeInput) codeInput.value = urlCode; checkCode(urlCode); }
+    if(codeInput){ codeInput.addEventListener('input', function(){ checkCode(codeInput.value); }); }
     var form = document.getElementById('signupForm');
     var wrap = document.getElementById('signup');
     if(form){
@@ -627,7 +680,7 @@
         e.preventDefault();
         if(!form.checkValidity()){ form.reportValidity(); return; }
         var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
-        data.page='info-kit'; data.edition='#5'; data.ts=new Date().toISOString();
+        data.page='info-kit'; data.edition='#5'; data.ts=new Date().toISOString(); data.mode=document.body.classList.contains('nwfa-unlocked')?'booking':'enquiry';
         try{ localStorage.setItem('nwfa_infokit_lead', JSON.stringify(data)); }catch(err){}
         if(LEAD_ENDPOINT){
           fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
