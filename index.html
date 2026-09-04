@@ -86,6 +86,17 @@
   .band .cap{position:absolute;inset:0;display:flex;align-items:flex-end;padding:0 var(--gutter) 44px;background:linear-gradient(180deg,rgba(16,22,16,0) 38%,rgba(16,22,16,.66) 100%);}
   .band .cap .t{color:#f4efe2;font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(26px,3.4vw,44px);line-height:1.04;max-width:22ch;}
 
+  /* highlights strip (under the hero) */
+  .hlwrap{margin-top:34px;}
+  .hllab{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .hlrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));border-top:1.4px solid var(--line);margin-top:18px;}
+  .hl{padding:22px 26px 26px;border-right:1px solid var(--rule);}
+  .hl:last-child{border-right:0;}
+  .hl .hn{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:18px;line-height:1.08;color:var(--ink);}
+  .hl .hd{margin-top:11px;font-size:13px;color:var(--ink-2);line-height:1.55;}
+  @media(max-width:900px){.hlrow{grid-template-columns:1fr 1fr;} .hl:nth-child(2n){border-right:0;} .hl{border-bottom:1px solid var(--rule);}}
+  @media(max-width:560px){.hlrow{grid-template-columns:1fr;} .hl{border-right:0;}}
+
   /* sections */
   .sec{padding:104px 0;}
   .sec.tight{padding-top:0;}
@@ -271,6 +282,18 @@
       <div class="cell"><div class="k">lessons</div><div class="v"><span class="mark">15+</span> workshops</div></div>
       <div class="cell"><div class="k">doors</div><div class="v">sun · 13:00–22:00</div></div>
       <div class="stampcell"><div class="stamp">nothing added<br>nothing taken away</div></div>
+    </div>
+  </div>
+
+  <!-- highlights -->
+  <div class="wrap hlwrap">
+    <div class="hllab">why come</div>
+    <div class="hlrow">
+      <div class="hl"><div class="hn">only natural wine</div><div class="hd">organic or biodynamic, wild ferments, low or no sulphur. every grower's farming is declared on the floor.</div></div>
+      <div class="hl"><div class="hn">the makers pour their own</div><div class="hd"><span class="mark">40+</span> growers, in from across europe, at their own tables. the people who farm the grapes, not brand reps.</div></div>
+      <div class="hl"><div class="hn">buy direct</div><div class="hd">on the sunday the floor becomes the largest natural wine store in the netherlands. straight from the maker.</div></div>
+      <div class="hl"><div class="hn">more than a tasting</div><div class="hd">workshops, an all-day wine bar, a food market &amp; oyster bar, the winemakers dinner, and the specials.</div></div>
+      <div class="hl"><div class="hn">two days</div><div class="hd">sunday for consumers &amp; professionals, monday a quiet trade day for horeca.</div></div>
     </div>
   </div>
 
