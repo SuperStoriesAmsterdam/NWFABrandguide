@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Winemakers &amp; Crew Dinner — Natural Wine Festival A'dam</title>
+<meta name="description" content="The Winemakers &amp; Crew Dinner at NWFA edition #5 — the post-event table the dinner grew from. Sunday 28 February 2027, De Hallen, Amsterdam. Winemakers, distributors and crews, by invitation through participating." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.86);
+    --ink-3:rgba(27,51,38,.60);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,var(--amber) 3%,var(--amber) 96%,rgba(238,186,63,0) 99%);color:var(--ink);padding:.04em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* ===== site nav (canonical) ===== */
+  .sitenav{display:flex;align-items:center;gap:24px;padding:24px var(--gutter);font-size:14px;position:relative;z-index:80;}
+  .sitenav .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:#1B3326;}
+  .sitenav .bm span{display:block;}
+  .sitenav .lk{margin-left:auto;display:flex;gap:22px;align-items:center;font-weight:500;}
+  .sitenav .lk>a{color:rgba(27,51,38,.84);}
+  .sitenav .lk>a:hover{color:#1B3326;}
+  .sitenav .lk a.tix{background:#9F6E29;color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .sitenav .lk a.tix:hover{background:#875d22;color:#fff;}
+  .sitenav .has{position:relative;}
+  .sitenav .has>.top{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
+  .sitenav .has>.top::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
+  .sitenav .has:hover>.top,.sitenav .has:focus-within>.top{color:#1B3326;}
+  .sitenav .has:hover>.top::after,.sitenav .has:focus-within>.top::after{opacity:.85;transform:rotate(45deg) translateY(0);}
+  .sitenav .drop{position:absolute;top:100%;right:0;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:90;}
+  .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
+  .sitenav .drop .panel{min-width:274px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
+  .sitenav .drop a{display:block;padding:11px 14px;color:#1B3326;transition:background .12s;}
+  .sitenav .drop a:hover{background:rgba(27,51,38,.06);}
+  .sitenav .drop a b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;}
+  .sitenav .drop a span{display:block;font-size:11.5px;color:rgba(27,51,38,.62);margin-top:3px;line-height:1.4;font-weight:500;}
+  .sitenav .drop.mega .panel{min-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
+  .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
+  .back{display:inline-block;margin:8px 0 0;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
+  .back:hover{color:var(--ink);}
+
+  /* hero */
+  .dhero{display:grid;grid-template-columns:1.1fr .9fr;gap:0;align-items:stretch;border-bottom:1.4px solid var(--ink);margin-top:8px;}
+  .dhero-text{padding:7vh 0 5vh;display:flex;flex-direction:column;justify-content:center;}
+  .dhero .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .dhero h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.035em;line-height:.88;
+            font-size:clamp(42px,5.6vw,84px);}
+  .dhero .reg{margin-top:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2);text-transform:uppercase;}
+  .dhero .reg b{color:var(--ink);font-weight:700;}
+  .dhero .hcta{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:13px 26px;border:1.4px solid var(--ink);color:var(--ink);border-radius:100px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;transition:.14s;}
+  .dhero .hcta:hover{background:var(--ink);color:var(--paper);}
+  .dhero-shot{position:relative;overflow:hidden;min-height:520px;}
+  .dhero-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .dhero-shot .tag{position:absolute;left:18px;bottom:18px;color:#f0e9d8;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6);}
+
+  /* facts */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1.4px solid var(--ink);}
+  .facts .c{padding:18px 22px;border-right:1px solid var(--rule);}
+  .facts .c:last-child{border-right:0;}
+  .facts .c .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .facts .c .v{font-size:17px;font-weight:600;letter-spacing:-.014em;margin-top:5px;line-height:1.1;text-transform:lowercase;}
+
+  /* the idea */
+  .idea{padding:7vh 0;display:grid;grid-template-columns:.4fr 1fr;gap:60px;border-bottom:1.4px solid var(--ink);}
+  .idea .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;padding-top:8px;}
+  .idea .body p{font-size:clamp(17px,1.5vw,21px);line-height:1.55;letter-spacing:-.005em;max-width:60ch;}
+  .idea .body p + p{margin-top:18px;}
+  .idea .body p.lead{font-size:clamp(22px,2.2vw,30px);line-height:1.32;letter-spacing:-.012em;color:var(--ink);font-weight:500;}
+
+  /* at the table */
+  .hosts{padding:7vh 0;border-bottom:1.4px solid var(--ink);}
+  .hosts .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
+  .hosts h2{font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:1;font-size:clamp(28px,3.2vw,46px);margin-bottom:28px;}
+  .hosts .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .hosts .h{padding:24px 22px;border-right:1px solid var(--rule);}
+  .hosts .h:nth-child(3n){border-right:0;}
+  .hosts .h:nth-child(-n+3){border-bottom:1px solid var(--rule);}
+  .hosts .h .n{font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.018em;line-height:1.1;}
+  .hosts .h .r{margin-top:8px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;}
+
+  /* invited */
+  .book{padding:9vh 0;text-align:center;background:var(--ink);color:var(--paper);}
+  .book .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,230,214,.6);font-weight:700;}
+  .book h2{margin:18px 0 8px;font-weight:600;text-transform:lowercase;letter-spacing:-.028em;line-height:.95;font-size:clamp(32px,4.4vw,60px);color:var(--paper);max-width:20ch;margin-left:auto;margin-right:auto;}
+  .book .price{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:rgba(236,230,214,.66);letter-spacing:.06em;text-transform:uppercase;}
+  .book .cta{margin-top:32px;display:inline-flex;gap:10px;align-items:center;padding:16px 30px;border:1.4px solid var(--amber);background:var(--amber);color:var(--ink);
+             font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
+  .book .cta:hover{background:var(--paper);border-color:var(--paper);color:var(--ink);}
+  .book .note{margin-top:22px;font-size:12.5px;color:rgba(236,230,214,.6);max-width:48ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+  .book .note a{color:var(--paper);border-bottom:1px solid rgba(236,230,214,.4);}
+
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+
+  @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a:not(.tix){display:none;}}
+  @media(max-width:880px){
+    .wrap{padding:0 22px;}
+    .dhero{grid-template-columns:1fr;}
+    .dhero-shot{order:-1;border-bottom:1.4px solid var(--ink);min-height:340px;}
+    .dhero-text{padding:5vh 0 4vh;}
+    .facts{grid-template-columns:repeat(2,1fr);}
+    .facts .c:nth-child(2){border-right:0;}
+    .facts .c:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+    .idea{grid-template-columns:1fr;gap:18px;padding:48px 0;}
+    .hosts .grid{grid-template-columns:1fr;}
+    .hosts .h{border-right:0;border-bottom:1px solid var(--rule);}
+    .hosts .h:last-child{border-bottom:0;}
+    .pfoot .in{padding:44px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <nav class="sitenav">
+    <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
+    <div class="lk">
+      <a href="winemakers.html">winemakers</a>
+      <a href="workshops.html">workshops</a>
+      <div class="has">
+        <button class="top" type="button" aria-haspopup="true">winemakers dinner</button>
+        <div class="drop"><div class="panel">
+          <a href="winemakers-dinner.html"><b>for visitors</b><span>new this edition · five courses, €65</span></a>
+          <a href="winemakers-dinner-crew.html"><b>winemakers &amp; crew</b><span>the table this dinner grew from</span></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button class="top" type="button" aria-haspopup="true">specials</button>
+        <div class="drop"><div class="panel">
+          <a href="specials.html#listening-room"><b>the listening room</b><span>rare vintages on an outrageous system</span></a>
+          <a href="specials.html#yoikokochi"><b>yoikokochi</b><span>a big sake tasting</span></a>
+          <a href="specials.html#cheese"><b>the frenchman</b><span>cheese &amp; charcuterie</span></a>
+          <a href="specials.html#oyster"><b>the oyster bar</b><span>open all day</span></a>
+          <a href="specials.html"><b>all specials →</b></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button class="top" type="button" aria-haspopup="true">plan your visit</button>
+        <div class="drop"><div class="panel">
+          <a href="natural-wineguide.html"><b>the wineguide</b><span>fifty makers, one afternoon, your route</span></a>
+          <a href="natural-wine.html"><b>what is natural wine</b><span>new to this? start here</span></a>
+          <a href="about.html"><b>when &amp; where</b><span>dates, times, de hallen</span></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button class="top" type="button" aria-haspopup="true">for professionals</button>
+        <div class="drop mega"><div class="panel">
+          <div><div class="col-h">winemakers</div>
+            <a href="participate.html"><b>present at the fair</b><span>pour for buyers, sommeliers and press</span></a>
+          </div>
+          <div><div class="col-h">horeca</div>
+            <a href="for-professionals.html"><b>the trade day</b><span>monday 1 march · free for vetted pros</span></a>
+          </div>
+        </div></div>
+      </div>
+      <a class="tix" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">tickets</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <a class="back" href="winemakers-dinner.html">← the winemakers dinner</a>
+
+    <section class="dhero">
+      <div class="dhero-text">
+        <div class="ey">sunday 28 february '27 · de hallen, amsterdam · by invitation</div>
+        <h1>winemakers<br>&amp; crew.</h1>
+        <div class="reg"><b>the table the dinner grew from</b> · winemakers, distributors &amp; crews</div>
+        <a class="hcta" href="participate.html">present at the fair to join →</a>
+      </div>
+      <div class="dhero-shot">
+        <img src="concept-assets/photo-4.jpg" alt="" />
+        <span class="tag">de hallen · post-event</span>
+      </div>
+    </section>
+
+    <section class="facts">
+      <div class="c"><div class="k">date</div><div class="v">sun 28 feb</div></div>
+      <div class="c"><div class="k">doors</div><div class="v"><span class="mark">19:00</span></div></div>
+      <div class="c"><div class="k">at the table</div><div class="v">the makers &amp; crews</div></div>
+      <div class="c"><div class="k">how to join</div><div class="v">present at the fair</div></div>
+    </section>
+
+    <section class="idea">
+      <div class="lab">§ 01 — the idea</div>
+      <div class="body">
+        <p class="lead">over several editions, our post-event dinner for winemakers, distributors and mutual crews grew into something unique.</p>
+        <p>the spirit of sharing, great food, good company, truly meeting. everyone around one table, once the floor is quiet.</p>
+        <p>this is the table the visitor dinner grew out of. this edition, for the first time, a few visitor seats open alongside it — <a href="winemakers-dinner.html" style="border-bottom:1.5px solid var(--ochre);">the winemakers dinner for visitors →</a></p>
+      </div>
+    </section>
+
+    <section class="hosts">
+      <div class="lab">§ 02 — at the table</div>
+      <h2>everyone,<br>at one table.</h2>
+      <div class="grid">
+        <div class="h"><div class="n">winemakers</div><div class="r">the growers, in from across europe</div></div>
+        <div class="h"><div class="n">distributors</div><div class="r">the people who bring the wines to nl</div></div>
+        <div class="h"><div class="n">the crews</div><div class="r">everyone who builds the festival</div></div>
+        <div class="h"><div class="n">the kitchen</div><div class="r">chef — to be announced</div></div>
+        <div class="h"><div class="n">professionals</div><div class="r">the trade around the makers</div></div>
+        <div class="h"><div class="n">a few visitors</div><div class="r">this edition, for the first time</div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="book">
+    <div class="wrap">
+      <div class="ey">winemakers &amp; crew — sunday 28 february '27</div>
+      <h2>you're at this table<br>by presenting at the fair.</h2>
+      <div class="price">winemakers, distributors &amp; crews · doors 19:00 · de hallen</div>
+      <a class="cta" href="participate.html">present at the fair →</a>
+      <p class="note">the dinner is part of taking a table at nwfa. already presenting? your invitation and the details reach you with your table confirmation. questions: <a href="mailto:wine@greenisgolden.co">wine@greenisgolden.co</a>.</p>
+    </div>
+  </section>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list — first to the bottle list, every edition.</div>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition #5 — 28 feb &amp; 1 mar '27<br>
+        de hallen, amsterdam<br><br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
