@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Listening Room — Natural Wine Festival A'dam</title>
+<meta name="description" content="The Listening Room at NWFA edition #5: premium audio, rare vintages, sakés and the art of sushi. An oasis of taste. Legendary records on an outrageous vinyl-based system. De Hallen, Amsterdam, 28 February & 1 March 2027." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+  :root{
+    --ground:#141d17;--panel:#1b271f;--deep:#0f1712;
+    --cream:#ECE6D6;--cream-2:rgba(236,230,214,.72);--cream-3:rgba(236,230,214,.45);
+    --amber:#eeba3f;--wine:#a24a44;--line:rgba(236,230,214,.16);--gutter:clamp(24px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--ground);color:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter);}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+  .kick{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#20180a;font-weight:700;font-size:13.5px;padding:14px 26px;border-radius:100px;transition:.16s;}
+  .btn:hover{background:#fff;}
+  .btn--ghost{background:transparent;color:var(--cream);border:1.4px solid rgba(236,230,214,.4);}
+  .btn--ghost:hover{border-color:var(--cream);background:rgba(236,230,214,.06);}
+
+  /* nav */
+  .top{display:flex;align-items:center;gap:24px;padding:24px var(--gutter) 22px;font-size:14px;max-width:1280px;margin:0 auto;}
+  .top .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:var(--cream);}
+  .top .bm span{display:block;}
+  .top nav{margin-left:auto;display:flex;gap:24px;align-items:center;font-weight:500;}
+  .top nav a{color:var(--cream-2);} .top nav a:hover{color:var(--cream);}
+  .top nav a.btn{color:#20180a;font-size:13.5px;padding:12px 24px;}
+  @media(max-width:880px){ .top nav a:not(.btn){display:none;} }
+
+  /* hero — warm glow */
+  .hero{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:50px;align-items:center;padding:5vh 0 6vh;background:
+      radial-gradient(120% 90% at 22% -10%, rgba(238,186,63,.16), transparent 55%),
+      radial-gradient(90% 70% at 100% 120%, rgba(162,74,68,.16), transparent 60%);}
+  .hshot{display:block;width:auto;height:auto;max-width:100%;max-height:min(74vh,660px);margin:0 auto;border-radius:6px;}
+  .hero .lede{margin-top:24px;font-size:clamp(16px,1.6vw,20px);color:var(--cream-2);max-width:48ch;line-height:1.6;}
+  .hero h1{margin-top:14px;font-weight:700;color:var(--cream);text-transform:lowercase;line-height:.92;
+           font-size:clamp(42px,5.6vw,84px);letter-spacing:-.03em;}
+  .hero .subtitle{margin-top:14px;font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:1;
+           font-size:clamp(24px,2.8vw,38px);color:var(--amber);}
+  .hero .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero .meta{margin-top:40px;display:flex;gap:30px;flex-wrap:wrap;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-3);}
+  .hero .meta b{color:var(--cream);font-weight:600;}
+
+  /* moody image band */
+  .ph{position:relative;overflow:hidden;background:
+      radial-gradient(70% 120% at 65% 35%, rgba(238,186,63,.14), transparent 55%),
+      radial-gradient(60% 100% at 15% 90%, rgba(162,74,68,.16), transparent 60%), var(--deep);
+      border:1px solid var(--line);}
+  .ph::after{content:"image · to source";position:absolute;bottom:12px;right:16px;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-3);}
+  .ph .cap{position:absolute;inset:auto auto 20px 22px;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-2);}
+  .heroshot{height:min(56vh,520px);margin-top:0;}
+  .fullband{margin:0;}
+
+  /* the pairing triptych */
+  .pair{padding:9vh 0;}
+  .pair .cap{display:flex;justify-content:space-between;align-items:baseline;border-top:1.4px solid rgba(236,230,214,.3);padding-top:16px;flex-wrap:wrap;gap:12px;}
+  .pair h2{font-weight:700;text-transform:lowercase;letter-spacing:-.025em;font-size:clamp(28px,3.4vw,44px);line-height:1;margin-top:20px;}
+  .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:44px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+  .col{background:var(--panel);padding:34px 30px 36px;}
+  .col .n{font-family:ui-monospace,Menlo,monospace;font-size:34px;font-weight:700;color:var(--amber);line-height:1;}
+  .col .t{margin-top:20px;font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:24px;}
+  .col .d{margin-top:10px;font-size:14.5px;color:var(--cream-2);line-height:1.6;}
+
+  /* about the system */
+  .sys{padding:2vh 0 9vh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;}
+  .sys .sysimg{height:460px;border:1px solid var(--line);border-radius:6px;
+      background:#0f1712 url('concept-assets/amp.png') center/cover no-repeat;}
+  .sys h2{font-weight:700;text-transform:lowercase;letter-spacing:-.025em;line-height:1;font-size:clamp(28px,3.4vw,46px);color:var(--cream);margin:10px 0 20px;}
+  .sys p{font-size:16px;line-height:1.65;color:var(--cream-2);max-width:52ch;}
+  .sys p + p{margin-top:14px;}
+  .sys .spec{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);}
+  .sys .spec .c{padding:16px 16px 0 0;}
+  .sys .spec .k{font-family:ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-3);font-weight:700;}
+  .sys .spec .v{font-weight:600;font-size:15px;margin-top:6px;text-transform:lowercase;color:var(--cream);}
+
+  /* vintages list */
+  .vint{padding:2vh 0 9vh;}
+  .vint .head{display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr);gap:48px;align-items:start;border-top:1.4px solid rgba(236,230,214,.3);padding-top:22px;}
+  .vint h2{font-weight:700;text-transform:lowercase;letter-spacing:-.025em;line-height:1;font-size:clamp(28px,3.4vw,46px);}
+  .vint .head p{font-size:16px;line-height:1.65;color:var(--cream-2);max-width:54ch;margin-top:6px;}
+  .list{margin-top:40px;}
+  .list .lh{display:grid;grid-template-columns:2.4fr 1.3fr .7fr .8fr;gap:16px;font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-3);font-weight:700;border-bottom:1px solid var(--line);padding-bottom:10px;}
+  .row{display:grid;grid-template-columns:2.4fr 1.3fr .7fr .8fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .row .nm{font-weight:600;font-size:16px;text-transform:lowercase;letter-spacing:-.01em;}
+  .row .rg,.row .yr{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--cream-2);}
+  .row .pr{font-weight:700;text-align:right;font-size:15px;color:var(--amber);}
+  .list .flag{margin-top:16px;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--cream-3);letter-spacing:.02em;}
+
+  /* closing */
+  .cta{position:relative;text-align:center;padding:11vh var(--gutter);background:
+      radial-gradient(80% 120% at 50% -20%, rgba(238,186,63,.18), transparent 55%), var(--deep);
+      border-top:1px solid var(--line);}
+  .cta h2{font-weight:700;text-transform:lowercase;letter-spacing:-.028em;line-height:.96;color:var(--cream);font-size:clamp(34px,5vw,68px);margin:14px 0 30px;}
+
+  /* footer */
+  .pfoot{border-top:1px solid var(--line);background:var(--deep);color:var(--cream);}
+  .pfoot .in{max-width:1200px;margin:0 auto;padding:56px var(--gutter) 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(22px,2.4vw,30px);max-width:18ch;line-height:1.1;}
+  .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(236,230,214,.35);border-radius:100px;overflow:hidden;max-width:330px;}
+  .pfoot .join input{flex:1;background:transparent;border:0;color:var(--cream);padding:11px 16px;font-family:inherit;font-size:13px;outline:none;}
+  .pfoot .join input::placeholder{color:var(--cream-3);}
+  .pfoot .join button{background:var(--amber);color:#20180a;border:0;padding:11px 22px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;text-transform:lowercase;}
+  .pfoot .col{font-size:12px;color:var(--cream-3);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--cream);font-weight:600;}
+
+  @media(max-width:880px){
+    .hero{grid-template-columns:1fr;gap:28px;}
+    .hshot{max-height:min(54vh,440px);}
+    .cols{grid-template-columns:1fr;}
+    .sys{grid-template-columns:1fr;gap:28px;}
+    .vint .head{grid-template-columns:1fr;gap:12px;}
+    .list .lh,.row{grid-template-columns:1.6fr .6fr;gap:8px;}
+    .list .lh .h-rg,.list .lh .h-yr,.row .rg,.row .yr{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
+    <nav>
+      <a href="winemakers.html">the makers</a>
+      <a href="workshops.html">the lessons</a>
+      <a href="winemakers-dinner.html">the supper</a>
+      <a href="for-professionals.html">trade</a>
+      <a class="btn" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">take your place</a>
+    </nav>
+  </div>
+
+  <!-- hero -->
+  <header class="wrap hero">
+    <div class="htext">
+    <div class="kick">an experiment for edition #5</div>
+    <h1>the listening<br>room.</h1>
+    <div class="subtitle">an oasis of taste.</div>
+    <p class="lede">premium audio, rare vintages, sakés and the art of sushi. some of the most legendary records, played on an outrageous vinyl-based system. slow listening, slow drinking.</p>
+    <div class="cta-row">
+      <a class="btn" href="#system">about the system →</a>
+    </div>
+    <div class="meta"><span>de hallen · <b>amsterdam</b></span><span>edition <b>#5</b></span><span><b>28 feb &amp; 1 mar '27</b></span></div>
+    </div>
+    <img class="hshot" src="concept-assets/speaker.png" alt="a horn loudspeaker">
+  </header>
+
+  <!-- the pairing -->
+  <section class="wrap pair">
+    <div class="cap"><span class="kick">the pairing</span><span class="mono" style="font-size:11px;color:var(--cream-3);letter-spacing:.1em;text-transform:uppercase">three senses, one sitting</span></div>
+    <h2>sound, wine, and the art of sushi.</h2>
+    <div class="cols">
+      <div class="col"><div class="n">01</div><div class="t">the sound</div><div class="d">an outrageous vinyl-based system, horn-loaded and valve-driven. legendary pressings, all afternoon.</div></div>
+      <div class="col"><div class="n">02</div><div class="t">the wine</div><div class="d">a short, changing list of the rarest vintages, poured by the glass. bottles you rarely get to open, tasted while the record plays.</div></div>
+      <div class="col"><div class="n">03</div><div class="t">the table</div><div class="d">sakés alongside, and sushi cut to match. slow food for slow listening. one pour, one plate, one side of a record at a time.</div></div>
+    </div>
+  </section>
+
+  <!-- about the system -->
+  <section class="wrap sys" id="system">
+    <div class="sysimg"></div>
+    <div>
+      <div class="kick">about the system</div>
+      <h2>built to be<br>listened to.</h2>
+      <p>the heart of it is a horn-loaded, valve-driven, vinyl-based system, the kind audiophiles cross borders to hear. tuned for a real space, not a demo bench, so a record sounds the way it was cut.</p>
+      <p>an afternoon of legendary pressings, warm and unhurried. sit down, let it play.</p>
+      <div class="spec">
+        <div class="c"><div class="k">source</div><div class="v">vinyl, all day</div></div>
+        <div class="c"><div class="k">speakers</div><div class="v">horn-loaded</div></div>
+        <div class="c"><div class="k">amplification</div><div class="v">valve</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- rarest vintages -->
+  <section class="wrap vint">
+    <div class="head">
+      <h2>the rarest<br>vintages.</h2>
+      <p>bottles you rarely get to open, poured by the glass so the room can taste together. the list changes through the day, while the record plays.</p>
+    </div>
+    <div class="list">
+      <div class="lh"><span>bottle</span><span class="h-rg">region</span><span class="h-yr">vintage</span><span style="text-align:right">by the glass</span></div>
+      <div class="row"><span class="nm">example grower, cuvée name</span><span class="rg">jura, fr</span><span class="yr">2016</span><span class="pr">€24</span></div>
+      <div class="row"><span class="nm">example grower, cuvée name</span><span class="rg">mosel, de</span><span class="yr">2011</span><span class="pr">€28</span></div>
+      <div class="row"><span class="nm">example grower, cuvée name</span><span class="rg">etna, it</span><span class="yr">2009</span><span class="pr">€32</span></div>
+      <div class="row"><span class="nm">junmai daiginjo, example brewery</span><span class="rg">niigata, jp</span><span class="yr">nv</span><span class="pr">€18</span></div>
+      <div class="row"><span class="nm">example grower, cuvée name</span><span class="rg">champagne, fr</span><span class="yr">2008</span><span class="pr">€38</span></div>
+      <div class="flag">sample list, placeholder prices · final bottles &amp; prices to come from peter</div>
+    </div>
+  </section>
+
+  <!-- closing -->
+  <section class="cta">
+    <div class="kick">come and listen</div>
+    <h2>sit down, let it play.</h2>
+  </section>
+
+  <!-- footer -->
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">stay on the list, first to the bottle list every edition.</div>
+        <form class="join" onsubmit="return false">
+          <input type="email" placeholder="your email" aria-label="email" />
+          <button>join</button>
+        </form>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edition #5 — 28 feb &amp; 1 mar '27<br>
+        de hallen, amsterdam<br><br>
+        instagram · newsletter<br>
+        united by wine
+      </div>
+    </div>
+  </footer>
+
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
