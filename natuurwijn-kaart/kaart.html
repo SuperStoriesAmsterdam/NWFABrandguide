@@ -249,8 +249,12 @@
   // ---- Map (focused on NL + Belgium) ----
   var map=L.map('map',{scrollWheelZoom:true,zoomControl:true,minZoom:7,fadeAnimation:false,
     maxBounds:[[49.35,2.2],[53.85,7.4]],maxBoundsViscosity:.9}).setView([51.7,4.8],7.2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
-    attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:19,minZoom:7
+  // Keyless light basemap (Esri World Light Gray) — no API key, no account.
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+    attribution:'Tiles &copy; Esri',maxZoom:16,minZoom:7
+  }).addTo(map);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{
+    maxZoom:16,minZoom:7
   }).addTo(map);
 
   // Paper cutout: mask everything outside NL + Belgium (dedicated pane below markers).
