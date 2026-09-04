@@ -166,6 +166,9 @@
   /* section emblems + floor strip + dark footer (design-system rollout) */
   .semblem{width:30px;height:49px;display:block;margin-bottom:14px;}
   .floor-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;margin-top:34px;}
+  .floor-grid a.zone{transition:transform .14s;}
+  .floor-grid a.zone:hover{transform:translateY(-3px);}
+  .floor-grid a.zone:hover .zn{color:var(--accent);}
   .zone .zimg{height:76px;margin-bottom:14px;}
   .zone .zn{font-size:20px;font-weight:700;text-transform:lowercase;letter-spacing:-.02em;}
   .zone .zd{font-size:13.5px;color:var(--ink-2);line-height:1.5;margin-top:5px;max-width:22ch;}
@@ -330,25 +333,24 @@
     </div>
   </div>
 
-  <!-- §05 on the floor -->
+  <!-- §05 what's on -->
   <div class="wrap sec tight">
-    <div class="seclabel">§ 05 · on the floor</div>
-    <div class="sectitle">there's more than wine.</div>
+    <div class="seclabel">§ 05 · what's on</div>
+    <div class="sectitle">the two days, in parts.</div>
+    <p style="margin-top:14px;font-size:15px;color:var(--ink-2);max-width:60ch;">the tasting floor, with an all-day wine bar, a craft food market and an oyster bar alongside it.</p>
     <div class="floor-grid">
-      <div class="zone"><img class="zimg" src="icons-tuned/bar-brut-nature.svg" alt=""><div class="zn">brut nature bar</div><div class="zd">bubbles all afternoon, poured by the growers.</div></div>
-      <div class="zone"><img class="zimg" src="icons-tuned/gems-bar.svg" alt=""><div class="zn">the gems bar</div><div class="zd">rare bottles by the glass, one day only.</div></div>
-      <div class="zone"><img class="zimg" src="icons-tuned/camping-culinair.svg" alt=""><div class="zn">camping culinair</div><div class="zd">a one-day kitchen, food paired to the floor.</div></div>
-      <div class="zone"><img class="zimg" src="icons-tuned/winestore.svg" alt=""><div class="zn">winestore xl</div><div class="zd">holland's biggest natural wine store, for a day.</div></div>
-      <div class="zone txt"><span class="zk">new · partner</span><div class="zn">the frenchman</div><div class="zd">cheese &amp; charcuterie, and a workshop or two.</div></div>
-      <div class="zone txt" style="border-top-color:var(--ink-3)"><span class="zk" style="color:var(--ink-3)">more to come</span><div class="zn" style="color:var(--ink-3)">and more…</div><div class="zd">the floor keeps filling up to '27.</div></div>
+      <a class="zone txt" href="winemakers.html"><span class="zk">the makers</span><div class="zn">40+ winemakers</div><div class="zd">every grower pouring their own wines, farming declared.</div></a>
+      <a class="zone txt" href="workshops.html"><span class="zk">the lessons</span><div class="zn">15+ workshops</div><div class="zd">from ecological viticulture to blind tastings.</div></a>
+      <a class="zone txt" href="specials.html"><span class="zk">the floor</span><div class="zn">the specials</div><div class="zd">the listening room, the yoikokochi sake tasting, the frenchman.</div></a>
+      <a class="zone txt" href="winemakers-dinner.html"><span class="zk">the supper</span><div class="zn">the winemakers dinner</div><div class="zd">five courses, sunday night. this edition, open to visitors.</div></a>
     </div>
-    <a class="lr-band" href="listening-room.html">
+    <a class="lr-band" href="natural-wineguide.html">
       <div>
-        <div class="lrk">the listening room · an experiment</div>
-        <div class="lrn">an oasis of taste.</div>
-        <div class="lrt">premium audio, rare vintages, sakés and the art of sushi. legendary records on an outrageous vinyl-based system.</div>
+        <div class="lrk">the wineguide</div>
+        <div class="lrn">fifty makers, one afternoon. your route.</div>
+        <div class="lrt">nobody tastes fifty makers. tell us what you already like and how far you want to go, and we build your route across the floor. a graphic map of the fair is on the way.</div>
       </div>
-      <div class="lrgo">read more →</div>
+      <div class="lrgo">build your route →</div>
     </a>
   </div>
 
