@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NWFA — design decisions</title>
+<style>
+@font-face{font-family:'Figtree';src:url('../concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+:root{--bg:#ECE6D6;--ink:#1B3326;--ink2:rgba(27,51,38,.72);--ink3:rgba(27,51,38,.5);--line:rgba(27,51,38,.18);--ochre:#9F6E29;--amber:#eeba3f;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Figtree',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;padding:56px 0 120px;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px;}
+.head{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:12px;}
+.kick{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);}
+h1{font-size:44px;font-weight:700;letter-spacing:-.02em;text-transform:lowercase;margin-top:10px;}
+.lead{color:var(--ink2);max-width:66ch;margin-top:12px;font-size:15px;}
+.card{border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:34px;overflow:hidden;}
+.card .top{padding:22px 26px 16px;border-bottom:1px solid var(--line);}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:100px;margin-bottom:10px;}
+.red{background:#f3d6cf;color:#8a2b16;} .orange{background:#f6e4c8;color:#8a5a12;} .yellow{background:#f6efc8;color:#6f6412;} .green{background:#d7e6d5;color:#2c5330;}
+.card h2{font-size:23px;font-weight:700;letter-spacing:-.01em;text-transform:lowercase;}
+.card .q{color:var(--ink2);font-size:14.5px;margin-top:6px;max-width:70ch;}
+.card .img{padding:20px 26px;background:#efeadd;}
+.card .img img{width:100%;display:block;border:1px solid var(--line);border-radius:6px;}
+.opts{padding:16px 26px 24px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;gap:12px;align-items:baseline;font-size:14.5px;}
+.opt b{color:var(--ink);} .opt .rec{color:var(--ochre);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.opt .dot{flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:var(--ink);margin-top:6px;}
+.mytake{margin:14px 26px 0;padding:12px 16px;background:#f4efe0;border-left:3px solid var(--ochre);border-radius:0 6px 6px 0;font-size:13.5px;color:var(--ink2);}
+.mytake b{color:var(--ink);}
+table{width:100%;border-collapse:collapse;margin-top:6px;font-size:13.5px;}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;}
+td b{color:var(--ink);}
+.note{font-size:13.5px;color:var(--ink2);padding:4px 26px 22px;}
+ul{margin:6px 0 0 20px;} li{margin:4px 0;font-size:14px;color:var(--ink2);} li b{color:var(--ink);}
+</style></head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="kick">natural wine festival a'dam</div>
+    <h1>design decisions</h1>
+    <p class="lead">Alles wat visueel beoordeeld moet worden voor we het design-systeem vastleggen. Per punt: het echte beeld, de opties, en mijn voorstel. Wijs aan wat je wilt; ik giet het in tokens en rol het over alle pagina's uit. Volgorde = impact op het skelet.</p>
+  </div>
+
+  <!-- NAV -->
+  <div class="card">
+    <div class="top"><span class="tag red">skelet · nav</span>
+      <h2>01 · navigatie</h2>
+      <p class="q">Nu drie implementaties met verschillende link-sets. Welke wordt de standaard voor élke pagina?</p></div>
+    <div class="img"><img src="decisions-assets/nav-abc.png" alt="nav A B C"></div>
+    <div class="opts">
+      <div class="opt"><span class="dot"></span><div><b>A · index</b> — full-bleed, geen "trade" in de nav.</div></div>
+      <div class="opt"><span class="dot"></span><div><b>B · subpagina's</b> — binnen de content-breedte, mét "trade". <span class="rec">mijn voorstel</span></div></div>
+      <div class="opt"><span class="dot"></span><div><b>C · workshops</b> — als B, maar met een lijn onder de balk.</div></div>
+    </div>
+    <div class="mytake"><b>Voorstel:</b> B als basis (breedte volgt de content, "trade" hoort erin), en de logo-wordmark linkt overal naar home. Detailpagina's (maker/workshop) krijgen links een terug-link.</div>
+  </div>
+
+  <!-- TYPE -->
+  <div class="card">
+    <div class="top"><span class="tag red">skelet · type</span>
+      <h2>02 · kopschaal & "united by wine"</h2>
+      <p class="q">De h1 is per pagina verzonnen: 76 → 84 → 148px, 8 maten totaal. En "united by wine" staat op index in Vicky (serif-script), op about in gewone Figtree.</p></div>
+    <div class="img"><img src="decisions-assets/type-scale.png" alt="type scale"></div>
+    <div class="opts">
+      <div class="opt"><span class="dot"></span><div><b>Kopschaal:</b> terug naar 2-3 vaste maten (bv. XL hero, L sectie, M kaart) i.p.v. 8. <span class="rec">nodig</span></div></div>
+      <div class="opt"><span class="dot"></span><div><b>"united by wine":</b> één behandeling. Overal Vicky (kenmerkend), óf overal Figtree (rustiger).</div></div>
+    </div>
+    <div class="mytake"><b>Voorstel:</b> Vicky reserveren voor precies één ding — de payoff "united by wine" — en overal hetzelfde. De grote koppen in Figtree op een vaste schaal. Zeg maar welke 2-3 maten je wilt.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="card">
+    <div class="top"><span class="tag orange">skelet · footer</span>
+      <h2>03 · footer</h2>
+      <p class="q">Twee footers in omloop. Eén sitebreed kiezen.</p></div>
+    <div class="img"><img src="decisions-assets/footer-paper.png" alt="paper footer" style="margin-bottom:14px"><img src="decisions-assets/footer-dark.png" alt="dark footer"></div>
+    <div class="opts">
+      <div class="opt"><span class="dot"></span><div><b>Boven · paper + Vicky</b> (index) — licht, luchtig, sluit aan op de pagina.</div></div>
+      <div class="opt"><span class="dot"></span><div><b>Onder · donker blok</b> (subpagina's) — zwaar anker, sluit de pagina af. <span class="rec">mijn voorstel</span></div></div>
+    </div>
+    <div class="mytake"><b>Voorstel:</b> het donkere blok sitebreed — het geeft elke pagina een duidelijk einde en houdt de mailinglijst-CTA sterk. De Vicky-payoff kan erin.</div>
+  </div>
+
+  <!-- CLOSING BAND -->
+  <div class="card">
+    <div class="top"><span class="tag orange">component · close</span>
+      <h2>04 · luide ochre "take your place"-band</h2>
+      <p class="q">Nu op index + about. Op elke pagina, of alleen op de marketing-pagina's?</p></div>
+    <div class="img"><img src="decisions-assets/band-close.png" alt="closing band"></div>
+    <div class="opts">
+      <div class="opt"><span class="dot"></span><div><b>Overal</b> — elke pagina eindigt met dezelfde ticket-duw.</div></div>
+      <div class="opt"><span class="dot"></span><div><b>Alleen marketing</b> (home, about, natural-wine) — detailpagina's houden hun eigen einde. <span class="rec">mijn voorstel</span></div></div>
+    </div>
+  </div>
+
+  <!-- STAT BARS -->
+  <div class="card">
+    <div class="top"><span class="tag orange">component · stat-bar</span>
+      <h2>05 · stat / spec-balken</h2>
+      <p class="q">Vier varianten die hetzelfde doen (label + waarde). Eén component maken.</p></div>
+    <div class="img">
+      <img src="decisions-assets/stat-specstrip.png" alt="index specstrip" style="margin-bottom:14px">
+      <img src="decisions-assets/stat-about.png" alt="about stats" style="margin-bottom:14px">
+      <img src="decisions-assets/stat-winemakers.png" alt="winemakers stats">
+    </div>
+    <div class="mytake"><b>Voorstel:</b> één <b>stat-bar</b> met N cellen (label + waarde) en een optionele stempel-/CTA-cel. Amber-regel: markeer per balk het ene schaarse getal, niet meer.</div>
+  </div>
+
+  <!-- ICONS -->
+  <div class="card">
+    <div class="top"><span class="tag green">kans · iconen</span>
+      <h2>06 · 17 iconen die we hebben en nergens gebruiken</h2>
+      <p class="q">Twee families: ronde pictogrammen (oyster, tasting, sake, shipment, brain/mind, eat-drink-pair-love, minimarket) en "church"-emblemen per festival-onderdeel. Fel groen+geel — dat botst met het huidige rustige palet, dus de eerste keuze is: as-is of hertekenen in mono.</p></div>
+    <div class="img"><img src="decisions-assets/icons-sheet.png" alt="all icons"></div>
+    <table>
+      <tr><th>icon</th><th>waar inzetten</th></tr>
+      <tr><td><b>church · the winemakers</b></td><td>sectie-emblem "the makers" / kop winemakers-pagina</td></tr>
+      <tr><td><b>church · workshops &amp; masterclasses</b></td><td>"the lessons" / kop workshops-pagina</td></tr>
+      <tr><td><b>church · winemakers dinner</b></td><td>"the supper" / kop dinner-pagina</td></tr>
+      <tr><td><b>church · market · winestore XL · minimarket</b></td><td>het market-onderdeel ("koop het bij de maker")</td></tr>
+      <tr><td><b>church · bar brut nature · gems bar</b></td><td>bar-onderdelen (nog geen sectie — kans om ze te introduceren)</td></tr>
+      <tr><td><b>church · camping culinair</b></td><td>food/eet-onderdeel</td></tr>
+      <tr><td><b>oyster · tasting · eat-drink-pair-love · food</b></td><td>the day / oyster bar & keuken / food-pairing</td></tr>
+      <tr><td><b>shipment</b></td><td>"carry it home" / distributie / trade-pagina</td></tr>
+      <tr><td><b>brain / mind</b></td><td>The Natural (sommelier) of de workshops (leren)</td></tr>
+      <tr><td><b>sake</b></td><td>een drank-/programma-onderdeel</td></tr>
+    </table>
+    <div class="mytake"><b>Twee keuzes:</b> (1) <b>as-is</b> (fel groen+geel, luide accenten — dan hebben ze hun eigen plek nodig, niet naast fijne tekst) of <b>hertekenen in mono</b> (ink/ochre, past in het systeem als sectie-emblemen). (2) Waar zetten we ze in: als <b>sectie-emblemen</b> naast de §-labels, of als <b>features-grid</b> ("wat is er te doen") ergens op de home? Mijn voorstel: mono-versie als sectie-emblem, plus een features-grid op de home die de church-set inzet.</div>
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="card">
+    <div class="top"><span class="tag yellow">token · breedte</span>
+      <h2>07 · container-breedte</h2>
+      <p class="q">Subtiel: index gebruikt 1180px + een schaal-gutter; alle subpagina's 1280px + vaste 46px. Eén token kiezen.</p></div>
+    <div class="note">Geen apart beeld nodig — het is een maat-verschil. <b>Voorstel:</b> één breedte (1280) + één gutter-token <code>clamp(24px, 5vw, 64px)</code> overal.</div>
+  </div>
+
+  <!-- CONTENT FIXES -->
+  <div class="card">
+    <div class="top"><span class="tag red">content · feiten</span>
+      <h2>08 · feiten die nog kloppend moeten (geen design)</h2></div>
+    <div class="note">
+    <ul>
+      <li><b>Editie-historie:</b> pagina zegt edition #5 (2025 = editie 3), maar de about-zin "pilot 2022 + edities 2023/2024" telt niet op. Ik heb de volledige historie nodig om de zin te fixen.</li>
+      <li><b>Twee-dagen-uren:</b> de marketing-balken tonen nog één-dag-tijden. Echt: zo 28 feb 11:00–13:00 (pros) → 13:00–18:15 (allen); ma 1 maart 10:00–16:00 (trade). Verwerken?</li>
+      <li><b>for-professionals</b> = specifiek maandag 1 maart (trade-dag) — pagina mag dat zeggen.</li>
+      <li><b>Growers</b> staan nu op 40+ (afgesproken). Wines 300+, classes 25+ ongewijzigd — kloppen die nog?</li>
+    </ul>
+    </div>
+  </div>
+
+</div>
+</body></html>
