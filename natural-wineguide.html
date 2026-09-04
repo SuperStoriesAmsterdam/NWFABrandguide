@@ -8,13 +8,14 @@
 <style>
   @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   :root{
-    --paper:#e7e1d0;
-    --ink:#1b2a20;
-    --ink-2:rgba(27,42,32,.60);
-    --ink-3:rgba(27,42,32,.40);
-    --rule:rgba(27,42,32,.20);
-    --ochre:#9a6628;
-    --gutter:max(28px,6vw);
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.62);
+    --ink-3:rgba(27,51,38,.42);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
@@ -52,7 +53,7 @@
   .opt{border:1.4px solid var(--rule);background:transparent;text-align:left;padding:18px 18px 20px;cursor:pointer;
        transition:border-color .18s,background .18s,transform .18s;color:inherit;font-family:inherit;position:relative;overflow-wrap:anywhere;}
   .opt:hover{border-color:var(--ink);transform:translateY(-2px);}
-  .opt.sel{border-color:var(--ink);background:rgba(27,42,32,.05);}
+  .opt.sel{border-color:var(--ink);background:rgba(27,51,38,.05);}
   .opt.sel::after{content:"✓";position:absolute;top:13px;right:15px;color:var(--ochre);font-weight:700;font-size:15px;}
   .opt .ot{font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.01em;}
   .opt .od{margin-top:7px;color:var(--ink-2);font-size:12.5px;line-height:1.5;}
@@ -111,7 +112,7 @@
   .stop .card .tags{margin-top:13px;display:flex;flex-wrap:wrap;gap:7px;}
   .tag{font-size:10px;letter-spacing:.05em;text-transform:lowercase;border:1px solid var(--rule);padding:4px 9px;color:var(--ink-2);}
   .tag.funk{border-color:var(--ochre);color:var(--ochre);}
-  .stop.omver{background:rgba(154,102,40,.05);margin:0 calc(-1 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter);}
+  .stop.omver{background:rgba(159,110,41,.05);margin:0 calc(-1 * var(--gutter));padding-left:var(--gutter);padding-right:var(--gutter);}
   .stop.omver .idx .num{color:var(--ochre);}
 
   .replay{margin-top:38px;border-top:1.4px solid var(--ink);padding-top:24px;}
@@ -128,16 +129,76 @@
   .save .st b{color:var(--ink);}
   .save .sb{background:var(--ink);color:var(--paper);padding:12px 22px;font-size:13.5px;font-weight:600;text-transform:lowercase;cursor:pointer;border:none;font-family:inherit;}
   .stub{display:inline-block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);border:1px solid var(--ochre);padding:2px 6px;margin-left:8px;vertical-align:middle;}
+  /* ===== site nav (canonical) ===== */
+  .sitenav{display:flex;align-items:center;gap:24px;padding:24px var(--gutter);font-size:14px;position:relative;z-index:80;font-family:'Figtree',system-ui,sans-serif;border-bottom:1.4px solid var(--ink);margin-bottom:34px;}
+  .sitenav .bm{display:inline-flex;align-items:center;gap:11px;font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:#1B3326;}
+  .sitenav .bm-logo{height:40px;width:40px;flex:0 0 auto;}
+  .sitenav .bm-txt{display:block;}
+  .sitenav .bm-txt span{display:block;}
+  .sitenav .lk{margin-left:auto;display:flex;gap:22px;align-items:center;font-weight:500;}
+  .sitenav .lk>a{color:rgba(27,51,38,.84);}
+  .sitenav .lk>a:hover{color:#1B3326;}
+  .sitenav .lk a.tix{background:#eeba3f;color:#1B3326;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .sitenav .lk a.tix:hover{background:#e3ad2f;}
+  .sitenav .has{position:relative;}
+  .sitenav .has>button{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
+  .sitenav .has>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
+  .sitenav .has:hover>button,.sitenav .has:focus-within>button{color:#1B3326;}
+  .sitenav .has:hover>button::after,.sitenav .has:focus-within>button::after{opacity:.85;transform:rotate(45deg) translateY(0);}
+  .sitenav .drop{position:absolute;top:100%;right:0;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:90;}
+  .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
+  .sitenav .drop .panel{min-width:274px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
+  .sitenav .drop a{display:block;padding:11px 14px;color:#1B3326;transition:background .12s;}
+  .sitenav .drop a:hover{background:rgba(27,51,38,.06);}
+  .sitenav .drop a b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;}
+  .sitenav .drop a span{display:block;font-size:11.5px;color:rgba(27,51,38,.62);margin-top:3px;line-height:1.4;font-weight:500;}
+  .sitenav .drop.mega .panel{min-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
+  .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
+  @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a:not(.tix){display:none;}}
+  .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);margin-top:60px;}
+  .pfoot .in{max-width:1080px;margin:0 auto;padding:58px var(--gutter) 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap row">
-    <div class="brand">the natural wineguide <span>· nwfa a'dam</span></div>
-    <div class="meta mono">prototype · stub-motor · dummy-data</div>
+<nav class="sitenav">
+  <a class="bm" href="index.html" aria-label="NWFA — home"><img class="bm-logo" src="logos-/logo-church-tuned.svg" alt=""><span class="bm-txt"><span>natural wine festival</span><span>a'dam</span></span></a>
+  <div class="lk">
+    <div class="has"><button type="button" aria-haspopup="true">about</button>
+      <div class="drop"><div class="panel">
+        <a href="about.html"><b>the event</b><span>dates, venue, the two days</span></a>
+        <a href="natural-wine.html"><b>philosophy</b><span>why it's just common sense</span></a>
+      </div></div></div>
+    <div class="has"><button type="button" aria-haspopup="true">winemakers</button>
+      <div class="drop"><div class="panel">
+        <a href="winemakers.html"><b>the register</b><span>every grower, farming declared</span></a>
+        <a href="natural-wineguide.html"><b>the wineguide</b><span>fifty makers, one afternoon, your route</span></a>
+      </div></div></div>
+    <a href="workshops.html">workshops</a>
+    <div class="has"><button type="button" aria-haspopup="true">specials</button>
+      <div class="drop"><div class="panel">
+        <a href="specials.html#listening-room"><b>the listening room</b><span>rare vintages on an outrageous system</span></a>
+        <a href="specials.html#yoikokochi"><b>yoikokochi</b><span>a big sake tasting</span></a>
+        <a href="specials.html#cheese"><b>the frenchman</b><span>cheese &amp; charcuterie</span></a>
+        <a href="specials.html#oyster"><b>the oyster bar</b><span>open all day</span></a>
+        <a href="specials.html"><b>all specials &rarr;</b></a>
+      </div></div></div>
+    <div class="has"><button type="button" aria-haspopup="true">winemakers dinner</button>
+      <div class="drop"><div class="panel">
+        <a href="winemakers-dinner.html"><b>for visitors</b><span>new this edition &middot; five courses, &euro;65</span></a>
+        <a href="winemakers-dinner-crew.html"><b>winemakers &amp; crew</b><span>the table this dinner grew from</span></a>
+      </div></div></div>
+    <div class="has"><button type="button" aria-haspopup="true">for professionals</button>
+      <div class="drop mega"><div class="panel">
+        <div><div class="col-h">winemakers</div><a href="participate.html"><b>present at the fair</b><span>pour for buyers, sommeliers and press</span></a></div>
+        <div><div class="col-h">horeca</div><a href="for-professionals.html"><b>the trade day</b><span>monday 1 march &middot; free for vetted pros</span></a></div>
+      </div></div></div>
+    <a class="tix" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">buy tickets &rarr;</a>
   </div>
-</header>
+</nav>
 
 <div class="wrap stage">
 
@@ -147,7 +208,7 @@
     <h1>vijftig makers.<br>eén middag.<br>jouw route.</h1>
     <p class="lede">Niemand proeft vijftig makers. Vertel ons wat je al lekker vindt en hoe ver je vandaag wil gaan, dan bouwen we je eigen route over de markt. Een paar wijnen die je snapt, en een paar die je omverblazen. Maak 'm zo vaak je wil, elke keer een andere hoek.</p>
     <div class="start"><button class="btn next" data-go="1">bouw je route →</button></div>
-    <p class="mapnote mono">4 vragen · standnummers verschijnen zodra de plattegrond er is</p>
+    <p class="mapnote mono">4 vragen · standnummers volgen zodra de plattegrond er is</p>
   </section>
 
   <!-- STEP 1 — anchor: favourites -->
@@ -157,9 +218,9 @@
     <p class="qsub">Tik aan wat je normaal graag drinkt. Dit is je anker: het ijkpunt waarvandaan we je verrassen. Meerdere mag.</p>
     <div class="chipwrap" id="favs"></div>
     <div class="freetext">
-      <label class="mono">of typ je lievelingswijnen <span class="stub">stub</span></label>
+      <label class="mono">of typ je lievelingswijnen</label>
       <input type="text" id="favtext" placeholder="bijv. een rijpe rioja, sancerre, een fruitige beaujolais..." />
-      <div class="hint">In de echte versie leest TrueSomm hier vrije wijnnamen uit en plaatst ze in dezelfde smaakruimte. Nu stuurt alleen je selectie hierboven de match.</div>
+      <div class="hint">Binnenkort lezen we hier vrije wijnnamen uit en plaatsen we ze in dezelfde smaakruimte. Voor nu stuurt je selectie hierboven de match.</div>
     </div>
     <div class="navb"><button class="btn back" data-go="0">← terug</button><button class="btn next" data-go="2" disabled>volgende →</button></div>
   </section>
@@ -521,7 +582,7 @@ function renderResults(){
     </div>
 
     <div class="save">
-      <div class="st"><b>Mail mij mijn route.</b> Bewaar 'm, open 'm op je telefoon bij de ingang, pas 'm daar aan. <span class="stub">stub</span></div>
+      <div class="st"><b>Mail mij mijn route.</b> Bewaar 'm, open 'm op je telefoon bij de ingang, pas 'm daar aan.</div>
       <button class="sb" id="mailbtn">mail mij mijn route</button>
     </div>
   `;
@@ -534,5 +595,10 @@ function renderResults(){
   document.getElementById('mailbtn').onclick  = ()=>alert("In de echte versie krijg je hier je route in de mail, met een link die je op de dag zelf kunt bijstellen.");
 }
 </script>
+<footer class="pfoot"><div class="in">
+  <div><div class="big">stay on the list — first to the bottle list, every edition.</div></div>
+  <div class="col"><b>natural wine festival a'dam</b><br>edition #5 — 28 feb &amp; 1 mar '27<br>de hallen, amsterdam<br><br>united by wine</div>
+</div></footer>
+
 </body>
 </html>
