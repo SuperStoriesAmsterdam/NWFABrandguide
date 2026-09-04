@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design System — Natural Wine Festival A'dam</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+  :root{
+    --bg:#ECE6D6; --ink:#1B3326; --ink-2:rgba(27,51,38,.84); --ink-3:rgba(27,51,38,.62);
+    --rule:rgba(27,51,38,.20); --ochre:#9F6E29; --amber:#eeba3f; --gutter:clamp(24px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter);}
+  a{color:inherit;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,var(--amber) 3%,var(--amber) 96%,rgba(238,186,63,0) 99%);color:#1B3326;padding:.03em .18em;border-radius:.35em;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+
+  header.ds{border-bottom:1.4px solid var(--ink);padding:40px 0 26px;margin-bottom:10px;}
+  header.ds .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  header.ds h1{font-weight:700;text-transform:lowercase;letter-spacing:-.03em;font-size:clamp(40px,6vw,72px);line-height:.92;margin-top:10px;}
+  header.ds p{color:var(--ink-2);margin-top:14px;max-width:60ch;}
+
+  section.ds{padding:46px 0;border-bottom:1.4px solid var(--rule);}
+  .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  h2.dt{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,3vw,36px);margin:8px 0 26px;}
+
+  /* palette */
+  .sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;}
+  .swatch{border:1.4px solid var(--rule);border-radius:8px;overflow:hidden;}
+  .swatch .chip{height:96px;}
+  .swatch .m{padding:12px 14px;}
+  .swatch .nm{font-weight:600;font-size:14px;text-transform:lowercase;}
+  .swatch .hex{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:var(--ink-2);letter-spacing:.03em;margin-top:3px;}
+
+  /* type */
+  .ty > div{padding:12px 0;border-top:1px solid var(--rule);}
+  .ty .tt{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:1;}
+  .ty .meta{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+  .ty .payoff{font-family:'Vicky';color:var(--ochre);text-transform:lowercase;font-size:40px;line-height:1;}
+
+  /* components */
+  .comp{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
+  .cbox{border:1.4px solid var(--rule);border-radius:8px;padding:20px;background:#fff6;}
+  .cbox .cl{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;}
+  .tix{display:inline-block;background:#eeba3f;color:#1B3326;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;}
+  .btn{display:inline-block;background:var(--ochre);color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.4px solid rgba(27,51,38,.4);}
+  .btn.amber{background:var(--amber);color:var(--ink);}
+  .stat{display:flex;gap:0;border-top:1.4px solid var(--ink);}
+  .stat .c{padding:12px 16px;border-right:1px solid var(--rule);}
+  .stat .c:last-child{border-right:0;}
+  .stat .c .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .stat .c .v{font-weight:700;font-size:16px;margin-top:5px;}
+  .footswatch{background:var(--ink);color:var(--bg);border-radius:8px;padding:20px;font-weight:600;text-transform:lowercase;}
+
+  /* ICON PICKER */
+  .ic-bar{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:14px 0;border-bottom:1.4px solid var(--rule);margin-bottom:20px;}
+  .ic-bar button{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:10px 16px;border-radius:100px;cursor:pointer;border:1.4px solid var(--ink);background:var(--ink);color:var(--bg);}
+  .ic-bar button.ghost{background:none;color:var(--ink);}
+  .ic-bar .cnt{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);margin-left:auto;}
+  .ic-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin:26px 0 4px;}
+  .ic-c{color:var(--ink-3);}
+  .ic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px;margin:12px 0 30px;}
+  .ic{display:flex;flex-direction:column;align-items:center;gap:10px;border:1.4px solid var(--rule);border-radius:8px;padding:18px 12px 12px;cursor:pointer;position:relative;background:#ffffff88;transition:.12s;}
+  .ic:hover{border-color:var(--ink);}
+  .ic input{position:absolute;top:9px;left:9px;width:18px;height:18px;accent-color:var(--ochre);cursor:pointer;}
+  .ic.on{border-color:var(--ochre);background:rgba(154,102,40,.07);box-shadow:inset 0 0 0 1.4px var(--ochre);}
+  .ic-img{height:76px;display:flex;align-items:center;justify-content:center;}
+  .ic-img img{height:76px;width:auto;max-width:100%;object-fit:contain;}
+  .ic-n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9.5px;color:var(--ink-2);text-align:center;word-break:break-word;line-height:1.3;}
+  #selout{width:100%;min-height:90px;margin-top:14px;border:1.4px solid var(--rule);border-radius:6px;padding:12px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink);background:#fff;display:none;}
+  .note{color:var(--ink-2);font-size:14px;max-width:64ch;margin-bottom:6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds">
+    <div class="k">natural wine festival a'dam</div>
+    <h1>design system.</h1>
+    <p>The tokens and components that hold the site together, plus the icon set to choose from. Tick the icons we keep, then hit <b>copy selection</b> and paste it back to me.</p>
+  </header>
+
+  <section class="ds">
+    <div class="lab">§ 01 — palette</div>
+    <h2 class="dt">colour.</h2>
+    <div class="sw">
+      <div class="swatch"><div class="chip" style="background:#ECE6D6"></div><div class="m"><div class="nm">paper</div><div class="hex">#ECE6D6</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1B3326"></div><div class="m"><div class="nm">ink</div><div class="hex">#1B3326</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#9F6E29"></div><div class="m"><div class="nm">ochre</div><div class="hex">#9F6E29</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#eeba3f"></div><div class="m"><div class="nm">amber</div><div class="hex">#eeba3f</div></div></div>
+      <div class="swatch"><div class="chip" style="background:rgba(27,51,38,.84)"></div><div class="m"><div class="nm">ink-2</div><div class="hex">rgba(27,51,38,.84)</div></div></div>
+      <div class="swatch"><div class="chip" style="background:rgba(27,51,38,.62)"></div><div class="m"><div class="nm">ink-3</div><div class="hex">rgba(27,51,38,.62)</div></div></div>
+    </div>
+  </section>
+
+  <section class="ds">
+    <div class="lab">§ 02 — type</div>
+    <h2 class="dt">type scale.</h2>
+    <div class="ty">
+      <div><div class="meta">display · figtree 700 · lowercase</div><div class="tt" style="font-size:64px">united by wine</div></div>
+      <div><div class="meta">h2 · figtree 600</div><div class="tt" style="font-size:38px;font-weight:600">the winemakers</div></div>
+      <div><div class="meta">h3 / card · figtree 600</div><div class="tt" style="font-size:22px;font-weight:600">oller del mas</div></div>
+      <div><div class="meta">body · figtree 400</div><div style="font-size:16px;max-width:60ch;color:var(--ink-2)">every bottle on the record. nothing added, nothing taken away. these are the growers, named, farming declared.</div></div>
+      <div><div class="meta">mono label · ui-monospace</div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700">§ 01 — the makers</div></div>
+      <div><div class="meta">payoff · vicky (reserved for this one line)</div><div class="payoff">united by wine</div></div>
+    </div>
+  </section>
+
+  <section class="ds">
+    <div class="lab">§ 03 — components</div>
+    <h2 class="dt">the parts.</h2>
+    <div class="comp">
+      <div class="cbox"><div class="cl">ticket cta (amber)</div><span class="tix">buy tickets →</span></div>
+      <div class="cbox"><div class="cl">buttons</div><span class="btn">ochre</span> <span class="btn ghost">ghost</span> <span class="btn amber">amber</span></div>
+      <div class="cbox"><div class="cl">amber data mark</div><div style="font-size:17px">doors <span class="mark">13:00–22:00</span> · <span class="mark">40+</span> growers</div></div>
+      <div class="cbox"><div class="cl">stat / spec strip</div><div class="stat"><div class="c"><div class="k">growers</div><div class="v">40+</div></div><div class="c"><div class="k">wines</div><div class="v">300+</div></div><div class="c"><div class="k">workshops</div><div class="v">15+</div></div></div></div>
+      <div class="cbox"><div class="cl">dark footer</div><div class="footswatch">united by wine</div></div>
+      <div class="cbox"><div class="cl">section label</div><div class="mono" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700">§ 05 · what's on</div></div>
+    </div>
+  </section>
+
+  <section class="ds">
+    <div class="lab">§ 04 — icons · choose the set</div>
+    <h2 class="dt">tick what we keep.</h2>
+    <p class="note">Five style variants of the same emblems, plus the extras (oyster, sake, mini-market…). Tick the ones to keep. Your picks are remembered in this browser; <b>copy selection</b> gives me the exact list.</p>
+    <div class="ic-bar">
+      <button id="copysel">copy selection</button>
+      <button id="clearsel" class="ghost">clear</button>
+      <span class="cnt" id="selcount">0 chosen</span>
+    </div>
+    <h3 class="ic-h">church emblems · tuned (amber + ink) — the set used so far <span class="ic-c"></span></h3>
+<div class="ic-grid">
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/bar-brut-nature.svg"><span class="ic-img"><img src="icons-tuned/bar-brut-nature.svg" alt="" loading="lazy"></span><span class="ic-n">bar-brut-nature</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/camping-culinair.svg"><span class="ic-img"><img src="icons-tuned/camping-culinair.svg" alt="" loading="lazy"></span><span class="ic-n">camping-culinair</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/gems-bar.svg"><span class="ic-img"><img src="icons-tuned/gems-bar.svg" alt="" loading="lazy"></span><span class="ic-n">gems-bar</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/market.svg"><span class="ic-img"><img src="icons-tuned/market.svg" alt="" loading="lazy"></span><span class="ic-n">market</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/the-lessons.svg"><span class="ic-img"><img src="icons-tuned/the-lessons.svg" alt="" loading="lazy"></span><span class="ic-n">the-lessons</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/the-makers.svg"><span class="ic-img"><img src="icons-tuned/the-makers.svg" alt="" loading="lazy"></span><span class="ic-n">the-makers</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/the-supper.svg"><span class="ic-img"><img src="icons-tuned/the-supper.svg" alt="" loading="lazy"></span><span class="ic-n">the-supper</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-tuned/winestore.svg"><span class="ic-img"><img src="icons-tuned/winestore.svg" alt="" loading="lazy"></span><span class="ic-n">winestore</span></label>
+</div>
+
+<h3 class="ic-h">church emblems · original (full colour) <span class="ic-c"></span></h3>
+<div class="ic-grid">
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church -thewinemakers.svg"><span class="ic-img"><img src="icons-/icon-church%20-thewinemakers.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church -thewinemakers</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-BarBrutNature.svg"><span class="ic-img"><img src="icons-/icon-church-BarBrutNature.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-BarBrutNature</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-WinestoreXL.svg"><span class="ic-img"><img src="icons-/icon-church-WinestoreXL.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-WinestoreXL</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-campingCulinair.svg"><span class="ic-img"><img src="icons-/icon-church-campingCulinair.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-campingCulinair</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-gemsbar.svg"><span class="ic-img"><img src="icons-/icon-church-gemsbar.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-gemsbar</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-market.svg"><span class="ic-img"><img src="icons-/icon-church-market.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-market</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-winemakersdinner.svg"><span class="ic-img"><img src="icons-/icon-church-winemakersdinner.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-winemakersdinner</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-church-workshops&amp;Masterclasses.svg"><span class="ic-img"><img src="icons-/icon-church-workshops%26Masterclasses.svg" alt="" loading="lazy"></span><span class="ic-n">icon-church-workshops&amp;Masterclasses</span></label>
+</div>
+
+<h3 class="ic-h">the &#x27;win-&#x27; set <span class="ic-c"></span></h3>
+<div class="ic-grid">
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-brut.svg"><span class="ic-img"><img src="concept-assets/win-brut.svg" alt="" loading="lazy"></span><span class="ic-n">win-brut</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-camping.svg"><span class="ic-img"><img src="concept-assets/win-camping.svg" alt="" loading="lazy"></span><span class="ic-n">win-camping</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-dinner.svg"><span class="ic-img"><img src="concept-assets/win-dinner.svg" alt="" loading="lazy"></span><span class="ic-n">win-dinner</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-gems.svg"><span class="ic-img"><img src="concept-assets/win-gems.svg" alt="" loading="lazy"></span><span class="ic-n">win-gems</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-market.svg"><span class="ic-img"><img src="concept-assets/win-market.svg" alt="" loading="lazy"></span><span class="ic-n">win-market</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-store.svg"><span class="ic-img"><img src="concept-assets/win-store.svg" alt="" loading="lazy"></span><span class="ic-n">win-store</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-winemakers.svg"><span class="ic-img"><img src="concept-assets/win-winemakers.svg" alt="" loading="lazy"></span><span class="ic-n">win-winemakers</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/win-workshops.svg"><span class="ic-img"><img src="concept-assets/win-workshops.svg" alt="" loading="lazy"></span><span class="ic-n">win-workshops</span></label>
+</div>
+
+<h3 class="ic-h">the &#x27;ico-&#x27; set <span class="ic-c"></span></h3>
+<div class="ic-grid">
+<label class="ic"><input type="checkbox" data-icon="concept-assets/ico-food.svg"><span class="ic-img"><img src="concept-assets/ico-food.svg" alt="" loading="lazy"></span><span class="ic-n">ico-food</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/ico-market.svg"><span class="ic-img"><img src="concept-assets/ico-market.svg" alt="" loading="lazy"></span><span class="ic-n">ico-market</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/ico-mind.svg"><span class="ic-img"><img src="concept-assets/ico-mind.svg" alt="" loading="lazy"></span><span class="ic-n">ico-mind</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/ico-oyster.svg"><span class="ic-img"><img src="concept-assets/ico-oyster.svg" alt="" loading="lazy"></span><span class="ic-n">ico-oyster</span></label>
+<label class="ic"><input type="checkbox" data-icon="concept-assets/ico-tasting.svg"><span class="ic-img"><img src="concept-assets/ico-tasting.svg" alt="" loading="lazy"></span><span class="ic-n">ico-tasting</span></label>
+</div>
+
+<h3 class="ic-h">extra icons (oyster, sake, mini-market, tasting, mind…) <span class="ic-c"></span></h3>
+<div class="ic-grid">
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-Brain.svg"><span class="ic-img"><img src="icons-/icon-Brain.svg" alt="" loading="lazy"></span><span class="ic-n">icon-Brain</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-EatDrinkPairLove.svg"><span class="ic-img"><img src="icons-/icon-EatDrinkPairLove.svg" alt="" loading="lazy"></span><span class="ic-n">icon-EatDrinkPairLove</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-MiniMarket.svg"><span class="ic-img"><img src="icons-/icon-MiniMarket.svg" alt="" loading="lazy"></span><span class="ic-n">icon-MiniMarket</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-Oyster.svg"><span class="ic-img"><img src="icons-/icon-Oyster.svg" alt="" loading="lazy"></span><span class="ic-n">icon-Oyster</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-Sake.svg"><span class="ic-img"><img src="icons-/icon-Sake.svg" alt="" loading="lazy"></span><span class="ic-n">icon-Sake</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-Shipment.svg"><span class="ic-img"><img src="icons-/icon-Shipment.svg" alt="" loading="lazy"></span><span class="ic-n">icon-Shipment</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-Tasting.svg"><span class="ic-img"><img src="icons-/icon-Tasting.svg" alt="" loading="lazy"></span><span class="ic-n">icon-Tasting</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-food-yellow.svg"><span class="ic-img"><img src="icons-/icon-food-yellow.svg" alt="" loading="lazy"></span><span class="ic-n">icon-food-yellow</span></label>
+<label class="ic"><input type="checkbox" data-icon="icons-/icon-mind.svg"><span class="ic-img"><img src="icons-/icon-mind.svg" alt="" loading="lazy"></span><span class="ic-n">icon-mind</span></label>
+</div>
+    <textarea id="selout" readonly></textarea>
+  </section>
+
+  <div style="padding:40px 0;color:var(--ink-3);font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.06em">nwfa · design system · internal review</div>
+</div>
+
+<script>
+(function(){
+  var KEY="nwfa_icon_pick";
+  var boxes=[].slice.call(document.querySelectorAll(".ic input"));
+  var saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||"{}");}catch(e){}
+  function label(b){return b.closest(".ic");}
+  function save(){var o={};boxes.forEach(function(b){if(b.checked)o[b.dataset.icon]=1;});try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+  function count(){var n=boxes.filter(function(b){return b.checked;}).length;document.getElementById("selcount").textContent=n+" chosen";
+    document.querySelectorAll(".ic-grid").forEach(function(g){var t=g.querySelectorAll(".ic input").length,c=[].slice.call(g.querySelectorAll(".ic input")).filter(function(b){return b.checked;}).length;var h=g.previousElementSibling&&g.previousElementSibling.querySelector(".ic-c");if(h)h.textContent="· "+c+"/"+t;});}
+  boxes.forEach(function(b){
+    if(saved[b.dataset.icon]){b.checked=true;label(b).classList.add("on");}
+    b.addEventListener("change",function(){label(b).classList.toggle("on",b.checked);save();count();});
+  });
+  count();
+  document.getElementById("clearsel").onclick=function(){boxes.forEach(function(b){b.checked=false;label(b).classList.remove("on");});save();count();document.getElementById("selout").style.display="none";};
+  document.getElementById("copysel").onclick=function(){
+    var list=boxes.filter(function(b){return b.checked;}).map(function(b){return b.dataset.icon;});
+    var txt=list.length?("icons to keep ("+list.length+"):\n"+list.join("\n")):"(nothing ticked yet)";
+    var ta=document.getElementById("selout");ta.style.display="block";ta.value=txt;ta.focus();ta.select();
+    try{navigator.clipboard&&navigator.clipboard.writeText(txt);}catch(e){}
+  };
+})();
+</script>
+</body>
+</html>
