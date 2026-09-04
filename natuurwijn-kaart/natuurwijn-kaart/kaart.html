@@ -12,24 +12,24 @@
   @font-face{font-family:'Figtree';src:url('../concept-assets/Figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap}
   :root{
     /* NWFA huisstijl (bron: home-event) */
-    --paper:#e7e1d0; --ink:#1b2a20; --ink-2:rgba(27,42,32,.60); --ink-3:rgba(27,42,32,.40);
-    --rule:rgba(27,42,32,.20); --ochre:#9a6628;
+    --paper:#ECE6D6; --ink:#1B3326; --ink-2:rgba(27,51,38,.60); --ink-3:rgba(27,51,38,.40);
+    --rule:rgba(27,51,38,.20); --ochre:#9F6E29;
     /* explorer (dark) surfaces */
-    --night:#0e130e; --surface:#161d16; --paper-2:rgba(231,225,208,.6); --hair:rgba(231,225,208,.12);
+    --night:#0e130e; --surface:#161d16; --paper-2:rgba(236,230,214,.6); --hair:rgba(236,230,214,.12);
     /* legacy tokennamen -> NWFA-waarden zodat de rest meebeweegt */
     --cream:var(--paper); --parchment:#ded6c2; --muted:var(--ink-2); --line:var(--rule);
     --wine:var(--ink); --amber:var(--ochre); --gold:var(--ochre); --terracotta:var(--ochre);
     --bordeaux-deep:#22342a; --bordeaux:#2b4032;
     --serif:'Figtree',system-ui,sans-serif; --sans:ui-monospace,'SF Mono',Menlo,monospace;
     /* markers per type, binnen het NWFA groen/oker-palet */
-    --restaurant:#1b2a20; --bar:#9a6628; --shop:#5c6e3f; --other:rgba(27,42,32,.45);
+    --restaurant:#1B3326; --bar:#9F6E29; --shop:#eeba3f; --other:rgba(27,51,38,.45);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
-  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;overflow:hidden;display:flex;flex-direction:column;height:100dvh}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;overflow:hidden}
   ::selection{background:var(--ochre);color:#fff}
 
-  .app{display:grid;grid-template-rows:auto 1fr;flex:1;min-height:0}
+  .app{display:grid;grid-template-rows:auto 1fr;height:100dvh}
 
   /* Header */
   header{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule);
@@ -42,7 +42,7 @@
   .search input{font-family:var(--sans);font-size:.85rem;color:var(--ink);background:#fff;
     border:1px solid var(--ochre);border-radius:999px;padding:8px 14px 8px 34px;width:200px;outline:none}
   .search input::placeholder{color:var(--ink-2)}
-  .search input:focus{box-shadow:0 0 0 3px rgba(154,102,40,.22)}
+  .search input:focus{box-shadow:0 0 0 3px rgba(159,110,41,.22)}
   .search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ink-2)}
 
   /* Filter chips */
@@ -94,7 +94,7 @@
   .rosette-wrap{background:transparent!important}
   .rosette{position:relative}
   .rosette .rd{position:absolute;border-radius:50%;border:1.5px solid var(--paper);box-sizing:border-box;
-    box-shadow:0 1px 2px rgba(27,42,32,.3)}
+    box-shadow:0 1px 2px rgba(27,51,38,.3)}
   /* editorial (not on Raisin): hollow ring so it reads as "candidate" vs solid Raisin pin */
   .marker-ring{width:15px;height:15px;border-radius:50%;background:var(--cream);border:3px solid var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.4)}
   .chip.editorial .ring{width:10px;height:10px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);box-sizing:border-box}
@@ -102,69 +102,15 @@
   .cloud-wrap,.marker-cluster,.marker-cluster div{background:transparent!important}
   .cloud{position:relative;display:flex;align-items:center;justify-content:center;
     border-radius:48% 52% 55% 45% / 52% 46% 54% 48%;
-    background:radial-gradient(circle at 50% 42%, rgba(154,102,40,.92) 0%, rgba(34,52,42,.9) 38%, rgba(34,52,42,.55) 62%, rgba(34,52,42,0) 78%);
+    background:radial-gradient(circle at 50% 42%, rgba(159,110,41,.92) 0%, rgba(34,52,42,.9) 38%, rgba(34,52,42,.55) 62%, rgba(34,52,42,0) 78%);
     filter:blur(.3px);animation:cloudpulse 6s ease-in-out infinite}
   .cloud span{font-family:var(--serif);font-weight:600;color:var(--paper);font-size:.9rem;
     letter-spacing:-.01em;text-shadow:0 1px 3px rgba(20,30,24,.55)}
   @keyframes cloudpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
   @media(prefers-reduced-motion:reduce){.cloud{animation:none}}
-  /* ===== site nav (canonical, no tickets pill) ===== */
-  .sitenav{display:flex;align-items:center;gap:24px;padding:16px 20px;font-size:14px;position:relative;z-index:3000;background:var(--paper);border-bottom:1px solid var(--rule);font-family:'Figtree',system-ui,sans-serif;}
-  .sitenav .bm{display:inline-flex;align-items:center;gap:11px;font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:#1B3326;text-decoration:none;}
-  .sitenav .bm-logo{height:36px;width:36px;flex:0 0 auto;}
-  .sitenav .bm-txt{display:block;} .sitenav .bm-txt span{display:block;}
-  .sitenav .lk{margin-left:auto;display:flex;gap:22px;align-items:center;font-weight:500;}
-  .sitenav .lk>a{color:rgba(27,51,38,.84);text-decoration:none;}
-  .sitenav .lk>a:hover{color:#1B3326;}
-  .sitenav .has{position:relative;}
-  .sitenav .has>button{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
-  .sitenav .has>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
-  .sitenav .has:hover>button,.sitenav .has:focus-within>button{color:#1B3326;}
-  .sitenav .has:hover>button::after,.sitenav .has:focus-within>button::after{opacity:.85;transform:rotate(45deg) translateY(0);}
-  .sitenav .drop{position:absolute;top:100%;right:0;padding-top:12px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:3001;}
-  .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
-  .sitenav .drop .panel{min-width:270px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
-  .sitenav .drop a{display:block;padding:11px 14px;color:#1B3326;text-decoration:none;transition:background .12s;}
-  .sitenav .drop a:hover{background:rgba(27,51,38,.06);}
-  .sitenav .drop a b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;}
-  .sitenav .drop a span{display:block;font-size:11.5px;color:rgba(27,51,38,.62);margin-top:3px;line-height:1.4;font-weight:500;}
-  .sitenav .drop.mega .panel{min-width:520px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
-  .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
-  @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a{display:none;}}
-  .mapfoot{background:#1B3326;color:#ECE6D6;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:lowercase;flex:0 0 auto;}
-  .mapfoot .r{color:rgba(236,230,214,.6);}
 </style>
 </head>
 <body>
-<nav class="sitenav">
-  <a class="bm" href="../index.html" aria-label="NWFA — home"><img class="bm-logo" src="../logos-/logo-church-tuned.svg" alt=""><span class="bm-txt"><span>natural wine festival</span><span>a'dam</span></span></a>
-  <div class="lk">
-    <div class="has"><button type="button" aria-haspopup="true">about</button><div class="drop"><div class="panel">
-      <a href="../about.html"><b>the event</b><span>dates, venue, the two days</span></a>
-      <a href="../natural-wine.html"><b>philosophy</b><span>why it's just common sense</span></a>
-    </div></div></div>
-    <div class="has"><button type="button" aria-haspopup="true">winemakers</button><div class="drop"><div class="panel">
-      <a href="../winemakers.html"><b>the register</b><span>every grower, farming declared</span></a>
-      <a href="../natural-wineguide.html"><b>the wineguide</b><span>fifty makers, one afternoon, your route</span></a>
-    </div></div></div>
-    <a href="../workshops.html">workshops</a>
-    <div class="has"><button type="button" aria-haspopup="true">specials</button><div class="drop"><div class="panel">
-      <a href="../specials.html#listening-room"><b>the listening room</b><span>rare vintages on an outrageous system</span></a>
-      <a href="../specials.html#yoikokochi"><b>yoikokochi</b><span>a big sake tasting</span></a>
-      <a href="../specials.html#cheese"><b>the frenchman</b><span>cheese &amp; charcuterie</span></a>
-      <a href="../specials.html#oyster"><b>the oyster bar</b><span>open all day</span></a>
-      <a href="../specials.html"><b>all specials &rarr;</b></a>
-    </div></div></div>
-    <div class="has"><button type="button" aria-haspopup="true">winemakers dinner</button><div class="drop"><div class="panel">
-      <a href="../winemakers-dinner.html"><b>for visitors</b><span>new this edition &middot; five courses, &euro;65</span></a>
-      <a href="../winemakers-dinner-crew.html"><b>winemakers &amp; crew</b><span>the table this dinner grew from</span></a>
-    </div></div></div>
-    <div class="has"><button type="button" aria-haspopup="true">for professionals</button><div class="drop mega"><div class="panel">
-      <div><div class="col-h">winemakers</div><a href="../participate.html"><b>present at the fair</b><span>pour for buyers, sommeliers and press</span></a></div>
-      <div><div class="col-h">horeca</div><a href="../for-professionals.html"><b>the trade day</b><span>monday 1 march &middot; free for vetted pros</span></a></div>
-    </div></div></div>
-  </div>
-</nav>
 <div class="app">
   <header>
     <h1>Natuurwijn in <span>Nederland</span></h1>
@@ -181,10 +127,6 @@
     <div id="map"></div>
   </div>
 </div>
-<footer class="mapfoot">
-  <span>natural wine festival a'dam · edition #5 — 28 feb &amp; 1 mar '27</span>
-  <span class="r">united by wine</span>
-</footer>
 
 <script src="js/leaflet.js"></script>
 <script src="js/leaflet.markercluster.js"></script>
@@ -262,8 +204,8 @@
       polys.forEach(function(poly){ holes.push(poly[0].map(function(c){return [c[1],c[0]];})); });
     });
     var world=[[-89,-179],[89,-179],[89,179],[-89,179]];
-    L.polygon([world].concat(holes),{pane:'mask',stroke:false,fillColor:'#e7e1d0',fillOpacity:1,fillRule:'evenodd',interactive:false}).addTo(map);
-    L.geoJSON(gj,{pane:'mask',style:{color:'#9a6628',weight:1.2,opacity:.55,fill:false},interactive:false}).addTo(map);
+    L.polygon([world].concat(holes),{pane:'mask',stroke:false,fillColor:'#ECE6D6',fillOpacity:1,fillRule:'evenodd',interactive:false}).addTo(map);
+    L.geoJSON(gj,{pane:'mask',style:{color:'#9F6E29',weight:1.2,opacity:.55,fill:false},interactive:false}).addTo(map);
     // NL+BE vasteland: de geojson bevat ook de Caribisch-NL eilanden (lng ~-68),
     // waardoor getBounds() de kaart de Atlantische Oceaan in trekt. Klem op Europa.
     var eu=L.latLngBounds([49.45,2.45],[53.65,7.25]);
@@ -272,7 +214,7 @@
   }).catch(function(e){console.error('MASK error',e);});
 
 
-  var KIND={drink:{label:'Drinken',color:'#9a6628'}, eat:{label:'Eten',color:'#1b2a20'}, buy:{label:'Kopen',color:'#5c6e3f'}};
+  var KIND={drink:{label:'Drinken',color:'#9F6E29'}, eat:{label:'Eten',color:'#1B3326'}, buy:{label:'Kopen',color:'#eeba3f'}};
   // Distinctive NWFA cluster: a small grape-bunch of dots, coloured by the drink/buy
   // mix inside it — never a numbered circle, so it never reads like Raisin.
   function rosetteHtml(k,colors,s){
@@ -410,5 +352,7 @@
   }
 })();
 </script>
+<script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa"};</script>
+<script src="js/annotate.js" defer></script>
 </body>
 </html>

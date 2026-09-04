@@ -1,0 +1,1232 @@
+[
+  {
+    "name": "Bar Flor",
+    "city": "'s-Hertogenbosch",
+    "address": "Verwersstraat 23, 5211 HT 's-Hertogenbosch",
+    "strength": "focus",
+    "evidence": "Eigen site: '(natuur & klassieke) wijn'; sommelier Lorenzo van Doorn; nieuw (2026)",
+    "website": "https://bar-flor.nl/",
+    "instagram": "https://www.instagram.com/barflor.db/",
+    "sources": [
+      "https://bar-flor.nl/",
+      "https://chefsfriends.nl/tweetal-met-ervaring-in-topgastronomie-start-in-den-bosch/"
+    ]
+  },
+  {
+    "name": "Dolce di Sione",
+    "city": "'s-Hertogenbosch",
+    "address": "Ridderstraat 3B, 5211 JZ 's-Hertogenbosch",
+    "strength": "unclear",
+    "evidence": "Barts Boekje: 'verrassende natuurwijnen uit Australie' (niet op eigen site bevestigd)",
+    "website": "https://www.dolce.nl/",
+    "instagram": "https://www.instagram.com/dolcedisione/",
+    "sources": [
+      "https://www.bartsboekje.com/borrelen-den-bosch/"
+    ]
+  },
+  {
+    "name": "le VIN 'x",
+    "city": "'s-Hertogenbosch",
+    "address": "Verwersstraat, 's-Hertogenbosch",
+    "strength": "some",
+    "evidence": "Perswijn: ~80 wijnen incl. 'een paar vins nature'",
+    "website": "https://restaurantlevinx.nl/",
+    "instagram": "https://www.instagram.com/restaurantlevinx/",
+    "sources": [
+      "https://perswijn.nl/2015/09/25/gegeten-en-gedronken-le-vinx/"
+    ]
+  },
+  {
+    "name": "WIJN.",
+    "city": "Alkmaar",
+    "address": "Laat 50, Alkmaar",
+    "strength": "focus",
+    "evidence": "Wine shop stocking exclusively organic and biodynamic/natural wines (owner Friso Stilma imports directly from small European growers) and offering on-site tastings/proeverijen.",
+    "website": "https://www.wijnalkmaar.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.wijnalkmaar.nl/",
+      "https://flessenpostuitalkmaar.nl/de-bloemetjes-en-de-bijtjes",
+      "https://flessenpostuitalkmaar.nl/friso/"
+    ]
+  },
+  {
+    "name": "Kortegarde",
+    "city": "Almelo",
+    "address": "Bolkshoeksweg 50, 7607 TL Almelo",
+    "strength": "some",
+    "evidence": "Wine house & on-site tasting location; own site states focus on 'biologische en natuurwijnen uit Europese landen' incl. pét-nat, macerated wines and organic wines free from added sulfites.",
+    "website": "https://www.kortegarde.com/",
+    "instagram": "https://www.instagram.com/kortegarde/",
+    "sources": [
+      "https://www.kortegarde.com/wijnwinkel-amersfoort/",
+      "https://www.kortegarde.com/wijnwinkels/",
+      "https://www.kortegarde.com/wijnproeverij/",
+      "https://www.kortegarde.com/"
+    ]
+  },
+  {
+    "name": "De Wijnkelder Almere",
+    "city": "Almere",
+    "address": "Televisieweg 103, 1322 BD Almere",
+    "strength": "some",
+    "evidence": "Wine shop with a proeflokaal (on-site tasting space) that exclusively sells the natural wines of urban vineyard Hof van Almere.",
+    "website": "https://www.dewijnkelderalmere.nl/",
+    "instagram": "@de_wijnkelder_almere",
+    "sources": [
+      "https://www.dewijnkelderalmere.nl/almeerse-wijn",
+      "https://www.dewijnkelderalmere.nl/"
+    ]
+  },
+  {
+    "name": "Hof van Almere (stadswijngaard)",
+    "city": "Almere",
+    "address": "Kemphaanweg 2 / Waterlandsweg, Braambergen, 1358 AB Almere",
+    "strength": "focus",
+    "evidence": "Urban vineyard that makes 'natural wines' from unsprayed grapes on clean soil, with on-site tastings and wine-tour arrangements by appointment.",
+    "website": "https://www.hofvanalmere.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.hofvanalmere.nl/duurzaam/",
+      "https://www.hofvanalmere.nl/verkooppunten/"
+    ]
+  },
+  {
+    "name": "Proef Lokaal",
+    "city": "Almere",
+    "address": "Marie Curielaan 1, 1341 BA Almere-Hout (Nobelhorst)",
+    "strength": "unclear",
+    "evidence": "Local delicatessen/proeflokaal selling Hof van Almere natural wine since 2024; on-site pouring not explicitly confirmed.",
+    "website": "https://proef-lokaal.nl/",
+    "instagram": null,
+    "sources": [
+      "https://proef-lokaal.nl/",
+      "https://www.hofvanalmere.nl/verkooppunten/"
+    ]
+  },
+  {
+    "name": "Het Wijnhuis Alphen aan de Rijn (Wijnwinkel & Zo)",
+    "city": "Alphen aan den Rijn",
+    "address": "Steekterweg 33, 2407 BD Alphen aan den Rijn",
+    "strength": "unclear",
+    "evidence": "Own site explicitly lists 'Biologische, biodynamische & natuurwijnen'; retail wine shop, on-site pouring/tasting not confirmed.",
+    "website": "https://wijnwinkelenzo.hetwijnhuis.nl/",
+    "instagram": null,
+    "sources": [
+      "https://wijnwinkelenzo.hetwijnhuis.nl/"
+    ]
+  },
+  {
+    "name": "MEI",
+    "city": "Amersfoort",
+    "address": "Krommestraat 49, 3811 CB Amersfoort",
+    "strength": "focus",
+    "evidence": "Wijnkaart uitsluitend biologisch/biodynamisch + natural (VN)",
+    "website": "https://www.mei-amersfoort.nl/",
+    "instagram": "https://www.instagram.com/meiamersfoort/",
+    "sources": [
+      "https://www.mei-amersfoort.nl/wijnkaart.php"
+    ]
+  },
+  {
+    "name": "Wijnbar Amelie",
+    "city": "Amstelveen",
+    "address": "Van Heuven Goedhartlaan 21, 1181 LE Amstelveen",
+    "strength": "some",
+    "evidence": "Wine bar (500+ wines) with an agriculture-first, terroir-driven philosophy that pours biodynamic producers by the glass (e.g. Eva Fricke Rheingau Riesling), though not an exclusive natural-wine list.",
+    "website": "https://nl.amelieworld.com/amstelveen-nl",
+    "instagram": "https://www.instagram.com/amelie_netherlands/",
+    "sources": [
+      "https://nl.amelieworld.com/amstelveen-nl",
+      "https://dutchwineapprentice.com/press-events/wine-bar-amelie-amstelveen-a-perfect-blend-of-expertise-and-flavor/",
+      "https://www.amstelveenz.nl/nieuws/nieuwe-wijnbar-amelie-in-stadshart-amstelveen-in-alle-facetten-uniek.html"
+    ]
+  },
+  {
+    "name": "Guusje eten & drinken",
+    "city": "Apeldoorn",
+    "address": "Hoofdstraat 104, 7311 KJ Apeldoorn",
+    "strength": "unclear",
+    "evidence": "Listings state wines come from small wine farmers 'selected together with Grapedistrict', with menu built on sustainable and local products; organic/small-producer lean but no explicit natuurwijn/vin nature claim.",
+    "website": "https://guusjeapeldoorn.nl/",
+    "instagram": null,
+    "sources": [
+      "https://guusjeapeldoorn.nl/",
+      "https://uit.inapeldoorn.nl/en/locatie/guusje-apeldoorn-2/",
+      "https://www.wijnspijs.nl/restaurant/2912/apeldoorn-guusje/"
+    ]
+  },
+  {
+    "name": "Nobel & Wijn - Bar & Kitchen",
+    "city": "Apeldoorn",
+    "address": "Hoofdstraat 178, 7311 BD Apeldoorn",
+    "strength": "unclear",
+    "evidence": "Own site: sells only wine from small-scale winemakers (via Grapedistrict Amsterdam) 'gemaakt met liefde en aandacht met oog op duurzaamheid'; local listings describe 'often organic/biological wines from small winemakers' — organic/small-producer lean, natural wine not explicitly confirmed.",
+    "website": "https://www.nobelenwijn.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.nobelenwijn.nl/",
+      "https://www.nobelenwijn.nl/wine-kaart",
+      "https://uit.inapeldoorn.nl/en/locatie/nobel-wijn-2/"
+    ]
+  },
+  {
+    "name": "Heisa Koffiebar",
+    "city": "Arnhem",
+    "address": "Sonsbeeksingel 160, 6822 BV Arnhem",
+    "strength": "some",
+    "evidence": "Own website lists its core offering as \"specialty koffie, matcha, huisgemaakt gebak en natuurwijn\" (natural wine).",
+    "website": "https://heisakoffiebar.nl/",
+    "instagram": "https://www.instagram.com/heisa.koffiebar/",
+    "sources": [
+      "https://heisakoffiebar.nl/",
+      "https://www.instagram.com/heisa.koffiebar/"
+    ]
+  },
+  {
+    "name": "Loewy bistro",
+    "city": "Arnhem",
+    "address": "Jacob Cremerstraat 95, 6821 DC Arnhem",
+    "strength": "some",
+    "evidence": "Neo-bistro in Sint Marten; guides and reviews note Pet Nat and a variety of natural wines on the wine list.",
+    "website": "https://loewybistro.nl/",
+    "instagram": "https://www.instagram.com/loewybistro/",
+    "sources": [
+      "https://loewybistro.nl/",
+      "https://mindtrip.ai/restaurant/arnhem-gelderland/loewy-bistro/re-9WPxvzDP",
+      "https://wanderlog.com/place/details/13306964/loewy-bistro"
+    ]
+  },
+  {
+    "name": "Bistro ElVi",
+    "city": "Bergen NH",
+    "address": "Oude Prinsweg 29, 1861 CS Bergen NH",
+    "strength": "some",
+    "evidence": "French gastro-bistro with an integrated wine bar; sommelier Elvira Kemman's wine list favours wines made 'zo natuurlijk mogelijk' (as naturally as possible).",
+    "website": "https://bistro-elvi.nl/",
+    "instagram": "https://www.instagram.com/bistro.elvi/",
+    "sources": [
+      "https://winebusiness.nl/bistro-elvi-in-bergen/",
+      "https://bistro-elvi.nl/",
+      "https://flessenpostuitbergen.nl/rondje-horeca-44-victor-en-elvira-openen-wijnbar-in-bistro-elvi/"
+    ]
+  },
+  {
+    "name": "Eric's Landwinkel (Organic Bergen)",
+    "city": "Bergen NH",
+    "address": "Nesdijk 20b, 1861 MK Bergen NH",
+    "strength": "some",
+    "evidence": "Bourgundian deli/landwinkel with a wide selection of organic and naturally made wines and regular on-site tastings in its WWOO proeftuin.",
+    "website": "https://ericslandwinkel.nl/en/",
+    "instagram": "https://www.instagram.com/erics_landwinkel/",
+    "sources": [
+      "https://ericslandwinkel.nl/en/",
+      "https://www.wwoo.nl/sales-points/erics-landwinkel/"
+    ]
+  },
+  {
+    "name": "Pieksman Wijnen (Ginneken)",
+    "city": "Breda",
+    "address": "Ginnekenweg 354, 4835 NM Breda",
+    "strength": "focus",
+    "evidence": "Bio-dynamisch + Vin Nature specialist; nieuwe shop 2025 met proeverijen",
+    "website": "https://www.pieksman.com/",
+    "instagram": "https://www.instagram.com/pieksmanbreda/",
+    "sources": [
+      "https://www.pieksman.com/en"
+    ]
+  },
+  {
+    "name": "De Groene Afslag",
+    "city": "Bussum",
+    "address": "Cissy van Marxveldtstraat 1, 1403 VM Bussum",
+    "strength": "unclear",
+    "evidence": "Fully plant-based, circular restaurant sourcing from values-aligned suppliers; hosts an organic market featuring natural/biodynamic winery Wilgenhorst, but no explicit natuurwijn claim on its own menu.",
+    "website": "https://www.degroeneafslag.nl/restaurant",
+    "instagram": "https://www.instagram.com/degroeneafslag/",
+    "sources": [
+      "https://www.degroeneafslag.nl/restaurant",
+      "https://bussumsnieuws.nl/nieuws/bedrijven/217065/biologische-markt-bij-de-groene-afslag"
+    ]
+  },
+  {
+    "name": "il diVino Wijnwinkel Bussum",
+    "city": "Bussum",
+    "address": "Havenstraat 136, 1404 EM Bussum",
+    "strength": "some",
+    "evidence": "Wine shop with a dedicated 'Orange & natuurwijnen' category and a 'Natuurwijnclub' (natural-wine club); runs on-site tastings ('Proeftafels Bussum') where wine is poured.",
+    "website": "https://www.ildivino-wijnwinkel.nl/c-5120723/wijnwinkel-bussum/",
+    "instagram": "https://www.instagram.com/il.divino.wijnwinkel/",
+    "sources": [
+      "https://www.ildivino-wijnwinkel.nl/c-4919469/orange-natuurwijnen/",
+      "https://www.ildivino-wijnwinkel.nl/c-5120723/wijnwinkel-bussum/",
+      "https://www.instagram.com/il.divino.wijnwinkel/"
+    ]
+  },
+  {
+    "name": "Wijnhandel Petit Clos Bussum",
+    "city": "Bussum",
+    "address": "Huizerweg 22, 1402 AB Bussum",
+    "strength": "some",
+    "evidence": "Wine merchant sourcing from mostly organic/biodynamic (biologisch en biodynamisch) growers; own site labels wines 'Vin méthode nature'; hosts monthly free tastings and wine-and-food evenings on-site.",
+    "website": "https://www.petitclos.nl/bussum",
+    "instagram": "https://www.instagram.com/petitclosbussum/",
+    "sources": [
+      "https://www.petitclos.nl/bussum",
+      "https://www.petitclos.nl/",
+      "https://www.bussumsnieuws.nl/nieuws/algemeen/25831/nieuwe-wijnzaak-aan-de-huizerweg-geopend",
+      "https://www.instagram.com/petitclosbussum/"
+    ]
+  },
+  {
+    "name": "De Centrale",
+    "city": "Delft",
+    "address": "Voldersgracht 1 (Koornbeurs), Delft",
+    "strength": "unclear",
+    "evidence": "Restaurant & wine bar; wine list includes a biodynamic pet-nat (\"Pet Nat - Weingut Loimer, Pet Nat mit Achtung (biodynamisch)\"), though most of the list is conventional.",
+    "website": "https://decentraledelft.nl/",
+    "instagram": null,
+    "sources": [
+      "https://decentraledelft.nl/wp-content/uploads/2024/03/De-Centrale-Delft-Wijnkaart.pdf",
+      "https://decentraledelft.nl/"
+    ]
+  },
+  {
+    "name": "Restaurant Ludique",
+    "city": "Delft",
+    "address": "Hippolytusbuurt 8, 2611 HN Delft",
+    "strength": "some",
+    "evidence": "Own site: \"Veel van onze wijnen komen van duurzame, biologische of biodynamische wijnhuizen\" - wines chosen on origin and production method, from small-scale growers using natural processes.",
+    "website": "https://restaurantludique.nl/wijn-delft/",
+    "instagram": "https://www.instagram.com/restaurantludique/",
+    "sources": [
+      "https://restaurantludique.nl/wijn-delft/",
+      "https://restaurantludique.nl/wijnproeverij-delft/"
+    ]
+  },
+  {
+    "name": "Wijnhuys Kinésis",
+    "city": "Delft",
+    "address": "Voorstraat 86, Delft",
+    "strength": "some",
+    "evidence": "Wine shop with dedicated \"Natuur wijn - Vin Nature\", orange, pet-nat, sulfite-free and biodynamic categories; hosts on-site tastings/workshops pouring these wines in Fotogalerie 'HuisKinesis'.",
+    "website": "https://www.mijnwijn.eu/c-5316883/natuur-wijn-vin-nature/",
+    "instagram": "https://www.instagram.com/wijnhuyskinesis",
+    "sources": [
+      "https://www.mijnwijn.eu/c-5316883/natuur-wijn-vin-nature/",
+      "https://www.mijnwijn.eu/c-3176558/wijnworkshop-wijnproeverij/"
+    ]
+  },
+  {
+    "name": "de Wynkantine",
+    "city": "Deventer",
+    "address": "Houtmarkt 14, 7411 CG Deventer",
+    "strength": "some",
+    "evidence": "Wijnbar van PYK Slyterij (natuurwijn-collectie), per glas/Coravin",
+    "website": "https://wynkantine.nl/",
+    "instagram": "https://www.instagram.com/wynkantine/",
+    "sources": [
+      "https://wynkantine.nl/",
+      "https://pykslyterij.nl/collections/natuurwijn"
+    ]
+  },
+  {
+    "name": "Pyk Slyterij",
+    "city": "Deventer",
+    "address": "Houtmarkt 14, 7411 CG Deventer",
+    "strength": "some",
+    "evidence": "Slijterij/wijnhandel met natuurwijn-categorie + proeverijen",
+    "website": "https://pykslyterij.nl/",
+    "instagram": "https://www.instagram.com/pykslyterij/",
+    "sources": [
+      "https://pykslyterij.nl/collections/natuurwijn"
+    ]
+  },
+  {
+    "name": "Wijnhandel Ruchtie",
+    "city": "Deventer",
+    "address": "Brinkgreverweg 134, 7413 AG Deventer",
+    "strength": "some",
+    "evidence": "Wijnhandel met natuurwijn-categorie (20+) + proeven vr/za; Skal-bio",
+    "website": "https://www.ruchtie.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.ruchtie.nl/natuurwijnen"
+    ]
+  },
+  {
+    "name": "Restaurant Lokaal",
+    "city": "Doetinchem",
+    "address": "Villa Ruimzicht, Ruimzichtlaan 150, 7001 KG Doetinchem",
+    "strength": "some",
+    "evidence": "Green Michelin Star, sustainability-focused restaurant of chef Bjorn Massop; Michelin guide description notes the wine list is built up with biological/biodynamic wines, natural wines and local Dutch wines, curated by sommelier Paul.",
+    "website": "https://www.restaurantlokaal.com/",
+    "instagram": "https://www.instagram.com/restaurantlokaaldtc/",
+    "sources": [
+      "https://guide.michelin.com/us/en/gelderland/doetinchem/restaurant/lokaal",
+      "https://www.restaurantlokaal.com/menukaart/",
+      "https://jre.eu/en/restaurants/restaurantlokaal"
+    ]
+  },
+  {
+    "name": "Koffiebar Knus",
+    "city": "Dokkum",
+    "address": "Grote Breedstraat 5, 9101 KH Dokkum",
+    "strength": "focus",
+    "evidence": "Own site tagline 'Koffie, sweets en natuurwijn, en dat bio, huisgemaakt' and a dedicated wine collection listing 'Cul Sec Natuurwijnen' and 'Zuivere Wijnen'; serves natural wine as an evening bar.",
+    "website": "https://koffiebarknus.com/",
+    "instagram": "@koffiebarknus",
+    "sources": [
+      "https://koffiebarknus.com/",
+      "https://dokkum.nl/eten-en-drinken/koffiebar-knus/",
+      "https://menukaart.menu/restaurants/dokkum-1/koffiebar-knus"
+    ]
+  },
+  {
+    "name": "Cavavin Ede",
+    "city": "Ede",
+    "address": "Oude Kerkplein 5, 6711 AZ Ede",
+    "strength": "unclear",
+    "evidence": "Wine shop (300 wines) running regular in-store tastings/workshops; carries at least some organic ('Bio') wines, but no explicit natural-wine focus verified.",
+    "website": "https://www.cavavin-ede.nl/",
+    "instagram": "https://www.instagram.com/cavavin_ede/",
+    "sources": [
+      "https://www.cavavin-ede.nl/",
+      "https://www.instagram.com/cavavin_ede/",
+      "https://denationalefranchisegids.nl/franchisenieuws/nieuwe-cavavin-wijnzaak-opent-deuren-in-ede-300-wijnen-uit-15-landen/"
+    ]
+  },
+  {
+    "name": "Wijnhandel Moreau",
+    "city": "Ede",
+    "address": "Van Heutszlaan 27, 6711 KK Ede",
+    "strength": "some",
+    "evidence": "Own site states it specialises in wines from small, organically-working producers, 'honestly and cleanly produced' (low-intervention lean), and hosts wine tastings.",
+    "website": "https://www.wijnhandelmoreau.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.wijnhandelmoreau.nl/"
+    ]
+  },
+  {
+    "name": "FRANK eten en drinken",
+    "city": "Eindhoven",
+    "address": "Franklinplein 2, 5621 GA Eindhoven",
+    "strength": "focus",
+    "evidence": "Eigen site: 'zorgvuldig uitgekozen (natuur)wijnen'; This is Eindhoven: 'natural wine galore'",
+    "website": "https://frankwoenselwest.nl/",
+    "instagram": "https://www.instagram.com/frank.woenselwest/",
+    "sources": [
+      "https://frankwoenselwest.nl/",
+      "https://www.thisiseindhoven.com/en/locations/frank-woensel-west"
+    ]
+  },
+  {
+    "name": "super MARKT restobar",
+    "city": "Eindhoven",
+    "address": "Woenselse Markt 10, 5612 CP Eindhoven",
+    "strength": "some",
+    "evidence": "This is Eindhoven: natural wine a named pillar of the concept",
+    "website": "https://supermarkteindhoven.nl/",
+    "instagram": "https://www.instagram.com/supermarkt.restobar/",
+    "sources": [
+      "https://www.thisiseindhoven.com/en/locations/super-markt-restobar"
+    ]
+  },
+  {
+    "name": "Van den Bos - Slijterij & Wijnhuis",
+    "city": "Emmen",
+    "address": "Noordbargerstraat 11B, 7811 KE Emmen",
+    "strength": "unclear",
+    "evidence": "Wine shop with a dedicated 'Biologische wijnen' (organic) category that hosts regular on-site tastings (proeverijen); no explicit natuurwijn/vin nature labelling found, so organic-adjacent rather than confirmed natural-wine.",
+    "website": "https://www.slijterijvandenbos.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.slijterijvandenbos.nl/",
+      "https://www.slijterijvandenbos.nl/c/wijnen/biologische-wijnen/",
+      "https://www.slijterijvandenbos.nl/category/proeverijen/"
+    ]
+  },
+  {
+    "name": "Vinovie",
+    "city": "Enschede",
+    "address": "Korte Haaksbergerstraat 15, 7511 JV Enschede",
+    "strength": "some",
+    "evidence": "Wine bar/importer pouring exclusive wines directly from small-scale organic (biologische) winemakers across Europe, 'vol karakter en pure kwaliteit'; natural-wine-adjacent, not explicitly labelled natuurwijn.",
+    "website": "https://www.vinovie.nl/",
+    "instagram": "https://www.instagram.com/vinovie__/",
+    "sources": [
+      "https://www.vinovie.nl/",
+      "https://www.uitinenschede.nl/locaties/vinovie",
+      "https://www.1twente.nl/artikel/5949655/sophie-32-wil-met-nieuwe-wijnbar-vinovie-dat-ene-leuke-barretje-in-enschede-worden"
+    ]
+  },
+  {
+    "name": "Restaurant / Wine Bar Unique (in de Kleischuur, voorheen De Kleischuur)",
+    "city": "Gouda",
+    "address": "Vest 2, 2801 VC Gouda",
+    "strength": "unclear",
+    "evidence": "At this address the predecessor De Kleischuur explicitly poured natuurwijn (o.a. Glasting van Valerie Forgues, biologische rosé Loire) and offered an arrangement 'van biologische wijnen en natuurwijnen'; now runs as a restaurant & wine bar, current site only says 'met zorg uitgekozen wijnen'.",
+    "website": "https://restaurantunique.nl/",
+    "instagram": "https://www.facebook.com/restaurantwinebarunique/",
+    "sources": [
+      "https://www.euro-toques.nl/genieten-van-biologisch-en-regionaal-bij-restaurant-de-kleischuur-in-gouda/",
+      "https://welkomingouda.nl/locaties/restaurant-wine-bar-unique",
+      "https://restaurantunique.nl/"
+    ]
+  },
+  {
+    "name": "Wijnhandel Pandora's Bottle",
+    "city": "Gouda",
+    "address": "Raam 140, 2801 VN Gouda",
+    "strength": "some",
+    "evidence": "Wine shop in central Gouda that regularly holds on-site tastings of natuurwijnen, biologische en biodynamische wijnen, working mainly with small organic winemakers.",
+    "website": "https://www.pandorasbottle.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.pandorasbottle.nl/proeverijen",
+      "https://welkomingouda.nl/locaties/pandoras-bottle",
+      "https://www.pandorasbottle.nl/webshop/biologisch/"
+    ]
+  },
+  {
+    "name": "Brussels Lof",
+    "city": "Groningen",
+    "address": "Akerkstraat 24, 9712 BG Groningen",
+    "strength": "focus",
+    "evidence": "Grote selectie biologische + natuurwijnen zonder sulfiet, door chef geselecteerd",
+    "website": "https://www.visitgroningen.nl/nl/locaties/3128820048/brussels-lof",
+    "instagram": null,
+    "sources": [
+      "https://www.wijnspijs.nl/restaurant/2814/groningen-brussels-lof/"
+    ]
+  },
+  {
+    "name": "Cilinder",
+    "city": "Groningen",
+    "address": "Oosterstraat 13A, 9711 NN Groningen",
+    "strength": "some",
+    "evidence": "Entree Magazine: 'in beide bars worden natuurwijnen geschonken' (check rebrand FIXY)",
+    "website": "https://cilinder.bar/",
+    "instagram": "https://www.instagram.com/cilinder.bar/",
+    "sources": [
+      "https://www.entreemagazine.nl/openingen-design/cilinder-in-groningen-cocktailbar-bistro-vegan-restaurant-en-nachtclub-in-een-pand"
+    ]
+  },
+  {
+    "name": "Cloinq",
+    "city": "Groningen",
+    "address": "Westersingel 20, 9718 CL Groningen",
+    "strength": "focus",
+    "evidence": "Wijnwinkel + wijnbar van sommelier Janet ten Broeke; natuur/oranje wijnen, events",
+    "website": "https://www.cloinq.nl/",
+    "instagram": "https://www.instagram.com/cloinq/",
+    "sources": [
+      "https://www.cloinq.nl/wijnwinkel/"
+    ]
+  },
+  {
+    "name": "DeDAKKAS",
+    "city": "Haarlem",
+    "address": "De Witstraat 1A, 2011 DV Haarlem",
+    "strength": "some",
+    "evidence": "WijnSpijs: 'spannende selectie van natuurwijnen'",
+    "website": "https://www.dedakkas.nl/",
+    "instagram": "https://www.instagram.com/dedakkas/",
+    "sources": [
+      "https://www.wijnspijs.nl/magazine/lunchen-haarlem/"
+    ]
+  },
+  {
+    "name": "Deplanu",
+    "city": "Haarlem",
+    "address": "Santpoorterplein 1, 2023 DM Haarlem",
+    "strength": "some",
+    "evidence": "Haarlem City Blog: uitgebreide kaart met bijzondere (natuur)wijnen",
+    "website": "https://www.deplanu.nl/",
+    "instagram": "https://www.instagram.com/deplanu_haarlem/",
+    "sources": [
+      "https://www.haarlemcityblog.nl/eten-drinken-haarlem/deplanu-restaurant/"
+    ]
+  },
+  {
+    "name": "Lady Blit",
+    "city": "Haarlem",
+    "address": "Smedestraat 47, 2011 RE Haarlem",
+    "strength": "unclear",
+    "evidence": "Wijntjes met Esther: '(natuur)wijnen die regelmatig wisselen'",
+    "website": "https://www.ladyblit.nl/",
+    "instagram": "https://www.instagram.com/ladyblithaarlem/",
+    "sources": [
+      "https://wijntjesmetesther.nl/leuke-restaurants-haarlem/"
+    ]
+  },
+  {
+    "name": "Zuid Noord Natuurwijnbar & Bistro",
+    "city": "Haarlem",
+    "address": "Kleine Houtstraat 105zw, 2011 DK Haarlem",
+    "strength": "focus",
+    "evidence": "Toegewijde natuurwijnbar (Slovenie/Kroatie/Servie/Italie)",
+    "website": "https://www.zuid-noord.nl/",
+    "instagram": "https://www.instagram.com/zuid_noord_natuurwijnbar/",
+    "sources": [
+      "https://www.zuid-noord.nl/",
+      "https://www.haarlemcityblog.nl/eten-drinken-haarlem/natuurwijnbar-bistro-zuid-noord-kleine-houtstraat/"
+    ]
+  },
+  {
+    "name": "Nieuwe Wijnhoeve",
+    "city": "Heerenveen",
+    "address": "De Meander 11, Heerenveen",
+    "strength": "unclear",
+    "evidence": "Wine-tasting venue offering 'speciaal geselecteerde duurzame wijnen' (specially selected sustainable wines) with on-site seasonal tastings led by a vinologist; sustainability emphasis but no explicit natural/biodynamic wine claim found.",
+    "website": "https://nieuwewijnhoeve.nl/proeverijen/",
+    "instagram": null,
+    "sources": [
+      "https://nieuwewijnhoeve.nl/proeverijen/"
+    ]
+  },
+  {
+    "name": "VinoVeen (voorheen De Wijnschuur Heerenveen)",
+    "city": "Heerenveen",
+    "address": "Herenwal 49, 8441 BB Heerenveen",
+    "strength": "unclear",
+    "evidence": "Curated wine 'belevingswinkel' (experience shop) with on-site tastings/events selling hand-picked 'eerlijke wijnen'; artisanal leaning but no explicit natuurwijn/biodynamisch claim verified.",
+    "website": "https://www.vinoveen.nl/",
+    "instagram": "https://www.instagram.com/vinoveen/",
+    "sources": [
+      "https://www.vinoveen.nl/",
+      "https://www.instagram.com/vinoveen/",
+      "https://www.dewijnschuurheerenveen.nl/"
+    ]
+  },
+  {
+    "name": "De Kade",
+    "city": "Hoorn",
+    "address": "Korenmarkt 1, 1621 BG Hoorn",
+    "strength": "focus",
+    "evidence": "RAW WINE profile lists it as a natural-wine restaurant with 70+ natural wines from Europe, sourced from sustainable farms.",
+    "website": "https://dekadehoorn.nl/",
+    "instagram": "https://www.instagram.com/dekadehoorn/",
+    "sources": [
+      "https://www.rawwine.com/profile/de-kade",
+      "https://dekadehoorn.nl/"
+    ]
+  },
+  {
+    "name": "Restaurant Eindeloos",
+    "city": "Leeuwarden",
+    "address": "Korfmakersstraat 17, 8911 LA Leeuwarden",
+    "strength": "some",
+    "evidence": "Wine list built from small winemakers, most uncertified or certified organic/biodynamic, curated 'met veel respect voor de natuur'.",
+    "website": "https://www.restauranteindeloos.nl/wijnen",
+    "instagram": null,
+    "sources": [
+      "https://lekker.nl/restaurant/eindeloos",
+      "https://www.restauranteindeloos.nl/wijnen"
+    ]
+  },
+  {
+    "name": "Vino & Verder",
+    "city": "Leeuwarden",
+    "address": "Wolvensteeg 5, 8911 ZZ Leeuwarden",
+    "strength": "unclear",
+    "evidence": "Wine bar (opened 2024) offering 'quality and artisanal wines from all over the world'; artisan/small-producer angle but no explicit natuurwijn claim confirmed.",
+    "website": "https://vinoenverder.nl/",
+    "instagram": "https://www.instagram.com/vino_en_verder/",
+    "sources": [
+      "https://vinoenverder.nl/",
+      "https://www.visitleeuwarden.com/en/locations/2152107581/vino-verder"
+    ]
+  },
+  {
+    "name": "Vooraf en Toe (Eet-, Drink- en Kunstlokaal)",
+    "city": "Leiden",
+    "address": "Botermarkt 8, 2311 EM Leiden",
+    "strength": "some",
+    "evidence": "Culinary guide and restaurant listing state the wine list includes a selection of natural wines: 'de wijnkaart is reuze, met keuze uit verschillende natuurwijnen'.",
+    "website": "https://voorafentoe.nl/",
+    "instagram": "https://www.instagram.com/voorafentoeleiden/",
+    "sources": [
+      "https://favorflav.com/nl/travel/city-guides/leiden-culinaire-hotspots/",
+      "https://www.wijnspijs.nl/restaurant/3301/leiden-vooraf-en-toe/",
+      "https://voorafentoe.nl/"
+    ]
+  },
+  {
+    "name": "De Wilde Wijngaard",
+    "city": "Lelystad",
+    "address": "Elandweg 84, 8219 PJ Lelystad",
+    "strength": "focus",
+    "evidence": "Organic vineyard producing 'zuivere natuurwijnen' (pure natural wines) with on-site tasting; explicitly natuurwijn, no pesticides/additives.",
+    "website": "https://www.dewildewijngaard.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.dewildewijngaard.nl/",
+      "https://www.visitlelystad.nl/nl/locaties/4219025765/de-wilde-wijngaard-1"
+    ]
+  },
+  {
+    "name": "Wijngaard El Placer",
+    "city": "Lelystad",
+    "address": "Groene Velden 140, 8211 BD Lelystad",
+    "strength": "some",
+    "evidence": "Certified organic (biologisch) vineyard, no chemical pesticides/copper; offers on-site wijnproeverijen and a wine shop (Sat 10:00-14:00).",
+    "website": "https://wijngaardelplacer.nl/",
+    "instagram": null,
+    "sources": [
+      "https://wijngaardelplacer.nl/",
+      "https://www.ivn.nl/provincies/flevoland/nieuws/wijn-maken-met-hart-voor-de-natuur-el-placer-in-lelystad/",
+      "https://agfl.nl/biologisch/biologische-wijngaard-el-placer-in-lelystad"
+    ]
+  },
+  {
+    "name": "Safar",
+    "city": "Maastricht",
+    "address": "Vrijthof 20, 6211 LD Maastricht",
+    "strength": "focus",
+    "evidence": "Eigen 'NATURAL WINE Menu'-pagina (Spanje/Portugal/Oostenrijk/Griekenland/Italie)",
+    "website": "https://safarmaastricht.nl/",
+    "instagram": null,
+    "sources": [
+      "https://safarmaastricht.nl/NATURAL-WINE-Menu-1"
+    ]
+  },
+  {
+    "name": "Wienkontor BK7",
+    "city": "Maastricht",
+    "address": "Bassin Kade 7, 6211 AL Maastricht",
+    "strength": "unclear",
+    "evidence": "Biologische/lokale wijn; natuurwijn niet expliciet bevestigd",
+    "website": "https://wienkontor.nl/",
+    "instagram": "https://www.instagram.com/wienkontor",
+    "sources": [
+      "https://www.andgrapes.nl/artikelen/7x-must-try-wijnbarren-in-maastricht"
+    ]
+  },
+  {
+    "name": "Eetbar Cali",
+    "city": "Nijmegen",
+    "address": "Priemstraat 13, 6511 WC Nijmegen",
+    "strength": "some",
+    "evidence": "Cali's own Instagram post states 'Dit is onze oranje wijn! Deze natuurwijn...' — the eetbar pours orange/natural wine alongside its small-plates menu.",
+    "website": "https://bar-cali.nl/",
+    "instagram": "https://www.instagram.com/calinijmegen/",
+    "sources": [
+      "https://www.instagram.com/calinijmegen/p/CqIk5LGssvt/",
+      "https://bar-cali.nl/"
+    ]
+  },
+  {
+    "name": "Lenkenswijn (Proeflokaal Thiemeloods)",
+    "city": "Nijmegen",
+    "address": "Leemptstraat 32/34, 6512 EN Nijmegen",
+    "strength": "focus",
+    "evidence": "Tasting venue/wine merchant whose concept centres on 'biologische wijnen en natuurwijnen'; hosts on-site proeverijen pouring six wines including an Orange/natuur category from small producers.",
+    "website": "https://www.lenkenswijn.nl/",
+    "instagram": "https://www.instagram.com/natuurwijnen/",
+    "sources": [
+      "https://www.lenkenswijn.nl/",
+      "https://www.lenkenswijn.nl/c-4163522/assortiment/"
+    ]
+  },
+  {
+    "name": "Ultimo Restaurant & Wijnbar",
+    "city": "Nijmegen",
+    "address": "Lage Markt 47, 6511 VK Nijmegen",
+    "strength": "some",
+    "evidence": "Barts Boekje review: for a glass of red, white, bubbles or 'oranje natuurwijn' you're at the right place at Ultimo; wine-focused brasserie/wijnbar with 60+ wines by the glass.",
+    "website": "https://www.ultimonijmegen.nl",
+    "instagram": "https://www.instagram.com/ultimo_nijmegen/",
+    "sources": [
+      "https://www.bartsboekje.com/restaurant-wijnbar-ultimo-nijmegen/",
+      "https://www.ultimonijmegen.nl/en/ultimo-restaurant-wijnbar-english/"
+    ]
+  },
+  {
+    "name": "Alma Bodega",
+    "city": "Oisterwijk",
+    "address": "De Lind 45a, 5061 HT Oisterwijk",
+    "strength": "some",
+    "evidence": "Natural-wine blog natuurwijn.online devoted an article to drinking natuurwijn here; reviews confirm biodynamic wines (e.g. biodynamic Riesling and a Hungarian Pinot Noir/Zweigelt) on the Bib Gourmand bistro's list.",
+    "website": "https://www.alma.nl/en/bodega",
+    "instagram": "https://www.instagram.com/alma.oisterwijk/",
+    "sources": [
+      "https://www.natuurwijn.online/berichten/natuurwijn-drinken-in-noord-brabant-alma-bodega",
+      "https://guide.michelin.com/us/en/noord-brabant/oisterwijk/restaurant/alma-bodega",
+      "https://www.alma.nl/en/bodega"
+    ]
+  },
+  {
+    "name": "Wijnhuis-Mana",
+    "city": "Purmerend",
+    "address": "Weerwal 11, 1441 AL Purmerend",
+    "strength": "some",
+    "evidence": "Wine specialty shop/slijterij with an on-site tasting room (proeflokaal) and paid tastings; lists 'Natuurwijn' as a product category alongside biologische/biodynamische wines.",
+    "website": "https://wijnhuis-mana.nl/",
+    "instagram": null,
+    "sources": [
+      "https://wijnhuis-mana.nl/"
+    ]
+  },
+  {
+    "name": "Restaurant ONE",
+    "city": "Roermond",
+    "address": "ECI 13, 6041 MA Roermond (ECI Cultuurfabriek)",
+    "strength": "unclear",
+    "evidence": "Green-Michelin-star New Dutch Cuisine restaurant with sustainability focus; guest reviews report natuurwijn poured with dishes and a biologische Pommery champagne, but the venue's own site does not label its wines as natural.",
+    "website": "https://restaurantone.nl/",
+    "instagram": "https://www.instagram.com/restaurantone/",
+    "sources": [
+      "https://en.eet.nu/roermond/restaurant-one",
+      "https://restaurantone.nl/green-michelinstar/",
+      "https://guide.michelin.com/us/en/limburg/roermond/restaurant/one"
+    ]
+  },
+  {
+    "name": "RURA by Naomi & Joey",
+    "city": "Roermond",
+    "address": "Luifelstraat 32, 6041 CS Roermond",
+    "strength": "some",
+    "evidence": "Chapeau Magazine review states the wine list carries \"enkele 'orange-wijnen', ook wel natuurwijnen genoemd\" alongside the regular selection.",
+    "website": "https://www.ruraroermond.nl/",
+    "instagram": "https://www.instagram.com/ruraroermond/",
+    "sources": [
+      "https://www.chapeaumagazine.com/culinair/jeugdige-gedrevenheid-bij-rura-roermond/",
+      "https://www.ruraroermond.nl/",
+      "https://www.gault-millau.nl/en/restaurants/rura-roermond"
+    ]
+  },
+  {
+    "name": "Winebizz (Gastrovino Winebizz), Excellent Wines",
+    "city": "Roosendaal",
+    "address": "Nispensestraat 29, 4701 CS Roosendaal",
+    "strength": "some",
+    "evidence": "Wine shop with on-site tasting area; states it is proud of a growing number of organic wines 'waarvan sommige ook zelfs bio-dynamisch' (some even biodynamic), and hosts tastings/masterclasses.",
+    "website": "https://winebizz.nl/",
+    "instagram": "https://www.instagram.com/winebizz/",
+    "sources": [
+      "https://www.gastrovinoshop.nl/stores/index/view/id/48/",
+      "https://winebizz.nl/",
+      "https://www.inroosendaal.nl/locaties/winebizz-excellent-wines"
+    ]
+  },
+  {
+    "name": "Wijnhuis Oranje",
+    "city": "Schiedam",
+    "address": "Oranjestraat 10, 3111 AP Schiedam",
+    "strength": "unclear",
+    "evidence": "Wine specialist in Schiedam's old centre with a natuurwijn category in its range and an on-site 'proeftafel' (tasting table) pouring open wines; selects from small, authentic producers.",
+    "website": "https://www.oranje.com/",
+    "instagram": "https://www.instagram.com/wijnhuisoranje",
+    "sources": [
+      "https://www.oranje.com/",
+      "https://www.oranje.com/zoeken/kenmerk/natuurwijn",
+      "https://www.lesgenereux.nl/wijnwinkels/wijnhuis-oranje/",
+      "https://blacklabelmagazine.nl/wijnhuis-oranje/"
+    ]
+  },
+  {
+    "name": "Het Wijnstation",
+    "city": "Sittard",
+    "address": "Molenbeekstraat 4, 6131 EG Sittard",
+    "strength": "unclear",
+    "evidence": "Wine bar + shop in central Sittard that pours by the glass and runs 4 tasting formats; owners personally visit small winemakers. Local/tourism directory descriptions call the selection 'organic and natural wines, small winemakers, authentic flavors', but this natuurwijn claim is not stated verbatim on their own site pages fetched.",
+    "website": "https://www.hetwijnstation.nl/",
+    "instagram": "https://www.instagram.com/wijnstationsittard/",
+    "sources": [
+      "https://www.visitsittardgeleen.nl/eten-drinken/detail/het-wijnstation/399152/",
+      "https://www.hetwijnstation.nl/pages/wijnbar",
+      "https://hetwijnstation.nl/over-ons/"
+    ]
+  },
+  {
+    "name": "Restaurant Tara",
+    "city": "Sittard",
+    "address": "Paardestraat 25, 6131 HA Sittard",
+    "strength": "unclear",
+    "evidence": "Fine-dining spot with a sommelier-led (Marija Todorov) adventurous wine list that pours an amber wine from Bosnia and an Azerbaijani wine (orange/low-intervention territory), signalling natural-leaning wines; press does not use the word 'natuurwijn' explicitly.",
+    "website": "https://www.restauranttara.nl/",
+    "instagram": "https://www.instagram.com/restauranttara/",
+    "sources": [
+      "https://www.chapeaumagazine.com/gastronomie/restaurant-tara-sittard/",
+      "https://www.gault-millau.nl/en/restaurants/tara-sittard",
+      "https://www.restauranttara.nl/"
+    ]
+  },
+  {
+    "name": "Wijnhandel van Berkum",
+    "city": "Sittard",
+    "address": "Rijksweg Noord 235, 6136 AB Sittard",
+    "strength": "some",
+    "evidence": "Wine shop with a dedicated 'Natuurwijn' category (~34 vin-naturel wines) and on-site proeverijen/cursussen; natural wine is one section of a broader (200+ organic) range, not the whole focus.",
+    "website": "https://www.vanberkumwijnen.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.vanberkumwijnen.nl/zoeken/kenmerk/natuurwijn",
+      "https://www.vanberkumwijnen.nl/biologisch",
+      "https://www.vanberkumwijnen.nl/"
+    ]
+  },
+  {
+    "name": "Royaal Belegd",
+    "city": "Sneek",
+    "address": "Rienck Bockemakade 2, 8601 AC Sneek",
+    "strength": "unclear",
+    "evidence": "Sneek eatboutique/lunchroom listed as offering 'biologische wijnen' (organic wines); no explicit natuurwijn/vin nature claim, so organic-only signal.",
+    "website": "https://www.royaalbelegd.nl/",
+    "instagram": "https://instagram.com/royaal_belegd/",
+    "sources": [
+      "https://www.wijnspijs.nl/restaurant/sneek/",
+      "https://www.telefoonboek.nl/bedrijven/t4639897/sneek/royaal-belegd/"
+    ]
+  },
+  {
+    "name": "Petit Caveau Wijnbar & Bistro",
+    "city": "Tiel",
+    "address": "Korenbeursplein 1, 4001 KX Tiel",
+    "strength": "unclear",
+    "evidence": "Independent wine bar (opened Jan 2026) whose owner directly imports small-producer old-world/French wines from Burgundy; profile fits natural wine but no explicit natuurwijn/vin nature/biodynamisch claim was found in press or on their site.",
+    "website": "https://petit-caveau.nl",
+    "instagram": "https://www.instagram.com/petit_caveau_wijnbar_en_bistro/",
+    "sources": [
+      "https://www.entreemagazine.nl/openingen-design/petit-caveau-nieuwe-wijnbar-en-bistro-op-korenbeursplein-in-tiel",
+      "https://www.derestaurantkrant.nl/jong-poelzicht-talent-krijgt-de-ruimte-wijnbar-bistro-petit-caveau-geopend-in-tiel",
+      "https://www.rivierenlandbusiness.nl/magazine/artikel/1994/43622/-nieuw-in-tiel-wijnbar-amp-bistro-petit-caveau"
+    ]
+  },
+  {
+    "name": "Pulcinos",
+    "city": "Tilburg",
+    "address": "Nieuwlandstraat 59, Tilburg",
+    "strength": "some",
+    "evidence": "Tilburg.com natuurwijn-gids; menu incl. natuurwijnen",
+    "website": "https://www.pulcinos.nl/",
+    "instagram": null,
+    "sources": [
+      "https://tilburg.com/nieuws/leer-de-beste-natuurwijnen-kennen-bij-jou-om-de-hoek/"
+    ]
+  },
+  {
+    "name": "Restaurant De Houtloods",
+    "city": "Tilburg",
+    "address": "Burgemeester Brokxlaan 1041, 5041 RP Tilburg",
+    "strength": "some",
+    "evidence": "Tilburg.com natuurwijn-gids: restaurant waar je de wijnen kunt bestellen",
+    "website": "https://houtloods.com/",
+    "instagram": "https://www.instagram.com/dehoutloods/",
+    "sources": [
+      "https://tilburg.com/nieuws/leer-de-beste-natuurwijnen-kennen-bij-jou-om-de-hoek/"
+    ]
+  },
+  {
+    "name": "Rosalie Tilburg",
+    "city": "Tilburg",
+    "address": "Heuvel 2, 5038 CN Tilburg",
+    "strength": "some",
+    "evidence": "Tilburg.com natuurwijn-gids; open-vuur keuken met natuurwijnen",
+    "website": "https://www.rosalie-tilburg.nl/",
+    "instagram": "https://www.instagram.com/rosalietilburg/",
+    "sources": [
+      "https://tilburg.com/nieuws/leer-de-beste-natuurwijnen-kennen-bij-jou-om-de-hoek/"
+    ]
+  },
+  {
+    "name": "TOKObar",
+    "city": "Tilburg",
+    "address": "Radiopleintje (Dwaalgebied), Tilburg",
+    "strength": "focus",
+    "evidence": "'Asian kitchen and natural winebar' (website 301 mogelijk stale)",
+    "website": "https://tokobar.com/onze-wijnen/",
+    "instagram": "https://www.instagram.com/tokobar.tilburg/",
+    "sources": [
+      "https://www.eatly.nl/hotspots/tokobar-tilburg-brengt-de-stad-nieuwe-smaken-en-culinaire-ideeen"
+    ]
+  },
+  {
+    "name": "VINE",
+    "city": "Tilburg",
+    "address": "Piusplein 74, 5038 WP Tilburg",
+    "strength": "some",
+    "evidence": "Tilburg.com: funky natuurwijnen o.a. Jura",
+    "website": "https://www.vine-tilburg.nl/",
+    "instagram": "https://www.instagram.com/vine.tilburg/",
+    "sources": [
+      "https://tilburg.com/nieuws/leer-de-beste-natuurwijnen-kennen-bij-jou-om-de-hoek/"
+    ]
+  },
+  {
+    "name": "Wijnhotel Valkenburg (Restaurant Bruis / Dormio Wijnhotel)",
+    "city": "Valkenburg",
+    "address": "Stationsstraat 21, 6301 EZ Valkenburg",
+    "strength": "some",
+    "evidence": "ChefsFriends review of the hotel's tasting: 'De derde wijn is een natuurwijn van cooperatie Weingut Schenk uit het Duitse Franken' — at least one natuurwijn poured, within an otherwise conventional 170-wine list.",
+    "website": "https://www.wijnhotelvalkenburg.nl/",
+    "instagram": null,
+    "sources": [
+      "https://chefsfriends.nl/dormio-wijnhotel-valkenburg-hippe-attractie-in-charmant-valkenburg/",
+      "https://www.wijnhotelvalkenburg.nl/wijnbar"
+    ]
+  },
+  {
+    "name": "Gastrovino Veenendaal",
+    "city": "Veenendaal",
+    "address": "J.G. Sandbrinkstraat 41, 3901 EX Veenendaal",
+    "strength": "unclear",
+    "evidence": "Italian deli + wine shop with an on-site horeca corner where wine is poured and a weekend tasting table; sells certified organic (biologisch) wine, but natuurwijn/vin naturel specifically is not confirmed on their list.",
+    "website": "https://gastrovinoveenendaal.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.gastrovino.nl/winkels/gastrovino-veenendaal",
+      "https://www.gastrovinoshop.nl/biologische-wijn.html",
+      "https://www.gastrovinoshop.nl/stores/index/view/id/47/"
+    ]
+  },
+  {
+    "name": "Wijndivas Winkel (Noordkade)",
+    "city": "Veghel",
+    "address": "Verlengde Noordkade 14, 5462 EH Veghel",
+    "strength": "unclear",
+    "evidence": "Wine shop + enoteca/wine bar on the Noordkade where you can taste and tap wine on-site; focus on small-scale winemakers and 'duurzaam gemaakte wijnen', but no explicit natuurwijn/vin-nature claim found.",
+    "website": "https://www.wijndivas.com/winkel-noordkade",
+    "instagram": "https://www.instagram.com/wijndivas",
+    "sources": [
+      "https://www.wijndivas.com/winkel-noordkade",
+      "https://noordkade-veghel.nl/bewoners/wijndivas/",
+      "https://www.bezoekmeierijstad.nl/locaties-overzicht/1723999039/wijndivas"
+    ]
+  },
+  {
+    "name": "Nena Pizza",
+    "city": "Venlo",
+    "address": "Kwietheuvel 43, 5911 GT Venlo",
+    "strength": "some",
+    "evidence": "Dutch-Neapolitan pizzeria; the In Venlo city guide notes owner Juul's wine list includes 'some surprising natural wines' alongside a diverse selection.",
+    "website": "https://nenapizza.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.invenlo.com/nl/blog/restaurants-voor-wijnliefhebbers/",
+      "https://www.invenlo.com/en/place/nena-pizza/"
+    ]
+  },
+  {
+    "name": "Restaurant SOBER / Domein ZAVEL",
+    "city": "Venlo",
+    "address": "Venloseweg 9, 5931 GR Tegelen (gemeente Venlo)",
+    "strength": "focus",
+    "evidence": "Restaurant in a former ceramics factory with its own city vineyard (Domein Zavel); their site states they cook and serve 'exclusively biological, if not biodynamic or from the wild' wines and make their own biodynamic wine.",
+    "website": "https://www.sober-zavel.nl/",
+    "instagram": "https://www.instagram.com/restaurantsober",
+    "sources": [
+      "https://www.sober-zavel.nl/restaurant-sober/",
+      "https://www.sober-zavel.nl/domein-zavel/",
+      "https://www.chapeaumagazine.com/gastronomie/sober-duurzaam-dineren-in-een-oude-keramiekfabriek/"
+    ]
+  },
+  {
+    "name": "À Boire",
+    "city": "Vlissingen",
+    "address": "Bar: Nieuwendijk 17, 4381 BV Vlissingen (wine shop: Walstraat 36, 4381 EE Vlissingen)",
+    "strength": "some",
+    "evidence": "Wine bar at the marina pours wines by the glass from its own shop, whose assortment explicitly includes 'biologische, biodynamische en natuurwijnen'.",
+    "website": "https://aboire.nl/",
+    "instagram": "https://www.instagram.com/aboire.nl/",
+    "sources": [
+      "https://aboire.nl/wijnen/",
+      "https://invlissingen.nl/aboire/",
+      "https://allyourz.nl/horeca/a-boire-bar-vlissingen",
+      "https://slijterindebuurt.nl/slijters-per-provincie/zeeland/vlissingen/a-boire-wijnen/"
+    ]
+  },
+  {
+    "name": "Wagenings Wijngoed (Wijngaard Wageningse Berg)",
+    "city": "Wageningen",
+    "address": "Wageningse Berg, kruising Scheidingslaan / Tweede Dorskampweg, Wageningen",
+    "strength": "some",
+    "evidence": "First organic (biologisch) vineyard in the Netherlands with an on-site proeflokaal where you can taste and drink its own organically-grown wine on weekend afternoons; grown without chemical pesticides or artificial fertiliser (organic, not certified vin-nature).",
+    "website": "https://wageningswijngoed.nl/",
+    "instagram": null,
+    "sources": [
+      "https://wageningswijngoed.nl/",
+      "https://wageningswijngoed.nl/bezoek-de-wijngaard/",
+      "https://nl.wikipedia.org/wiki/Wijngaard_Wageningse_Berg"
+    ]
+  },
+  {
+    "name": "Wiên",
+    "city": "Weert",
+    "address": "Beekstraat 60, 6001 GJ Weert",
+    "strength": "some",
+    "evidence": "Wine bar & wine shop; own homepage states \"Daarnaast bieden we ook natuurwijnen en biologische wijnen aan\" (we also offer natural and organic wines) alongside a broader by-the-glass list.",
+    "website": "https://www.wienweert.nl/",
+    "instagram": "https://www.instagram.com/wienweert/",
+    "sources": [
+      "https://www.wienweert.nl/",
+      "https://www.wienweert.nl/wijnbar/",
+      "https://www.instagram.com/wienweert/"
+    ]
+  },
+  {
+    "name": "Petit Clos (Weesper Wijnhuis)",
+    "city": "Weesp",
+    "address": "Nieuwstad 28, 1381 CC Weesp",
+    "strength": "some",
+    "evidence": "Wine merchant that 'bij voorkeur werkt met wijnboeren die op een biologische en biodynamische manier werken', with Nature/Demeter/biologisch filters, and organises wijnproeverijen (tastings).",
+    "website": "https://www.petitclos.nl/weesp",
+    "instagram": "https://www.instagram.com/petitclos.nl",
+    "sources": [
+      "https://www.petitclos.nl/weesp",
+      "https://www.petitclos.nl/",
+      "https://www.deeendracht-weesp.nl/wijnproeverij-petit-clos/"
+    ]
+  },
+  {
+    "name": "Petit Clos Weesp",
+    "city": "Weesp",
+    "address": "Nieuwstad 28, 1381 CC Weesp",
+    "strength": "unclear",
+    "evidence": "Natural/biodynamic wine specialist shop (badges: bio, vegan, Demeter, Nature; \"bij voorkeur wijnboeren die biologisch en biodynamisch werken\"); on-site pouring/tasting not confirmed, so retail-only classification is possible.",
+    "website": "https://www.petitclos.nl/weesp",
+    "instagram": null,
+    "sources": [
+      "https://www.petitclos.nl/weesp"
+    ]
+  },
+  {
+    "name": "SOMM Bistro à Vin",
+    "city": "Weesp",
+    "address": "Nieuwstad 32, 1382 CC Weesp",
+    "strength": "focus",
+    "evidence": "Own site states the wine list is 'zorgvuldig samengesteld – biologisch, biodynamisch, authentiek'; wine-bar concept by ex-Gordon Ramsay sommelier with 250+ organic/biodynamic wines.",
+    "website": "https://www.sommbistroavin.com/",
+    "instagram": "https://www.instagram.com/sommbistroavin/",
+    "sources": [
+      "https://www.sommbistroavin.com/over-ons/",
+      "https://www.sommbistroavin.com/about-us/",
+      "https://www.gault-millau.nl/en/restaurants/somm-bistro-a-vin-weesp"
+    ]
+  },
+  {
+    "name": "Restaurant Bois (Het Hem)",
+    "city": "Zaandam",
+    "address": "Het Hem, Hemkade 20, 1506 PR Zaandam",
+    "strength": "focus",
+    "evidence": "Vegetarian restaurant at Het Hem where, per Barts Boekje: \"Alle wijnen die geserveerd worden zijn biodynamisch of, zo noemen we het in de volksmond, natuurwijnen\" (all wines served are biodynamic / natural wine).",
+    "website": "https://hethem.nl",
+    "instagram": null,
+    "sources": [
+      "https://www.bartsboekje.com/restaurant-bois-in-het-hem/",
+      "https://www.debuik.nl/amsterdam/nieuws/nieuwe-vegetarische-hotspot-bois-opent-in-april-op-het-hem-in-zaandam",
+      "https://hethem.nl/EN/Het-Hem/Restaurant-Bois"
+    ]
+  },
+  {
+    "name": "Tinc Set",
+    "city": "Zeist",
+    "address": "Rozenstraat 15a, 3701 TT Zeist",
+    "strength": "focus",
+    "evidence": "Wine shop importing Catalan low-intervention wines with a dedicated 'natuurwijnen zonder toegevoegde sulfieten' collection; hosts regular in-shop tastings (proeverijen).",
+    "website": "https://tincset.nl/",
+    "instagram": "https://www.instagram.com/tinc.set/",
+    "sources": [
+      "https://tincset.nl/en/collections/natuurwijnen",
+      "https://tincset.nl/en/pages/wijnwinkel",
+      "https://www.biojournaal.nl/article/9615650/eerste-wijnwinkel-van-tinc-set-geopend-in-zeist/",
+      "https://zeisterkrant.nl/nieuws/wijnwinkel-tinc-set-opende-zaterdag-zijn-deuren-in-zeist/",
+      "https://www.deopenslotstad.nl/agenda-overview/wijn-en-kaasproeverij-bij-tinc-set"
+    ]
+  },
+  {
+    "name": "Gris Sec Restaurant & Winebar",
+    "city": "Zierikzee",
+    "address": "Hoofdpoortstraat 2, 4301 AT Zierikzee",
+    "strength": "unclear",
+    "evidence": "Only dedicated winebar in Zierikzee (sommelier-led, ~30 wines by the glass); one aggregator lists 'natuurwijnen' but direct reviews describe a broad international selection, so a natural-wine focus is unverified.",
+    "website": "https://www.winebargrissec.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.heerlijk.nl/restaurant/detail/59699/gris-sec-restaurant-en-winebar",
+      "https://eetplezierenmeer.nl/winebar-gris-sec-zierikzee/",
+      "https://www.groetenuitzierikzee.nl/winebar-gris-sec-steven-nathalie-hoofdpoortstraat-2-zierikzee/",
+      "https://guide.michelin.com/be/nl/zeeland/zierikzee/restaurant/gris-sec-restaurant-winebar"
+    ]
+  },
+  {
+    "name": "Grab-a-grape",
+    "city": "Zoetermeer",
+    "address": "Korinthestraat 6, 2711 GS Zoetermeer",
+    "strength": "unclear",
+    "evidence": "Zoetermeer wine merchant specialising in biological/biodynamic quality wines and vin naturel (sulfite-free) from small producers; operates as webshop + regional-market stalls, on-site tasting/pouring not confirmed.",
+    "website": "https://www.grabagrape.nl/",
+    "instagram": null,
+    "sources": [
+      "https://www.allesduurzaam.nl/verkooppunten/verkooppunten_item/t/grab_a_grape",
+      "https://www.grabagrape.nl/",
+      "https://slijterijen-wijnhandels.nl/zoetermeer/grab-a-grape-zoetermeer"
+    ]
+  },
+  {
+    "name": "Wijnbar Jij en Ik (voorheen Nic & Ik)",
+    "city": "Zutphen",
+    "address": "Sprongstraat 16, 7201 KS Zutphen",
+    "strength": "unclear",
+    "evidence": "Wijnbar met 50+ open wijnen in het antroposofische Zutphen; gidsen beschrijven een aanbod van 'biologische en vegan wijnen' (natuurwijn niet expliciet gelabeld, wel organic/vegan-gericht).",
+    "website": "https://jij-en-ik.nl/",
+    "instagram": "https://www.instagram.com/wijnbar_jij_en_ik/",
+    "sources": [
+      "https://jij-en-ik.nl/",
+      "https://www.inzutphen.nl/nl/locaties/1553620062/nic-ik-wine-and-food",
+      "https://365dagenwijn.nl/wijnbar-nic-ik/"
+    ]
+  },
+  {
+    "name": "Wijnhandel Schaapveld",
+    "city": "Zutphen",
+    "address": "Pelikaanstraat 4a, 7201 DR Zutphen",
+    "strength": "some",
+    "evidence": "Wine merchant (since 1916) with 800+ wines including a 'biologische selectie' and natural/biodynamic wines (e.g. natuurwijn from biodynamic Domaine Sepp Moser); hosts in-store tastings ('Kom wijnproeven in de winkel').",
+    "website": "https://www.schaapveld.nl/",
+    "instagram": "https://www.instagram.com/wijnhandelschaapveld/",
+    "sources": [
+      "https://www.schaapveld.nl/pagina/natuurwijnen",
+      "https://www.schaapveld.nl/",
+      "https://www.inzutphen.nl/nl/locaties/944681783/wijnhandel-schaapveld"
+    ]
+  },
+  {
+    "name": "Het Wijnhuis Zwolle",
+    "city": "Zwolle",
+    "address": "Grote Kerkplein 9, 8011 PK Zwolle",
+    "strength": "some",
+    "evidence": "Wijnkaart met biodynamische wijnen (o.a. Biohof Pratsch)",
+    "website": "https://wijnhuiszwolle.nl/",
+    "instagram": null,
+    "sources": [
+      "https://wijnhuiszwolle.nl/wijnen/"
+    ]
+  },
+  {
+    "name": "Vinotheek Vintage",
+    "city": "Zwolle",
+    "address": "Broerenstraat 9, 8011 Zwolle",
+    "strength": "focus",
+    "evidence": "Wijnwinkel/importeur met 'Vin Naturel'-sectie + proeverijen",
+    "website": "https://vinotheekvintage.nl/",
+    "instagram": "https://www.instagram.com/vinotheekvintage/",
+    "sources": [
+      "https://vinotheekvintage.nl/"
+    ]
+  },
+  {
+    "name": "Wijnbar OAK",
+    "city": "Zwolle",
+    "address": "Gasthuisplein 23, 8011 SB Zwolle",
+    "strength": "some",
+    "evidence": "Eigen natuurwijn-categorie + 'nieuwe natuurwijnen collectie'-proeverij",
+    "website": "https://wijnbaroak.nl/",
+    "instagram": "https://www.instagram.com/wijnbaroakzwolle/",
+    "sources": [
+      "https://wijnbaroak.nl/product-tag/natuurwijn/"
+    ]
+  }
+]
