@@ -159,6 +159,9 @@
   .pfoot .in{max-width:1080px;margin:0 auto;padding:58px var(--gutter) 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
   .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
   .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col a{color:#ECE6D6;border-bottom:1px solid rgba(236,230,214,.28);transition:border-color .14s;}
+  .pfoot .col a:hover{border-color:rgba(236,230,214,.7);}
+  .pfoot .fh{display:inline-block;min-width:70px;color:rgba(236,230,214,.42);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;vertical-align:baseline;}
   .pfoot .col b{color:var(--paper);font-weight:600;}
 </style>
 </head>
@@ -597,7 +600,10 @@ function renderResults(){
 </script>
 <footer class="pfoot"><div class="in">
   <div><div class="big">stay on the list — first to the bottle list, every edition.</div></div>
-  <div class="col"><b>natural wine festival a'dam</b><br>edition #5 — 28 feb &amp; 1 mar '27<br>de hallen, amsterdam<br><br>united by wine</div>
+  <div class="col"><b>natural wine festival a'dam</b><br>edition #5 — 28 feb &amp; 1 mar '27<br>de hallen, amsterdam<br><br><span class="fh">contact</span><a href="mailto:hello@naturalwinefestival.nl">hello@naturalwinefestival.nl</a><br>
+        <span class="fh">socials</span><a href="https://instagram.com/naturalwinefestival.ams" target="_blank" rel="noopener">@naturalwinefestival.ams</a><br>
+        <span class="fh">press</span><a href="mailto:peter@greenisgolden.co">peter@greenisgolden.co</a><br><br>
+        united by wine</div>
 </div></footer>
 
   <link rel="stylesheet" href="annotate-nwfa-theme.css">
