@@ -1,0 +1,57 @@
+/* NWFA — shared mobile nav (hamburger + drawer) + persistent buy-tickets CTA.
+   Self-contained palette so it works regardless of a page's own tokens.
+   Injected by nav-mobile.js; include on every page after the nav. */
+:root{ --nm-ink:#1B3326; --nm-paper:#ECE6D6; --nm-amber:#eeba3f; --nm-ochre:#9F6E29; }
+
+/* hamburger button (injected into the nav) */
+.nm-burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;
+  width:44px;height:44px;padding:11px;align-items:center;justify-content:center;color:var(--nm-ink);}
+.nm-burger span,.nm-burger span::before,.nm-burger span::after{
+  display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:.2s;}
+.nm-burger span{position:relative;}
+.nm-burger span::before,.nm-burger span::after{content:"";position:absolute;left:0;}
+.nm-burger span::before{top:-7px;} .nm-burger span::after{top:7px;}
+body.nm-open .nm-burger span{background:transparent;}
+body.nm-open .nm-burger span::before{top:0;transform:rotate(45deg);}
+body.nm-open .nm-burger span::after{top:0;transform:rotate(-45deg);}
+
+/* drawer */
+.nm-drawer{position:fixed;inset:0;z-index:2000;visibility:hidden;opacity:0;transition:opacity .22s;}
+body.nm-open{overflow:hidden;}
+body.nm-open .nm-drawer{visibility:visible;opacity:1;}
+.nm-scrim{position:absolute;inset:0;background:rgba(16,22,16,.5);}
+.nm-panel{position:absolute;top:0;right:0;height:100%;width:min(88vw,380px);
+  background:var(--nm-paper);border-left:1.6px solid var(--nm-ink);
+  box-shadow:-30px 0 60px -30px rgba(16,22,16,.5);
+  transform:translateX(100%);transition:transform .24s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;padding:78px 26px 120px;
+  font-family:'Figtree',system-ui,sans-serif;}
+body.nm-open .nm-panel{transform:none;}
+.nm-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border:0;background:none;
+  cursor:pointer;color:var(--nm-ink);font-size:30px;line-height:1;}
+.nm-sec{margin-bottom:20px;}
+.nm-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--nm-ochre);font-weight:700;margin-bottom:6px;}
+.nm-drawer a{display:block;color:var(--nm-ink);text-decoration:none;text-transform:lowercase;}
+.nm-drawer a:active{opacity:.55;}
+.nm-top{font-weight:700;font-size:22px;letter-spacing:-.02em;line-height:1.15;padding:9px 0;}
+.nm-sub{font-weight:500;font-size:15px;color:rgba(27,51,38,.82);padding:6px 0;}
+.nm-cta{margin-top:16px;background:var(--nm-amber);color:var(--nm-ink)!important;font-weight:700;
+  text-align:center;padding:15px;border-radius:100px;font-size:16px;}
+
+/* persistent floating buy-tickets CTA — bottom-left, clear of the
+   bottom-right review toolbar (and any thumb zone on mobile) */
+.nm-float{position:fixed;z-index:1500;left:16px;bottom:16px;
+  background:var(--nm-amber);color:var(--nm-ink);font-weight:700;font-size:15px;
+  padding:13px 22px;border-radius:100px;text-decoration:none;text-transform:lowercase;
+  box-shadow:0 12px 30px -8px rgba(16,22,16,.5);
+  transform:translateY(180%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+  font-family:'Figtree',system-ui,sans-serif;}
+.nm-float.nm-show{transform:none;}
+body.nm-open .nm-float{opacity:0;pointer-events:none;}
+
+@media(max-width:860px){
+  .nav .lk, .sitenav .lk{display:none!important;}
+  .nm-burger{display:flex;}
+  .nm-float{font-size:16px;padding:14px 24px;}
+}
