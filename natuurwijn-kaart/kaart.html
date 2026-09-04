@@ -34,7 +34,7 @@
   /* Header */
   header{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule);
     display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 20px;z-index:1000}
-  header h1{font-family:var(--serif);font-weight:600;font-size:1.2rem;line-height:1;letter-spacing:-.01em}
+  header h1{font-family:var(--serif);font-weight:600;font-size:1.2rem;line-height:1;letter-spacing:-.02em;text-transform:lowercase}
   header h1 span{color:var(--ochre)}
   header .count{font-family:var(--sans);font-size:.72rem;letter-spacing:.02em;color:var(--ink-2)}
   header .spacer{flex:1}
@@ -64,9 +64,9 @@
   .item{display:block;width:100%;text-align:left;background:transparent;border:none;border-bottom:1px solid var(--line);
     padding:14px 18px;cursor:pointer;font-family:var(--sans);transition:background .12s ease}
   .item:hover,.item.active{background:#fff}
-  .item .nm{font-family:var(--serif);font-weight:500;font-size:1rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .item .nm{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);text-transform:lowercase;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
   .item .nm .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-  .item .meta{margin-top:3px;font-size:.78rem;color:var(--muted)}
+  .item .meta{margin-top:3px;font-size:.78rem;color:var(--muted);text-transform:lowercase;letter-spacing:.02em}
   .item:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 
   #map{height:100%;width:100%;background:var(--paper)}
@@ -75,7 +75,7 @@
   /* Popup */
   .leaflet-popup-content-wrapper{border-radius:12px}
   .pop{font-family:var(--sans);min-width:180px}
-  .pop .nm{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--wine);margin-bottom:4px}
+  .pop .nm{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--wine);text-transform:lowercase;letter-spacing:-.01em;margin-bottom:4px}
   .pop .ty{display:inline-block;font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
     color:#fff;border-radius:4px;padding:2px 7px;margin-bottom:8px}
   .pop .ad{font-size:.8rem;color:var(--muted);line-height:1.4}
