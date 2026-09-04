@@ -4,33 +4,39 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The workshops — Natural Wine Festival A'dam</title>
-<meta name="description" content="Seven workshops with winemakers and guides at NWFA 2026. De Hallen, Amsterdam, 23 November. Bookable after ticket purchase." />
+<meta name="description" content="15+ workshops with winemakers and guides at NWFA edition #5. De Hallen, Amsterdam, 28 February & 1 March 2027. Bookable after ticket purchase." />
 <style>
   @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   :root{
-    --paper:#e7e1d0;
-    --ink:#1b2a20;
-    --ink-2:rgba(27,42,32,.60);
-    --ink-3:rgba(27,42,32,.40);
-    --rule:rgba(27,42,32,.20);
-    --ochre:#9a6628;
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.86);
+    --ink-3:rgba(27,51,38,.60);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,var(--amber) 3%,var(--amber) 96%,rgba(238,186,63,0) 99%);color:var(--ink);padding:.04em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
   body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
        -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
   img{display:block;max-width:100%;}
 
-  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
 
   /* full-width topbar (NWFA pattern) */
   .topbar{width:100%;border-bottom:1.4px solid var(--ink);background:var(--paper);position:relative;z-index:5;}
-  .topbar-in{max-width:1280px;margin:0 auto;padding:22px 46px 14px;display:flex;align-items:center;gap:14px;}
-  .topbar-in .seal{width:34px;height:34px;flex:0 0 auto;}
-  .topbar-in .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
-  .topbar-in .nm span{color:var(--ink-2);}
-  .topbar-in nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .topbar-in{max-width:1280px;margin:0 auto;padding:24px 46px 22px;display:flex;align-items:center;gap:24px;font-size:14px;}
+  .topbar-in .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;}
+  .topbar-in .bm span{display:block;}
+  .topbar-in nav{margin-left:auto;display:flex;gap:24px;align-items:center;font-weight:500;}
+  .topbar-in nav a{color:var(--ink-2);}
   .topbar-in nav a:hover{color:var(--ink);}
+  .topbar-in nav a.btn{background:var(--ochre);color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .topbar-in nav a.btn:hover{background:#875d22;color:#fff;}
 
   /* masthead */
   .mast{padding:6vh 0 4vh;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;}
@@ -52,7 +58,26 @@
   .stats .cell .v{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-top:6px;line-height:1;}
   .stats .cell .v small{font-size:.55em;color:var(--ink-2);font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-family:ui-monospace,'SF Mono',Menlo,monospace;margin-left:6px;}
 
-  /* the list */
+  /* cards — same stramien as winemakers */
+  .feat{margin-top:48px;padding-bottom:90px;}
+  .feat .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;}
+  .feat .cap .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .feat .cap .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;color:var(--ink-3);}
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+  .card{border:1.4px solid var(--ink);overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:transform .14s ease,box-shadow .14s ease;}
+  .card:hover{transform:translateY(-2px);box-shadow:0 12px 30px -18px rgba(27,51,38,.7);}
+  .card .ph{overflow:hidden;border-bottom:1.4px solid var(--ink);}
+  .card img{width:100%;aspect-ratio:4/3.15;object-fit:cover;transition:transform .5s ease;}
+  .card:hover img{transform:scale(1.04);}
+  .card .cb{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
+  .card .cn{font-weight:600;text-transform:lowercase;font-size:21px;letter-spacing:-.015em;line-height:1.05;color:var(--ink);overflow-wrap:anywhere;}
+  .card .cr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre);margin:7px 0 14px;line-height:1.5;}
+  .card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--rule);}
+  .card .row:first-of-type{border-top:1px solid var(--ink);}
+  .card .row .k{color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;font-size:9.5px;font-weight:700;font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+  .card .row .val{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink);letter-spacing:.02em;text-transform:lowercase;text-align:right;}
+
+  /* the list (legacy, unused) */
   .list{margin-top:48px;padding-bottom:90px;}
   .list .cap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
   .list .cap .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:700;}
@@ -63,7 +88,7 @@
   a.row{display:grid;grid-template-columns:1.8fr 1.4fr .55fr .55fr auto;gap:18px;align-items:baseline;
         padding:16px 0;border-top:1px solid var(--rule);transition:background .12s;cursor:pointer;}
   a.row:first-of-type{border-top:0;}
-  a.row:hover{background:rgba(27,42,32,.05);}
+  a.row:hover{background:rgba(27,51,38,.05);}
   a.row .n{font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.015em;color:var(--ink);}
   a.row .h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ink-2);letter-spacing:.02em;text-transform:lowercase;}
   a.row .tm{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:var(--ink);font-weight:700;letter-spacing:.04em;}
@@ -75,17 +100,18 @@
   .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
   .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
   .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
-  .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(231,225,208,.4);border-radius:100px;overflow:hidden;max-width:330px;}
+  .pfoot .join{margin-top:18px;display:flex;border:1px solid rgba(236,230,214,.4);border-radius:100px;overflow:hidden;max-width:330px;}
   .pfoot .join input{flex:1;background:transparent;border:0;color:var(--paper);padding:11px 16px;font-family:inherit;font-size:13px;outline:none;}
-  .pfoot .join input::placeholder{color:rgba(231,225,208,.5);}
+  .pfoot .join input::placeholder{color:rgba(236,230,214,.5);}
   .pfoot .join button{background:var(--ochre);color:#fff;border:0;padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;text-transform:lowercase;}
-  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
   .pfoot .col b{color:var(--paper);font-weight:600;}
 
   @media(max-width:880px){
     .wrap{padding:0 22px;}
+    .cards{grid-template-columns:1fr;}
     .topbar-in{padding:22px 22px 14px;}
-    .topbar-in nav{display:none;}
+    .topbar-in nav a:not(.btn){display:none;}
     .mast{grid-template-columns:1fr;gap:24px;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .stats .cell:nth-child(2){border-right:0;}
@@ -100,15 +126,13 @@
 
   <header class="topbar">
     <div class="topbar-in">
-      <a class="seal" href="home-event.html" aria-label="NWFA — home"><img src="concept-assets/rose.svg" alt="NWFA" /></a>
-      <div class="nm">natural wine festival a'dam<br><span>workshops · edition 03</span></div>
+      <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
       <nav>
-        <a href="about.html">about</a>
-        <a href="winemakers.html">winemakers</a>
-        <a href="workshops.html">workshops</a>
-        <a href="winemakers-dinner.html">dinner</a>
+        <a href="winemakers.html">the makers</a>
+        <a href="workshops.html">the lessons</a>
+        <a href="winemakers-dinner.html">the supper</a>
         <a href="for-professionals.html">trade</a>
-        <a href="home-event.html#tickets">tickets</a>
+        <a class="btn" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">take your place</a>
       </nav>
     </div>
   </header>
@@ -117,7 +141,7 @@
 
     <header class="mast">
       <div>
-        <div class="ey">23 november '26 · de hallen, amsterdam · edition 03</div>
+        <div class="ey">28 feb &amp; 1 mar '27 · de hallen, amsterdam · edition #5</div>
         <h1>the<br>workshops.</h1>
       </div>
       <p class="sub">learn from the source — masterclasses, tastings, and one quiet meditation. led by the winemakers themselves and a handful of trusted guides.</p>
@@ -129,29 +153,79 @@
     </aside>
 
     <section class="stats">
-      <div class="cell"><div class="k">workshops</div><div class="v">7</div></div>
+      <div class="cell"><div class="k">workshops</div><div class="v"><span class="mark">15+</span></div></div>
       <div class="cell"><div class="k">led by winemakers</div><div class="v">5</div></div>
       <div class="cell"><div class="k">duration</div><div class="v">60–90<small>min</small></div></div>
       <div class="cell"><div class="k">included</div><div class="v">festival pass</div></div>
     </section>
 
-    <section class="list">
-      <div class="cap"><span class="t">the programme · 23 nov '26</span><span class="n">click a title → details (coming soon)</span></div>
-      <div class="head">
-        <span>workshop</span>
-        <span>host</span>
-        <span class="col-time">time</span>
-        <span class="col-dur">duration</span>
-        <span></span>
+    <section class="feat">
+      <div class="cap"><span class="t">the programme · 28 feb &amp; 1 mar '27</span><span class="n">click a title → details (coming soon)</span></div>
+      <div class="cards">
+        <a class="card" href="workshop-montsant.html">
+          <div class="ph"><img src="concept-assets/photo-8.jpg" alt="montsant masterclass" /></div>
+          <div class="cb">
+            <div class="cn">montsant masterclass</div><div class="cr">patri morillo · celler comunica</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">14:00</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">60 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="ph"><img src="concept-assets/photo-11.jpg" alt="talha wine workshop" /></div>
+          <div class="cb">
+            <div class="cn">talha wine workshop</div><div class="cr">teresa caeiro · gerações da talha</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">15:00</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">60 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="ph"><img src="concept-assets/photo-2.jpg" alt="cider and perry masterclass" /></div>
+          <div class="cb">
+            <div class="cn">cider &amp; perry masterclass</div><div class="cr">judith sciarone · maison kalder</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">16:00</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">60 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="ph"><img src="concept-assets/photo-5.jpg" alt="the art of sake" /></div>
+          <div class="cb">
+            <div class="cn">journey through the art of sake</div><div class="cr">froukje betten · yoigokochi</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">16:30</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">60 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="ph"><img src="concept-assets/photo-9.jpg" alt="to so2 or not" /></div>
+          <div class="cb">
+            <div class="cn">to so₂ or not to so₂</div><div class="cr">nils bugge</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">17:00</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">60 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="ph"><img src="concept-assets/photo-12.jpg" alt="wood and food" /></div>
+          <div class="cb">
+            <div class="cn">wood &amp; food</div><div class="cr">nicolai</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">18:30</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">75 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="ph"><img src="concept-assets/photo-10.jpg" alt="in vino veritas meditation" /></div>
+          <div class="cb">
+            <div class="cn">in vino veritas · meditation wine</div><div class="cr">peter van rhoon</div>
+            <div class="row"><span class="k">time</span><span class="val"><span class="mark">19:00</span></span></div>
+            <div class="row"><span class="k">duration</span><span class="val">60 min</span></div>
+            <div class="row"><span class="k">seats</span><span class="val">18</span></div>
+          </div>
+        </a>
       </div>
-
-      <a class="row" href="workshop-montsant.html"><span class="n">montsant masterclass</span><span class="h">patri morillo · celler comunica</span><span class="tm">14:00</span><span class="du">60 min</span><span class="arr">→</span></a>
-      <a class="row" href="#"><span class="n">talha wine workshop</span><span class="h">teresa caeiro · gerações da talha</span><span class="tm">15:00</span><span class="du">60 min</span><span class="arr">→</span></a>
-      <a class="row" href="#"><span class="n">cider &amp; perry masterclass</span><span class="h">judith sciarone · maison kalder</span><span class="tm">16:00</span><span class="du">60 min</span><span class="arr">→</span></a>
-      <a class="row" href="#"><span class="n">journey through the art of sake</span><span class="h">froukje betten · yoigokochi</span><span class="tm">16:30</span><span class="du">60 min</span><span class="arr">→</span></a>
-      <a class="row" href="#"><span class="n">to so₂ or not to so₂</span><span class="h">nils bugge</span><span class="tm">17:00</span><span class="du">60 min</span><span class="arr">→</span></a>
-      <a class="row" href="#"><span class="n">wood &amp; food</span><span class="h">nicolai</span><span class="tm">18:30</span><span class="du">75 min</span><span class="arr">→</span></a>
-      <a class="row" href="#"><span class="n">in vino veritas — meditation wine</span><span class="h">peter van rhoon</span><span class="tm">19:00</span><span class="du">60 min</span><span class="arr">→</span></a>
     </section>
   </div>
 
@@ -166,7 +240,7 @@
       </div>
       <div class="col">
         <b>natural wine festival a'dam</b><br>
-        edition 03 — 23.11.26<br>
+        edition #5 — 28 feb &amp; 1 mar '27<br>
         de hallen, amsterdam<br><br>
         united by wine
       </div>

@@ -4,35 +4,41 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Movia — Brda, Slovenia · Natural Wine Festival A'dam</title>
-<meta name="description" content="Movia — Brda, Slovenia. Biodynamic, 8th generation since 1820. Pouring at NWFA, 23 November 2026, De Hallen Amsterdam." />
+<meta name="description" content="Movia — Brda, Slovenia. Biodynamic, 8th generation since 1820. Pouring at NWFA, 28 February & 1 March 2027, De Hallen Amsterdam." />
 <style>
   @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   :root{
-    --paper:#e7e1d0;
-    --ink:#1b2a20;
-    --ink-2:rgba(27,42,32,.60);
-    --ink-3:rgba(27,42,32,.40);
-    --rule:rgba(27,42,32,.20);
-    --ochre:#9a6628;
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.86);
+    --ink-3:rgba(27,51,38,.60);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,var(--amber) 3%,var(--amber) 96%,rgba(238,186,63,0) 99%);color:var(--ink);padding:.04em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
   body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
        -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
   img{display:block;max-width:100%;}
 
-  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
 
   /* template banner (this profile = example template) */
   .tpl{background:var(--ink);color:var(--paper);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:8px 16px;}
 
   /* page header */
-  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
-  .top .seal{width:34px;height:34px;flex:0 0 auto;}
-  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
-  .top .nm span{color:var(--ink-2);}
-  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top{display:flex;align-items:center;gap:24px;padding:24px 0 22px;font-size:14px;}
+  .top .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;}
+  .top .bm span{display:block;}
+  .top nav{margin-left:auto;display:flex;gap:24px;align-items:center;font-weight:500;}
+  .top nav a{color:var(--ink-2);}
   .top nav a:hover{color:var(--ink);}
+  .top nav a.btn{background:var(--ochre);color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .top nav a.btn:hover{background:#875d22;color:#fff;}
   .top nav .back{color:var(--ochre);}
 
   /* hero — name + region + photo bleeding right */
@@ -40,7 +46,7 @@
   .phero-text{padding:8vh 0 6vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1.4px solid var(--ink);padding-bottom:6vh;}
   .phero .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
   .phero h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.035em;line-height:.86;
-            font-size:clamp(56px,9vw,148px);}
+            font-size:clamp(42px,5.6vw,84px);}
   .phero .reg{margin-top:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2);text-transform:uppercase;}
   .phero .reg b{color:var(--ink);font-weight:700;}
   .phero-shot{position:relative;overflow:hidden;min-height:520px;}
@@ -85,7 +91,7 @@
   .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
   .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
   .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
-  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
   .pfoot .col b{color:var(--paper);font-weight:600;}
 
   @media(max-width:880px){
@@ -94,7 +100,7 @@
     .phero-shot{order:-1;border-bottom:1.4px solid var(--ink);min-height:340px;transform:none;}
     .phero-text{padding:6vh 0 4vh;}
     .about{grid-template-columns:1fr;gap:40px;padding:48px 0;}
-    .top nav{display:none;}
+    .top nav a:not(.btn){display:none;}
     .brow{grid-template-columns:1fr 1fr;}
     .brow .nt{grid-column:1 / -1;}
     .pfoot .in{padding:44px 22px;}
@@ -103,20 +109,17 @@
 </head>
 <body>
 
-  <div class="tpl">profile template · example: movia · same format for every winemaker</div>
 
   <div class="wrap">
 
     <div class="top">
-      <a class="seal" href="home-event.html" aria-label="NWFA — home"><img src="concept-assets/rose.svg" alt="NWFA" /></a>
-      <div class="nm">natural wine festival a'dam<br><span>edition 03 · winemaker profile</span></div>
+      <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
       <nav>
         <a class="back" href="winemakers.html">← all winemakers</a>
-        <a href="about.html">about</a>
-        <a href="workshops.html">workshops</a>
-        <a href="winemakers-dinner.html">dinner</a>
+        <a href="workshops.html">the lessons</a>
+        <a href="winemakers-dinner.html">the supper</a>
         <a href="for-professionals.html">trade</a>
-        <a href="home-event.html#tickets">tickets</a>
+        <a class="btn" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">take your place</a>
       </nav>
     </div>
 
@@ -141,7 +144,7 @@
       <div class="pstrip">
         <div class="prow"><span class="k">farming</span><span class="v ok">biodynamic</span></div>
         <div class="prow"><span class="k">added yeast</span><span class="v ok">none — wild only</span></div>
-        <div class="prow"><span class="k">sulphur</span><span class="v ok">none on most cuvées</span></div>
+        <div class="prow"><span class="k">sulphur</span><span class="v ok"><span class="mark">none on most cuvées</span></span></div>
         <div class="prow"><span class="k">hectares</span><span class="v">22</span></div>
         <div class="prow"><span class="k">since</span><span class="v">1820</span></div>
         <div class="prow"><span class="k">generation</span><span class="v">8th</span></div>
@@ -178,7 +181,7 @@
       </div>
       <div class="col">
         <b>natural wine festival a'dam</b><br>
-        edition 03 — 23.11.26<br>
+        edition #5 — 28 feb &amp; 1 mar '27<br>
         de hallen, amsterdam<br><br>
         united by wine
       </div>

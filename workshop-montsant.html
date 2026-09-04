@@ -4,33 +4,39 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Montsant Masterclass — Workshop · Natural Wine Festival A'dam</title>
-<meta name="description" content="Montsant masterclass with Patri Morillo of Celler Comunica. NWFA, 23 November 2026, De Hallen Amsterdam." />
+<meta name="description" content="Montsant masterclass with Patri Morillo of Celler Comunica. NWFA, 28 February & 1 March 2027, De Hallen Amsterdam." />
 <style>
   @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   :root{
-    --paper:#e7e1d0;
-    --ink:#1b2a20;
-    --ink-2:rgba(27,42,32,.60);
-    --ink-3:rgba(27,42,32,.40);
-    --rule:rgba(27,42,32,.20);
-    --ochre:#9a6628;
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.86);
+    --ink-3:rgba(27,51,38,.60);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,var(--amber) 3%,var(--amber) 96%,rgba(238,186,63,0) 99%);color:var(--ink);padding:.04em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
   body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
        -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
   img{display:block;max-width:100%;}
 
-  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 46px;}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
 
   .tpl{background:var(--ink);color:var(--paper);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:8px 16px;}
 
-  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
-  .top .seal{width:34px;height:34px;flex:0 0 auto;}
-  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
-  .top .nm span{color:var(--ink-2);}
-  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top{display:flex;align-items:center;gap:24px;padding:24px 0 22px;font-size:14px;}
+  .top .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;}
+  .top .bm span{display:block;}
+  .top nav{margin-left:auto;display:flex;gap:24px;align-items:center;font-weight:500;}
+  .top nav a{color:var(--ink-2);}
   .top nav a:hover{color:var(--ink);}
+  .top nav a.btn{background:var(--ochre);color:#fff;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .top nav a.btn:hover{background:#875d22;color:#fff;}
   .top nav .back{color:var(--ochre);}
 
   /* hero */
@@ -38,7 +44,7 @@
   .whero-text{padding:7vh 0 5vh;display:flex;flex-direction:column;justify-content:center;}
   .whero .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
   .whero h1{margin-top:14px;font-weight:600;text-transform:lowercase;letter-spacing:-.035em;line-height:.9;
-            font-size:clamp(42px,6.4vw,108px);}
+            font-size:clamp(42px,5.6vw,84px);}
   .whero .reg{margin-top:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2);text-transform:uppercase;}
   .whero .reg b{color:var(--ink);font-weight:700;}
   .whero-shot{position:relative;overflow:hidden;min-height:520px;}
@@ -84,9 +90,9 @@
   .book{padding:7vh 0 8vh;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
   .book .big{font-weight:600;text-transform:lowercase;letter-spacing:-.022em;line-height:1.05;font-size:clamp(26px,2.8vw,40px);max-width:24ch;}
   .book .big span{color:var(--ochre);}
-  .book .cta{display:inline-flex;gap:10px;align-items:center;padding:14px 26px;border:1.4px solid var(--ink);background:var(--ink);color:var(--paper);
+  .book .cta{display:inline-flex;gap:10px;align-items:center;padding:14px 26px;border:1.4px solid var(--amber);background:var(--amber);color:var(--ink);
              font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;}
-  .book .cta:hover{background:var(--ochre);border-color:var(--ochre);}
+  .book .cta:hover{background:#e3ad33;border-color:#e3ad33;}
 
   .back-strip{padding:0 0 60px;}
   .back-strip a{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--ochre);padding-bottom:4px;}
@@ -94,7 +100,7 @@
   .pfoot{border-top:1.4px solid var(--ink);background:var(--ink);color:var(--paper);}
   .pfoot .in{max-width:1280px;margin:0 auto;padding:58px 56px 46px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
   .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,34px);max-width:18ch;line-height:1.08;}
-  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
   .pfoot .col b{color:var(--paper);font-weight:600;}
 
   @media(max-width:880px){
@@ -109,27 +115,24 @@
     .facts .c:nth-child(5){grid-column:1 / -1;border-right:0;}
     .grid2,.host{grid-template-columns:1fr;gap:32px;padding:48px 0;}
     .book{grid-template-columns:1fr;gap:18px;}
-    .top nav{display:none;}
+    .top nav a:not(.btn){display:none;}
     .pfoot .in{padding:44px 22px;}
   }
 </style>
 </head>
 <body>
 
-  <div class="tpl">workshop template · example: montsant masterclass · same format for every workshop</div>
 
   <div class="wrap">
 
     <div class="top">
-      <a class="seal" href="home-event.html" aria-label="NWFA — home"><img src="concept-assets/rose.svg" alt="NWFA" /></a>
-      <div class="nm">natural wine festival a'dam<br><span>edition 03 · workshop</span></div>
+      <a class="bm" href="index.html" aria-label="NWFA — home"><span>natural wine festival</span><span>a'dam</span></a>
       <nav>
         <a class="back" href="workshops.html">← all workshops</a>
-        <a href="about.html">about</a>
-        <a href="winemakers.html">winemakers</a>
-        <a href="winemakers-dinner.html">dinner</a>
+        <a href="winemakers.html">the makers</a>
+        <a href="winemakers-dinner.html">the supper</a>
         <a href="for-professionals.html">trade</a>
-        <a href="home-event.html#tickets">tickets</a>
+        <a class="btn" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">take your place</a>
       </nav>
     </div>
 
@@ -146,7 +149,7 @@
     </section>
 
     <section class="facts">
-      <div class="c"><div class="k">time</div><div class="v">14:00</div></div>
+      <div class="c"><div class="k">time</div><div class="v"><span class="mark">14:00</span></div></div>
       <div class="c"><div class="k">duration</div><div class="v">60 min</div></div>
       <div class="c"><div class="k">seats</div><div class="v">18</div></div>
       <div class="c"><div class="k">level</div><div class="v">all-comers</div></div>
@@ -192,7 +195,7 @@
 
     <section class="book">
       <div class="big">included with your festival pass — <span>one workshop per ticket</span>, first come first served.</div>
-      <a class="cta" href="home-event.html#tickets">get a festival pass →</a>
+      <a class="cta" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">get a festival pass →</a>
     </section>
 
     <div class="back-strip">
@@ -207,7 +210,7 @@
       </div>
       <div class="col">
         <b>natural wine festival a'dam</b><br>
-        edition 03 — 23.11.26<br>
+        edition #5 — 28 feb &amp; 1 mar '27<br>
         de hallen, amsterdam<br><br>
         united by wine
       </div>
