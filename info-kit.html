@@ -8,13 +8,14 @@
 <style>
   @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
   :root{
-    --paper:#e7e1d0;
-    --ink:#1b2a20;
-    --ink-2:rgba(27,42,32,.60);
-    --ink-3:rgba(27,42,32,.40);
-    --rule:rgba(27,42,32,.20);
-    --ochre:#9a6628;
-    --gutter:46px;
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.60);
+    --ink-3:rgba(27,51,38,.40);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
@@ -22,7 +23,7 @@
   a{color:inherit;text-decoration:none;}
   img{display:block;max-width:100%;}
   .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
-  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,#eeba3f 3%,#eeba3f 96%,rgba(238,186,63,0) 99%);color:#1b2a20;padding:.03em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,#eeba3f 3%,#eeba3f 96%,rgba(238,186,63,0) 99%);color:#1B3326;padding:.03em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
 
   .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
 
@@ -146,39 +147,39 @@
   .signup .lab{color:#d9b877;}
   .signup h2{color:var(--paper);margin-top:10px;max-width:20ch;}
   .signup .head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:18px;}
-  .signup .head .metanote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:rgba(231,225,208,.6);letter-spacing:.06em;text-transform:uppercase;line-height:1.8;text-align:right;}
-  .signup .intro{margin-top:16px;font-size:15.5px;color:rgba(231,225,208,.72);line-height:1.62;max-width:60ch;}
+  .signup .head .metanote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:rgba(236,230,214,.6);letter-spacing:.06em;text-transform:uppercase;line-height:1.8;text-align:right;}
+  .signup .intro{margin-top:16px;font-size:15.5px;color:rgba(236,230,214,.72);line-height:1.62;max-width:60ch;}
   .signup .intro b{color:var(--paper);font-weight:600;}
   .aform{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;max-width:940px;}
   .aform .fld{display:flex;flex-direction:column;gap:8px;}
   .aform .full{grid-column:1 / -1;}
-  .aform label{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(231,225,208,.66);font-weight:700;}
+  .aform label{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,230,214,.66);font-weight:700;}
   .aform label .req{color:#d9b877;}
-  .aform input,.aform select,.aform textarea{font-family:inherit;font-size:15px;color:var(--paper);background:rgba(231,225,208,.06);border:1.4px solid rgba(231,225,208,.28);padding:13px 15px;outline:none;width:100%;border-radius:0;}
-  .aform input::placeholder,.aform textarea::placeholder{color:rgba(231,225,208,.4);}
+  .aform input,.aform select,.aform textarea{font-family:inherit;font-size:15px;color:var(--paper);background:rgba(236,230,214,.06);border:1.4px solid rgba(236,230,214,.28);padding:13px 15px;outline:none;width:100%;border-radius:0;}
+  .aform input::placeholder,.aform textarea::placeholder{color:rgba(236,230,214,.4);}
   .aform input:focus,.aform select:focus,.aform textarea:focus{border-color:#d9b877;box-shadow:0 0 0 3px rgba(217,184,119,.22);}
   .aform select{color:var(--paper);}
-  .aform select option{color:#1b2a20;}
+  .aform select option{color:#1B3326;}
   .aform textarea{min-height:120px;resize:vertical;line-height:1.5;}
   .aform .submit{justify-self:start;background:var(--ochre);color:var(--paper);border:1.4px solid var(--ochre);padding:16px 32px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;cursor:pointer;transition:.14s;}
   .aform .submit:hover{background:#b9803a;border-color:#b9803a;}
-  .aform .fnote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:rgba(231,225,208,.5);letter-spacing:.04em;line-height:1.6;}
-  .aform .fnote a{color:var(--paper);border-bottom:1px solid rgba(231,225,208,.3);}
-  .signup .done-msg{display:none;margin-top:34px;border:1.4px solid rgba(231,225,208,.28);padding:30px 28px;}
+  .aform .fnote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:rgba(236,230,214,.5);letter-spacing:.04em;line-height:1.6;}
+  .aform .fnote a{color:var(--paper);border-bottom:1px solid rgba(236,230,214,.3);}
+  .signup .done-msg{display:none;margin-top:34px;border:1.4px solid rgba(236,230,214,.28);padding:30px 28px;}
   .signup.sent .aform{display:none;}
   .signup.sent .done-msg{display:block;animation:reveal .5s ease-out;}
   @keyframes reveal{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
   .signup .done-msg .big{font-weight:600;text-transform:lowercase;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;}
-  .signup .done-msg p{margin-top:12px;font-size:15px;color:rgba(231,225,208,.72);line-height:1.6;max-width:52ch;}
+  .signup .done-msg p{margin-top:12px;font-size:15px;color:rgba(236,230,214,.72);line-height:1.6;max-width:52ch;}
 
   /* footer */
-  .pfoot{background:var(--ink);color:var(--paper);border:0;border-top:1.4px solid rgba(231,225,208,.16);}
+  .pfoot{background:var(--ink);color:var(--paper);border:0;border-top:1.4px solid rgba(236,230,214,.16);}
   .pfoot .in{max-width:1280px;margin:0 auto;padding:64px var(--gutter) 48px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
   .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.4vw,48px);max-width:16ch;line-height:1.04;}
   .pfoot .big em{font-style:normal;color:var(--ochre);}
-  .pfoot .col{font-size:12px;color:rgba(231,225,208,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
   .pfoot .col b{color:var(--paper);font-weight:600;}
-  .pfoot .col a{color:rgba(231,225,208,.82);}
+  .pfoot .col a{color:rgba(236,230,214,.82);}
 
   @media(max-width:900px){
     :root{--gutter:22px;}
@@ -621,7 +622,7 @@
         </div>
         <div class="fld full enquiry-only">
           <label>samples</label>
-          <p style="font-size:13.5px;color:rgba(27,42,32,.6);line-height:1.6;margin-top:2px;">If we take it further, we'll ask you to send a few sample bottles for the tasting and selection. We'll tell you where to ship them when we reply.</p>
+          <p style="font-size:13.5px;color:rgba(27,51,38,.6);line-height:1.6;margin-top:2px;">If we take it further, we'll ask you to send a few sample bottles for the tasting and selection. We'll tell you where to ship them when we reply.</p>
         </div>
         <div class="fld booking-only">
           <label for="billco">billing name / company</label>
