@@ -123,8 +123,75 @@
     </div>
   </section>
 
+  <section class="ds" id="motion">
+    <div class="lab">§ 04 — motion</div>
+    <h2 class="dt">the video system.</h2>
+    <p class="note">Built from this identity's own signatures — the label frame, the amber data-mark, the transparency register, the rotated stamp, the Vicky payoff. Two tracks: <b>graphics &amp; text</b> (below), and <b>with footage</b> — winemakers, quotes, the photo grid. Rendered with the SuperStories video method. Silent by design: music goes under them in the cut.</p>
+    <div class="lab" style="margin-top:10px">graphics &amp; text · 16:9</div>
+    <style>
+      .vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:8px;}
+      @media(max-width:960px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+      @media(max-width:640px){.vgrid{grid-template-columns:minmax(0,1fr);}}
+      .vcard{border:1.4px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff6;}
+      .vcard .vh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1.4px solid var(--rule);}
+      .vcard .vh .t{font-weight:600;text-transform:lowercase;font-size:14px;}
+      .vcard .vh .vr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
+      .vcard video{display:block;width:100%;height:auto;background:var(--ink);}
+      .vcard.v916 video{width:auto;max-height:62vh;margin:0 auto;}
+      .vcard.v916{background:repeating-linear-gradient(45deg,rgba(27,51,38,.05),rgba(27,51,38,.05) 10px,transparent 10px,transparent 20px);}
+      .vbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 2px;}
+      .vbar button{font-family:inherit;font-weight:600;font-size:12.5px;padding:9px 16px;border-radius:999px;border:1.4px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;}
+      .vbar button.ghost{background:transparent;color:var(--ink);}
+    </style>
+    <div class="vbar">
+      <button id="vplayall">▶ play all</button>
+      <button class="ghost" id="vrestart">↺ restart</button>
+      <button class="ghost" id="vsound">🔊 sound on</button>
+    </div>
+    <div class="vgrid">
+      <figure class="vcard"><div class="vh"><span class="t">01 · the label</span><span class="vr">the front-door label, drawn</span></div><video src="brand-video/nwfa-a1-label-16x9.mp4" muted playsinline controls loop preload="metadata"></video></figure>
+      <figure class="vcard"><div class="vh"><span class="t">02 · full disclosure</span><span class="vr">the register, written</span></div><video src="brand-video/nwfa-a2-register-16x9.mp4" muted playsinline controls loop preload="metadata"></video></figure>
+      <figure class="vcard"><div class="vh"><span class="t">03 · united by wine</span><span class="vr">emblem + payoff + tickets</span></div><video src="brand-video/nwfa-a3-united-16x9.mp4" muted playsinline controls loop preload="metadata"></video></figure>
+    </div>
+
+    <div class="lab" style="margin-top:30px">with footage · 9:16 reels</div>
+    <style>
+      .pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:8px;max-width:660px;}
+      @media(max-width:560px){.pgrid{grid-template-columns:minmax(0,1fr);}}
+      .pcard{border:1.4px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff6;}
+      .pcard .vh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1.4px solid var(--rule);}
+      .pcard .vh .t{font-weight:600;text-transform:lowercase;font-size:14px;}
+      .pcard .vh .vr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
+      .pcard video{display:block;width:100%;height:auto;background:var(--ink);}
+    </style>
+    <div class="pgrid">
+      <figure class="pcard"><div class="vh"><span class="t">the photo grid</span><span class="vr">9:16</span></div><video src="brand-video/nwfa-a4-grid-reel-9x16.mp4" muted playsinline controls loop preload="metadata"></video></figure>
+      <figure class="pcard"><div class="vh"><span class="t">winemaker + quote</span><span class="vr">9:16 · template</span></div><video src="brand-video/nwfa-a5-winemaker-quote-9x16.mp4" muted playsinline controls loop preload="metadata"></video></figure>
+    </div>
+  </section>
+
+  <section class="ds" id="social">
+    <div class="lab">§ 05 — social</div>
+    <h2 class="dt">instagram, in the language of the label.</h2>
+    <p class="note">The social system built earlier, on this identity. Live previews below — open any one full to scroll it.</p>
+    <style>
+      .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:8px;}
+      .scard{border:1.4px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff6;display:flex;flex-direction:column;}
+      .scard figcaption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1.4px solid var(--rule);font-weight:600;text-transform:lowercase;font-size:14px;}
+      .scard figcaption a{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre);font-weight:700;text-decoration:none;}
+      .scard figcaption a:hover{text-decoration:underline;}
+      .scard .frame{position:relative;height:560px;overflow:hidden;background:#fff;}
+      .scard .frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+    </style>
+    <div class="sgrid">
+      <figure class="scard"><figcaption><span>the label · feed &amp; templates</span><a href="social/social-label.html" target="_blank" rel="noopener">open ↗</a></figcaption><div class="frame"><iframe src="social/social-label.html" loading="lazy" title="the label social system"></iframe></div></figure>
+      <figure class="scard"><figcaption><span>the social system · register-led</span><a href="social/social-system.html" target="_blank" rel="noopener">open ↗</a></figcaption><div class="frame"><iframe src="social/social-system.html" loading="lazy" title="social system"></iframe></div></figure>
+      <figure class="scard"><figcaption><span>5 instagram routes</span><a href="social/social-routes.html" target="_blank" rel="noopener">open ↗</a></figcaption><div class="frame"><iframe src="social/social-routes.html" loading="lazy" title="instagram routes"></iframe></div></figure>
+    </div>
+  </section>
+
   <section class="ds">
-    <div class="lab">§ 04 — icons · choose the set</div>
+    <div class="lab">§ 06 — icons · choose the set</div>
     <h2 class="dt">tick what we keep.</h2>
     <p class="note">Five style variants of the same emblems, plus the extras (oyster, sake, mini-market…). Tick the ones to keep. Your picks are remembered in this browser; <b>copy selection</b> gives me the exact list.</p>
     <div class="ic-bar">
@@ -216,6 +283,16 @@
     var ta=document.getElementById("selout");ta.style.display="block";ta.value=txt;ta.focus();ta.select();
     try{navigator.clipboard&&navigator.clipboard.writeText(txt);}catch(e){}
   };
+})();
+
+// motion section — play/restart/sound
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('#motion video'));
+  if(!vids.length) return;
+  var pa=document.getElementById('vplayall'), rs=document.getElementById('vrestart'), sd=document.getElementById('vsound'), on=false;
+  if(pa)pa.onclick=function(){vids.forEach(function(v){v.currentTime=0;v.play();});};
+  if(rs)rs.onclick=function(){vids.forEach(function(v){v.pause();v.currentTime=0;});};
+  if(sd)sd.onclick=function(){on=!on;vids.forEach(function(v){v.muted=!on;});sd.textContent=on?'🔇 sound off':'🔊 sound on';};
 })();
 </script>
   <link rel="stylesheet" href="annotate-nwfa-theme.css">
