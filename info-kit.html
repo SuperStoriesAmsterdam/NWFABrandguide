@@ -682,7 +682,7 @@
     var LEAD_ENDPOINT = "";
     /* Single shared access code. CLIENT-SIDE ONLY: this toggles the UI and tags the
        submission. The real gate + invoicing must live server-side (GHL / Airtable). */
-    var ACCESS_CODE = "NWFA-2027"; // TODO: Peter sets the real shared code
+    var ACCESS_CODE = "Salut"; // shared code (case-insensitive; also works via ?code=Salut)
     function checkCode(v){ if((v||"").trim().toLowerCase()===ACCESS_CODE.toLowerCase()){ document.body.classList.add('nwfa-unlocked'); return true; } return false; }
     var codeInput = document.getElementById('accesscode');
     var urlCode = new URLSearchParams(location.search).get('code');
