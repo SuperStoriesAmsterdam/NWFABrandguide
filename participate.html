@@ -279,49 +279,15 @@
       </div>
       <p class="intro">tell us who you are and leave your details. you'll hear back with the full info — <b>what we look for</b>, <b>what you get</b> and the <b>day-by-day logistics</b> — and it tells us you'd like to join.</p>
 
-      <form class="aform" id="gateForm" novalidate>
-        <div class="fld">
-          <label for="winery">winemaker / domaine <span class="req">*</span></label>
-          <input id="winery" name="winery" required autocomplete="organization" />
-        </div>
-        <div class="fld">
-          <label for="region">country &amp; region <span class="req">*</span></label>
-          <input id="region" name="region" required />
-        </div>
-        <div class="fld">
-          <label for="contact">your name <span class="req">*</span></label>
-          <input id="contact" name="contact" required autocomplete="name" />
-        </div>
-        <div class="fld">
-          <label for="email">email <span class="req">*</span></label>
-          <input id="email" name="email" type="email" required autocomplete="email" />
-        </div>
-        <div class="fld">
-          <label for="web">website or instagram</label>
-          <input id="web" name="web" />
-        </div>
-        <div class="fld">
-          <label for="distributed">distributed in the netherlands?</label>
-          <select id="distributed" name="distributed">
-            <option>not yet</option>
-            <option>yes</option>
-            <option>in progress</option>
-          </select>
-        </div>
-        <div class="fld full">
-          <label for="about">tell us about your wines <span class="req">*</span></label>
-          <textarea id="about" name="about" required placeholder="farming, ferments, sulphur, and what makes them yours."></textarea>
-        </div>
-        <button class="submit full" type="submit">sign up &amp; see the info →</button>
+      <div class="aform">
+        <button type="button" class="submit full" data-tally-open="RGEz1K" data-tally-layout="modal" data-tally-width="640" data-tally-overlay="1">sign up →</button>
         <div class="note full">no commitment. prefer email? write to <a href="mailto:wine@greenisgolden.co">wine@greenisgolden.co</a>.</div>
         <div class="note full">have an access code? <a href="info-kit.html">open the full info kit →</a></div>
-      </form>
+      </div>
     </section>
 
-    <!-- ===== GATED CONTENT — revealed after the form is sent ===== -->
-    <div class="gated" id="gated">
-
-      <div class="unlockbar"><span class="dot"></span>the full info below · we'll be in touch</div>
+    <!-- ===== the full info ===== -->
+    <div class="gated unlocked" id="gated">
     <section class="why">
       <div class="lab">§ 01 — what this is</div>
       <div class="body">
@@ -428,39 +394,8 @@
     </div>
   </footer>
 
-  <script>
-  (function(){
-    /* Paste a Tally / Formspree / GHL or Airtable webhook URL here to capture leads.
-       Until it is set, the gate still opens and the entry is kept in localStorage. */
-    var LEAD_ENDPOINT = "";
-    var KEY = 'nwfa_participate_unlocked';
-    var form = document.getElementById('gateForm');
-    var gated = document.getElementById('gated');
-    function unlock(scroll){
-      if(!gated) return;
-      gated.classList.add('unlocked');
-      if(form) form.classList.add('done');
-      if(scroll) gated.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-    try{ if(localStorage.getItem(KEY)==='1') unlock(false); }catch(e){}
-    if(form){
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if(!form.checkValidity()){ form.reportValidity(); return; }
-        var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
-        data.page='participate'; data.edition='#5';
-        try{
-          localStorage.setItem(KEY,'1');
-          localStorage.setItem('nwfa_participate_lead', JSON.stringify(data));
-        }catch(e){}
-        if(LEAD_ENDPOINT){
-          fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
-        }
-        unlock(true);
-      });
-    }
-  })();
-  </script>
+  <!-- Tally popup embed (winemaker sign-up form RGEz1K) -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
 
   <link rel="stylesheet" href="annotate-nwfa-theme.css">
   <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
