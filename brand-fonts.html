@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NWFA · brand fonts</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('brand-fonts/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('brand-fonts/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+  @font-face{font-family:'Fraunces';src:url('brand-fonts/Fraunces.woff2') format('woff2');font-weight:400 600;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Fraunces';src:url('brand-fonts/Fraunces-Italic.woff2') format('woff2');font-weight:400 600;font-style:italic;font-display:swap;}
+  :root{--bg:#ECE6D6;--ink:#1B3326;--ink-2:rgba(27,51,38,.72);--ochre:#9F6E29;--amber:#eeba3f;--line:#1B3326;--rule:rgba(27,51,38,.2);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;padding:clamp(28px,5vw,64px);}
+  .wrap{max-width:1000px;margin:0 auto;}
+  header{border-bottom:1.6px solid var(--line);padding-bottom:20px;margin-bottom:10px;}
+  h1{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(26px,3.4vw,40px);}
+  .lead{color:var(--ink-2);margin-top:10px;font-size:15px;max-width:62ch;}
+  .font{border-bottom:1px solid var(--rule);padding:40px 0;}
+  .font:last-of-type{border-bottom:0;}
+  .fhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .fname{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:26px;}
+  .frole{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .dls{display:flex;gap:10px;flex-wrap:wrap;}
+  .dl{background:var(--amber);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;padding:9px 16px;border-radius:100px;transition:.14s;}
+  .dl.ghost{background:transparent;border:1.4px solid var(--line);}
+  .dl:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+  .spec{margin-top:24px;}
+  .big{font-size:clamp(40px,7vw,86px);line-height:1;letter-spacing:-.02em;}
+  .alpha{font-size:22px;margin-top:16px;color:var(--ink-2);word-spacing:.05em;}
+  .note{font-size:13px;color:var(--ink-2);margin-top:16px;}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule);color:var(--ink-2);font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>brand fonts</h1>
+    <p class="lead">the typefaces of natural wine festival a'dam. download .ttf to install on your machine or in a design tool, .woff2 for the web. figtree and fraunces are open-source (sil ofl); vicky is reserved for the "united by wine" payoff, check its licence before sharing outside the team.</p>
+  </header>
+
+  <div class="font">
+    <div class="fhead">
+      <div><div class="fname">figtree</div><div class="frole">body &amp; headings · everything</div></div>
+      <div class="dls"><a class="dl" href="brand-fonts/Figtree.ttf" download>.ttf</a><a class="dl ghost" href="brand-fonts/Figtree.woff2" download>.woff2</a></div>
+    </div>
+    <div class="spec" style="font-family:'Figtree'">
+      <div class="big" style="font-weight:700">natural wine festival a'dam</div>
+      <div class="alpha">AaBbCcDdEe 0123456789 · the quick brown fox jumps.</div>
+    </div>
+  </div>
+
+  <div class="font">
+    <div class="fhead">
+      <div><div class="fname">vicky</div><div class="frole">the payoff only</div></div>
+      <div class="dls"><a class="dl" href="brand-fonts/Vicky-Black.ttf" download>.ttf</a><a class="dl ghost" href="brand-fonts/Vicky-Black.woff2" download>.woff2</a></div>
+    </div>
+    <div class="spec" style="font-family:'Vicky'">
+      <div class="big" style="color:var(--ochre)">united by wine</div>
+    </div>
+  </div>
+
+  <div class="font">
+    <div class="fhead">
+      <div><div class="fname">fraunces</div><div class="frole">serif accent · a few headings</div></div>
+      <div class="dls"><a class="dl" href="brand-fonts/Fraunces.ttf" download>.ttf</a><a class="dl ghost" href="brand-fonts/Fraunces.woff2" download>.woff2</a><a class="dl ghost" href="brand-fonts/Fraunces-Italic.ttf" download>italic .ttf</a></div>
+    </div>
+    <div class="spec" style="font-family:'Fraunces'">
+      <div class="big" style="font-weight:600">meet our synthesized sommelier</div>
+      <div class="alpha" style="font-style:italic">AaBbCcDdEe 0123456789 · a living wine, poured by its maker.</div>
+    </div>
+  </div>
+
+  <footer>natural wine festival a'dam · 28 feb &amp; 1 mar '27 · de hallen, amsterdam</footer>
+</div>
+  <link rel="stylesheet" href="annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="annotate.js" defer></script>
+</body>
+</html>
