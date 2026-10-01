@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loops": {
+      "type": "http",
+      "url": "https://mcp.loops.so"
+    }
+  }
+}
