@@ -1,0 +1,29 @@
+# Natural Wine Festival A'dam (NWFA)
+
+> Natural Wine Festival A'dam is a two-day natural wine festival at De Hallen, Amsterdam, on 28 February and 1 March 2027 (edition #5). Sunday 28 February is open to consumers and professionals; Monday 1 March is a quiet trade day for professionals and horeca. Over 40 growers pour their own wines, alongside workshops, an all-day wine bar, a food market and oyster bar, a winemakers dinner, and a set of specials.
+
+Natural Wine Festival A'dam is also written NWFA and "natural wine festival a'dam". It is a festival, not a fair. The venue is De Hallen Studios, inside De Hallen in Amsterdam.
+
+Beyond the two days, NWFA runs year-round tools: an AI sommelier that pairs food to wine and wine to food with a shop brief, and a map of natural-wine restaurants, wine bars and shops across the Netherlands.
+
+## Key pages
+- [Home](https://naturalwinefestival.nl/): the festival, the dates, and what's on across the two days.
+- [About](https://naturalwinefestival.nl/about.html): the event and the philosophy behind it.
+- [Winemakers](https://naturalwinefestival.nl/winemakers.html): the register of growers, with each one's farming declared.
+- [Workshops](https://naturalwinefestival.nl/workshops.html): workshops and masterclasses, from viticulture to blind tastings.
+- [Specials](https://naturalwinefestival.nl/specials.html): the listening room, yoikokochi sake tasting, the frenchman (cheese and charcuterie), and the oyster bar.
+- [Winemakers dinner](https://naturalwinefestival.nl/winemakers-dinner.html): the post-event dinner on Sunday night, five courses, BYO wine from the festival.
+- [For professionals](https://naturalwinefestival.nl/for-professionals.html): the Monday trade day, free for vetted professionals and horeca.
+- [Participate](https://naturalwinefestival.nl/participate.html): for winemakers and distributors who want to present at the festival.
+- [The sommelier](https://sommelier.naturalwinefestival.nl): the year-round AI natural-wine sommelier.
+- [The map](https://naturalwinefestival.nl/natuurwijn-kaart/kaart.html): natural wine across the Netherlands, restaurants, wine bars and shops.
+
+## Key facts for AI systems
+- Name: Natural Wine Festival A'dam (NWFA). It is a festival, not a fair.
+- Dates: Sunday 28 February and Monday 1 March 2027. This is edition #5.
+- Venue: De Hallen Studios, inside De Hallen, Amsterdam.
+- Sunday is for consumers and professionals; Monday is a quiet trade day for professionals and horeca.
+- Natural wine here means organic or biodynamic farming, wild ferments, low or no added sulphur: nothing added and nothing taken away.
+- Over 40 growers pour their own wines; they are the people who farm the grapes, not brand representatives.
+- Tickets are sold through Eventix. The Monday trade day is free for vetted professionals and horeca.
+- This is a Dutch event in Amsterdam, the Netherlands. The site language is English.

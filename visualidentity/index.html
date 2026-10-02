@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>NWFA · visual identity</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('../concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('../concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+  :root{--bg:#ECE6D6;--ink:#1B3326;--ink-2:rgba(27,51,38,.72);--ochre:#9F6E29;--amber:#eeba3f;--line:#1B3326;--rule:rgba(27,51,38,.2);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;padding:clamp(28px,5vw,64px);}
+  .wrap{max-width:1000px;margin:0 auto;}
+  header.vi{display:flex;align-items:center;gap:18px;border-bottom:1.6px solid var(--line);padding-bottom:22px;}
+  header.vi img{height:56px;width:56px;}
+  header.vi .wm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:22px;line-height:.95;}
+  header.vi .wm span{display:block;}
+  header.vi .eyebrow{margin-left:auto;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  h1{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(30px,5vw,52px);margin:34px 0 6px;}
+  .payoff{font-family:'Vicky';color:var(--ochre);font-size:clamp(28px,4vw,44px);text-transform:lowercase;line-height:1;}
+  .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin:40px 0 14px;}
+  .pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+  .sw{border:1.4px solid var(--line);overflow:hidden;}
+  .sw .chip{height:88px;}
+  .sw .t{padding:10px 12px;font-size:12.5px;}
+  .sw .t b{display:block;text-transform:lowercase;font-weight:600;}
+  .sw .t span{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ink-2);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+  a.card{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:150px;border:1.4px solid var(--line);background:#fff2;padding:22px;text-decoration:none;color:var(--ink);transition:.14s;}
+  a.card:hover{background:var(--ink);color:var(--bg);}
+  a.card .ct{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;font-size:22px;}
+  a.card .cd{font-size:14px;color:var(--ink-2);margin-top:6px;}
+  a.card:hover .cd{color:rgba(236,230,214,.7);}
+  a.card .go{font-weight:600;font-size:14px;color:var(--ochre);}
+  a.card:hover .go{color:var(--amber);}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);color:var(--ink-2);font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="vi">
+    <img src="../logos-/logo-church-tuned.svg" alt="">
+    <div class="wm"><span>natural wine festival</span><span>a'dam</span></div>
+    <div class="eyebrow">visual identity</div>
+  </header>
+
+  <h1>visual identity</h1>
+  <div class="payoff">united by wine</div>
+
+  <div class="lab">palette</div>
+  <div class="pal">
+    <div class="sw"><div class="chip" style="background:#ECE6D6;border-bottom:1.4px solid var(--line)"></div><div class="t"><b>paper</b><span>#ECE6D6</span></div></div>
+    <div class="sw"><div class="chip" style="background:#1B3326"></div><div class="t"><b>ink</b><span>#1B3326</span></div></div>
+    <div class="sw"><div class="chip" style="background:#9F6E29"></div><div class="t"><b>ochre</b><span>#9F6E29</span></div></div>
+    <div class="sw"><div class="chip" style="background:#eeba3f"></div><div class="t"><b>amber</b><span>#eeba3f</span></div></div>
+  </div>
+
+  <div class="lab">assets</div>
+  <div class="grid">
+    <a class="card" href="../design-system.html"><div><div class="ct">design system</div><div class="cd">palette, type, components and the icon set.</div></div><div class="go">open →</div></a>
+    <a class="card" href="../brand-fonts.html"><div><div class="ct">brand fonts</div><div class="cd">figtree, vicky and fraunces, as .ttf and .woff2.</div></div><div class="go">open →</div></a>
+    <a class="card" href="../mail-assets.html"><div><div class="ct">mailing images</div><div class="cd">16:9 visuals for the mailings, photo and graphic.</div></div><div class="go">open →</div></a>
+  </div>
+
+  <footer>natural wine festival a'dam · 28 feb &amp; 1 mar '27 · de hallen, amsterdam</footer>
+</div>
+  <link rel="stylesheet" href="../annotate-nwfa-theme.css">
+  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
+  <script src="../annotate.js" defer></script>
+</body>
+</html>
