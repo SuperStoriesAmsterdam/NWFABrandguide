@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /design-system.html
+Disallow: /mail-assets.html
+Disallow: /brand-fonts.html
+Disallow: /visualidentity/
+Disallow: /natural-wineguide.html
+
+Sitemap: https://naturalwinefestival.nl/sitemap.xml
