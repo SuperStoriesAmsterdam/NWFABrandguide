@@ -596,9 +596,9 @@
         <div class="fld">
           <label for="days">which days?</label>
           <select id="days" name="days">
-            <option>two days · 28 feb &amp; 1 mar</option>
-            <option>one day · sunday 28 feb</option>
-            <option>not sure yet</option>
+            <option value="2day">two days · 28 feb &amp; 1 mar</option>
+            <option value="1day">one day · sunday 28 feb</option>
+            <option value="unsure">not sure yet</option>
           </select>
         </div>
         <div class="fld">
@@ -626,15 +626,16 @@
           <p style="font-size:13.5px;color:rgba(27,51,38,.6);line-height:1.6;margin-top:2px;">If we take it further, we'll ask you to send a few sample bottles for the tasting and selection. We'll tell you where to ship them when we reply.</p>
         </div>
         <div class="fld booking-only">
-          <label for="billco">billing name / company</label>
+          <label for="billco">billing name / company <span class="req">*</span></label>
           <input id="billco" name="billco" autocomplete="organization" />
         </div>
         <div class="fld booking-only">
-          <label for="vat">vat number</label>
+          <label for="vat">vat number <span class="req">*</span></label>
           <input id="vat" name="vat" />
+          <span class="lk-hint" style="margin-top:2px;">Required so we can invoice ex VAT. For EU winemakers outside NL, VAT is reverse-charged on a valid number.</span>
         </div>
         <div class="fld full booking-only">
-          <label for="billaddr">billing address</label>
+          <label for="billaddr">billing address <span class="req">*</span></label>
           <input id="billaddr" name="billaddr" />
         </div>
         <button class="submit full btn-enquiry" type="submit">sign up &amp; we'll be in touch →</button>
@@ -675,7 +676,12 @@
     /* Single shared access code. CLIENT-SIDE ONLY: this toggles the UI and tags the
        submission. The real gate + invoicing must live server-side (GHL / Airtable). */
     var ACCESS_CODE = "Salut"; // shared code (case-insensitive; also works via ?code=Salut)
-    function checkCode(v){ if((v||"").trim().toLowerCase()===ACCESS_CODE.toLowerCase()){ document.body.classList.add('nwfa-unlocked'); return true; } return false; }
+    function applyBookingRequirements(){
+      ['billco','vat','billaddr'].forEach(function(id){ var el=document.getElementById(id); if(el) el.required=true; });
+      var days=document.getElementById('days');
+      if(days){ var opt=days.querySelector('option[value="unsure"]'); if(opt){ if(opt.selected) days.selectedIndex=0; opt.remove(); } }
+    }
+    function checkCode(v){ if((v||"").trim().toLowerCase()===ACCESS_CODE.toLowerCase()){ document.body.classList.add('nwfa-unlocked'); applyBookingRequirements(); return true; } return false; }
     var codeInput = document.getElementById('accesscode');
     var urlCode = new URLSearchParams(location.search).get('code');
     if(urlCode){ if(codeInput) codeInput.value = urlCode; checkCode(urlCode); }
@@ -699,9 +705,6 @@
   })();
   </script>
 
-  <link rel="stylesheet" href="annotate-nwfa-theme.css">
-  <script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa",key:""};</script>
-  <script src="annotate.js" defer></script>
   <link rel="stylesheet" href="nav-mobile.css">
   <script src="nav-mobile.js" defer></script>
 </body>
