@@ -246,9 +246,9 @@
   .lockrow .lk-ok{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9F6E29;font-weight:700;display:none;}
   body.nwfa-unlocked .lockrow .lk-ok{display:inline;}
   body.nwfa-unlocked .lockrow .lk-hint{display:none;}
-  .locked-note{border:1.4px dashed var(--rule);padding:20px 22px;color:var(--ink-2);font-size:14.5px;line-height:1.6;}
+  .locked-note{display:none;border:1.4px dashed var(--rule);padding:20px 22px;color:var(--ink-2);font-size:14.5px;line-height:1.6;}
   .locked-note a{color:var(--ochre);border-bottom:1px solid var(--ochre);}
-  .gated-price{display:none;}
+  .gated-price{display:block;}
   body.nwfa-unlocked .gated-price{display:block;}
   body.nwfa-unlocked .locked-note{display:none;}
   .booking-only{display:none!important;}
@@ -558,8 +558,8 @@
         <div class="lockrow">
           <span class="lk-h">access code</span>
           <input id="accesscode" name="accesscode" autocomplete="off" placeholder="if a distributor gave you one" />
-          <span class="lk-hint">have a code? enter it to book &amp; see the contribution.</span>
-          <span class="lk-ok">✓ unlocked — booking mode</span>
+          <span class="lk-hint">have a code? enter it to book.</span>
+          <span class="lk-ok">✓ unlocked · booking mode</span>
         </div>
         <div class="fld">
           <label for="first">first name <span class="req">*</span></label>
