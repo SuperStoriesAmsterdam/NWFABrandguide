@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="261.44" height="261.44" id="Green_Is_Golden_icon_-_church_logo" data-name="Green Is Golden / icon - church logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261.44 261.44">
+<svg id="Green_Is_Golden_icon_-_church_logo" data-name="Green Is Golden / icon - church logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261.44 261.44">
   <defs>
     <style>
       .cls-1 {
-        fill: #9F6E29;
+        fill: #1c9055;
       }
 
       .cls-2 {
-        fill: #eeba3f;
+        fill: #dbbb00;
       }
 
       .cls-3 {
-        fill: #1B3326;
+        fill: #28417c;
       }
     </style>
   </defs>

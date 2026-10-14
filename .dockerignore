@@ -2,3 +2,15 @@
 .gitignore
 Dockerfile
 .dockerignore
+node_modules/
+_archive/
+references-/
+tokens/
+voorbeeldencs/
+concepts/
+visualidentity/
+newsletter-spring-2027.html
+email-signatures/
+natuurwijn-kaart/export/
+*.md
+**/*.md
