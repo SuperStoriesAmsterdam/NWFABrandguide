@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natuurwijn in Nederland — Kaart</title>
+<meta name="description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
+<link rel="stylesheet" href="css/leaflet.css">
+<link rel="stylesheet" href="css/MarkerCluster.css">
+<link rel="stylesheet" href="css/MarkerCluster.Default.css">
+<style>
+  @font-face{font-family:'Figtree';src:url('../concept-assets/Figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap}
+  :root{
+    /* NWFA huisstijl (bron: home-event) */
+    --paper:#e7e1d0; --ink:#1b2a20; --ink-2:rgba(27,42,32,.60); --ink-3:rgba(27,42,32,.40);
+    --rule:rgba(27,42,32,.20); --ochre:#9a6628;
+    /* explorer (dark) surfaces */
+    --night:#0e130e; --surface:#161d16; --paper-2:rgba(231,225,208,.6); --hair:rgba(231,225,208,.12);
+    /* legacy tokennamen -> NWFA-waarden zodat de rest meebeweegt */
+    --cream:var(--paper); --parchment:#ded6c2; --muted:var(--ink-2); --line:var(--rule);
+    --wine:var(--ink); --amber:var(--ochre); --gold:var(--ochre); --terracotta:var(--ochre);
+    --bordeaux-deep:#22342a; --bordeaux:#2b4032;
+    --serif:'Figtree',system-ui,sans-serif; --sans:ui-monospace,'SF Mono',Menlo,monospace;
+    /* markers per type, binnen het NWFA groen/oker-palet */
+    --restaurant:#1b2a20; --bar:#9a6628; --shop:#5c6e3f; --other:rgba(27,42,32,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;overflow:hidden;display:flex;flex-direction:column;height:100dvh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  ::selection{background:var(--ochre);color:#fff}
+
+  .app{display:grid;grid-template-rows:auto 1fr;flex:1;min-height:0}
+
+  /* Header */
+  header{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule);
+    display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 20px;z-index:1000}
+  header h1{font-family:var(--serif);font-weight:600;font-size:1.2rem;line-height:1;letter-spacing:-.02em;text-transform:lowercase}
+  header h1 span{color:var(--ochre)}
+  header .count{font-family:var(--sans);font-size:.72rem;letter-spacing:.02em;color:var(--ink-2)}
+  header .spacer{flex:1}
+  .search{position:relative}
+  .search input{font-family:var(--sans);font-size:.85rem;color:var(--ink);background:#fff;
+    border:1px solid var(--ochre);border-radius:999px;height:30px;padding:0 14px 0 32px;width:220px;outline:none;font-size:.78rem}
+  .search input::placeholder{color:var(--ink-2)}
+  .search input:focus{box-shadow:0 0 0 3px rgba(154,102,40,.22)}
+  .search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ink-2)}
+
+  /* Filter chips */
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.02em;cursor:pointer;
+    border:1px solid var(--rule);background:transparent;color:var(--ink);
+    border-radius:999px;height:30px;padding:0 14px;display:flex;align-items:center;gap:7px;transition:all .15s ease}
+  .chip .dot{width:9px;height:9px;border-radius:50%}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .chip[aria-pressed="false"]{color:var(--ink-3);border-color:var(--rule)}
+  .chip:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+  /* Body: list + map */
+  .body{display:grid;grid-template-columns:340px 1fr;min-height:0}
+  @media(max-width:760px){.body{grid-template-columns:1fr;grid-template-rows:40% 60%}}
+
+  .list{overflow-y:auto;background:var(--parchment);border-right:1px solid var(--line)}
+  .list .empty{padding:32px 20px;color:var(--muted);font-size:.875rem}
+  .item{display:block;width:100%;text-align:left;background:transparent;border:none;border-bottom:1px solid var(--line);
+    padding:14px 18px;cursor:pointer;font-family:var(--sans);transition:background .12s ease}
+  .item:hover,.item.active{background:#fff}
+  .item .nm{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);text-transform:lowercase;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+  .item .nm .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  .item .meta{margin-top:3px;font-size:.78rem;color:var(--muted);text-transform:lowercase;letter-spacing:.02em}
+  .item:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
+
+  #map{height:100%;width:100%;background:var(--paper)}
+  .leaflet-container{background:var(--paper)}
+
+  /* Popup */
+  .leaflet-popup-content-wrapper{border-radius:12px}
+  .pop{font-family:var(--sans);min-width:180px}
+  .pop .nm{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--wine);text-transform:lowercase;letter-spacing:-.01em;margin-bottom:4px}
+  .pop .ty{display:inline-block;font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+    color:#fff;border-radius:4px;padding:2px 7px;margin-bottom:8px}
+  .pop .ad{font-size:.8rem;color:var(--muted);line-height:1.4}
+  .pop .tag-new{display:inline-block;margin-left:6px;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--gold);border:1px solid var(--gold);border-radius:4px;padding:2px 6px;vertical-align:middle}
+  .pop .desc{margin-top:8px;font-size:.82rem;color:var(--ink);line-height:1.45}
+  .pop .somm{margin-top:8px;font-size:.82rem;color:var(--ink)}
+  .pop .somm .lbl{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:1px}
+  .pop .contact{margin-top:10px;font-size:.8rem;font-weight:600;line-height:1.6}
+  .pop .contact a{color:var(--amber);text-decoration:none}
+  .pop .contact a:hover{text-decoration:underline}
+  .pop .contact .sep{color:var(--line);margin:0 6px}
+
+  .marker-dot{border-radius:50%;border:2px solid var(--cream);box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  /* grape-bunch cluster: little dots grouped, never a numbered circle */
+  .rosette-wrap{background:transparent!important}
+  .rosette{position:relative}
+  .rosette .rd{position:absolute;border-radius:50%;border:1.5px solid var(--paper);box-sizing:border-box;
+    box-shadow:0 1px 2px rgba(27,42,32,.3)}
+  /* editorial (not on Raisin): hollow ring so it reads as "candidate" vs solid Raisin pin */
+  .marker-ring{width:15px;height:15px;border-radius:50%;background:var(--cream);border:3px solid var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  .chip.editorial .ring{width:10px;height:10px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);box-sizing:border-box}
+  /* soft ink "cloud" cluster: organic, edges fade out — no hard dot */
+  .cloud-wrap,.marker-cluster,.marker-cluster div{background:transparent!important}
+  .cloud{position:relative;display:flex;align-items:center;justify-content:center;
+    border-radius:48% 52% 55% 45% / 52% 46% 54% 48%;
+    background:radial-gradient(circle at 50% 42%, rgba(154,102,40,.92) 0%, rgba(34,52,42,.9) 38%, rgba(34,52,42,.55) 62%, rgba(34,52,42,0) 78%);
+    filter:blur(.3px);animation:cloudpulse 6s ease-in-out infinite}
+  .cloud span{font-family:var(--serif);font-weight:600;color:var(--paper);font-size:.9rem;
+    letter-spacing:-.01em;text-shadow:0 1px 3px rgba(20,30,24,.55)}
+  @keyframes cloudpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  @media(prefers-reduced-motion:reduce){.cloud{animation:none}}
+  /* ===== site nav (canonical, no tickets pill) ===== */
+  .sitenav{display:flex;align-items:center;gap:24px;padding:16px 20px;font-size:14px;position:relative;z-index:3000;background:var(--paper);border-bottom:1px solid var(--rule);font-family:'Figtree',system-ui,sans-serif;}
+  .sitenav .bm{display:inline-flex;align-items:center;gap:11px;font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:#1B3326;text-decoration:none;}
+  .sitenav .bm-logo{height:36px;width:36px;flex:0 0 auto;}
+  .sitenav .bm-txt{display:block;} .sitenav .bm-txt span{display:block;}
+  .sitenav .lk{margin-left:auto;display:flex;gap:22px;align-items:center;font-weight:500;}
+  .sitenav .lk>a{color:rgba(27,51,38,.84);text-decoration:none;}
+  .sitenav .lk>a:hover{color:#1B3326;}
+  .sitenav .has{position:relative;}
+  .sitenav .has>button{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
+  .sitenav .has>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
+  .sitenav .has:hover>button,.sitenav .has:focus-within>button{color:#1B3326;}
+  .sitenav .has:hover>button::after,.sitenav .has:focus-within>button::after{opacity:.85;transform:rotate(45deg) translateY(0);}
+  .sitenav .drop{position:absolute;top:100%;right:0;padding-top:12px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:3001;}
+  .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
+  .sitenav .drop .panel{min-width:270px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
+  .sitenav .drop a{display:block;padding:11px 14px;color:#1B3326;text-decoration:none;transition:background .12s;}
+  .sitenav .drop a:hover{background:rgba(27,51,38,.06);}
+  .sitenav .drop a b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;}
+  .sitenav .drop a span{display:block;font-size:11.5px;color:rgba(27,51,38,.62);margin-top:3px;line-height:1.4;font-weight:500;}
+  .sitenav .drop.mega .panel{min-width:520px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
+  .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
+  @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a{display:none;}}
+  .mapfoot{background:#1B3326;color:#ECE6D6;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:lowercase;flex:0 0 auto;}
+  .mapfoot .r{color:rgba(236,230,214,.6);}
+
+  /* ---- Concept switcher ---- */
+  .cswitch{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin-left:14px}
+  .cswitch button{font-family:var(--sans);font-size:.7rem;letter-spacing:.03em;text-transform:lowercase;
+    padding:6px 13px;background:transparent;border:0;color:var(--ink-3);cursor:pointer;transition:.14s}
+  .cswitch button:hover{color:var(--ink-2)}
+  .cswitch button.on{background:var(--ink);color:var(--paper)}
+
+  /* ---- Leaflet icon reset (no default white box) ---- */
+  .leaflet-div-icon{background:transparent;border:0}
+
+  /* ---- NIGHT markers ---- */
+  .glowdot{width:12px;height:12px;border-radius:50%;position:relative}
+  .glowdot::after{content:"";position:absolute;left:50%;top:44%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:#fff6e2;opacity:.95}
+  .orb{border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:#2a1e0a}
+  .orb-wrap{background:transparent!important}
+
+  /* ---- GUIDE markers + city labels ---- */
+  .seal{width:13px;height:13px;border-radius:50%;box-sizing:border-box;box-shadow:0 1px 2px rgba(27,42,32,.3)}
+  .city-label{position:absolute;transform:translate(-50%,-50%);font-family:ui-monospace,'SF Mono',Menlo,monospace;
+    font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(43,32,16,.62);white-space:nowrap;
+    text-shadow:0 1px 0 rgba(240,232,214,.9),0 0 3px rgba(240,232,214,.9)}
+
+  /* ---- NIGHT: flip tokens so all var-based chrome goes dark ---- */
+  html[data-concept="night"]{
+    --paper:#0f140f; --parchment:#141b14; --ink:#ece6d6; --ink-2:rgba(236,230,214,.60); --ink-3:rgba(236,230,214,.40);
+    --rule:rgba(236,230,214,.14); --ochre:#dca656;
+  }
+  html[data-concept="night"] body{background:#0f140f}
+  html[data-concept="night"] #map,html[data-concept="night"] .leaflet-container{background:#0a0d0a}
+  html[data-concept="night"] .item:hover,html[data-concept="night"] .item.active{background:rgba(236,230,214,.06)}
+  html[data-concept="night"] .search input{background:rgba(236,230,214,.05)}
+  html[data-concept="night"] .sitenav{background:#0f140f;border-bottom-color:rgba(236,230,214,.12)}
+  html[data-concept="night"] .sitenav .bm{color:#ece6d6}
+  html[data-concept="night"] .sitenav .lk>a,html[data-concept="night"] .sitenav .has>button{color:rgba(236,230,214,.82)}
+  html[data-concept="night"] .sitenav .lk>a:hover,html[data-concept="night"] .sitenav .has:hover>button,html[data-concept="night"] .sitenav .has:focus-within>button{color:#fff}
+  html[data-concept="night"] .sitenav .drop .panel{background:#141b14;border-color:rgba(236,230,214,.45);box-shadow:0 26px 60px -30px rgba(0,0,0,.8)}
+  html[data-concept="night"] .sitenav .drop a{color:#ece6d6}
+  html[data-concept="night"] .sitenav .drop a span{color:rgba(236,230,214,.6)}
+  html[data-concept="night"] .sitenav .drop a:hover{background:rgba(236,230,214,.07)}
+  html[data-concept="night"] .leaflet-popup-content-wrap{background:#141b14;color:#ece6d6;box-shadow:0 14px 48px -12px rgba(0,0,0,.85)}
+  html[data-concept="night"] .leaflet-popup-tip{background:#141b14}
+  html[data-concept="night"] .pop .nm{color:#f3eddd}
+  html[data-concept="night"] .pop .ad,html[data-concept="night"] .pop .desc{color:rgba(236,230,214,.72)}
+  html[data-concept="night"] .leaflet-bar a{background:#141b14;color:#ece6d6;border-color:rgba(236,230,214,.2)}
+
+  /* ---- Full-width map (no all-list sidebar) ---- */
+  .body{grid-template-columns:1fr}
+  .list{display:none}
+
+  /* ---- GUIDE: printed numbered cluster disc + soft flowing land ---- */
+  .disc-wrap{background:transparent!important}
+  .disc{border-radius:50%;background:#efe9d8;border-width:1.5px;border-style:solid;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:#1b2a20;box-shadow:0 2px 8px rgba(27,42,32,.22)}
+  .landshape{filter:drop-shadow(0 1px 3px rgba(27,42,32,.16))}
+
+  /* ---- Hover tooltip on nodes ---- */
+  .leaflet-tooltip.vtip{background:#efe9d8;border:1px solid var(--rule);color:var(--ink);border-radius:5px;padding:5px 9px;box-shadow:0 6px 18px rgba(27,42,32,.2);font-family:var(--sans);white-space:nowrap}
+  .leaflet-tooltip-top.vtip::before{border-top-color:#efe9d8}
+  .leaflet-tooltip-bottom.vtip::before{border-bottom-color:#efe9d8}
+  .vtip .tn{font-family:var(--serif);font-weight:600;font-size:.86rem;text-transform:lowercase;letter-spacing:-.01em;display:block;color:var(--ink)}
+  .vtip .tm{font-size:.7rem;color:var(--ink-2);text-transform:lowercase;letter-spacing:.02em;display:block;margin-top:1px}
+  html[data-concept="night"] .disc{background:#1a221a;color:#f3eddd}
+  html[data-concept="night"] .leaflet-tooltip.vtip{background:#1a221a;border-color:rgba(236,230,214,.18);color:#ece6d6}
+  html[data-concept="night"] .leaflet-tooltip-top.vtip::before{border-top-color:#1a221a}
+  html[data-concept="night"] .leaflet-tooltip-bottom.vtip::before{border-bottom-color:#1a221a}
+</style>
+</head>
+<body>
+<nav class="sitenav">
+  <a class="bm" href="../index.html" aria-label="NWFA — home"><img class="bm-logo" src="../logos-/logo-church-tuned.svg" alt=""><span class="bm-txt"><span>natural wine festival</span><span>a'dam</span></span></a>
+  <div class="lk">
+    <div class="has"><button type="button" aria-haspopup="true">about</button><div class="drop"><div class="panel">
+      <a href="../about.html"><b>the event</b><span>dates, venue, the two days</span></a>
+      <a href="../natural-wine.html"><b>philosophy</b><span>why it's just common sense</span></a>
+    </div></div></div>
+    <div class="has"><button type="button" aria-haspopup="true">winemakers</button><div class="drop"><div class="panel">
+      <a href="../winemakers.html"><b>the register</b><span>every grower, farming declared</span></a>
+      <a href="../natural-wineguide.html"><b>the wineguide</b><span>fifty makers, one afternoon, your route</span></a>
+    </div></div></div>
+    <a href="../workshops.html">workshops</a>
+    <div class="has"><button type="button" aria-haspopup="true">specials</button><div class="drop"><div class="panel">
+      <a href="../specials.html#listening-room"><b>the listening room</b><span>rare vintages on an outrageous system</span></a>
+      <a href="../specials.html#yoikokochi"><b>yoikokochi</b><span>a big sake tasting</span></a>
+      <a href="../specials.html#cheese"><b>the frenchman</b><span>cheese &amp; charcuterie</span></a>
+      <a href="../specials.html#oyster"><b>the oyster bar</b><span>open all day</span></a>
+      <a href="../specials.html"><b>all specials &rarr;</b></a>
+    </div></div></div>
+    <div class="has"><button type="button" aria-haspopup="true">winemakers dinner</button><div class="drop"><div class="panel">
+      <a href="../winemakers-dinner.html"><b>for visitors</b><span>new this edition &middot; five courses, &euro;65</span></a>
+      <a href="../winemakers-dinner-crew.html"><b>winemakers &amp; crew</b><span>the table this dinner grew from</span></a>
+    </div></div></div>
+    <div class="has"><button type="button" aria-haspopup="true">for professionals</button><div class="drop mega"><div class="panel">
+      <div><div class="col-h">winemakers</div><a href="../participate.html"><b>present at the fair</b><span>pour for buyers, sommeliers and press</span></a></div>
+      <div><div class="col-h">horeca</div><a href="../for-professionals.html"><b>the trade day</b><span>monday 1 march &middot; free for vetted pros</span></a></div>
+    </div></div></div>
+  </div>
+</nav>
+<div class="app">
+  <header>
+    <h1>Natuurwijn in <span>Nederland</span></h1>
+    <span class="count" id="count">laden…</span>
+    <div class="cswitch" id="cswitch" role="group" aria-label="Kaartstijl" hidden></div>
+    <div class="spacer"></div>
+    <div class="chips" id="chips"></div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="search" type="search" placeholder="Zoek op naam of stad" aria-label="Zoek locatie">
+    </div>
+  </header>
+  <div class="body">
+    <div class="list" id="list" role="list"></div>
+    <div id="map"></div>
+  </div>
+</div>
+<footer class="mapfoot">
+  <span>natural wine festival a'dam · edition #5 — 28 feb &amp; 1 mar '27</span>
+  <span class="r">united by wine</span>
+</footer>
+
+<script src="js/leaflet.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="data/venues.js"></script>
+<script src="data/beyond.js"></script>
+<script src="data/nl-be.js"></script>
+<script>
+(function(){
+  var VENUES = (window.VENUES || []).filter(function(v){return v && typeof v.lat==='number' && typeof v.lng==='number';});
+  VENUES.forEach(function(v){v.source='raisin';});
+
+  // Beyond-Raisin discovery: merge as "editorial" venues (found via web research, not on Raisin).
+  function inferType(v){
+    var s=((v.name||'')+' '+(v.evidence||'')).toLowerCase();
+    if(/wijnwinkel|wijnhandel|slijterij|slyterij|vinotheek|wine ?shop|wijnhuys|wijnhuis|bottle|importeur|webshop|speciaalzaak|\bwijn\b/.test(s)) return 'Wijnwinkel';
+    if(/natuurwijnbar|wijnbar|wine ?bar|winebar|\bbar\b|café|cafe/.test(s)) return 'Bar';
+    return 'Restaurant';
+  }
+  var key=function(v){return ((v.name||'').toLowerCase().replace(/[^a-z0-9]/g,''))+'|'+((v.city||'').toLowerCase());};
+  var haveKey={}; VENUES.forEach(function(v){haveKey[key(v)]=true;});
+  var BEYOND=(window.BEYOND||[]).filter(function(v){return v && typeof v.lat==='number' && typeof v.lng==='number';});
+  var beyondCount=0;
+  BEYOND.forEach(function(v){
+    if(haveKey[key(v)]) return; // already present via Raisin data — don't duplicate
+    haveKey[key(v)]=true; beyondCount++;
+    VENUES.push({name:v.name,city:v.city,address:v.address,lat:v.lat,lng:v.lng,
+      website:v.website,instagram:v.instagram,type:inferType(v),description:v.evidence,
+      strength:v.strength,source:'editorial'});
+  });
+
+  // Type buckets -> color + label
+  // Types are compound ("Restaurant and a Bar and a Wine shop"); bucket by the
+  // FIRST-mentioned (primary) type, which is how Raisin lists them.
+  function bucket(t){
+    t=(t||'').toLowerCase();
+    var pos=function(s){var i=t.indexOf(s);return i<0?9999:i;};
+    var c=[['shop',pos('shop')],['restaurant',pos('restaurant')],['bistro',pos('bistro')],['bar',pos('bar')],['cave',pos('cave')]];
+    c.sort(function(a,b){return a[1]-b[1];});
+    if(c[0][1]===9999) return 'other';
+    if(c[0][0]==='shop') return 'shop';
+    if(c[0][0]==='restaurant'||c[0][0]==='bistro') return 'restaurant';
+    return 'bar';
+  }
+  var TYPES=[
+    {key:'restaurant',label:'Restaurant',color:getCSS('--restaurant')},
+    {key:'bar',label:'Bar / wijnbar',color:getCSS('--bar')},
+    {key:'shop',label:'Wijnwinkel',color:getCSS('--shop')},
+    {key:'other',label:'Overig',color:getCSS('--other')}
+  ];
+  function getCSS(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+  function colorOf(b){for(var i=0;i<TYPES.length;i++)if(TYPES[i].key===b)return TYPES[i].color;return getCSS('--other');}
+
+  // Drie buckets: eten (restaurant), drinken (wijnbar), kopen (winkel).
+  var BUCKET={
+    restaurant:{kind:'eat',  label:'Restaurant'},
+    bar:       {kind:'drink',label:'Wijnbar'},
+    shop:      {kind:'buy',  label:'Winkel'},
+    other:     {kind:'drink',label:'Overig'}
+  };
+  VENUES.forEach(function(v){v._b=bucket(v.type); v._kind=BUCKET[v._b].kind;});
+  function colorK(v){return (KIND[v._kind]||KIND.drink).color;}
+
+  // ---- Palettes per concept ----
+  var PALETTE={
+    night:{drink:'#e3ab4c',eat:'#d8c58c',buy:'#9fb46a',outline:'#d8a24c',sea:'#0a0d0a'},
+    guide:{drink:'#9a6628',eat:'#1b2a20',buy:'#5c6e3f',land:'#dcd4bf',coast:'rgba(27,42,32,.72)'}
+  };
+  var CITIES=[
+    {n:'amsterdam',lat:52.37,lng:4.90},{n:'rotterdam',lat:51.92,lng:4.48},
+    {n:'den haag',lat:52.08,lng:4.30},{n:'utrecht',lat:52.09,lng:5.12},
+    {n:'eindhoven',lat:51.44,lng:5.47},{n:'groningen',lat:53.22,lng:6.57},
+    {n:'maastricht',lat:50.85,lng:5.69},{n:'antwerpen',lat:51.22,lng:4.40},
+    {n:'gent',lat:51.05,lng:3.72}
+  ];
+  function hexA(hex,a){var h=hex.replace('#','');return 'rgba('+parseInt(h.substr(0,2),16)+','+parseInt(h.substr(2,2),16)+','+parseInt(h.substr(4,2),16)+','+a+')';}
+
+  // ---- Smooth the coastline into flowing curves (thin micro-jaggies, then Chaikin corner-cutting) ----
+  function thinRing(r,eps){var o=[r[0]];for(var i=1;i<r.length;i++){var a=o[o.length-1],b=r[i],dx=b[0]-a[0],dy=b[1]-a[1];if(dx*dx+dy*dy>eps*eps)o.push(b);}return o;}
+  function chaikin(r,it){for(var k=0;k<it;k++){var o=[];for(var i=0;i<r.length-1;i++){var p=r[i],q=r[i+1];
+    o.push([p[0]*0.75+q[0]*0.25,p[1]*0.75+q[1]*0.25]);o.push([p[0]*0.25+q[0]*0.75,p[1]*0.25+q[1]*0.75]);}o.push(o[0]);r=o;}return r;}
+  function fixRing(ring){var r=ring.slice();if(r[0][0]!==r[r.length-1][0]||r[0][1]!==r[r.length-1][1])r.push(r[0]);return chaikin(thinRing(r,0.004),2);}
+  function smoothGeo(gj){return {type:'FeatureCollection',features:gj.features.map(function(f){var g=f.geometry,ng;
+    if(g.type==='Polygon')ng={type:'Polygon',coordinates:g.coordinates.map(fixRing)};
+    else ng={type:'MultiPolygon',coordinates:g.coordinates.map(function(poly){return poly.map(fixRing);})};
+    return {type:'Feature',properties:f.properties,geometry:ng};})};}
+  var NLBE_SMOOTH=smoothGeo(NLBE);
+
+  // ---- Map (focused on NL + Belgium) ----
+  var map=L.map('map',{scrollWheelZoom:true,zoomControl:true,minZoom:7,maxZoom:16,fadeAnimation:false,
+    maxBounds:[[49.35,2.2],[53.85,7.4]],maxBoundsViscosity:.9}).setView([51.7,4.8],7.2);
+  var EU=L.latLngBounds([49.45,2.45],[53.65,7.25]);
+  map.setMaxBounds(EU.pad(.05));
+  map.createPane('mask'); map.getPane('mask').style.zIndex=350; map.getPane('mask').style.pointerEvents='none';
+
+  var CONCEPT='terroir', KIND=null, cluster=null, layerBag=[];
+  function addL(l){layerBag.push(l);l.addTo(map);return l;}
+  function clearLayers(){layerBag.forEach(function(l){map.removeLayer(l);});layerBag=[];}
+
+  function tilesFor(name){
+    if(name!=='night') return;
+    // keyless dark basemap (Esri World Dark Gray), tuned down so the glow reads
+    addL(L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+      attribution:'Tiles &copy; Esri',maxZoom:16,minZoom:7,opacity:.7}));
+  }
+  function outerRings(f){var g=f.geometry;if(g.type==='Polygon')return [g.coordinates[0]];return g.coordinates.map(function(p){return p[0];});}
+  function shrinkRing(ring,factor){var cx=0,cy=0,n=ring.length;ring.forEach(function(c){cx+=c[0];cy+=c[1];});cx/=n;cy/=n;
+    return ring.map(function(c){return [cx+(c[0]-cx)*factor,cy+(c[1]-cy)*factor];});}
+  function paneSvg(){var p=map.getPane('mask');return p?p.querySelector('svg'):null;}
+  function landPaths(layer){var a=[];layer.eachLayer(function(l){if(l._path)a.push(l._path);});return a;}
+  function injectDefs(){
+    var svg=paneSvg(); if(!svg||document.getElementById('ss-defs')) return;
+    var defs=document.createElementNS('http://www.w3.org/2000/svg','defs'); defs.setAttribute('id','ss-defs');
+    defs.innerHTML=
+      // earthy sediment strata (top sandy -> blue marl -> calcaire -> umber), slight diagonal tilt
+      '<linearGradient id="ss-strata" x1="0" y1="0" x2="0.05" y2="1">'+
+        '<stop offset="0" stop-color="#dcc68e"/><stop offset="0.14" stop-color="#dcc68e"/>'+
+        '<stop offset="0.14" stop-color="#cBA062"/><stop offset="0.3" stop-color="#cBA062"/>'+
+        '<stop offset="0.3" stop-color="#b17b3a"/><stop offset="0.46" stop-color="#b17b3a"/>'+
+        '<stop offset="0.46" stop-color="#8f9ea0"/><stop offset="0.6" stop-color="#8f9ea0"/>'+
+        '<stop offset="0.6" stop-color="#9c6f36"/><stop offset="0.76" stop-color="#9c6f36"/>'+
+        '<stop offset="0.76" stop-color="#e2d9bd"/><stop offset="0.87" stop-color="#e2d9bd"/>'+
+        '<stop offset="0.87" stop-color="#7d5a2e"/><stop offset="1" stop-color="#7d5a2e"/>'+
+      '</linearGradient>'+
+      // fine soil grain
+      '<pattern id="ss-grain" width="7" height="7" patternUnits="userSpaceOnUse">'+
+        '<circle cx="1" cy="1.5" r="0.6" fill="#3a2a16"/><circle cx="4.5" cy="3.2" r="0.6" fill="#3a2a16"/>'+
+        '<circle cx="2.4" cy="5.4" r="0.6" fill="#3a2a16"/><circle cx="6" cy="6" r="0.5" fill="#3a2a16"/>'+
+      '</pattern>';
+    svg.insertBefore(defs,svg.firstChild);
+  }
+
+  function drawOutline(name){
+    // clean, warm land: confident silhouette + fine ink coast + uniform soil grain (no bands)
+    var land=addL(L.geoJSON(NLBE_SMOOTH,{pane:'mask',style:{className:'landshape',color:'rgba(27,42,32,.7)',weight:.9,opacity:.72,fillColor:'#ded0b0',fillOpacity:1,lineJoin:'round',lineCap:'round'},interactive:false}));
+    injectDefs();
+    var grain=addL(L.geoJSON(NLBE_SMOOTH,{pane:'mask',style:{stroke:false,fillColor:'#000',fillOpacity:1,interactive:false}}));
+    landPaths(grain).forEach(function(p){p.setAttribute('fill','url(#ss-grain)');p.setAttribute('fill-opacity','0.15');p.setAttribute('stroke','none');});
+    CITIES.forEach(function(c){addL(L.marker([c.lat,c.lng],{pane:'mask',interactive:false,keyboard:false,
+      icon:L.divIcon({className:'',html:'<span class="city-label">'+c.n+'</span>',iconSize:[0,0]})}));});
+  }
+
+
+  KIND={drink:{label:'Drinken',color:PALETTE.guide.drink},eat:{label:'Eten',color:PALETTE.guide.eat},buy:{label:'Kopen',color:PALETTE.guide.buy}};
+  // Distinctive NWFA cluster: a small grape-bunch of dots (guide), or a glowing orb (night) —
+  // never a plain numbered circle, so it never reads like Raisin.
+  function rosetteHtml(k,colors,s){
+    var pos=[[0,0]], rings=[[5,.34],[7,.64]];
+    for(var r=0;r<rings.length&&pos.length<k;r++){var c=rings[r][0],rad=rings[r][1];
+      for(var a=0;a<c&&pos.length<k;a++){var ang=(a/c)*6.2832+r*.55;pos.push([Math.cos(ang)*rad,Math.sin(ang)*rad]);}}
+    var ds=Math.max(5,Math.round(s*.22)), h='<div class="rosette" style="width:'+s+'px;height:'+s+'px">';
+    for(var i=0;i<pos.length;i++){var col=colors[i%colors.length]||KIND.drink.color;
+      var x=(.5+pos[i][0]/2)*s-ds/2,y=(.5+pos[i][1]/2)*s-ds/2;
+      h+='<span class="rd" style="left:'+x+'px;top:'+y+'px;width:'+ds+'px;height:'+ds+'px;background:'+col+'"></span>';}
+    return h+'</div>';
+  }
+  function makeCluster(){
+    return L.markerClusterGroup({maxClusterRadius:46,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.3,
+      iconCreateFunction:function(cl){
+        var kids=cl.getAllChildMarkers(), n=kids.length, cnt={drink:0,eat:0,buy:0};
+        kids.forEach(function(m){cnt[m.options.kind]=(cnt[m.options.kind]||0)+1;});
+        if(CONCEPT==='night'){
+          var so=n<6?26:n<12?34:n<30?46:n<70?58:72, col=PALETTE.night.drink;
+          var html='<div class="orb" style="width:'+so+'px;height:'+so+'px;font-size:'+Math.round(so*.3)+'px;'+
+            'background:radial-gradient(circle at 50% 44%,'+hexA(col,.98)+' 0%,'+hexA(col,.55)+' 40%,'+hexA(col,0)+' 73%);'+
+            'text-shadow:0 0 7px '+hexA(col,.85)+'">'+n+'</div>';
+          return L.divIcon({className:'orb-wrap',html:html,iconSize:[so,so]});
+        }
+        var sg=n<6?26:n<12?32:n<30?42:n<70?54:66;
+        var dom=(cnt.drink>=cnt.eat&&cnt.drink>=cnt.buy)?'drink':(cnt.eat>=cnt.buy?'eat':'buy');
+        var html='<div class="disc" style="width:'+sg+'px;height:'+sg+'px;font-size:'+Math.round(sg*.34)+'px;border-color:'+KIND[dom].color+'">'+n+'</div>';
+        return L.divIcon({className:'disc-wrap',html:html,iconSize:[sg,sg]});
+      }
+    });
+  }
+
+  var markers={};
+  function iconFor(v){
+    var color=colorK(v);
+    if(CONCEPT==='night') return L.divIcon({className:'',
+      html:'<div class="glowdot" style="background:'+color+';box-shadow:0 0 5px 1px '+hexA(color,.9)+',0 0 14px 4px '+hexA(color,.4)+'"></div>',
+      iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-9]});
+    if(v.source==='editorial') return L.divIcon({className:'',
+      html:'<div class="seal" style="background:#e7e1d0;border:2px solid '+color+'"></div>',
+      iconSize:[13,13],iconAnchor:[6,6],popupAnchor:[0,-7]});
+    return L.divIcon({className:'',
+      html:'<div class="seal" style="background:'+color+';border:1.5px solid rgba(231,225,208,.9)"></div>',
+      iconSize:[13,13],iconAnchor:[6,6],popupAnchor:[0,-7]});
+  }
+
+  function buildConcept(name){
+    CONCEPT=name; document.documentElement.setAttribute('data-concept',name);
+    var P=PALETTE[name]||PALETTE.guide;
+    KIND={drink:{label:'Drinken',color:P.drink},eat:{label:'Eten',color:P.eat},buy:{label:'Kopen',color:P.buy}};
+    clearLayers(); tilesFor(name); drawOutline(name);
+    if(!cluster){cluster=makeCluster(); cluster.addTo(map);}
+    var ord=['drink','eat','buy'];
+    document.querySelectorAll('#chips .chip .dot').forEach(function(d,i){if(KIND[ord[i]])d.style.background=KIND[ord[i]].color;});
+    Object.keys(markers).forEach(function(i){markers[i].setIcon(iconFor(VENUES[i]));});
+    if(typeof render==='function') render();
+    cluster.refreshClusters();
+    map.fitBounds(EU,{padding:[14,14]});
+    document.querySelectorAll('#cswitch button').forEach(function(b){b.classList.toggle('on',b.dataset.c===name);});
+  }
+  function popupHtml(v){
+    var c=colorK(v);
+    var h='<div class="pop"><div class="nm">'+esc(v.name||'Onbekend')+'</div>'+
+      '<span class="ty" style="background:'+c+'">'+esc(v.type||'Locatie')+'</span>';
+    if(v.address) h+='<div class="ad">'+esc(v.address.replace(/, Netherlands$/,''))+'</div>';
+    else if(v.city) h+='<div class="ad">'+esc(v.city)+'</div>';
+    if(v.description) h+='<div class="desc">'+esc(v.description)+'</div>';
+    var contact=[];
+    if(v.website) contact.push('<a href="'+encodeURI(v.website)+'" target="_blank" rel="noopener">Website</a>');
+    if(v.instagram) contact.push('<a href="'+encodeURI(v.instagram)+'" target="_blank" rel="noopener">Instagram</a>');
+    if(v.facebook) contact.push('<a href="'+encodeURI(v.facebook)+'" target="_blank" rel="noopener">Facebook</a>');
+    if(v.phone) contact.push('<a href="tel:'+esc(v.phone.replace(/\s+/g,''))+'">'+esc(v.phone)+'</a>');
+    if(v.email) contact.push('<a href="mailto:'+esc(v.email)+'">E-mail</a>');
+    if(contact.length) h+='<div class="contact">'+contact.join('<span class="sep">·</span>')+'</div>';
+    h+='</div>';return h;
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  VENUES.forEach(function(v,i){
+    var m=L.marker([v.lat,v.lng],{icon:iconFor(v),title:'',kind:v._kind,riseOnHover:true});
+    m.bindPopup(popupHtml(v));
+    var tipMeta=[v.city,BUCKET[v._b].label].filter(Boolean).join(' · ');
+    m.bindTooltip('<span class="tn">'+esc(v.name||'Onbekend')+'</span>'+(tipMeta?'<span class="tm">'+esc(tipMeta)+'</span>':''),
+      {direction:'top',offset:[0,-7],className:'vtip',opacity:1});
+    m.on('click',function(){highlight(i);});
+    v._m=m; markers[i]=m;
+  });
+
+  // ---- State / filters ----
+  var active={drink:true,eat:true,buy:true};
+  var showEditorial=true;
+  var query='';
+  var listEl=document.getElementById('list');
+  var countEl=document.getElementById('count');
+
+  function visible(v){
+    if(v.source==='editorial' && !showEditorial) return false;
+    if(!active[v._kind]) return false;
+    if(query){
+      var hay=((v.name||'')+' '+(v.city||'')+' '+(v.address||'')).toLowerCase();
+      if(hay.indexOf(query)<0) return false;
+    }
+    return true;
+  }
+
+  function render(){
+    var shown=0;
+    VENUES.forEach(function(v){
+      if(visible(v)){ if(!cluster.hasLayer(v._m)) cluster.addLayer(v._m); shown++; }
+      else { if(cluster.hasLayer(v._m)) cluster.removeLayer(v._m); }
+    });
+    countEl.textContent=shown+' van '+VENUES.length+' locaties';
+  }
+
+  function highlight(i){
+    var v=VENUES[i]; if(!v) return;
+    if(cluster.hasLayer(v._m)) cluster.zoomToShowLayer(v._m,function(){v._m.openPopup();});
+    else v._m.openPopup();
+  }
+
+  // ---- Chips: Drinken vs Kopen ----
+  var chipsEl=document.getElementById('chips');
+  [{key:'drink',label:'Drinken',color:KIND.drink.color},{key:'eat',label:'Eten',color:KIND.eat.color},{key:'buy',label:'Kopen',color:KIND.buy.color}].forEach(function(t){
+    var c=document.createElement('button');
+    c.className='chip'; c.setAttribute('aria-pressed','true');
+    c.innerHTML='<span class="dot" style="background:'+t.color+'"></span>'+t.label;
+    c.addEventListener('click',function(){
+      active[t.key]=!active[t.key];
+      c.setAttribute('aria-pressed',active[t.key]?'true':'false');
+      render();
+    });
+    chipsEl.appendChild(c);
+  });
+  // ---- Search ----
+  var si=document.getElementById('search');
+  si.addEventListener('input',function(){
+    query=si.value.trim().toLowerCase(); render();
+    if(query){var pts=[];VENUES.forEach(function(v){if(visible(v))pts.push([v.lat,v.lng]);});
+      if(pts.length) map.fitBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:13});}
+    else map.fitBounds(EU,{padding:[14,14]});
+  });
+
+  // ---- Concept switcher ----
+  document.querySelectorAll('#cswitch button').forEach(function(b){
+    b.addEventListener('click',function(){ if(CONCEPT!==b.dataset.c) buildConcept(b.dataset.c); });
+  });
+  buildConcept('terroir');
+  setTimeout(function(){map.invalidateSize();map.fitBounds(EU,{padding:[14,14]});},60);
+  window.addEventListener('load',function(){map.invalidateSize();map.fitBounds(EU,{padding:[14,14]});});
+})();
+</script>
+  <link rel="stylesheet" href="../nav-mobile.css">
+  <script src="../nav-mobile.js" defer></script>
+</body>
+</html>
