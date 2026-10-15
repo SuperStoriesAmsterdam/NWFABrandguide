@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Info kit português · Natural Wine Festival A'dam</title>
+<meta name="description" content="O info kit para produtores e distribuidores do Natural Wine Festival A'dam, edição #5, 28 de fevereiro e 1 de março de '27 em De Hallen, Amsterdão. Programa, taxa de participação, critérios de seleção, logística e equipa." />
+<style>
+  @font-face{font-family:'Figtree';src:url('concept-assets/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  :root{
+    --paper:#ECE6D6;
+    --ink:#1B3326;
+    --ink-2:rgba(27,51,38,.60);
+    --ink-3:rgba(27,51,38,.40);
+    --rule:rgba(27,51,38,.20);
+    --ochre:#9F6E29;
+    --amber:#eeba3f;
+    --gutter:clamp(24px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;}
+  .mark{background:linear-gradient(102deg,rgba(238,186,63,0) 1%,#eeba3f 3%,#eeba3f 96%,rgba(238,186,63,0) 99%);color:#1B3326;padding:.03em .2em;border-radius:.35em;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
+
+  /* ===== running head ===== */
+  .top{display:flex;align-items:center;gap:14px;padding:26px 0 14px;border-bottom:1.4px solid var(--ink);}
+  .top .seal{width:34px;height:34px;flex:0 0 auto;}
+  .top .nm{font-size:12.5px;font-weight:600;letter-spacing:.02em;text-transform:lowercase;line-height:1.1;}
+  .top .nm span{color:var(--ink-2);}
+  .top nav{margin-left:auto;display:flex;gap:18px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-2);}
+  .top nav a:hover{color:var(--ink);}
+
+  /* ===== cover ===== */
+  .cover{padding:8vh 0 5vh;}
+  .cover .ey{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .cover h1{margin-top:16px;font-weight:600;text-transform:lowercase;letter-spacing:-.03em;line-height:.9;
+            font-size:clamp(46px,8.4vw,132px);}
+  .cover .when{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 30px;font-family:ui-monospace,'SF Mono',Menlo,monospace;
+               font-size:16px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);}
+  .cover .when b{color:var(--ink);font-weight:700;}
+  /* four pillars */
+  .pillars{margin-top:5vh;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);}
+  .pillars .p{padding:26px 22px 28px;border-right:1px solid var(--rule);}
+  .pillars .p:last-child{border-right:0;}
+  .pillars .p .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;letter-spacing:.04em;}
+  .pillars .p .h{margin-top:12px;font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.018em;line-height:1.1;}
+  .pillars .p .d{margin-top:8px;font-size:13px;color:var(--ink-2);line-height:1.5;}
+
+  /* ===== section frame ===== */
+  section{padding:7vh 0;border-bottom:1.4px solid var(--ink);}
+  .lab{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  h2{font-weight:600;text-transform:lowercase;letter-spacing:-.025em;line-height:1;font-size:clamp(28px,3.4vw,52px);}
+  .lead{font-size:clamp(22px,2.3vw,32px);line-height:1.28;letter-spacing:-.012em;font-weight:500;max-width:24ch;}
+
+  /* the festival */
+  .fest .lead{margin-top:16px;max-width:30ch;}
+  .stats{margin-top:5vh;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.4px solid var(--ink);}
+  .stats .s{padding:26px 22px;border-right:1px solid var(--rule);}
+  .stats .s:last-child{border-right:0;}
+  .stats .s .big{font-weight:600;font-size:clamp(38px,4.4vw,60px);letter-spacing:-.03em;line-height:1;}
+  .stats .s .cap{margin-top:10px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);line-height:1.5;}
+  .days{margin-top:6vh;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
+  .day .dh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1.4px solid var(--ink);padding-top:14px;}
+  .day .dh .t{font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.015em;}
+  .day .dh .who{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre);font-weight:700;text-align:right;}
+  .day ul{list-style:none;margin-top:6px;}
+  .day li{display:grid;grid-template-columns:16px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:14.5px;line-height:1.5;color:var(--ink-2);}
+  .day li .c{color:var(--ochre);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;font-weight:700;}
+  .day li b{color:var(--ink);font-weight:600;}
+
+  /* generic two-col with photo */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;border-top:1.4px solid var(--ink);}
+  .split .txt{padding:40px 56px 40px 0;}
+  .split .fig{border-left:1.4px solid var(--ink);overflow:hidden;min-height:420px;position:relative;}
+  .split .fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .split.rev .txt{padding:40px 0 40px 56px;order:2;}
+  .split.rev .fig{border-left:0;border-right:1.4px solid var(--ink);order:1;}
+
+  /* contribution */
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:26px 0 30px;}
+  .tier{border:1.4px solid var(--ink);padding:24px 22px;}
+  .tier .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:700;}
+  .tier .price{margin-top:12px;font-weight:600;font-size:clamp(32px,4vw,50px);letter-spacing:-.03em;line-height:1;}
+  .tier .price small{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ink-2);font-weight:500;letter-spacing:.04em;margin-left:6px;text-transform:uppercase;}
+  .tier .d{margin-top:12px;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
+  .incl{list-style:none;border-top:1.4px solid var(--ink);}
+  .incl li{display:grid;grid-template-columns:20px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink);line-height:1.5;}
+  .incl li:first-child{border-top:0;}
+  .incl li .c{color:var(--ochre);font-weight:700;}
+  .note{margin-top:24px;font-size:14.5px;line-height:1.6;color:var(--ink);max-width:52ch;}
+  .note b{color:var(--ochre);}
+
+  /* criteria grid */
+  .crit-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1.4px solid var(--ink);margin-top:30px;}
+  .crit-list .item{padding:22px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+  .crit-list .item:nth-child(3n){border-right:0;}
+  .crit-list .item .n{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:var(--ochre);font-weight:700;}
+  .crit-list .item .h{margin-top:10px;font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.018em;line-height:1.15;}
+  .crit-list .item .p{margin-top:8px;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
+
+  /* small meta blocks */
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:36px;border-top:1.4px solid var(--ink);padding-top:26px;margin-top:30px;}
+  .meta .mh{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);font-weight:700;margin-bottom:12px;}
+  .meta p{font-size:14.5px;color:var(--ink-2);line-height:1.7;}
+  .meta p b{color:var(--ink);font-weight:600;}
+  .meta a{color:var(--ink);border-bottom:1px solid var(--rule);}
+
+  .prose p{font-size:15.5px;line-height:1.62;color:var(--ink-2);max-width:56ch;}
+  .prose p + p{margin-top:16px;}
+  .prose p b{color:var(--ink);font-weight:600;}
+  .sub-h{margin-top:28px;font-weight:600;text-transform:lowercase;font-size:20px;letter-spacing:-.015em;}
+
+  /* schedule rows */
+  .srow{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:12px 0;border-top:1px solid var(--rule);align-items:baseline;}
+  .srow .tt{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--ochre);font-weight:700;letter-spacing:.03em;}
+  .srow .dd{font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+  .srow .dd b{color:var(--ink);font-weight:600;}
+  .sday{margin-top:26px;}
+  .sday:first-of-type{margin-top:30px;}
+  .sday .sh{font-weight:600;text-transform:lowercase;font-size:18px;letter-spacing:-.015em;margin-bottom:2px;}
+  .srow.head{border-top:1.4px solid var(--ink);}
+
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1.4px solid var(--ink);margin-top:30px;}
+  .team .m{padding:24px 24px 24px 0;border-bottom:1px solid var(--rule);}
+  .team .m:nth-child(2n){padding-left:24px;border-left:1px solid var(--rule);}
+  .team .m .nm2{font-weight:600;font-size:19px;letter-spacing:-.015em;}
+  .team .m .role{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:6px;}
+  .team .m a{display:inline-block;margin-top:10px;font-size:14px;color:var(--ochre);border-bottom:1px solid var(--rule);}
+
+  /* cover cta */
+  .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);border:1.4px solid var(--ink);
+       padding:15px 28px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;transition:.14s;cursor:pointer;}
+  .btn:hover{background:var(--ochre);border-color:var(--ochre);}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+
+  /* ===== sign-up form ===== */
+  .signup{background:var(--ink);color:var(--paper);border-bottom:0;}
+  .signup .inner{max-width:1280px;margin:0 auto;padding:0 var(--gutter);}
+  .signup .lab{color:#eeba3f;}
+  .signup h2{color:var(--paper);margin-top:10px;max-width:20ch;}
+  .signup .head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:18px;}
+  .signup .head .metanote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:rgba(236,230,214,.6);letter-spacing:.06em;text-transform:uppercase;line-height:1.8;text-align:right;}
+  .signup .intro{margin-top:16px;font-size:15.5px;color:rgba(236,230,214,.72);line-height:1.62;max-width:60ch;}
+  .signup .intro b{color:var(--paper);font-weight:600;}
+  .aform{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;max-width:940px;}
+  .aform .fld{display:flex;flex-direction:column;gap:8px;}
+  .aform .full{grid-column:1 / -1;}
+  .aform label{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,230,214,.66);font-weight:700;}
+  .aform label .req{color:#eeba3f;}
+  .aform input,.aform select,.aform textarea{font-family:inherit;font-size:15px;color:var(--paper);background:rgba(236,230,214,.06);border:1.4px solid rgba(236,230,214,.28);padding:13px 15px;outline:none;width:100%;border-radius:0;}
+  .aform input::placeholder,.aform textarea::placeholder{color:rgba(236,230,214,.4);}
+  .aform input:focus,.aform select:focus,.aform textarea:focus{border-color:#eeba3f;box-shadow:0 0 0 3px rgba(238,186,63,.22);}
+  .aform select{color:var(--paper);}
+  .aform select option{color:#1B3326;}
+  .aform textarea{min-height:120px;resize:vertical;line-height:1.5;}
+  .aform .submit{justify-self:start;background:var(--ochre);color:var(--paper);border:1.4px solid var(--ochre);padding:16px 32px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;cursor:pointer;transition:.14s;}
+  .aform .submit:hover{background:#875d22;border-color:#875d22;}
+  .aform .fnote{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;color:rgba(236,230,214,.5);letter-spacing:.04em;line-height:1.6;}
+  .aform .fnote a{color:var(--paper);border-bottom:1px solid rgba(236,230,214,.3);}
+  .signup .done-msg{display:none;margin-top:34px;border:1.4px solid rgba(236,230,214,.28);padding:30px 28px;}
+  .signup.sent .aform{display:none;}
+  .signup.sent .done-msg{display:block;animation:reveal .5s ease-out;}
+  @keyframes reveal{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .signup .done-msg .big{font-weight:600;text-transform:lowercase;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.02em;}
+  .signup .done-msg p{margin-top:12px;font-size:15px;color:rgba(236,230,214,.72);line-height:1.6;max-width:52ch;}
+
+  /* footer */
+  .pfoot{background:var(--ink);color:var(--paper);border:0;border-top:1.4px solid rgba(236,230,214,.16);}
+  .pfoot .in{max-width:1280px;margin:0 auto;padding:64px var(--gutter) 48px;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+  .pfoot .big{font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(28px,3.4vw,48px);max-width:16ch;line-height:1.04;}
+  .pfoot .big em{font-style:normal;color:var(--ochre);}
+  .pfoot .col{font-size:12px;color:rgba(236,230,214,.66);line-height:1.95;text-transform:lowercase;letter-spacing:.02em;}
+  .pfoot .col a{color:#ECE6D6;border-bottom:1px solid rgba(236,230,214,.28);transition:border-color .14s;}
+  .pfoot .col a:hover{border-color:rgba(236,230,214,.7);}
+  .pfoot .fh{display:inline-block;min-width:70px;color:rgba(236,230,214,.42);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;vertical-align:baseline;}
+  .pfoot .col b{color:var(--paper);font-weight:600;}
+  .pfoot .col a{color:rgba(236,230,214,.82);}
+
+  @media(max-width:900px){
+    :root{--gutter:22px;}
+    .cover h1{font-size:clamp(44px,13vw,88px);}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .pillars .p:nth-child(2n){border-right:0;}
+    .pillars .p:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+    .stats{grid-template-columns:1fr;}
+    .stats .s{border-right:0;border-bottom:1px solid var(--rule);}
+    .days{grid-template-columns:1fr;gap:40px 0;}
+    .split,.split.rev{grid-template-columns:1fr;}
+    .split .txt,.split.rev .txt{padding:32px 0;order:2;}
+    .split .fig,.split.rev .fig{border-left:0;border-right:0;border-top:1.4px solid var(--ink);min-height:300px;order:1;}
+    .tiers,.meta,.team{grid-template-columns:1fr;}
+    .crit-list{grid-template-columns:1fr;}
+    .crit-list .item{border-right:0;}
+    .team .m:nth-child(2n){padding-left:0;border-left:0;}
+    .aform{grid-template-columns:1fr;}
+    .signup .head{flex-direction:column;align-items:flex-start;}
+    .signup .head .metanote{text-align:left;}
+    .top nav{display:none;}
+  }
+
+  @media print{
+    :root{--gutter:0;}
+    body{background:#fff;}
+    .top nav{display:none;}
+    section{break-inside:avoid;}
+    .split .fig{min-height:320px;}
+    .pfoot{background:var(--ink)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+  /* ===== site nav (canonical) ===== */
+  .sitenav{display:flex;align-items:center;gap:24px;padding:24px 0;font-size:14px;position:relative;z-index:80;font-family:'Figtree',system-ui,sans-serif;}
+  .sitenav .bm{font-weight:700;text-transform:lowercase;letter-spacing:-.02em;line-height:.95;color:#1B3326;}
+  .sitenav .bm span{display:block;}
+  .sitenav .lk{margin-left:auto;display:flex;gap:22px;align-items:center;font-weight:500;}
+  .sitenav .lk>a{color:rgba(27,51,38,.84);}
+  .sitenav .lk>a:hover{color:#1B3326;}
+  .sitenav .lk a.tix{background:#eeba3f;color:#1B3326;font-weight:600;font-size:13.5px;padding:12px 24px;border-radius:100px;transition:.14s;}
+  .sitenav .lk a.tix:hover{background:#e3ad2f;color:#1B3326;}
+  .sitenav .has{position:relative;}
+  .sitenav .has>button{color:rgba(27,51,38,.84);cursor:pointer;display:inline-flex;align-items:center;gap:7px;font:inherit;font-weight:500;background:none;border:0;padding:0;}
+  .sitenav .has>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.5;transition:.16s;}
+  .sitenav .has:hover>button,.sitenav .has:focus-within>button{color:#1B3326;}
+  .sitenav .has:hover>button::after,.sitenav .has:focus-within>button::after{opacity:.85;transform:rotate(45deg) translateY(0);}
+  .sitenav .drop{position:absolute;top:100%;right:0;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;z-index:90;}
+  .sitenav .has:hover .drop,.sitenav .has:focus-within .drop{opacity:1;visibility:visible;transform:none;}
+  .sitenav .drop .panel{min-width:274px;background:#ECE6D6;border:1.4px solid #1B3326;box-shadow:0 26px 60px -30px rgba(27,51,38,.6);padding:8px;}
+  .sitenav .drop a{display:block;padding:11px 14px;color:#1B3326;transition:background .12s;}
+  .sitenav .drop a:hover{background:rgba(27,51,38,.06);}
+  .sitenav .drop a b{display:block;font-weight:600;font-size:14px;letter-spacing:-.01em;}
+  .sitenav .drop a span{display:block;font-size:11.5px;color:rgba(27,51,38,.62);margin-top:3px;line-height:1.4;font-weight:500;}
+  .sitenav .drop.mega .panel{min-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
+  .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
+  @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a:not(.tix){display:none;}}
+  /* ===== language switch ===== */
+  .langsw{display:inline-flex;gap:3px;align-items:center;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
+  .langsw a{color:rgba(27,51,38,.5);padding:2px 5px;}
+  .langsw a:hover{color:#1B3326;}
+  .langsw a.on{color:#9F6E29;}
+  .langsw .sep{color:rgba(27,51,38,.3);}
+  /* ===== access gate (client-side UI toggle only) ===== */
+  .lockrow{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border:1.4px solid var(--ochre);background:rgba(154,102,40,.06);padding:14px 16px;margin-bottom:4px;}
+  .lockrow .lk-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
+  .lockrow input{max-width:210px;}
+  .lockrow .lk-hint{font-size:12.5px;color:var(--ink-2);}
+  .lockrow .lk-ok{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9F6E29;font-weight:700;display:none;}
+  body.nwfa-unlocked .lockrow .lk-ok{display:inline;}
+  body.nwfa-unlocked .lockrow .lk-hint{display:none;}
+  .locked-note{display:none;border:1.4px dashed var(--rule);padding:20px 22px;color:var(--ink-2);font-size:14.5px;line-height:1.6;}
+  .locked-note a{color:var(--ochre);border-bottom:1px solid var(--ochre);}
+  .gated-price{display:block;}
+  body.nwfa-unlocked .gated-price{display:block;}
+  body.nwfa-unlocked .locked-note{display:none;}
+  .booking-only{display:none!important;}
+  body.nwfa-unlocked .booking-only{display:flex!important;}
+  body.nwfa-unlocked .enquiry-only{display:none;}
+  .btn-booking{display:none;}
+  body.nwfa-unlocked .btn-booking{display:block;}
+  body.nwfa-unlocked .btn-enquiry{display:none;}
+  .bm{display:inline-flex;align-items:center;gap:11px;}
+  .bm-logo{height:40px;width:40px;flex:0 0 auto;}
+  .bm-txt{display:block;}
+</style>
+<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PSRD55F');</script><!-- End Google Tag Manager --><style>/* mobile responsive fixes */
+@media(max-width:880px){.supper .twocol{grid-template-columns:1fr!important;gap:28px!important}.supper .twocol>img{aspect-ratio:4/3!important}.floor-grid{grid-template-columns:1fr 1fr!important}}
+@media(max-width:560px){.floor-grid{grid-template-columns:1fr!important}}
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSRD55F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="wrap">
+
+  <nav class="sitenav">
+    <a class="bm" href="index.html" aria-label="NWFA — home"><img class="bm-logo" src="logos-/logo-church-tuned.svg" alt=""><span class="bm-txt"><span>natural wine festival</span><span>a'dam</span></span></a>
+    <div class="lk">
+      <span class="langsw"><a href="info-kit.html">en</a><span class="sep">·</span><a href="info-kit-it.html">it</a><span class="sep">·</span><a class="on" href="info-kit-pt.html" aria-current="true">pt</a><span class="sep">·</span><a href="info-kit-fr.html">fr</a></span>
+      <div class="has">
+        <button type="button" aria-haspopup="true">o festival</button>
+        <div class="drop"><div class="panel">
+          <a href="about.html"><b>o evento</b><span>datas, local, os dois dias</span></a>
+          <a href="natural-wine.html"><b>filosofia</b><span>porque é apenas bom senso</span></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button type="button" aria-haspopup="true">produtores</button>
+        <div class="drop"><div class="panel">
+          <a href="winemakers.html"><b>o registo</b><span>cada produtor, agricultura declarada</span></a>
+        </div></div>
+      </div>
+      <a href="workshops.html">workshops</a>
+      <div class="has">
+        <button type="button" aria-haspopup="true">especiais</button>
+        <div class="drop"><div class="panel">
+          <a href="specials.html#listening-room"><b>a listening room</b><span>vinhos raros num sistema de som extraordinário</span></a>
+          <a href="specials.html#yoikokochi"><b>yoikokochi</b><span>uma grande prova de sake</span></a>
+          <a href="specials.html#cheese"><b>the frenchman</b><span>queijos e enchidos</span></a>
+          <a href="specials.html#oyster"><b>o oyster bar</b><span>aberto todo o dia</span></a>
+          <a href="specials.html"><b>todos os especiais &rarr;</b></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button type="button" aria-haspopup="true">jantar dos produtores</button>
+        <div class="drop"><div class="panel">
+          <a href="winemakers-dinner.html"><b>para os visitantes</b><span>novidade desta edição &middot; cinco pratos, &euro;65</span></a>
+          <a href="winemakers-dinner-crew.html"><b>produtores e equipa</b><span>a mesa de onde nasceu este jantar</span></a>
+        </div></div>
+      </div>
+      <div class="has">
+        <button type="button" aria-haspopup="true">para profissionais</button>
+        <div class="drop mega"><div class="panel">
+          <div><div class="col-h">produtores</div>
+            <a href="participate.html"><b>participa no festival</b><span>serve para buyers, sommeliers e imprensa</span></a>
+          </div>
+          <div><div class="col-h">horeca</div>
+            <a href="for-professionals.html"><b>o dia trade</b><span>segunda 1 de março &middot; grátis para profissionais selecionados</span></a>
+          </div>
+        </div></div>
+      </div>
+      <a class="tix" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener">bilhetes →</a>
+    </div>
+  </nav>
+
+    <!-- ===== COVER ===== -->
+    <header class="cover">
+      <div class="ey">para produtores e distribuidores · unidos pelo vinho</div>
+      <h1>natural wine<br>festival a'dam.</h1>
+      <div class="when">
+        <span><b>edição #5</b></span>
+        <span>domingo e segunda, <b><span class="mark">28 de fevereiro e 1 de março de '27</span></b></span>
+        <span>de hallen, amsterdam</span>
+      </div>
+      <div class="pillars">
+        <div class="p"><div class="n">01</div><div class="h">produtores</div><div class="d">40+ produtores a servir os seus próprios vinhos ao longo de dois dias.</div></div>
+        <div class="p"><div class="n">02</div><div class="h">workshops</div><div class="d">para além da moda, da viticultura às provas cegas.</div></div>
+        <div class="p"><div class="n">03</div><div class="h">wine bar</div><div class="d">um bar aberto todo o dia para os vinhos que os visitantes querem voltar a provar.</div></div>
+        <div class="p"><div class="n">04</div><div class="h">mercado gastronómico</div><div class="d">mini mercado gastronómico artesanal e oyster bar junto à sala.</div></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#signup">candidata-te a participar →</a>
+        <a class="btn ghost" href="#festival">lê o info kit</a>
+      </div>
+    </header>
+
+    <!-- ===== §01 THE FESTIVAL ===== -->
+    <section class="fest" id="festival">
+      <div class="lab">§ 01 — o festival</div>
+      <p class="lead" style="margin-top:16px;">dois dias de vinho natural em de hallen, amsterdam, para consumidores, profissionais e horeca, onde são os produtores a servir os seus próprios vinhos.</p>
+
+      <div class="stats">
+        <div class="s"><div class="big">40+</div><div class="cap">produtores presentes</div></div>
+        <div class="s"><div class="big">1000+</div><div class="cap">visitantes esperados</div></div>
+        <div class="s"><div class="big">10+</div><div class="cap">workshops e masterclasses</div></div>
+      </div>
+
+      <div class="claim" style="margin-top:5vh;">
+        <div class="lab">o dia dos consumidores · domingo 28 fev</div>
+        <p class="lead" style="margin-top:12px;max-width:30ch;">Mais de 40 produtores presentes, workshops e, por um dia, a maior loja de vinhos dos Países Baixos, onde os visitantes compram diretamente a produtores e distribuidores.</p>
+      </div>
+
+      <div class="days">
+        <div class="day">
+          <div class="dh"><span class="t">dia 1 · domingo 28 fev</span><span class="who">profissionais e consumidores</span></div>
+          <ul>
+            <li><span class="c">✦</span><span><b>Prova de vinhos.</b> Só profissionais 11.00–13.00, depois todos 13.00–18.15.</span></li>
+            <li><span class="c">✦</span><span><b>Mini mercado gastronómico artesanal, oyster bar e wine bar.</b> 13.00–22.00.</span></li>
+            <li><span class="c">✦</span><span><b>Jantar dos Produtores.</b> 19.00–22.30.</span></li>
+            <li><span class="c">✦</span><span><b>Venda de garrafas.</b> Vende diretamente aos visitantes, traz o teu POS móvel e recupera parte, ou a totalidade, da tua taxa de participação.</span></li>
+            <li><span class="c">✦</span><span><b>Workshops.</b> O NWFA é um polo educativo, da viticultura ecológica às provas cegas.</span></li>
+          </ul>
+        </div>
+        <div class="day">
+          <div class="dh"><span class="t">dia 2 · segunda 1 mar</span><span class="who">só profissionais / horeca</span></div>
+          <ul>
+            <li><span class="c">✦</span><span><b>Prova de vinhos.</b> 10.00–16.00.</span></li>
+            <li><span class="c">✦</span><span>Entrada gratuita para profissionais e horeca selecionados. Um dia trade mais tranquilo, para as conversas que uma sala cheia não permite.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §02 CONTRIBUTION ===== -->
+    <section>
+      <div class="lab">§ 02 — taxa de participação por produtor</div>
+      <div class="split">
+        <div class="txt">
+          <div class="locked-note">A taxa (um ou dois dias, por produtor) aparece aqui depois de inserires o código de acesso abaixo. Ainda não tens um código? <a href="#signup">Envia um pedido</a> e entraremos em contacto.</div>
+          <div class="gated-price">
+          <div class="tiers">
+            <div class="tier">
+              <div class="t">um dia · domingo 28 fev</div>
+              <div class="price"><span class="mark">€425</span> <small>iva excl.</small></div>
+              <div class="d">por produtor, o dia dos consumidores e profissionais.</div>
+            </div>
+            <div class="tier">
+              <div class="t">dois dias · 28 fev e 1 mar</div>
+              <div class="price"><span class="mark">€575</span> <small>iva excl.</small></div>
+              <div class="d">acrescenta o dia trade e horeca de segunda.</div>
+            </div>
+          </div>
+          </div>
+          <ul class="incl">
+            <li><span class="c">✓</span><span>Mesa para os vinhos, equipamento de refrigeração e cuspidores.</span></li>
+            <li><span class="c">✓</span><span>Descrição do produtor em naturalwinefestival.nl.</span></li>
+            <li><span class="c">✓</span><span>Descrição do distribuidor em naturalwinefestival.nl.</span></li>
+            <li><span class="c">✓</span><span>Um post dedicado ao produtor em @naturalwinefestival.ams.</span></li>
+            <li><span class="c">✓</span><span>Possibilidade de vender garrafas diretamente aos consumidores.</span></li>
+            <li><span class="c">✓</span><span>Almoço oferecido pelo NWFA.</span></li>
+            <li><span class="c">✓</span><span>Convite para o Jantar dos Produtores (cerca de €39,50 por pessoa).</span></li>
+          </ul>
+          <p class="note"><b>Construímos o sucesso juntos.</b> Mantemos a taxa baixa de propósito e podes recuperar parte ou a totalidade vendendo garrafas diretamente da tua mesa. Traz o teu POS móvel.</p>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-6.jpg" alt="Um produtor a servir na sala de prova" /></div>
+      </div>
+      <div class="meta" style="border-top:1.4px solid var(--ink);">
+        <div>
+          <div class="mh">o que inclui o bilhete do visitante</div>
+          <p>Acesso ao espaço de prova, com as doses servidas pelos produtores, mais todos os workshops, o mini mercado e o wine bar.</p>
+        </div>
+        <div>
+          <div class="mh">a sala adjacente</div>
+          <p>Uma sala dedicada com wine bar, mercado gastronómico artesanal e oyster bar, para os visitantes que querem desfrutar ainda mais dos seus vinhos preferidos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== §03 LOCATION ===== -->
+    <section>
+      <div class="lab">§ 03 — o local</div>
+      <div class="split rev">
+        <div class="txt">
+          <h2>de hallen, amsterdam.</h2>
+          <div class="prose" style="margin-top:18px;">
+            <p>O festival realiza-se em <b>De Hallen Studios</b>, um espetacular espaço de eventos de 1.000 m² dentro de De Hallen, um edifício monumental e sustentável no coração de Amsterdam. A De Hallen Studios é co-anfitriã do NWFA. dehallenstudios.nl</p>
+          </div>
+          <div class="sub-h">workshops e masterclasses</div>
+          <div class="prose" style="margin-top:8px;">
+            <p>Estão disponíveis gratuitamente três espaços dedicados para acolher workshops de 30–45 minutos para profissionais e consumidores. Pede-nos os detalhes.</p>
+          </div>
+          <div class="meta" style="grid-template-columns:1fr;gap:0;">
+            <div>
+              <div class="mh">endereço</div>
+              <p><b>De Hallen</b><br>Hannie Dankbaarpassage 47<br>1053 RT Amsterdam</p>
+            </div>
+          </div>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-1.jpg" alt="O oyster bar em De Hallen" /></div>
+      </div>
+    </section>
+
+    <!-- ===== §04 PHILOSOPHY & SELECTION ===== -->
+    <section>
+      <div class="lab">§ 04 — filosofia</div>
+      <h2 style="margin-top:10px;max-width:16ch;">construir o sucesso juntos, para que todos ganhem.</h2>
+      <div class="split" style="margin-top:34px;">
+        <div class="txt">
+          <div class="prose">
+            <p>As taxas de participação são mantidas baixas, com a possibilidade de os produtores recuperarem parte da taxa através da venda direta de garrafas no NWFA.</p>
+            <p>Distribuidores e produtores são incentivados a promover a sua presença através de mailing lists e redes sociais. O NWFA fornece materiais criativos de apoio à divulgação.</p>
+          </div>
+          <div class="sub-h">transparência</div>
+          <div class="prose" style="margin-top:8px;">
+            <p>Aos produtores não distribuídos é pedida uma análise química dos vinhos. Os níveis de sulfuroso e as práticas agrícolas (biológico, biodinâmico, etc.) serão publicados nas fichas dos produtores no site do NWFA.</p>
+          </div>
+          <div class="sub-h">vinhos zero-zero</div>
+          <div class="prose" style="margin-top:8px;">
+            <p>Os vinhos zero-zero são destacados com um rótulo especial.</p>
+          </div>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-10.jpg" alt="Um visitante a provar no festival" /></div>
+      </div>
+
+      <div class="lab" style="margin-top:6vh;">critérios de seleção</div>
+      <h2 style="margin-top:10px;max-width:18ch;">os vinhos devem refletir o terroir e a mão do produtor.</h2>
+      <ul class="incl" style="margin-top:26px;max-width:66ch;">
+        <li><span class="c">✦</span><span>Trabalho na vinha biológico, biodinâmico ou regenerativo (certificação não obrigatória).</span></li>
+        <li><span class="c">✦</span><span>Sem uso de pesticidas ou herbicidas de síntese.</span></li>
+        <li><span class="c">✦</span><span>Fermentação com leveduras indígenas.</span></li>
+        <li><span class="c">✦</span><span>Sem acidificação, sem chaptalização, sem correções artificiais.</span></li>
+        <li><span class="c">✦</span><span>Sem ou apenas ligeira filtração/colagem (sempre vegana).</span></li>
+        <li><span class="c">✦</span><span>Sem ou com pouco sulfuroso; adicionado apenas no engarrafamento.</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== §05 SCHEDULE ===== -->
+    <section>
+      <div class="lab">§ 05 — programa</div>
+      <div class="split rev">
+        <div class="txt">
+          <h2>da chegada à partida.</h2>
+
+          <div class="sday">
+            <div class="sh">sábado 27 de fevereiro</div>
+            <div class="srow head"><span class="tt">13.00 – 17.00</span><span class="dd"><b>Entrega dos vinhos.</b> Ou na manhã seguinte durante a montagem.</span></div>
+          </div>
+
+          <div class="sday">
+            <div class="sh">domingo 28 de fevereiro · consumidores e profissionais</div>
+            <div class="srow head"><span class="tt">09.30 – 11.00</span><span class="dd"><b>Descarga, montagem e boas-vindas.</b></span></div>
+            <div class="srow"><span class="tt">11.00 – 13.00</span><span class="dd"><b>Prova.</b> Só profissionais.</span></div>
+            <div class="srow"><span class="tt">13.00 – 18.15</span><span class="dd"><b>Prova.</b> Profissionais e consumidores.</span></div>
+            <div class="srow"><span class="tt">13.00 – 22.00</span><span class="dd">Wine bar, oyster bar e mini mercado abertos.</span></div>
+            <div class="srow"><span class="tt">19.00 – 22.30</span><span class="dd"><b>Jantar dos Produtores.</b> Produtores, distribuidores, equipa e profissionais.</span></div>
+          </div>
+
+          <div class="sday">
+            <div class="sh">segunda 1 de março · só trade e horeca</div>
+            <div class="srow head"><span class="tt">10.00 – 16.00</span><span class="dd"><b>Prova de vinhos.</b> Entrada gratuita para profissionais e horeca selecionados.</span></div>
+          </div>
+        </div>
+        <div class="fig"><img src="concept-assets/photo-4.jpg" alt="A sala do festival em pleno movimento" /></div>
+      </div>
+    </section>
+
+    <!-- ===== §06 TEAM ===== -->
+    <section style="border-bottom:0;">
+      <div class="lab">§ 06 — team nwfa</div>
+      <h2 style="margin-top:10px;">os teus contactos.</h2>
+      <div class="team">
+        <div class="m">
+          <div class="nm2">Peter van Rhoon</div>
+          <div class="role">comunicação e produtores</div>
+          <a href="mailto:peter@naturalwinefestival.nl">peter@naturalwinefestival.nl</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Luuk de Jonge</div>
+          <div class="role">project manager produtores</div>
+          <a href="mailto:luuk@naturalwinefestival.nl">luuk@naturalwinefestival.nl</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Mariette Hoitink</div>
+          <div class="role">colaborações</div>
+          <a href="mailto:mariette@naturalwinefestival.nl">mariette@naturalwinefestival.nl</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Fleur Burggraaf</div>
+          <div class="role">produção de evento</div>
+          <a href="mailto:fleur@dehallenstudios.nl">fleur@dehallenstudios.nl</a>
+        </div>
+        <div class="m">
+          <div class="nm2">Filippo Petrolini</div>
+          <div class="role">referente per l&rsquo;Italia</div>
+          <a href="mailto:filodivino@gmail.com">filodivino@gmail.com</a><br>
+          <a href="tel:+393452265839">+39 345 226 5839</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== §07 SIGN-UP FORM ===== -->
+  <section class="signup" id="signup">
+    <div class="inner">
+      <div class="head">
+        <div>
+          <div class="lab">§ 07 — inscrição</div>
+          <h2>queres participar no nwfa?</h2>
+        </div>
+        <div class="metanote">~ 3 minutos<br>lemos todos os pedidos<br>respondemos em 2 semanas</div>
+      </div>
+      <p class="intro">Deixa os teus dados e conta-nos sobre os teus vinhos. Entraremos em contacto sobre uma mesa na edição #5, <b>28 de fevereiro e 1 de março de '27</b>. Sem compromisso.</p>
+
+      <form class="aform" id="signupForm" novalidate>
+        <div class="lockrow">
+          <span class="lk-h">código de acesso</span>
+          <input id="accesscode" name="accesscode" autocomplete="off" placeholder="se um distribuidor te deu um" />
+          <span class="lk-hint">tens um código? insere-o para reservar.</span>
+          <span class="lk-ok">✓ desbloqueado · modo reserva</span>
+        </div>
+        <div class="fld">
+          <label for="first">nome <span class="req">*</span></label>
+          <input id="first" name="first" required autocomplete="given-name" />
+        </div>
+        <div class="fld">
+          <label for="last">apelido <span class="req">*</span></label>
+          <input id="last" name="last" required autocomplete="family-name" />
+        </div>
+        <div class="fld">
+          <label for="winery">produtor / quinta <span class="req">*</span></label>
+          <input id="winery" name="winery" required autocomplete="organization" />
+        </div>
+        <div class="fld">
+          <label for="email">email <span class="req">*</span></label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="fld">
+          <label for="country">país <span class="req">*</span></label>
+          <input id="country" name="country" required autocomplete="country-name" />
+        </div>
+        <div class="fld">
+          <label for="region">região <span class="req">*</span></label>
+          <input id="region" name="region" required />
+        </div>
+        <div class="fld">
+          <label for="web">site web <span class="req">*</span></label>
+          <input id="web" name="web" type="url" required autocomplete="url" placeholder="https://" />
+        </div>
+        <div class="fld">
+          <label for="instagram">instagram <span class="req">*</span></label>
+          <input id="instagram" name="instagram" required placeholder="@handle" />
+        </div>
+        <div class="fld">
+          <label for="days">que dias?</label>
+          <select id="days" name="days">
+            <option value="2day">dois dias · 28 fev e 1 mar</option>
+            <option value="1day">um dia · domingo 28 fev</option>
+            <option value="unsure">ainda não sei</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="distributed">distribuído nos Países Baixos?</label>
+          <select id="distributed" name="distributed">
+            <option>ainda não</option>
+            <option>sim</option>
+            <option>em curso</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="role">sou um…</label>
+          <select id="role" name="role">
+            <option>produtor</option>
+            <option>distribuidor / importador</option>
+            <option>produtor e distribuidor</option>
+          </select>
+        </div>
+        <div class="fld full">
+          <label for="about">conta-nos sobre os teus vinhos <span class="req">*</span></label>
+          <textarea id="about" name="about" required placeholder="agricultura, fermentações, sulfuroso e o que os torna teus."></textarea>
+        </div>
+        <div class="fld full enquiry-only">
+          <label>amostras</label>
+          <p style="font-size:13.5px;color:rgba(27,51,38,.6);line-height:1.6;margin-top:2px;">Se avançarmos, pediremos que envies algumas garrafas de amostra para a prova e seleção. Diremos para onde as enviar quando respondermos.</p>
+        </div>
+        <div class="fld booking-only">
+          <label for="billco">nome de faturação / empresa <span class="req">*</span></label>
+          <input id="billco" name="billco" autocomplete="organization" />
+        </div>
+        <div class="fld booking-only">
+          <label for="vat">número de contribuinte (VAT) <span class="req">*</span></label>
+          <input id="vat" name="vat" />
+          <span class="lk-hint" style="margin-top:2px;">Necessário para faturar sem IVA. Para produtores da UE fora dos Países Baixos, o IVA é autoliquidado (reverse charge) com um número válido.</span>
+        </div>
+        <div class="fld full booking-only">
+          <label for="billaddr">morada de faturação <span class="req">*</span></label>
+          <input id="billaddr" name="billaddr" />
+        </div>
+        <button class="submit full btn-enquiry" type="submit">inscreve-te e entraremos em contacto →</button>
+        <button class="submit full btn-booking" type="submit">confirma a reserva, enviaremos fatura →</button>
+        <div class="fnote full">preferes email? escreve para <a href="mailto:luuk@naturalwinefestival.nl">luuk@naturalwinefestival.nl</a>.</div>
+      </form>
+
+      <div class="done-msg">
+        <div class="big">obrigado, recebemos.</div>
+        <p>Lemos todos os pedidos e respondemos em duas semanas com os detalhes da mesa e os próximos passos. Se for urgente, escreve para <a href="mailto:luuk@naturalwinefestival.nl" style="color:#eeba3f;border-bottom:1px solid rgba(238,186,63,.4);">luuk@naturalwinefestival.nl</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pfoot">
+    <div class="in">
+      <div>
+        <div class="big">queres participar? <em>inscreve-te</em> e enviaremos os detalhes.</div>
+        <a class="col" href="#signup" style="display:inline-block;margin-top:22px;color:var(--paper);border-bottom:1.5px solid var(--ochre);padding-bottom:3px;font-size:14px;font-weight:600;">inscreve-te → </a>
+      </div>
+      <div class="col">
+        <b>natural wine festival a'dam</b><br>
+        edição #5 · 28 fev e 1 mar '27<br>
+        de hallen, amsterdam<br><br>
+        <span class="fh">contacto</span><a href="mailto:hello@naturalwinefestival.nl">hello@naturalwinefestival.nl</a><br>
+        <span class="fh">redes</span><a href="https://instagram.com/naturalwinefestival.ams" target="_blank" rel="noopener">@naturalwinefestival.ams</a><br>
+        <span class="fh">imprensa</span><a href="mailto:peter@naturalwinefestival.nl">peter@naturalwinefestival.nl</a><br><br>
+        unidos pelo vinho
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    /* Paste a Tally / Formspree / GHL or Airtable webhook URL here to capture leads.
+       Until it is set, the form still confirms and the entry is kept in localStorage. */
+    var LEAD_ENDPOINT = "";
+    /* Single shared access code. CLIENT-SIDE ONLY: this toggles the UI and tags the
+       submission. The real gate + invoicing must live server-side (GHL / Airtable). */
+    var ACCESS_CODE = "Salut"; // shared code (case-insensitive; also works via ?code=Salut)
+    function applyBookingRequirements(){
+      ['billco','vat','billaddr'].forEach(function(id){ var el=document.getElementById(id); if(el) el.required=true; });
+      var days=document.getElementById('days');
+      if(days){ var opt=days.querySelector('option[value="unsure"]'); if(opt){ if(opt.selected) days.selectedIndex=0; opt.remove(); } }
+    }
+    function checkCode(v){ if((v||"").trim().toLowerCase()===ACCESS_CODE.toLowerCase()){ document.body.classList.add('nwfa-unlocked'); applyBookingRequirements(); return true; } return false; }
+    var codeInput = document.getElementById('accesscode');
+    var urlCode = new URLSearchParams(location.search).get('code');
+    if(urlCode){ if(codeInput) codeInput.value = urlCode; checkCode(urlCode); }
+    if(codeInput){ codeInput.addEventListener('input', function(){ checkCode(codeInput.value); }); }
+    var form = document.getElementById('signupForm');
+    var wrap = document.getElementById('signup');
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
+        data.page='info-kit-pt'; data.lang='pt'; data.edition='#5'; data.ts=new Date().toISOString(); data.mode=document.body.classList.contains('nwfa-unlocked')?'booking':'enquiry';
+        try{ localStorage.setItem('nwfa_infokit_lead', JSON.stringify(data)); }catch(err){}
+        if(LEAD_ENDPOINT){
+          fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+        }
+        wrap.classList.add('sent');
+        wrap.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    }
+  })();
+  </script>
+
+  <link rel="stylesheet" href="nav-mobile.css">
+  <script src="nav-mobile.js" defer></script>
+</body>
+</html>

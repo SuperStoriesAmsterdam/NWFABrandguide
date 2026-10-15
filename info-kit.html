@@ -238,6 +238,12 @@
   .sitenav .drop.mega .panel{min-width:540px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;}
   .sitenav .drop.mega .col-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#9F6E29;font-weight:700;padding:8px 14px 4px;}
   @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a:not(.tix){display:none;}}
+  /* ===== language switch ===== */
+  .langsw{display:inline-flex;gap:3px;align-items:center;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
+  .langsw a{color:rgba(27,51,38,.5);padding:2px 5px;}
+  .langsw a:hover{color:#1B3326;}
+  .langsw a.on{color:#9F6E29;}
+  .langsw .sep{color:rgba(27,51,38,.3);}
   /* ===== access gate (client-side UI toggle only) ===== */
   .lockrow{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;border:1.4px solid var(--ochre);background:rgba(154,102,40,.06);padding:14px 16px;margin-bottom:4px;}
   .lockrow .lk-h{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);font-weight:700;}
@@ -274,6 +280,7 @@
   <nav class="sitenav">
     <a class="bm" href="index.html" aria-label="NWFA — home"><img class="bm-logo" src="logos-/logo-church-tuned.svg" alt=""><span class="bm-txt"><span>natural wine festival</span><span>a'dam</span></span></a>
     <div class="lk">
+      <span class="langsw"><a class="on" href="info-kit.html" aria-current="true">en</a><span class="sep">·</span><a href="info-kit-it.html">it</a><span class="sep">·</span><a href="info-kit-pt.html">pt</a><span class="sep">·</span><a href="info-kit-fr.html">fr</a></span>
       <div class="has">
         <button type="button" aria-haspopup="true">about</button>
         <div class="drop"><div class="panel">
