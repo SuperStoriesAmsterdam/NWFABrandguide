@@ -113,9 +113,46 @@
   .hint{position:fixed;left:20px;bottom:18px;z-index:40;font-size:11.5px;color:var(--ink-3);max-width:50ch;line-height:1.45;}
 
   @media print{.bar,.zoom,.hint,.tools,.pop,.annot{display:none!important;}body{overflow:visible;background:#fff;}#stage{position:static;}}
+
+  .lock{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;}
+  .lock[hidden]{display:none;}
+  .lockcard{width:100%;max-width:360px;border:1.6px solid var(--line);background:#fff;padding:34px 30px 30px;text-align:center;box-shadow:0 30px 70px -34px rgba(27,51,38,.6);}
+  .lockcard .k{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+  .lockcard h2{font-family:'Vicky','Figtree';color:var(--green);text-transform:lowercase;font-weight:900;font-size:40px;line-height:.9;margin:8px 0 14px;}
+  .lockcard p{font-size:13px;color:var(--ink-2);margin:0 0 18px;}
+  .lockcard input{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1.4px solid rgba(27,51,38,.4);border-radius:100px;text-align:center;outline:none;}
+  .lockcard input:focus{border-color:var(--ink);}
+  .lockcard button{width:100%;margin-top:12px;background:var(--accent);color:#fff;border:0;border-radius:100px;padding:13px;font-weight:700;font-size:14px;}
+  .lockcard button:hover{background:#875d22;}
+  .lk-err{color:#a23;font-size:12.5px;font-weight:600;margin-top:12px;}
+  .lk-err[hidden]{display:none;}
 </style>
 </head>
 <body>
+
+  <div class="lock" id="lock">
+    <form class="lockcard" id="lockForm">
+      <div class="k">natural wine festival · a'dam</div>
+      <h2>wie doet wat</h2>
+      <p>Deze pagina is afgeschermd. Voer het wachtwoord in.</p>
+      <input id="lockPw" type="password" autocomplete="off" placeholder="wachtwoord" aria-label="wachtwoord">
+      <button type="submit">openen</button>
+      <div class="lk-err" id="lockErr" hidden>Onjuist wachtwoord.</div>
+    </form>
+  </div>
+  <script>
+  (function(){
+    var PW=atob('MjAyNg=='), K='nwfa-org-unlock', lock=document.getElementById('lock');
+    var ok=false; try{ ok=sessionStorage.getItem(K)==='1'; }catch(e){}
+    if(ok){ lock.hidden=true; return; }
+    var f=document.getElementById('lockForm'), pw=document.getElementById('lockPw'), err=document.getElementById('lockErr');
+    setTimeout(function(){ pw.focus(); },30);
+    f.addEventListener('submit',function(e){ e.preventDefault();
+      if(pw.value===PW){ try{ sessionStorage.setItem(K,'1'); }catch(_){} lock.hidden=true; }
+      else { err.hidden=false; pw.value=''; pw.focus(); }
+    });
+  })();
+  </script>
 
   <div class="bar">
     <div class="brand"><span class="t">wie doet wat</span><span class="m">editie #5 · 28 feb &amp; 1 mrt 2027 · de hallen</span></div>
