@@ -389,6 +389,13 @@
     var b=L.latLngBounds(VENUES.map(function(v){return [v.lat,v.lng];}));
     map.fitBounds(b,{padding:[40,40]});
   }
+
+  // embed: the iframe/flex container only gets its real size after layout settles,
+  // so recompute the map size and re-fit (otherwise it renders zoomed/offset)
+  function _refit(){ map.invalidateSize(); if(VENUES.length){ map.fitBounds(b,{padding:[30,30]}); } }
+  setTimeout(_refit,250); setTimeout(_refit,900);
+  window.addEventListener('load',_refit);
+  window.addEventListener('resize',function(){ map.invalidateSize(); if(VENUES.length){ map.fitBounds(b,{padding:[30,30]}); } });
 })();
 </script>
   
