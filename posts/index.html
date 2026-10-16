@@ -36,21 +36,29 @@
   .chip.idea{color:var(--ink-3);background:rgba(27,51,38,.08);}
 
   /* grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(14px,1.8vw,22px);}
-  .card{position:relative;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:clamp(18px,2vw,26px);display:flex;flex-direction:column;min-height:200px;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;}
-  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ink-3);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(14px,1.8vw,22px);align-items:start;}
+  .card{position:relative;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:clamp(16px,1.8vw,22px);display:flex;flex-direction:column;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ink-3);z-index:2;}
   .card.s-built::before{background:var(--green);}
   .card.s-draft::before{background:var(--amber);}
   .card.s-idea::before{background:var(--ochre);opacity:.5;}
   .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(27,51,38,.12);}
-  .card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+
+  /* media */
+  .card .media{margin-bottom:14px;border-radius:10px;overflow:hidden;background:rgba(27,51,38,.07);display:flex;align-items:center;justify-content:center;height:340px;}
+  .card .media video{height:100%;width:auto;max-width:100%;display:block;background:#1B3326;cursor:pointer;}
+  .card .media.empty{height:116px;border:1.4px dashed var(--rule);background:transparent;color:var(--ink-3);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;}
+
+  .card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
   .card .num{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:15px;color:var(--ink-3);letter-spacing:.06em;}
   .card h3{font-weight:800;text-transform:lowercase;letter-spacing:-.015em;font-size:clamp(18px,1.9vw,23px);line-height:1.12;overflow-wrap:anywhere;}
-  .card .hook{margin-top:10px;font-size:14.5px;color:var(--ink-2);flex:1;}
+  .card .hook{margin-top:10px;font-size:14.5px;color:var(--ink-2);}
   .card .hook .mk{color:var(--ink);background:var(--amber);padding:.02em .22em;border-radius:.3em;font-weight:600;}
-  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
   .tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border:1.2px solid var(--rule);border-radius:999px;padding:4px 9px;}
   .card .note{margin-top:10px;font-size:12px;color:var(--ochre);font-weight:600;text-transform:lowercase;}
+  .card .cmt{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:lowercase;color:var(--ochre);display:flex;align-items:center;gap:7px;}
+  .card .cmt::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber);flex:0 0 auto;}
 
   /* annotations section */
   .anno{margin-top:clamp(36px,5vw,64px);border:1.5px dashed var(--ink);border-radius:14px;padding:clamp(20px,3vw,32px);background:rgba(238,186,63,.08);}
@@ -91,85 +99,106 @@
     <div class="grid">
 
       <article class="card s-draft">
+        <div class="media"><video controls playsinline preload="metadata" poster="drafts/post-01-workshops.jpg"><source src="drafts/post-01-workshops.mp4" type="video/mp4"></video></div>
         <div class="top"><span class="num">01</span><span class="chip draft">draft</span></div>
         <h3>why book early · free workshops</h3>
         <p class="hook">knowledge is more interesting than hype → that's why we like sharing it → learn from the originals → a workshop <span class="mk">free</span> with every ticket, the seats run out.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">education</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">02</span><span class="chip idea">idea</span></div>
         <h3>what makes it natural</h3>
         <p class="hook">farming declared · <span class="mk">&lt; 20 mg/l</span> · nothing added. the line most "natural" wine never crosses.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">transparency</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">03</span><span class="chip idea">idea</span></div>
         <h3>agriculture done right</h3>
         <p class="hook">natural wine is made in the vineyard first. what "done right" means on the land, before a single grape is picked.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">education</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">04</span><span class="chip idea">idea</span></div>
         <h3>learn from the originals · meet a grower</h3>
         <p class="hook">a grower in their own words, from vine to glass.</p>
         <div class="tags"><span class="tag">reel · video</span><span class="tag">line-up</span></div>
         <div class="note">wacht op line-up confirm</div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">05</span><span class="chip idea">idea</span></div>
         <h3>funk or fault</h3>
         <p class="hook">where "funky" ends and "off" begins: the line we actually draw. niche authority, no snobbery.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">taste · authority</span></div>
+        <div class="cmt">pin a note here to comment</div>
+      </article>
+
+      <article class="card s-draft">
+        <div class="media"><video controls playsinline preload="metadata" poster="drafts/post-06-earlybird.jpg"><source src="drafts/post-06-earlybird.mp4" type="video/mp4"></video></div>
+        <div class="top"><span class="num">06</span><span class="chip draft">draft</span></div>
+        <h3>the early bird catches the oyster</h3>
+        <p class="hook">book before jan 15 and a fresh oyster is on us → a <span class="mk">€4</span> natural-wine classic, plus first pick of the workshops.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">tickets · early bird</span></div>
+        <div class="note">jan 15 + inwissel-mechaniek nog te bevestigen</div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
-        <div class="top"><span class="num">06</span><span class="chip idea">idea</span></div>
-        <h3>your ticket is your claim</h3>
-        <p class="hook">a booked ticket is your claim to a workshop. three spaces, a lot of workshops, and a moment the seats run out.</p>
-        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">tickets</span></div>
-      </article>
-
-      <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">07</span><span class="chip idea">idea</span></div>
         <h3>the grower's dinner</h3>
         <p class="hook">sat 27 feb · the table before the festival. an evening with the people who made the wine.</p>
         <div class="tags"><span class="tag">reel · video</span><span class="tag">dinner</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">08</span><span class="chip idea">idea</span></div>
         <h3>save the date</h3>
         <p class="hook">edition #5 · <span class="mk">28 feb – 1 mar '27</span> · de hallen, amsterdam. 40+ growers.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">countdown</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">09</span><span class="chip idea">idea</span></div>
         <h3>who we are</h3>
         <p class="hook">education over hype, since the first edition. the festival's stance in one post.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">brand</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
       <article class="card s-idea">
+        <div class="media empty">draft volgt</div>
         <div class="top"><span class="num">10</span><span class="chip idea">idea</span></div>
         <h3>aan de proeftafel · knowledge series</h3>
         <p class="hook">a recurring slot: one real thing about natural wine, done straight. the series engine behind the single posts.</p>
         <div class="tags"><span class="tag">reel · graphic</span><span class="tag">education series</span></div>
+        <div class="cmt">pin a note here to comment</div>
       </article>
 
     </div>
 
     <section class="anno">
       <h2>annotations</h2>
-      <p>Leave feedback anywhere on this board with the annotation tool (button bottom-right). Pin a note on a card to react to that post, reorder, add your own, or kill one. Notes reach the server, bucketed per project.</p>
+      <p>Click a draft to watch it, then pin a note to give feedback. Use the annotation tool (button bottom-right) to pin anywhere on this board: react to a post, reorder, add your own, or kill one. Notes reach the server, bucketed per project.</p>
       <div class="how">
-        <span><b>per post:</b> pin a note on its card</span>
+        <span><b>watch:</b> click the draft on its card</span>
+        <span><b>comment:</b> pin a note on the card</span>
         <span><b>general:</b> pin anywhere</span>
-        <span><b>roles:</b> client feedback · developer notes</span>
       </div>
     </section>
 
