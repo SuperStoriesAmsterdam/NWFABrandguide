@@ -5,20 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Natuurwijn in Nederland — Kaart</title>
 <meta name="description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Natural Wine Festival A'dam">
-<meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Natuurwijn in Nederland — Kaart">
-<meta property="og:description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
-<meta property="og:url" content="https://naturalwinefestival.nl/natuurwijn-kaart/kaart.html">
-<meta property="og:image" content="https://naturalwinefestival.nl/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Natural Wine Festival A'dam — 28 Feb &amp; 1 Mar 2027, De Hallen Amsterdam">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Natuurwijn in Nederland — Kaart">
-<meta name="twitter:description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
-<meta name="twitter:image" content="https://naturalwinefestival.nl/og-image.jpg">
 <link rel="stylesheet" href="css/leaflet.css">
 <link rel="stylesheet" href="css/MarkerCluster.css">
 <link rel="stylesheet" href="css/MarkerCluster.Default.css">
@@ -147,8 +133,88 @@
   @media(max-width:900px){.sitenav .lk .has,.sitenav .lk>a{display:none;}}
   .mapfoot{background:#1B3326;color:#ECE6D6;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:lowercase;flex:0 0 auto;}
   .mapfoot .r{color:rgba(236,230,214,.6);}
+
+  /* ---- Concept switcher ---- */
+  .cswitch{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden;margin-left:14px}
+  .cswitch button{font-family:var(--sans);font-size:.7rem;letter-spacing:.03em;text-transform:lowercase;
+    padding:6px 13px;background:transparent;border:0;color:var(--ink-3);cursor:pointer;transition:.14s}
+  .cswitch button:hover{color:var(--ink-2)}
+  .cswitch button.on{background:var(--ink);color:var(--paper)}
+
+  /* ---- Leaflet icon reset (no default white box) ---- */
+  .leaflet-div-icon{background:transparent;border:0}
+
+  /* ---- NIGHT markers ---- */
+  .glowdot{width:12px;height:12px;border-radius:50%;position:relative}
+  .glowdot::after{content:"";position:absolute;left:50%;top:44%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:#fff6e2;opacity:.95}
+  .orb{border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:#2a1e0a}
+  .orb-wrap{background:transparent!important}
+
+  /* ---- GUIDE markers + city labels ---- */
+  .seal{width:13px;height:13px;border-radius:50%;box-sizing:border-box;box-shadow:0 1px 2px rgba(27,42,32,.3)}
+  .city-label{position:absolute;transform:translate(-50%,-50%);font-family:ui-monospace,'SF Mono',Menlo,monospace;
+    font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(43,32,16,.62);white-space:nowrap;
+    text-shadow:0 1px 0 rgba(240,232,214,.9),0 0 3px rgba(240,232,214,.9)}
+
+  /* ---- NIGHT: flip tokens so all var-based chrome goes dark ---- */
+  html[data-concept="night"]{
+    --paper:#0f140f; --parchment:#141b14; --ink:#ece6d6; --ink-2:rgba(236,230,214,.60); --ink-3:rgba(236,230,214,.40);
+    --rule:rgba(236,230,214,.14); --ochre:#dca656;
+  }
+  html[data-concept="night"] body{background:#0f140f}
+  html[data-concept="night"] #map,html[data-concept="night"] .leaflet-container{background:#0a0d0a}
+  html[data-concept="night"] .item:hover,html[data-concept="night"] .item.active{background:rgba(236,230,214,.06)}
+  html[data-concept="night"] .search input{background:rgba(236,230,214,.05)}
+  html[data-concept="night"] .sitenav{background:#0f140f;border-bottom-color:rgba(236,230,214,.12)}
+  html[data-concept="night"] .sitenav .bm{color:#ece6d6}
+  html[data-concept="night"] .sitenav .lk>a,html[data-concept="night"] .sitenav .has>button{color:rgba(236,230,214,.82)}
+  html[data-concept="night"] .sitenav .lk>a:hover,html[data-concept="night"] .sitenav .has:hover>button,html[data-concept="night"] .sitenav .has:focus-within>button{color:#fff}
+  html[data-concept="night"] .sitenav .drop .panel{background:#141b14;border-color:rgba(236,230,214,.45);box-shadow:0 26px 60px -30px rgba(0,0,0,.8)}
+  html[data-concept="night"] .sitenav .drop a{color:#ece6d6}
+  html[data-concept="night"] .sitenav .drop a span{color:rgba(236,230,214,.6)}
+  html[data-concept="night"] .sitenav .drop a:hover{background:rgba(236,230,214,.07)}
+  html[data-concept="night"] .leaflet-popup-content-wrap{background:#141b14;color:#ece6d6;box-shadow:0 14px 48px -12px rgba(0,0,0,.85)}
+  html[data-concept="night"] .leaflet-popup-tip{background:#141b14}
+  html[data-concept="night"] .pop .nm{color:#f3eddd}
+  html[data-concept="night"] .pop .ad,html[data-concept="night"] .pop .desc{color:rgba(236,230,214,.72)}
+  html[data-concept="night"] .leaflet-bar a{background:#141b14;color:#ece6d6;border-color:rgba(236,230,214,.2)}
+
+  /* ---- Full-width map (no all-list sidebar) ---- */
+  .body{grid-template-columns:1fr}
+  .list{display:none}
+
+  /* ---- GUIDE: printed numbered cluster disc + soft flowing land ---- */
+  .disc-wrap{background:transparent!important}
+  .disc{border-radius:50%;background:#efe9d8;border-width:1.5px;border-style:solid;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:#1b2a20;box-shadow:0 2px 8px rgba(27,42,32,.22)}
+  .landshape{filter:drop-shadow(0 1px 3px rgba(27,42,32,.16))}
+
+  /* ---- Hover tooltip on nodes ---- */
+  .leaflet-tooltip.vtip{background:#efe9d8;border:1px solid var(--rule);color:var(--ink);border-radius:5px;padding:5px 9px;box-shadow:0 6px 18px rgba(27,42,32,.2);font-family:var(--sans);white-space:nowrap}
+  .leaflet-tooltip-top.vtip::before{border-top-color:#efe9d8}
+  .leaflet-tooltip-bottom.vtip::before{border-bottom-color:#efe9d8}
+  .vtip .tn{font-family:var(--serif);font-weight:600;font-size:.86rem;text-transform:lowercase;letter-spacing:-.01em;display:block;color:var(--ink)}
+  .vtip .tm{font-size:.7rem;color:var(--ink-2);text-transform:lowercase;letter-spacing:.02em;display:block;margin-top:1px}
+  html[data-concept="night"] .disc{background:#1a221a;color:#f3eddd}
+  html[data-concept="night"] .leaflet-tooltip.vtip{background:#1a221a;border-color:rgba(236,230,214,.18);color:#ece6d6}
+  html[data-concept="night"] .leaflet-tooltip-top.vtip::before{border-top-color:#1a221a}
+  html[data-concept="night"] .leaflet-tooltip-bottom.vtip::before{border-bottom-color:#1a221a}
 </style>
-<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PSRD55F');</script><!-- End Google Tag Manager --></head>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Natural Wine Festival A'dam">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Natuurwijn in Nederland — Kaart">
+<meta property="og:description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
+<meta property="og:url" content="https://naturalwinefestival.nl/natuurwijn-kaart/kaart.html">
+<meta property="og:image" content="https://naturalwinefestival.nl/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Natural Wine Festival A'dam — 28 Feb &amp; 1 Mar 2027, De Hallen Amsterdam">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Natuurwijn in Nederland — Kaart">
+<meta name="twitter:description" content="Interactieve kaart van natuurwijn-locaties in Nederland: bars, restaurants en wijnwinkels.">
+<meta name="twitter:image" content="https://naturalwinefestival.nl/og-image.jpg">
+<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PSRD55F');</script><!-- End Google Tag Manager -->
+</head>
 <body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSRD55F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="sitenav">
   <a class="bm" href="../index.html" aria-label="NWFA — home"><img class="bm-logo" src="../logos-/logo-church-tuned.svg" alt=""><span class="bm-txt"><span>natural wine festival</span><span>a'dam</span></span></a>
@@ -183,6 +249,7 @@
   <header>
     <h1>Natuurwijn in <span>Nederland</span></h1>
     <span class="count" id="count">laden…</span>
+    <div class="cswitch" id="cswitch" role="group" aria-label="Kaartstijl" hidden></div>
     <div class="spacer"></div>
     <div class="chips" id="chips"></div>
     <div class="search">
@@ -204,6 +271,7 @@
 <script src="js/leaflet.markercluster.js"></script>
 <script src="data/venues.js"></script>
 <script src="data/beyond.js"></script>
+<script src="data/nl-be.js"></script>
 <script>
 (function(){
   var VENUES = (window.VENUES || []).filter(function(v){return v && typeof v.lat==='number' && typeof v.lng==='number';});
@@ -260,39 +328,89 @@
   VENUES.forEach(function(v){v._b=bucket(v.type); v._kind=BUCKET[v._b].kind;});
   function colorK(v){return (KIND[v._kind]||KIND.drink).color;}
 
+  // ---- Palettes per concept ----
+  var PALETTE={
+    night:{drink:'#e3ab4c',eat:'#d8c58c',buy:'#9fb46a',outline:'#d8a24c',sea:'#0a0d0a'},
+    guide:{drink:'#9a6628',eat:'#1b2a20',buy:'#5c6e3f',land:'#dcd4bf',coast:'rgba(27,42,32,.72)'}
+  };
+  var CITIES=[
+    {n:'amsterdam',lat:52.37,lng:4.90},{n:'rotterdam',lat:51.92,lng:4.48},
+    {n:'den haag',lat:52.08,lng:4.30},{n:'utrecht',lat:52.09,lng:5.12},
+    {n:'eindhoven',lat:51.44,lng:5.47},{n:'groningen',lat:53.22,lng:6.57},
+    {n:'maastricht',lat:50.85,lng:5.69},{n:'antwerpen',lat:51.22,lng:4.40},
+    {n:'gent',lat:51.05,lng:3.72}
+  ];
+  function hexA(hex,a){var h=hex.replace('#','');return 'rgba('+parseInt(h.substr(0,2),16)+','+parseInt(h.substr(2,2),16)+','+parseInt(h.substr(4,2),16)+','+a+')';}
+
+  // ---- Smooth the coastline into flowing curves (thin micro-jaggies, then Chaikin corner-cutting) ----
+  function thinRing(r,eps){var o=[r[0]];for(var i=1;i<r.length;i++){var a=o[o.length-1],b=r[i],dx=b[0]-a[0],dy=b[1]-a[1];if(dx*dx+dy*dy>eps*eps)o.push(b);}return o;}
+  function chaikin(r,it){for(var k=0;k<it;k++){var o=[];for(var i=0;i<r.length-1;i++){var p=r[i],q=r[i+1];
+    o.push([p[0]*0.75+q[0]*0.25,p[1]*0.75+q[1]*0.25]);o.push([p[0]*0.25+q[0]*0.75,p[1]*0.25+q[1]*0.75]);}o.push(o[0]);r=o;}return r;}
+  function fixRing(ring){var r=ring.slice();if(r[0][0]!==r[r.length-1][0]||r[0][1]!==r[r.length-1][1])r.push(r[0]);return chaikin(thinRing(r,0.004),2);}
+  function smoothGeo(gj){return {type:'FeatureCollection',features:gj.features.map(function(f){var g=f.geometry,ng;
+    if(g.type==='Polygon')ng={type:'Polygon',coordinates:g.coordinates.map(fixRing)};
+    else ng={type:'MultiPolygon',coordinates:g.coordinates.map(function(poly){return poly.map(fixRing);})};
+    return {type:'Feature',properties:f.properties,geometry:ng};})};}
+  var NLBE_SMOOTH=smoothGeo(NLBE);
+
   // ---- Map (focused on NL + Belgium) ----
-  var map=L.map('map',{scrollWheelZoom:true,zoomControl:true,minZoom:7,fadeAnimation:false,
+  var map=L.map('map',{scrollWheelZoom:true,zoomControl:true,minZoom:7,maxZoom:16,fadeAnimation:false,
     maxBounds:[[49.35,2.2],[53.85,7.4]],maxBoundsViscosity:.9}).setView([51.7,4.8],7.2);
-  // Keyless light basemap (Esri World Light Gray) — no API key, no account.
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
-    attribution:'Tiles &copy; Esri',maxZoom:16,minZoom:7
-  }).addTo(map);
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}',{
-    maxZoom:16,minZoom:7
-  }).addTo(map);
-
-  // Paper cutout: mask everything outside NL + Belgium (dedicated pane below markers).
+  var EU=L.latLngBounds([49.45,2.45],[53.65,7.25]);
+  map.setMaxBounds(EU.pad(.05));
   map.createPane('mask'); map.getPane('mask').style.zIndex=350; map.getPane('mask').style.pointerEvents='none';
-  fetch('data/nl-be.geojson').then(function(r){return r.json();}).then(function(gj){
-    var holes=[];
-    gj.features.forEach(function(f){
-      var g=f.geometry, polys=g.type==='Polygon'?[g.coordinates]:g.coordinates;
-      polys.forEach(function(poly){ holes.push(poly[0].map(function(c){return [c[1],c[0]];})); });
-    });
-    var world=[[-89,-179],[89,-179],[89,179],[-89,179]];
-    L.polygon([world].concat(holes),{pane:'mask',stroke:false,fillColor:'#e7e1d0',fillOpacity:1,fillRule:'evenodd',interactive:false}).addTo(map);
-    L.geoJSON(gj,{pane:'mask',style:{color:'#9a6628',weight:1.2,opacity:.55,fill:false},interactive:false}).addTo(map);
-    // NL+BE vasteland: de geojson bevat ook de Caribisch-NL eilanden (lng ~-68),
-    // waardoor getBounds() de kaart de Atlantische Oceaan in trekt. Klem op Europa.
-    var eu=L.latLngBounds([49.45,2.45],[53.65,7.25]);
-    map.setMaxBounds(eu.pad(.05)); map.fitBounds(eu,{padding:[14,14]});
-    console.log('MASK ok: holes='+holes.length);
-  }).catch(function(e){console.error('MASK error',e);});
+
+  var CONCEPT='terroir', KIND=null, cluster=null, layerBag=[];
+  function addL(l){layerBag.push(l);l.addTo(map);return l;}
+  function clearLayers(){layerBag.forEach(function(l){map.removeLayer(l);});layerBag=[];}
+
+  function tilesFor(name){
+    if(name!=='night') return;
+    // keyless dark basemap (Esri World Dark Gray), tuned down so the glow reads
+    addL(L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
+      attribution:'Tiles &copy; Esri',maxZoom:16,minZoom:7,opacity:.7}));
+  }
+  function outerRings(f){var g=f.geometry;if(g.type==='Polygon')return [g.coordinates[0]];return g.coordinates.map(function(p){return p[0];});}
+  function shrinkRing(ring,factor){var cx=0,cy=0,n=ring.length;ring.forEach(function(c){cx+=c[0];cy+=c[1];});cx/=n;cy/=n;
+    return ring.map(function(c){return [cx+(c[0]-cx)*factor,cy+(c[1]-cy)*factor];});}
+  function paneSvg(){var p=map.getPane('mask');return p?p.querySelector('svg'):null;}
+  function landPaths(layer){var a=[];layer.eachLayer(function(l){if(l._path)a.push(l._path);});return a;}
+  function injectDefs(){
+    var svg=paneSvg(); if(!svg||document.getElementById('ss-defs')) return;
+    var defs=document.createElementNS('http://www.w3.org/2000/svg','defs'); defs.setAttribute('id','ss-defs');
+    defs.innerHTML=
+      // earthy sediment strata (top sandy -> blue marl -> calcaire -> umber), slight diagonal tilt
+      '<linearGradient id="ss-strata" x1="0" y1="0" x2="0.05" y2="1">'+
+        '<stop offset="0" stop-color="#dcc68e"/><stop offset="0.14" stop-color="#dcc68e"/>'+
+        '<stop offset="0.14" stop-color="#cBA062"/><stop offset="0.3" stop-color="#cBA062"/>'+
+        '<stop offset="0.3" stop-color="#b17b3a"/><stop offset="0.46" stop-color="#b17b3a"/>'+
+        '<stop offset="0.46" stop-color="#8f9ea0"/><stop offset="0.6" stop-color="#8f9ea0"/>'+
+        '<stop offset="0.6" stop-color="#9c6f36"/><stop offset="0.76" stop-color="#9c6f36"/>'+
+        '<stop offset="0.76" stop-color="#e2d9bd"/><stop offset="0.87" stop-color="#e2d9bd"/>'+
+        '<stop offset="0.87" stop-color="#7d5a2e"/><stop offset="1" stop-color="#7d5a2e"/>'+
+      '</linearGradient>'+
+      // fine soil grain
+      '<pattern id="ss-grain" width="7" height="7" patternUnits="userSpaceOnUse">'+
+        '<circle cx="1" cy="1.5" r="0.6" fill="#3a2a16"/><circle cx="4.5" cy="3.2" r="0.6" fill="#3a2a16"/>'+
+        '<circle cx="2.4" cy="5.4" r="0.6" fill="#3a2a16"/><circle cx="6" cy="6" r="0.5" fill="#3a2a16"/>'+
+      '</pattern>';
+    svg.insertBefore(defs,svg.firstChild);
+  }
+
+  function drawOutline(name){
+    // clean, warm land: confident silhouette + fine ink coast + uniform soil grain (no bands)
+    var land=addL(L.geoJSON(NLBE_SMOOTH,{pane:'mask',style:{className:'landshape',color:'rgba(27,42,32,.7)',weight:.9,opacity:.72,fillColor:'#ded0b0',fillOpacity:1,lineJoin:'round',lineCap:'round'},interactive:false}));
+    injectDefs();
+    var grain=addL(L.geoJSON(NLBE_SMOOTH,{pane:'mask',style:{stroke:false,fillColor:'#000',fillOpacity:1,interactive:false}}));
+    landPaths(grain).forEach(function(p){p.setAttribute('fill','url(#ss-grain)');p.setAttribute('fill-opacity','0.15');p.setAttribute('stroke','none');});
+    CITIES.forEach(function(c){addL(L.marker([c.lat,c.lng],{pane:'mask',interactive:false,keyboard:false,
+      icon:L.divIcon({className:'',html:'<span class="city-label">'+c.n+'</span>',iconSize:[0,0]})}));});
+  }
 
 
-  var KIND={drink:{label:'Drinken',color:'#9a6628'}, eat:{label:'Eten',color:'#1b2a20'}, buy:{label:'Kopen',color:'#5c6e3f'}};
-  // Distinctive NWFA cluster: a small grape-bunch of dots, coloured by the drink/buy
-  // mix inside it — never a numbered circle, so it never reads like Raisin.
+  KIND={drink:{label:'Drinken',color:PALETTE.guide.drink},eat:{label:'Eten',color:PALETTE.guide.eat},buy:{label:'Kopen',color:PALETTE.guide.buy}};
+  // Distinctive NWFA cluster: a small grape-bunch of dots (guide), or a glowing orb (night) —
+  // never a plain numbered circle, so it never reads like Raisin.
   function rosetteHtml(k,colors,s){
     var pos=[[0,0]], rings=[[5,.34],[7,.64]];
     for(var r=0;r<rings.length&&pos.length<k;r++){var c=rings[r][0],rad=rings[r][1];
@@ -303,27 +421,53 @@
       h+='<span class="rd" style="left:'+x+'px;top:'+y+'px;width:'+ds+'px;height:'+ds+'px;background:'+col+'"></span>';}
     return h+'</div>';
   }
-  var cluster=L.markerClusterGroup({maxClusterRadius:46,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.3,
-    iconCreateFunction:function(cl){
-      var kids=cl.getAllChildMarkers(), n=kids.length, cnt={drink:0,eat:0,buy:0};
-      kids.forEach(function(m){cnt[m.options.kind]=(cnt[m.options.kind]||0)+1;});
-      var k=n<6?3:n<12?5:n<30?8:n<70?10:12, s=n<6?24:n<12?30:n<30?37:n<70?43:50;
-      var order=['drink','eat','buy'], colors=[];
-      order.forEach(function(kd){var d=Math.round(k*cnt[kd]/n); for(var j=0;j<d;j++)colors.push(KIND[kd].color);});
-      while(colors.length<k)colors.push(KIND[order[0]].color);
-      return L.divIcon({className:'rosette-wrap',html:rosetteHtml(k,colors,s),iconSize:[s,s]});
-    }
-  }).addTo(map);
+  function makeCluster(){
+    return L.markerClusterGroup({maxClusterRadius:46,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.3,
+      iconCreateFunction:function(cl){
+        var kids=cl.getAllChildMarkers(), n=kids.length, cnt={drink:0,eat:0,buy:0};
+        kids.forEach(function(m){cnt[m.options.kind]=(cnt[m.options.kind]||0)+1;});
+        if(CONCEPT==='night'){
+          var so=n<6?26:n<12?34:n<30?46:n<70?58:72, col=PALETTE.night.drink;
+          var html='<div class="orb" style="width:'+so+'px;height:'+so+'px;font-size:'+Math.round(so*.3)+'px;'+
+            'background:radial-gradient(circle at 50% 44%,'+hexA(col,.98)+' 0%,'+hexA(col,.55)+' 40%,'+hexA(col,0)+' 73%);'+
+            'text-shadow:0 0 7px '+hexA(col,.85)+'">'+n+'</div>';
+          return L.divIcon({className:'orb-wrap',html:html,iconSize:[so,so]});
+        }
+        var sg=n<6?26:n<12?32:n<30?42:n<70?54:66;
+        var dom=(cnt.drink>=cnt.eat&&cnt.drink>=cnt.buy)?'drink':(cnt.eat>=cnt.buy?'eat':'buy');
+        var html='<div class="disc" style="width:'+sg+'px;height:'+sg+'px;font-size:'+Math.round(sg*.34)+'px;border-color:'+KIND[dom].color+'">'+n+'</div>';
+        return L.divIcon({className:'disc-wrap',html:html,iconSize:[sg,sg]});
+      }
+    });
+  }
 
   var markers={};
   function iconFor(v){
     var color=colorK(v);
+    if(CONCEPT==='night') return L.divIcon({className:'',
+      html:'<div class="glowdot" style="background:'+color+';box-shadow:0 0 5px 1px '+hexA(color,.9)+',0 0 14px 4px '+hexA(color,.4)+'"></div>',
+      iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-9]});
     if(v.source==='editorial') return L.divIcon({className:'',
-      html:'<div class="marker-ring" style="border-color:'+color+'"></div>',
+      html:'<div class="seal" style="background:#e7e1d0;border:2px solid '+color+'"></div>',
       iconSize:[13,13],iconAnchor:[6,6],popupAnchor:[0,-7]});
     return L.divIcon({className:'',
-      html:'<div class="marker-dot" style="width:12px;height:12px;background:'+color+'"></div>',
-      iconSize:[12,12],iconAnchor:[6,6],popupAnchor:[0,-7]});
+      html:'<div class="seal" style="background:'+color+';border:1.5px solid rgba(231,225,208,.9)"></div>',
+      iconSize:[13,13],iconAnchor:[6,6],popupAnchor:[0,-7]});
+  }
+
+  function buildConcept(name){
+    CONCEPT=name; document.documentElement.setAttribute('data-concept',name);
+    var P=PALETTE[name]||PALETTE.guide;
+    KIND={drink:{label:'Drinken',color:P.drink},eat:{label:'Eten',color:P.eat},buy:{label:'Kopen',color:P.buy}};
+    clearLayers(); tilesFor(name); drawOutline(name);
+    if(!cluster){cluster=makeCluster(); cluster.addTo(map);}
+    var ord=['drink','eat','buy'];
+    document.querySelectorAll('#chips .chip .dot').forEach(function(d,i){if(KIND[ord[i]])d.style.background=KIND[ord[i]].color;});
+    Object.keys(markers).forEach(function(i){markers[i].setIcon(iconFor(VENUES[i]));});
+    if(typeof render==='function') render();
+    cluster.refreshClusters();
+    map.fitBounds(EU,{padding:[14,14]});
+    document.querySelectorAll('#cswitch button').forEach(function(b){b.classList.toggle('on',b.dataset.c===name);});
   }
   function popupHtml(v){
     var c=colorK(v);
@@ -332,10 +476,6 @@
     if(v.address) h+='<div class="ad">'+esc(v.address.replace(/, Netherlands$/,''))+'</div>';
     else if(v.city) h+='<div class="ad">'+esc(v.city)+'</div>';
     if(v.description) h+='<div class="desc">'+esc(v.description)+'</div>';
-    if(v.sommeliers && v.sommeliers.length){
-      h+='<div class="somm"><span class="lbl">Sommelier</span>'+
-        v.sommeliers.map(function(s){return esc(s.name);}).join(', ')+'</div>';
-    }
     var contact=[];
     if(v.website) contact.push('<a href="'+encodeURI(v.website)+'" target="_blank" rel="noopener">Website</a>');
     if(v.instagram) contact.push('<a href="'+encodeURI(v.instagram)+'" target="_blank" rel="noopener">Instagram</a>');
@@ -348,9 +488,12 @@
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
   VENUES.forEach(function(v,i){
-    var m=L.marker([v.lat,v.lng],{icon:iconFor(v),title:v.name,kind:v._kind});
+    var m=L.marker([v.lat,v.lng],{icon:iconFor(v),title:'',kind:v._kind,riseOnHover:true});
     m.bindPopup(popupHtml(v));
-    m.on('click',function(){highlight(i,false);});
+    var tipMeta=[v.city,BUCKET[v._b].label].filter(Boolean).join(' · ');
+    m.bindTooltip('<span class="tn">'+esc(v.name||'Onbekend')+'</span>'+(tipMeta?'<span class="tm">'+esc(tipMeta)+'</span>':''),
+      {direction:'top',offset:[0,-7],className:'vtip',opacity:1});
+    m.on('click',function(){highlight(i);});
     v._m=m; markers[i]=m;
   });
 
@@ -372,36 +515,18 @@
   }
 
   function render(){
-    var shown=0; listEl.innerHTML='';
-    VENUES.forEach(function(v,i){
-      if(visible(v)){
-        if(!cluster.hasLayer(v._m)) cluster.addLayer(v._m);
-        shown++;
-        var btn=document.createElement('button');
-        btn.className='item'; btn.setAttribute('role','listitem'); btn.dataset.i=i;
-        var dotStyle=v.source==='editorial'?'background:var(--cream);border:2px solid '+colorK(v):'background:'+colorK(v);
-        var metaBits=[v.city, BUCKET[v._b].label];
-        btn.innerHTML='<div class="nm"><span class="dot" style="'+dotStyle+'"></span>'+esc(v.name||'Onbekend')+'</div>'+
-          '<div class="meta">'+esc(metaBits.filter(Boolean).join(' · '))+'</div>';
-        btn.addEventListener('click',function(){highlight(i,true);});
-        listEl.appendChild(btn);
-      } else {
-        if(cluster.hasLayer(v._m)) cluster.removeLayer(v._m);
-      }
+    var shown=0;
+    VENUES.forEach(function(v){
+      if(visible(v)){ if(!cluster.hasLayer(v._m)) cluster.addLayer(v._m); shown++; }
+      else { if(cluster.hasLayer(v._m)) cluster.removeLayer(v._m); }
     });
-    if(shown===0) listEl.innerHTML='<div class="empty">Geen locaties gevonden.</div>';
     countEl.textContent=shown+' van '+VENUES.length+' locaties';
   }
-  function typeLabel(b){var t=TYPES.filter(function(x){return x.key===b;})[0];return t?t.label:'';}
 
-  var activeItem=null;
-  function highlight(i,fly){
+  function highlight(i){
     var v=VENUES[i]; if(!v) return;
     if(cluster.hasLayer(v._m)) cluster.zoomToShowLayer(v._m,function(){v._m.openPopup();});
-    else { if(fly) map.flyTo([v.lat,v.lng],Math.max(map.getZoom(),13),{duration:.6}); v._m.openPopup(); }
-    if(activeItem) activeItem.classList.remove('active');
-    var el=listEl.querySelector('.item[data-i="'+i+'"]');
-    if(el){el.classList.add('active');el.scrollIntoView({block:'nearest'});activeItem=el;}
+    else v._m.openPopup();
   }
 
   // ---- Chips: Drinken vs Kopen ----
@@ -419,13 +544,20 @@
   });
   // ---- Search ----
   var si=document.getElementById('search');
-  si.addEventListener('input',function(){query=si.value.trim().toLowerCase();render();});
+  si.addEventListener('input',function(){
+    query=si.value.trim().toLowerCase(); render();
+    if(query){var pts=[];VENUES.forEach(function(v){if(visible(v))pts.push([v.lat,v.lng]);});
+      if(pts.length) map.fitBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:13});}
+    else map.fitBounds(EU,{padding:[14,14]});
+  });
 
-  render();
-  if(VENUES.length){
-    var b=L.latLngBounds(VENUES.map(function(v){return [v.lat,v.lng];}));
-    map.fitBounds(b,{padding:[40,40]});
-  }
+  // ---- Concept switcher ----
+  document.querySelectorAll('#cswitch button').forEach(function(b){
+    b.addEventListener('click',function(){ if(CONCEPT!==b.dataset.c) buildConcept(b.dataset.c); });
+  });
+  buildConcept('terroir');
+  setTimeout(function(){map.invalidateSize();map.fitBounds(EU,{padding:[14,14]});},60);
+  window.addEventListener('load',function(){map.invalidateSize();map.fitBounds(EU,{padding:[14,14]});});
 })();
 </script>
   <link rel="stylesheet" href="../nav-mobile.css">
