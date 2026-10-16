@@ -247,7 +247,7 @@
     <section class="feat">
       <div class="cap"><span class="t">the programme · 28 feb '27</span><span class="n">click a title for details</span></div>
       <div class="cards">
-        <a class="card" href="#">
+        <a class="card" href="#sake" data-ws="sake">
           <div class="ph"><img src="concept-assets/photo-5.jpg" alt="the art of sake" /></div>
           <div class="cb">
             <div class="cn">journey through the art of sake</div><div class="cr">froukje betten · yoigokochi</div>
@@ -256,7 +256,7 @@
             <div class="row"><span class="k">seats</span><span class="val">18</span></div>
           </div>
         </a>
-        <a class="card" href="#">
+        <a class="card" href="#so2" data-ws="so2">
           <div class="ph"><img src="concept-assets/photo-9.jpg" alt="to so2 or not" /></div>
           <div class="cb">
             <div class="cn">to so₂ or not to so₂</div><div class="cr">nils bugge</div>
@@ -265,7 +265,7 @@
             <div class="row"><span class="k">seats</span><span class="val">18</span></div>
           </div>
         </a>
-        <a class="card" href="#">
+        <a class="card" href="#wood-food" data-ws="wood-food">
           <div class="ph"><img src="concept-assets/photo-12.jpg" alt="wood and food" /></div>
           <div class="cb">
             <div class="cn">wood &amp; food</div><div class="cr">nicolai</div>
@@ -274,7 +274,7 @@
             <div class="row"><span class="k">seats</span><span class="val">18</span></div>
           </div>
         </a>
-        <a class="card" href="#">
+        <a class="card" href="#meditation" data-ws="meditation">
           <div class="ph"><img src="concept-assets/photo-10.jpg" alt="in vino veritas meditation" /></div>
           <div class="cb">
             <div class="cn">in vino veritas · meditation wine</div><div class="cr">peter van rhoon</div>
@@ -308,6 +308,63 @@
     </div>
   </footer>
 
+  <!-- workshop detail modal (in-page dialog, not a browser popup) -->
+  <style>
+    .card[data-ws]{cursor:pointer;}
+    .ws-dialog{position:fixed;inset:0;margin:auto;border:1.6px solid var(--ink);background:var(--paper);color:var(--ink);max-width:520px;width:calc(100% - 32px);height:fit-content;max-height:calc(100vh - 48px);overflow:auto;padding:32px 32px 34px;}
+    .ws-dialog::backdrop{background:rgba(16,22,16,.55);}
+    .ws-dialog .ws-close{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;line-height:1;color:var(--ink);cursor:pointer;padding:4px 8px;}
+    .ws-dialog .ws-cr{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ochre);}
+    .ws-dialog .ws-title{font-weight:600;text-transform:lowercase;font-size:28px;letter-spacing:-.015em;line-height:1.06;margin:8px 0 16px;}
+    .ws-dialog .ws-desc{font-size:14.5px;line-height:1.6;color:var(--ink-2);}
+    .ws-dialog .ws-meta{display:flex;gap:30px;margin:20px 0;border-top:1.4px solid var(--ink);border-bottom:1px solid var(--rule);padding:13px 0;}
+    .ws-dialog .ws-meta>div{display:flex;flex-direction:column;gap:5px;}
+    .ws-dialog .ws-k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+    .ws-dialog .ws-v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--ink);}
+    .ws-dialog .ws-book{font-size:12.5px;line-height:1.55;color:var(--ink-3);}
+    .ws-dialog .ws-cta{display:inline-block;margin-top:18px;background:var(--amber);color:var(--ink);text-decoration:none;font-weight:700;text-transform:lowercase;font-size:13px;padding:10px 18px;border:1.4px solid var(--ink);}
+    @media (prefers-reduced-motion:no-preference){.ws-dialog[open]{animation:wsIn .18s ease;}}
+    @keyframes wsIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  </style>
+  <dialog id="ws-dialog" class="ws-dialog" aria-labelledby="ws-title">
+    <button class="ws-close" data-ws-close aria-label="close">&times;</button>
+    <div class="ws-cr" id="ws-maker"></div>
+    <h2 class="ws-title" id="ws-title"></h2>
+    <p class="ws-desc" id="ws-desc"></p>
+    <div class="ws-meta">
+      <div><span class="ws-k">time</span><span class="ws-v" id="ws-time"></span></div>
+      <div><span class="ws-k">duration</span><span class="ws-v" id="ws-dur"></span></div>
+      <div><span class="ws-k">seats</span><span class="ws-v" id="ws-seats"></span></div>
+    </div>
+    <p class="ws-book">booked after you buy your festival ticket, one per pass. changing possible until 28 february, 11.00.</p>
+    <a class="ws-cta" href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener nofollow">buy a ticket &rarr;</a>
+  </dialog>
+  <script>
+  (function(){
+    var data={
+      "sake":{maker:"froukje betten · yoigokochi",title:"journey through the art of sake",desc:"pure junmaishu sakes, unpasteurized and unfiltered, with nothing added. froukje betten of yoigokochi pours a selection and walks you through where each one comes from, how it was made, and what to notice as it opens in the glass. you taste across styles, from clean and mineral to wild and savoury, and you start to hear why rice, water and koji behave a little like terroir once you pay attention. froukje has spent years bringing these bottles to the netherlands, and she tells the story of the small, family breweries behind them, people who work the way natural winemakers do, with patience and as little intervention as possible. for a lot of visitors this is the session that quietly changes how they think about sake. come curious. no experience needed, just an open palate and a bit of time.",time:"TBD",dur:"60 min",seats:"18"},
+      "so2":{maker:"nils bugge",title:"to so₂ or not to so₂",desc:"the sulphur question, answered by someone who lives it. nils bugge takes you past the slogans and into what so₂ actually does in a wine: where a small addition protects a bottle on its way to you, and where it flattens the very thing that made the wine worth drinking. you taste side by side, with and without, at different levels, and you learn to feel the difference rather than argue about it. every natural winemaker faces this choice, and the trade-offs hide inside words like zero, low and total. by the end you can read a label more clearly, and you have a better sense of what you actually like in the glass, which is the only number that really matters. bring questions, the harder the better.",time:"TBD",dur:"60 min",seats:"18"},
+      "wood-food":{maker:"nicolai",title:"wood & food",desc:"how wood shapes a wine, and what to put on the table beside it. from the vessel a wine is raised in to the oak it rests against, wood leaves a mark on texture, tannin and aroma, sometimes loud, sometimes almost invisible. nicolai pours examples where you can taste the difference the vessel makes, from amphora and concrete to old and new barrels, and shows how that structure changes which foods sit well next to the glass. you move between wine and a few simple bites, learning why one pairing lifts a wine and another buries it. it stays hands on and easy to follow, as much about trusting your own mouth as about theory. you leave with a handful of pairings you can use at home, and a sharper eye for what a wine was raised in before you have taken a sip.",time:"TBD",dur:"75 min",seats:"18"},
+      "meditation":{maker:"peter van rhoon",title:"in vino veritas · meditation wine",desc:"the quiet one. a slow, guided tasting with your attention on the glass and nothing else. peter van rhoon pours a single wine and gives you the time most tastings never do: to look, to smell, to wait, and to notice what changes as the wine opens and as you settle. there is a little breathing, a little silence, and no pressure to say anything clever. in a festival full of noise and hundreds of bottles, this is a deliberate pause, a chance to taste one wine properly rather than fifty in a hurry. you do not need to meditate, and you do not need to know wine. you only need to be willing to slow down for half an hour. people tend to come out calmer than they went in, and they taste everything afterwards a little more clearly.",time:"TBD",dur:"60 min",seats:"18"}
+    };
+    var dlg=document.getElementById("ws-dialog");
+    if(!dlg||typeof dlg.showModal!=="function")return; // old browser / no JS: cards stay inert, nothing breaks
+    function set(id,v){document.getElementById(id).textContent=v;}
+    function open(k){var d=data[k];if(!d)return;
+      set("ws-maker",d.maker);set("ws-title",d.title);set("ws-desc",d.desc);set("ws-time",d.time);set("ws-dur",d.dur);set("ws-seats",d.seats);
+      if(!dlg.open)dlg.showModal();
+      if(location.hash!=="#"+k)history.replaceState(null,"","#"+k);}
+    function clearHash(){if(location.hash)history.replaceState(null,"",location.pathname+location.search);}
+    document.querySelectorAll(".card[data-ws]").forEach(function(c){
+      c.addEventListener("click",function(e){e.preventDefault();open(c.getAttribute("data-ws"));});
+    });
+    dlg.querySelector("[data-ws-close]").addEventListener("click",function(){dlg.close();});
+    dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close();}); // backdrop click closes
+    dlg.addEventListener("close",clearHash);
+    window.addEventListener("hashchange",function(){var k=location.hash.replace(/^#/,"");if(data[k])open(k);else if(dlg.open)dlg.close();});
+    var k0=location.hash.replace(/^#/,"");if(data[k0])open(k0); // deep-link on load
+  })();
+  </script>
   <link rel="stylesheet" href="nav-mobile.css">
   <script src="nav-mobile.js" defer></script>
 <!-- SuperStories review tool: remove before final production deploy -->
