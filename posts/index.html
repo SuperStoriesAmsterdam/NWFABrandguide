@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NWFA · Social Content Board</title>
+<style>
+  @font-face{font-family:'Figtree';src:url('assets/fonts/Figtree.woff2') format('woff2');font-weight:300 800;font-display:swap;}
+  @font-face{font-family:'Vicky';src:url('assets/fonts/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap;}
+  :root{--bg:#ECE6D6;--card:#F3EEE1;--ink:#1B3326;--ink-2:rgba(27,51,38,.82);--ink-3:rgba(27,51,38,.56);--rule:rgba(27,51,38,.18);--ochre:#9F6E29;--amber:#eeba3f;--green:#1c9055;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;}
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.045;mix-blend-mode:multiply;background-image:radial-gradient(circle at 25% 15%,#1B3326 .5px,transparent .6px),radial-gradient(circle at 75% 65%,#1B3326 .5px,transparent .6px);background-size:7px 7px,9px 9px;}
+  .page{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(16px,4vw,48px) 96px;}
+
+  /* header */
+  header{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,48px);align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--ink);padding-bottom:clamp(20px,3vw,34px);}
+  .lockup{display:flex;align-items:center;gap:14px;}
+  .lockup img{width:clamp(48px,6vw,64px);height:clamp(48px,6vw,64px);object-fit:contain;display:block;}
+  .lockup .wm .t{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:clamp(10px,1.1vw,13px);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);line-height:1.3;}
+  .lockup .wm .sub{font-family:'Vicky';font-size:clamp(20px,2.4vw,30px);color:var(--ink);text-transform:lowercase;line-height:1;margin-top:3px;}
+  .title{text-align:right;}
+  .title h1{font-weight:800;text-transform:lowercase;letter-spacing:-.02em;font-size:clamp(26px,4vw,46px);line-height:1;}
+  .title p{font-size:clamp(12px,1.3vw,16px);color:var(--ink-3);margin-top:8px;text-transform:lowercase;}
+
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:clamp(18px,2.5vw,28px) 0 clamp(22px,3vw,36px);font-size:13px;color:var(--ink-3);text-transform:lowercase;}
+  .legend .chip{font-size:11px;}
+  .legend b{color:var(--ink-2);font-weight:700;}
+
+  .chip{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;}
+  .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;}
+  .chip.built{color:#0f6b3c;background:rgba(28,144,85,.16);}
+  .chip.draft{color:#8a6410;background:rgba(238,186,63,.26);}
+  .chip.idea{color:var(--ink-3);background:rgba(27,51,38,.08);}
+
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:clamp(14px,1.8vw,22px);}
+  .card{position:relative;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;padding:clamp(18px,2vw,26px);display:flex;flex-direction:column;min-height:200px;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ink-3);}
+  .card.s-built::before{background:var(--green);}
+  .card.s-draft::before{background:var(--amber);}
+  .card.s-idea::before{background:var(--ochre);opacity:.5;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(27,51,38,.12);}
+  .card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .card .num{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:15px;color:var(--ink-3);letter-spacing:.06em;}
+  .card h3{font-weight:800;text-transform:lowercase;letter-spacing:-.015em;font-size:clamp(18px,1.9vw,23px);line-height:1.12;overflow-wrap:anywhere;}
+  .card .hook{margin-top:10px;font-size:14.5px;color:var(--ink-2);flex:1;}
+  .card .hook .mk{color:var(--ink);background:var(--amber);padding:.02em .22em;border-radius:.3em;font-weight:600;}
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border:1.2px solid var(--rule);border-radius:999px;padding:4px 9px;}
+  .card .note{margin-top:10px;font-size:12px;color:var(--ochre);font-weight:600;text-transform:lowercase;}
+
+  /* annotations section */
+  .anno{margin-top:clamp(36px,5vw,64px);border:1.5px dashed var(--ink);border-radius:14px;padding:clamp(20px,3vw,32px);background:rgba(238,186,63,.08);}
+  .anno h2{font-weight:800;text-transform:lowercase;font-size:clamp(18px,2vw,24px);letter-spacing:-.01em;}
+  .anno p{font-size:14.5px;color:var(--ink-2);margin-top:10px;max-width:62ch;}
+  .anno .how{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font-size:13px;color:var(--ink-3);}
+  .anno .how b{color:var(--ink-2);}
+
+  footer{margin-top:40px;border-top:1px solid var(--rule);padding-top:18px;font-size:12px;color:var(--ink-3);text-transform:lowercase;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;}
+</style>
+<script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa"};</script>
+<script src="js/annotate.js" defer></script>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="page">
+
+    <header>
+      <div class="lockup">
+        <img src="assets/logo-church-2tone.svg" alt="NWFA">
+        <div class="wm"><div class="t">natural wine<br>festival a'dam</div><div class="sub">united by wine</div></div>
+      </div>
+      <div class="title">
+        <h1>social content board</h1>
+        <p>road to edition #5 · 28 feb – 1 mar '27 · de hallen, amsterdam</p>
+      </div>
+    </header>
+
+    <div class="legend">
+      <span><b>status:</b></span>
+      <span class="chip built">built</span>
+      <span class="chip draft">draft</span>
+      <span class="chip idea">idea</span>
+      <span>&nbsp;</span>
+      <span><b>format:</b> reel · graphic / reel · video / photo / carousel</span>
+    </div>
+
+    <div class="grid">
+
+      <article class="card s-draft">
+        <div class="top"><span class="num">01</span><span class="chip draft">draft</span></div>
+        <h3>why book early · free workshops</h3>
+        <p class="hook">knowledge is more interesting than hype → that's why we like sharing it → learn from the originals → a workshop <span class="mk">free</span> with every ticket, the seats run out.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">education</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">02</span><span class="chip idea">idea</span></div>
+        <h3>what makes it natural</h3>
+        <p class="hook">farming declared · <span class="mk">&lt; 20 mg/l</span> · nothing added. the line most "natural" wine never crosses.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">transparency</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">03</span><span class="chip idea">idea</span></div>
+        <h3>agriculture done right</h3>
+        <p class="hook">natural wine is made in the vineyard first. what "done right" means on the land, before a single grape is picked.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">education</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">04</span><span class="chip idea">idea</span></div>
+        <h3>learn from the originals · meet a grower</h3>
+        <p class="hook">a grower in their own words, from vine to glass.</p>
+        <div class="tags"><span class="tag">reel · video</span><span class="tag">line-up</span></div>
+        <div class="note">wacht op line-up confirm</div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">05</span><span class="chip idea">idea</span></div>
+        <h3>funk or fault</h3>
+        <p class="hook">where "funky" ends and "off" begins: the line we actually draw. niche authority, no snobbery.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">taste · authority</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">06</span><span class="chip idea">idea</span></div>
+        <h3>your ticket is your claim</h3>
+        <p class="hook">a booked ticket is your claim to a workshop. three spaces, a lot of workshops, and a moment the seats run out.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">tickets</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">07</span><span class="chip idea">idea</span></div>
+        <h3>the grower's dinner</h3>
+        <p class="hook">sat 27 feb · the table before the festival. an evening with the people who made the wine.</p>
+        <div class="tags"><span class="tag">reel · video</span><span class="tag">dinner</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">08</span><span class="chip idea">idea</span></div>
+        <h3>save the date</h3>
+        <p class="hook">edition #5 · <span class="mk">28 feb – 1 mar '27</span> · de hallen, amsterdam. 40+ growers.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">countdown</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">09</span><span class="chip idea">idea</span></div>
+        <h3>who we are</h3>
+        <p class="hook">education over hype, since the first edition. the festival's stance in one post.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">brand</span></div>
+      </article>
+
+      <article class="card s-idea">
+        <div class="top"><span class="num">10</span><span class="chip idea">idea</span></div>
+        <h3>aan de proeftafel · knowledge series</h3>
+        <p class="hook">a recurring slot: one real thing about natural wine, done straight. the series engine behind the single posts.</p>
+        <div class="tags"><span class="tag">reel · graphic</span><span class="tag">education series</span></div>
+      </article>
+
+    </div>
+
+    <section class="anno">
+      <h2>annotations</h2>
+      <p>Leave feedback anywhere on this board with the annotation tool (button bottom-right). Pin a note on a card to react to that post, reorder, add your own, or kill one. Notes reach the server, bucketed per project.</p>
+      <div class="how">
+        <span><b>per post:</b> pin a note on its card</span>
+        <span><b>general:</b> pin anywhere</span>
+        <span><b>roles:</b> client feedback · developer notes</span>
+      </div>
+    </section>
+
+    <footer>
+      <span>nwfa · social content board · road to #5</span>
+      <span>review tool only · remove annotate before production</span>
+    </footer>
+
+  </div>
+</body>
+</html>
