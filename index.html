@@ -78,7 +78,10 @@
   .specstrip .cell .k{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
   .specstrip .cell .v{font-weight:700;font-size:17px;letter-spacing:-.01em;margin-top:7px;}
   .specstrip .stampcell{display:flex;align-items:center;justify-content:center;padding:14px 24px;}
-  .stamp{border:1.5px solid var(--accent);color:var(--accent);padding:11px 16px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px;line-height:1.35;text-align:center;border-radius:3px;transform:rotate(-5deg);}
+  .stamp{border:2.5px solid #c0392b;color:#c0392b;padding:15px 21px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:14px;line-height:1.3;text-align:center;border-radius:3px;transform:rotate(-5deg);}
+  .tprice{font-weight:700;font-size:14px;text-transform:lowercase;letter-spacing:.01em;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px;}
+  .tixlead{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(22px,2.4vw,30px);line-height:1.12;color:var(--ink);margin-top:14px;}
+  .tbc{margin-top:18px;padding:40px 26px;border:1.5px dashed var(--rule);border-radius:4px;text-align:center;font-weight:600;text-transform:lowercase;color:var(--ink-2);font-size:16px;}
 
   /* full-width photo band */
   .band{position:relative;overflow:hidden;margin-top:104px;}
@@ -128,20 +131,20 @@
   /* The Natural — its own ink module */
   .natural{margin:90px var(--gutter);background:var(--ink);color:var(--bg);border-radius:4px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);}
   .natural .lft{padding:38px 40px;}
-  .natural .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#cf6a1a;}
+  .natural .k{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1c9055;}
   .natural h2{margin-top:12px;font-family:'Fraunces',Georgia,serif;font-weight:600;text-transform:lowercase;letter-spacing:-.01em;line-height:1.02;font-size:clamp(26px,2.9vw,40px);}
-  .natural h2 em{font-style:italic;color:#cf6a1a;}
+  .natural h2 em{font-style:italic;color:#1c9055;}
   .natural .sub{margin-top:18px;font-size:15px;line-height:1.6;color:rgba(236,230,214,.82);max-width:42ch;}
-  .natural .go{margin-top:26px;background:#cf6a1a;color:#efe8d7;}
-  .natural .go:hover{background:#b25a13;}
+  .natural .go{margin-top:26px;background:#1c9055;color:#efe8d7;}
+  .natural .go:hover{background:#167a47;}
   .natural .rgt{padding:38px 40px;border-left:1px solid rgba(236,230,214,.18);display:flex;flex-direction:column;justify-content:center;gap:16px;}
   .ask{display:block;border:1px solid rgba(236,230,214,.32);border-radius:10px;padding:15px 16px;transition:.14s;}
-  .ask:hover{border-color:#cf6a1a;background:rgba(207,106,26,.08);}
+  .ask:hover{border-color:#1c9055;background:rgba(28,144,85,.08);}
   .ask .q{font-size:15px;line-height:1.4;}
-  .ask .q b{color:#cf6a1a;font-weight:600;}
+  .ask .q b{color:#1c9055;font-weight:600;}
   .ask .a{margin-top:9px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:rgba(236,230,214,.62);text-transform:lowercase;}
   .ask .a .safe{color:rgba(236,230,214,.9);}
-  .ask .a .wild{color:#cf6a1a;}
+  .ask .a .wild{color:#1c9055;}
   .natural .foot{grid-column:1/-1;border-top:1px solid rgba(236,230,214,.18);padding:16px 44px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(236,230,214,.55);}
 
   /* loud take-your-place band */
@@ -316,7 +319,7 @@
         <div class="lsub">a two-day festival of living wine · de hallen, amsterdam</div>
         <div class="cta-row">
           <a href="https://eventix.shop/swsdaj8d" target="_blank" rel="noopener nofollow" class="btn btn--amber">buy tickets →</a>
-          <a href="#" class="btn btn--ghost">28 feb &amp; 1 mar '27</a>
+          <span class="tprice"><span class="mark">€24,95</span> · incl. one free workshop</span>
         </div>
       </div>
       <div class="hphoto"><img src="concept-assets/photo-3.jpg" alt="two visitors sharing a bottle at the festival"></div>
@@ -325,16 +328,17 @@
       <div class="cell"><div class="k">contents</div><div class="v"><span class="mark">40+</span> growers</div></div>
       <div class="cell"><div class="k">poured</div><div class="v"><span class="mark">300+</span> wines</div></div>
       <div class="cell"><div class="k">lessons</div><div class="v"><span class="mark">15+</span> workshops</div></div>
-      <div class="cell"><div class="k">doors</div><div class="v">sun · 13:00–22:00</div></div>
+      <div class="cell"><div class="k">tasting</div><div class="v">sun · 13:00–18:15</div></div>
       <div class="stampcell"><div class="stamp">5th edition</div></div>
     </div>
   </div>
 
   <!-- highlights -->
   <div class="wrap hlwrap">
-    <div class="hllab">why come</div>
+    <div class="hllab">what's included in your ticket</div>
+    <div class="tixlead">one ticket, <span class="mark">€24,95</span> · entry plus one free workshop.</div>
     <div class="hlrow">
-      <div class="hl"><div class="hn">a free workshop, included</div><div class="hd">go beyond the hype and smarten up. your ticket includes access to one free workshop.</div></div>
+      <div class="hl"><div class="hn">one free workshop, included</div><div class="hd">go beyond the hype and smarten up. your ticket includes access to one free workshop.</div></div>
       <div class="hl"><div class="hn">meet the makers</div><div class="hd"><span class="mark">40+</span> growers, in from across europe.</div></div>
       <div class="hl"><div class="hn">buy direct</div><div class="hd">on the sunday the floor becomes the largest natural wine store in the netherlands. straight from the maker.</div></div>
       <div class="hl"><div class="hn">more than a tasting</div><div class="hd">an all-day wine bar, a food market &amp; oyster bar, the winemakers dinner, and the specials.</div></div>
@@ -345,36 +349,14 @@
   <!-- full-width photo band -->
   <div class="band">
     <img src="concept-assets/photo-9.jpg" alt="visitors tasting at a winemaker's table">
-    <div class="cap"><div class="t">300+ living wines, poured by the people who made them.</div></div>
+    <div class="cap"><div class="t">300+ living wines, presented by the people who made them.</div></div>
   </div>
 
   <!-- the makers -->
   <div class="wrap sec">
     <div class="seclabel">the makers · full disclosure</div>
     <div class="sectitle">40+ growers. nothing to hide.</div>
-    <div class="cards">
-      <a class="card" href="winemakers.html"><img src="concept-assets/photo-7.jpg" alt="oller del mas">
-        <div class="cb"><div class="cn">oller del mas</div><div class="cr">catalonia, es</div>
-          <div class="row"><span class="k">farming</span><span class="val">biodynamic</span></div>
-          <div class="row"><span class="k">added yeast</span><span class="val">none</span></div>
-          <div class="row"><span class="k">sulphur</span><span class="val mark">&lt; 20 mg/l</span></div>
-        </div>
-      </a>
-      <a class="card" href="winemakers.html"><img src="concept-assets/photo-11.jpg" alt="le coste">
-        <div class="cb"><div class="cn">le coste</div><div class="cr">lazio, it</div>
-          <div class="row"><span class="k">farming</span><span class="val">organic, wild</span></div>
-          <div class="row"><span class="k">added yeast</span><span class="val">none</span></div>
-          <div class="row"><span class="k">sulphur</span><span class="val mark">none</span></div>
-        </div>
-      </a>
-      <a class="card" href="winemakers.html"><img src="concept-assets/photo-6.jpg" alt="gut oggau">
-        <div class="cb"><div class="cn">gut oggau</div><div class="cr">burgenland, at</div>
-          <div class="row"><span class="k">farming</span><span class="val">biodynamic</span></div>
-          <div class="row"><span class="k">added yeast</span><span class="val">none</span></div>
-          <div class="row"><span class="k">sulphur</span><span class="val mark">&lt; 10 mg/l</span></div>
-        </div>
-      </a>
-    </div>
+    <div class="tbc">the growers for edition #5 are being confirmed. the full register lands closer to the date.</div>
     <div class="cta-row"><a href="winemakers.html" class="btn btn--ghost">read the full register →</a></div>
   </div>
 
@@ -386,9 +368,7 @@
         <div class="seclabel">the lessons · go beyond the hype</div>
         <div class="sectitle">learn it from the source.</div>
         <div class="wl">
-          <div class="row"><div class="t">montsant masterclass</div><div class="d">schist, garnacha &amp; altitude, a region in a glass.</div><div class="tm"><span class="mark">14:00</span></div></div>
-          <div class="row"><div class="t">talha wine</div><div class="d">amphora winemaking, 2000 years in the making.</div><div class="tm"><span class="mark">15:00</span></div></div>
-          <div class="row"><div class="t">to SO₂ or not</div><div class="d">the sulphur question, answered by people who live it.</div><div class="tm"><span class="mark">17:00</span></div></div>
+          <div class="row"><div class="t">to SO₂ or not</div><div class="d">the sulphur question, answered by people who live it.</div><div class="tm"><span class="mark">TBD</span></div></div>
         </div>
         <div class="cta-row"><a href="workshops.html" class="btn btn--ghost">see the full programme →</a></div>
       </div>
