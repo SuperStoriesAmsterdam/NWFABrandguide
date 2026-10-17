@@ -111,7 +111,16 @@
   .zoom .fit{font-size:11px;font-weight:700;}
   .hint{position:fixed;left:20px;bottom:18px;z-index:40;font-size:11.5px;color:var(--ink-3);max-width:52ch;line-height:1.45;}
 
-  @media print{.bar,.zoom,.hint,.tools,.pop,.annot{display:none!important;}body{overflow:visible;background:#fff;}#stage{position:static;}}
+  .syncbar{position:fixed;top:64px;left:0;right:0;z-index:45;display:none;justify-content:center;padding:0 16px;}
+  .syncbar.show{display:flex;}
+  .syncbar .inner{background:#fbf4df;border:1.5px solid var(--accent);border-radius:12px;box-shadow:0 16px 40px -22px rgba(27,51,38,.6);
+       padding:11px 14px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;color:var(--ink);max-width:620px;flex-wrap:wrap;}
+  .syncbar .inner b{font-weight:800;}
+  .syncbar button{border:1.3px solid var(--ink);background:transparent;border-radius:100px;padding:6px 13px;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .syncbar button.pri{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .syncbar button:hover{background:rgba(27,51,38,.08);} .syncbar button.pri:hover{background:#875d22;}
+
+  @media print{.bar,.zoom,.hint,.tools,.pop,.annot,.syncbar{display:none!important;}body{overflow:visible;background:#fff;}#stage{position:static;}}
 
   .lock{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;}
   .lock[hidden]{display:none;}
@@ -165,6 +174,7 @@
       <button class="btn" id="fileBtn">bestand ▾</button>
       <div class="menu-pop">
         <button id="arrangeBtn">⤓ schik automatisch (lijst)</button>
+        <button id="whoBtn">🙂 jouw naam (voor sync)</button>
         <div class="sep"></div>
         <button id="exportBtn">↓ back-up (json)</button>
         <button id="importBtn">↑ laad back-up</button>
@@ -175,6 +185,8 @@
     </div>
     <input type="file" id="fileInput" accept="application/json" hidden>
   </div>
+
+  <div class="syncbar" id="syncbar"><div class="inner" id="syncinner"></div></div>
 
   <div id="stage"><div id="world"><svg class="links" id="links"></svg></div></div>
 
@@ -232,10 +244,49 @@
       stage=document.getElementById('stage'), saveChip=document.getElementById('saveChip');
   var openPop=null, touched=false;
 
-  function save(){
-    try{ localStorage.setItem(KEY,JSON.stringify(state)); saveChip.className='savechip'; saveChip.innerHTML='<span class="dot"></span>opgeslagen'; }
-    catch(e){ saveChip.className='savechip warn'; saveChip.innerHTML='<span class="dot"></span>niet auto-bewaard — maak een back-up'; }
+  // --- server sync: shared persistence via the annotations-api document store ---
+  var API='https://annotations.superstories.com', PROJECT='nwfa', DOCKEY='organisatie';
+  var serverVersion=0, dirty=false, booting=true, saveTimer=null, pendingServer=null, who='';
+  try{ who=localStorage.getItem('nwfa-org-who')||''; }catch(e){}
+  var syncbar=document.getElementById('syncbar'), syncinner=document.getElementById('syncinner');
+
+  function saveLocal(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); return true; }catch(e){ return false; } }
+  function chip(kind){
+    if(kind==='saving'){ saveChip.className='savechip'; saveChip.innerHTML='<span class="dot" style="background:#c08a1e"></span>opslaan…'; }
+    else if(kind==='saved'){ saveChip.className='savechip'; saveChip.innerHTML='<span class="dot"></span>opgeslagen'; }
+    else if(kind==='offline'){ saveChip.className='savechip warn'; saveChip.innerHTML='<span class="dot"></span>offline — lokaal bewaard'; }
+    else if(kind==='conflict'){ saveChip.className='savechip warn'; saveChip.innerHTML='<span class="dot"></span>versieconflict'; }
+    else { saveChip.className='savechip warn'; saveChip.innerHTML='<span class="dot"></span>niet bewaard — maak een back-up'; }
   }
+  function save(){ var ok=saveLocal(); if(booting){ if(!ok) chip('local'); return; } dirty=true; chip('saving'); scheduleServerSave(); }
+  function scheduleServerSave(){ clearTimeout(saveTimer); saveTimer=setTimeout(function(){serverSave(false);},700); }
+  function serverSave(force){
+    var payload={project:PROJECT,key:DOCKEY,data:state,base_version:serverVersion,by:who}; if(force) payload.force=true;
+    fetch(API+'/doc',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(r.status===409){ return r.json().then(function(c){ pendingServer=c; onConflict(c); throw 'conflict'; }); } if(!r.ok) throw 'http'; return r.json(); })
+      .then(function(res){ serverVersion=res.version; dirty=false; pendingServer=null; hideBar(); chip('saved'); })
+      .catch(function(e){ if(e!=='conflict') chip('offline'); });
+  }
+  function serverLoad(initial){
+    fetch(API+'/doc?project='+PROJECT+'&key='+encodeURIComponent(DOCKEY))
+      .then(function(r){ if(!r.ok) throw 'http'; return r.json(); })
+      .then(function(res){
+        if(res.version>0 && res.data){
+          if(initial || !dirty){ if(res.version!==serverVersion){ state=migrate(res.data)||res.data; serverVersion=res.version; saveLocal(); render(); if(initial) fit(false); } chip('saved'); }
+          else { pendingServer=res; onConflict(res); }
+        } else { serverVersion=0; serverSave(false); }
+      })
+      .catch(function(){ chip('offline'); })
+      .then(function(){ booting=false; });
+  }
+  function onConflict(c){
+    chip('conflict');
+    showBar('Nieuwere versie op de server'+(c.updated_by?' (door '+esc(c.updated_by)+')':'')+'.',
+      [{t:'server laden',pri:true,f:function(){ state=migrate(c.data)||c.data; serverVersion=c.version; dirty=false; pendingServer=null; saveLocal(); render(); hideBar(); chip('saved'); }},
+       {t:'mijn versie houden',f:function(){ serverVersion=c.version; hideBar(); serverSave(true); }}]);
+  }
+  function showBar(msg,btns){ syncinner.innerHTML='<span>'+msg+'</span>'; btns.forEach(function(b){ var el=document.createElement('button'); if(b.pri) el.className='pri'; el.textContent=b.t; el.onclick=b.f; syncinner.appendChild(el); }); syncbar.classList.add('show'); }
+  function hideBar(){ syncbar.classList.remove('show'); }
 
   var realPeople=function(){return state.people.filter(function(p){return !p.open;});};
   var pIndex=function(id){for(var i=0;i<state.people.length;i++)if(state.people[i].id===id)return i;return 99;};
@@ -482,8 +533,12 @@
   document.getElementById('fileBtn').onclick=function(e){ e.stopPropagation(); fm.classList.toggle('open'); };
   document.addEventListener('click',function(e){ if(!fm.contains(e.target)) fm.classList.remove('open'); });
 
+  document.getElementById('whoBtn').onclick=function(){ var n=(prompt('Je naam (verschijnt bij "laatst bewerkt door"):',who)||'').trim(); who=n; try{ localStorage.setItem('nwfa-org-who',who); }catch(e){} };
+
   window.addEventListener('resize',function(){ if(!touched) fit(false); });
+  window.addEventListener('focus',function(){ if(!booting) serverLoad(false); });
   render(); requestAnimationFrame(function(){ fit(false); }); setTimeout(function(){ if(!touched) fit(false); },250);
+  serverLoad(true);
 })();
 </script>
 
