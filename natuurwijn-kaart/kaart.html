@@ -84,6 +84,10 @@
   .pop .desc{margin-top:8px;font-size:.82rem;color:var(--ink);line-height:1.45}
   .pop .somm{margin-top:8px;font-size:.82rem;color:var(--ink)}
   .pop .somm .lbl{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:1px}
+  /* rijkere pins: verhaal + tip */
+  .pop .verhaal{margin-top:9px;font-size:.82rem;color:var(--ink);line-height:1.45}
+  .pop .verhaal .lbl,.pop .tip .lbl{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:2px}
+  .pop .tip{margin-top:9px;font-size:.82rem;color:var(--ink);line-height:1.45;background:rgba(238,186,63,.16);border-left:2px solid var(--amber);padding:7px 9px;border-radius:0 6px 6px 0}
   .pop .contact{margin-top:10px;font-size:.8rem;font-weight:600;line-height:1.6}
   .pop .contact a{color:var(--amber);text-decoration:none}
   .pop .contact a:hover{text-decoration:underline}
@@ -475,7 +479,9 @@
       '<span class="ty" style="background:'+c+'">'+esc(v.type||'Locatie')+'</span>';
     if(v.address) h+='<div class="ad">'+esc(v.address.replace(/, Netherlands$/,''))+'</div>';
     else if(v.city) h+='<div class="ad">'+esc(v.city)+'</div>';
-    if(v.description) h+='<div class="desc">'+esc(v.description)+'</div>';
+    var story=v.story||v.description;
+    if(story) h+='<div class="verhaal"><span class="lbl">het verhaal</span>'+esc(story)+'</div>';
+    if(v.pick) h+='<div class="tip"><span class="lbl">de tip</span>'+esc(v.pick)+'</div>';
     var contact=[];
     if(v.website) contact.push('<a href="'+encodeURI(v.website)+'" target="_blank" rel="noopener">Website</a>');
     if(v.instagram) contact.push('<a href="'+encodeURI(v.instagram)+'" target="_blank" rel="noopener">Instagram</a>');
