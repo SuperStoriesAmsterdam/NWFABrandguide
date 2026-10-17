@@ -1,3 +1,10 @@
 voorbeeldencs/
 .DS_Store
 concept-assets/_originals/
+
+# vermelding (owner page) secrets - never commit, never deploy
+scripts/vermelding/.tokens.secret.json
+scripts/vermelding/.links.local.csv
+scripts/vermelding/intake-server/.env
+scripts/vermelding/node_modules/
+scripts/vermelding/intake-server/node_modules/

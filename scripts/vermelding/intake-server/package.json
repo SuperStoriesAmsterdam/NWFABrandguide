@@ -1,0 +1,11 @@
+{
+  "name": "vermelding-intake",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NWFA natuurwijn-kaart owner-form intake endpoint (validates token, writes pending row to Airtable).",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

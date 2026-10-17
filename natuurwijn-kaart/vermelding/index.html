@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jouw vermelding · natuurwijn-kaart</title>
+<meta name="description" content="Kijk je eigen vermelding op de natuurwijn-kaart na en vul aan waar je selectie om draait.">
+<meta name="robots" content="noindex,nofollow">
+<style>
+@font-face{font-family:'Figtree';src:url('../../concept-assets/Figtree.woff2') format('woff2');font-weight:300 900;font-display:swap}
+@font-face{font-family:'Vicky';src:url('../../concept-assets/Vicky-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+
+:root{
+  --cream:#ECE6D6; --paper:#e7e1d0; --ink:#1B3326; --ink-2:rgba(27,51,38,.84); --ink-3:rgba(27,51,38,.60); --ink-4:rgba(27,51,38,.40);
+  --rule:rgba(27,51,38,.20); --hair:rgba(27,51,38,.12);
+  --amber:#eeba3f; --ochre:#9F6E29; --green:#1c9055; --olive:#5c6e3f;
+  --drink:#9a6628; --eat:#1B3326; --buy:#5c6e3f;
+  /* NWFA gebruikt GEEN schreef/serif (geen Fraunces): koppen in Figtree, accent in Vicky. */
+  --serif:'Figtree',system-ui,sans-serif; --sans:'Figtree',system-ui,sans-serif; --mono:ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::selection{background:var(--amber);color:var(--ink)}
+.payoff{font-family:'Vicky';color:var(--green);text-transform:lowercase;line-height:.9}
+
+/* standalone mobile-first column */
+.doc{max-width:460px;margin:0 auto;padding:26px 20px 40px;min-height:100vh}
+
+.brandrow{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre)}
+.brandrow .logo{width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:12px;font-weight:600}
+
+h1{font-family:var(--serif);font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:30px;line-height:1.02;margin:16px 0 0}
+.who{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:7px;letter-spacing:.02em}
+.intro{font-size:14px;color:var(--ink-2);margin-top:14px}
+
+.sec{margin-top:24px}
+.sec .lbl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre)}
+.sec .hint{font-size:12px;color:var(--ink-3);margin-top:3px;line-height:1.4}
+.field{margin-top:10px}
+.field .fl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:4px}
+input,textarea,select{width:100%;font-family:var(--sans);font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:9px;padding:10px 12px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--ochre);box-shadow:0 0 0 3px rgba(159,110,41,.16)}
+textarea{resize:vertical;line-height:1.5}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.langtag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--ink-3);border:1px solid var(--rule);border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+
+/* preview card (what visitors see) */
+.preview{margin-top:14px;background:#fff;border:1px solid var(--rule);border-radius:12px;padding:15px 16px;box-shadow:0 14px 34px -22px rgba(27,51,38,.5)}
+.preview .pv{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-4);margin-bottom:9px}
+.preview .nm{font-family:var(--serif);font-weight:600;font-size:19px;text-transform:lowercase;letter-spacing:-.01em;line-height:1}
+.preview .ty{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#fff;background:var(--drink);border-radius:4px;padding:2px 7px;margin-top:8px}
+.preview .ad{font-size:12px;color:var(--ink-3);margin-top:8px}
+.preview .vlbl{font-family:var(--mono);display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--ochre);margin:11px 0 2px}
+.preview .vtx{font-size:13px;color:var(--ink-2);line-height:1.5;white-space:pre-wrap}
+.preview .tipempty{font-size:12.5px;color:var(--ink-4);font-style:italic;background:rgba(238,186,63,.12);border-left:2px solid rgba(238,186,63,.5);border-radius:0 6px 6px 0;padding:7px 9px;margin-top:4px}
+
+/* owner fields = amber hero */
+.tipbox{margin-top:10px;background:rgba(238,186,63,.16);border:1px solid rgba(159,110,41,.3);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:13px 14px}
+.tipbox .lbl{color:var(--ochre)}
+.tipq{font-family:var(--serif);font-weight:600;font-size:16px;color:var(--ink);text-transform:lowercase;letter-spacing:-.01em;margin-top:6px;line-height:1.25}
+.tipbox textarea{background:#fff;border-color:rgba(159,110,41,.3)}
+
+.privacy{display:flex;gap:9px;margin-top:22px;font-size:11.5px;color:var(--ink-3);background:rgba(27,51,38,.04);border-radius:8px;padding:10px 12px}
+.privacy b{color:var(--ink-2);font-weight:600}
+.submit{margin-top:20px}
+.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;font-weight:600;font-size:15px;padding:14px;border:0;border-radius:999px;cursor:pointer;font-family:var(--sans)}
+.btn[disabled]{opacity:.55;cursor:default}
+.aftersub{font-size:11.5px;color:var(--ink-3);text-align:center;margin-top:10px}
+.err{font-size:12px;color:#8a2b1f;text-align:center;margin-top:10px;min-height:1em}
+.foot{margin-top:26px;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink-4);text-transform:lowercase}
+
+/* honeypot - hidden from humans, catches bots */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* gate (loading / invalid link) + success states */
+.gate{max-width:460px;margin:0 auto;padding:60px 24px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.gate .logo{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;font-weight:600;margin:0 auto 18px}
+.gate h2{font-family:var(--serif);font-weight:600;text-transform:lowercase;letter-spacing:-.02em;font-size:24px}
+.gate p{font-size:14px;color:var(--ink-2);margin-top:12px}
+.gate a{color:var(--ochre)}
+.success .mark{width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 18px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- loading / invalid-link gate -->
+<div class="gate" id="gate">
+  <div class="logo">N</div>
+  <h2 id="gateTitle">even laden…</h2>
+  <p id="gateBody">we halen je vermelding erbij.</p>
+</div>
+
+<!-- the owner form -->
+<main class="doc" id="doc" hidden>
+  <div class="brandrow"><span class="logo">N</span><span>natuurwijn-kaart · jouw vermelding</span></div>
+
+  <h1>jouw plek op de<br><span class="payoff" style="font-size:40px">kaart</span></h1>
+  <div class="who" id="who"></div>
+  <p class="intro">dit is hoe jouw zaak nu op de natuurwijn-kaart staat. kijk het na, vul aan waar je selectie om draait, en wij zetten het bij. je hebt hier geen account voor nodig, deze link is van jou.</p>
+
+  <!-- live preview -->
+  <div class="preview">
+    <div class="pv">zo zien bezoekers je nu</div>
+    <div class="nm" id="pvName"></div>
+    <span class="ty" id="pvType"></span>
+    <div class="ad" id="pvAddr"></div>
+    <span class="vlbl">het verhaal</span>
+    <div class="vtx" id="pvStory"></div>
+    <span class="vlbl">jullie selectie</span>
+    <div id="pvPick"></div>
+    <span class="vlbl">waarom hierheen</span>
+    <div id="pvWhy"></div>
+  </div>
+
+  <form id="form" novalidate>
+    <!-- de basis -->
+    <div class="sec">
+      <span class="lbl">de basis</span>
+      <div class="hint">klopt dit? pas aan wat niet meer klopt.</div>
+      <div class="field"><label class="fl" for="f-name">naam</label><input id="f-name" name="name"></div>
+      <div class="field"><label class="fl" for="f-type">soort zaak</label>
+        <select id="f-type" name="type">
+          <option value="Bar">wijnbar</option>
+          <option value="Restaurant">restaurant</option>
+          <option value="Restaurant and a Bar">restaurant en bar</option>
+          <option value="Wine shop">wijnwinkel</option>
+          <option value="Winemaker">maker / wijngaard</option>
+        </select>
+      </div>
+      <div class="field"><label class="fl" for="f-address">adres</label><input id="f-address" name="address"></div>
+      <div class="two">
+        <div class="field"><label class="fl" for="f-website">website</label><input id="f-website" name="website" placeholder="—"></div>
+        <div class="field"><label class="fl" for="f-instagram">instagram</label><input id="f-instagram" name="instagram" placeholder="—"></div>
+      </div>
+    </div>
+
+    <!-- het verhaal -->
+    <div class="sec">
+      <span class="lbl">het verhaal <span class="langtag">NL</span></span>
+      <div class="hint">dit schreven wij uit openbare bronnen. klopt het, of wil je het anders zeggen?</div>
+      <div class="field"><textarea id="f-story_nl" name="story_nl" rows="3"></textarea></div>
+    </div>
+    <div class="sec">
+      <span class="lbl">het verhaal <span class="langtag">EN</span></span>
+      <div class="hint">laat leeg en wij vertalen je nederlandse tekst.</div>
+      <div class="field"><textarea id="f-story_en" name="story_en" rows="2" placeholder="natural-wine bar in the jordaan…"></textarea></div>
+    </div>
+
+    <!-- jullie selectie = owner-veld -->
+    <div class="sec">
+      <span class="lbl" style="color:var(--ochre)">jullie selectie <span class="langtag">dit weet alleen jij</span></span>
+      <div class="tipq">waar draait je selectie vooral om?</div>
+      <div class="hint">feiten, geen reclame: regio's, stijlen, makers, en wat je kunt doen (per glas, eten erbij, flessen mee).</div>
+      <div class="tipbox"><textarea id="f-pick" name="pick" rows="3" placeholder="bijv. vooral kleine oostenrijkse en sloveense makers, veel orange, en alles ook per glas."></textarea></div>
+    </div>
+
+    <!-- waarom hierheen = owner-veld, ook feitelijk -->
+    <div class="sec">
+      <span class="lbl" style="color:var(--ochre)">waarom hierheen <span class="langtag">dit weet alleen jij</span></span>
+      <div class="tipq">wat maakt jullie onderscheidend, wat is de reden dat gasten terugkomen?</div>
+      <div class="hint">feitelijk, geen reclame. beschrijf ook iets van het interieur, zodat de lezer een beeld van jullie plek krijgt.</div>
+      <div class="tipbox"><textarea id="f-pick_why" name="pick_why" rows="3" placeholder="bijv. een smalle bar met een zinken toog en open keuken; vaste gasten komen voor de wekelijks wisselende orange en de platen die er draaien."></textarea></div>
+    </div>
+
+    <!-- hours (optional, simple) -->
+    <div class="sec">
+      <span class="lbl">openingstijden <span class="langtag">optioneel</span></span>
+      <div class="field"><input id="f-hours" name="hours" placeholder="bijv. wo t/m zo, 16:00 – 00:00"></div>
+    </div>
+
+    <!-- honeypot: must stay empty -->
+    <div class="hp" aria-hidden="true"><label>laat dit veld leeg<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+
+    <div class="privacy"><span>🔒</span><span><b>geen wachtwoorden, sleutels of betaalgegevens</b> invullen. dit is alleen je publieke vermelding.</span></div>
+
+    <div class="submit"><button class="btn" type="submit" id="submitBtn">stuur mijn aanpassingen</button>
+      <div class="aftersub">we kijken het na en zetten het binnen een paar dagen op de kaart.</div>
+      <div class="err" id="formErr"></div>
+    </div>
+  </form>
+
+  <div class="foot">natural wine festival a'dam · united by wine</div>
+</main>
+
+<!-- success -->
+<div class="gate success" id="done" hidden>
+  <div class="mark">✓</div>
+  <h2>dank je, we hebben het binnen</h2>
+  <p>we kijken je aanpassingen na en zetten ze binnen een paar dagen op de kaart. je kunt dit tabblad sluiten.</p>
+</div>
+
+<script src="registry.js"></script>
+<script src="config.js"></script>
+<script>
+(function(){
+  'use strict';
+  var FIELDS=['name','type','address','website','instagram','story_nl','story_en','pick','pick_why','hours'];
+  var reg=window.VENUE_REGISTRY||{};
+  var cfg=window.VERMELDING_CONFIG||{};
+  var loadedAt=Date.now();
+
+  function qs(n){return new URLSearchParams(location.search).get(n);}
+  function $(id){return document.getElementById(id);}
+  function esc(s){return String(s==null?'':s);}
+
+  function showGate(title,body){
+    $('gateTitle').textContent=title;
+    $('gateBody').innerHTML=body;
+    $('gate').hidden=false; $('doc').hidden=true;
+  }
+
+  async function sha256hex(str){
+    var buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+  }
+
+  // Preselect the NL <select> option that best fits a stored English type.
+  function fitType(raw){
+    var t=String(raw||'').toLowerCase();
+    var hasShop=t.indexOf('wine shop')>-1, hasBar=t.indexOf('bar')>-1,
+        hasRest=t.indexOf('restaurant')>-1, hasMaker=t.indexOf('winemaker')>-1||t.indexOf('maker')>-1;
+    if(hasMaker) return 'Winemaker';
+    if(hasRest&&hasBar) return 'Restaurant and a Bar';
+    if(hasRest) return 'Restaurant';
+    if(hasBar) return 'Bar';
+    if(hasShop) return 'Wine shop';
+    return '';
+  }
+
+  // Short NL label for the preview type chip, from the current <select> value.
+  function typeLabelNL(val){
+    var m={'Bar':'wijnbar','Restaurant':'restaurant','Restaurant and a Bar':'restaurant en bar','Wine shop':'wijnwinkel','Winemaker':'maker / wijngaard'};
+    return m[val]||'locatie';
+  }
+
+  function setPreviewText(el,val){
+    if(val&&String(val).trim()){ el.className='vtx'; el.textContent=val; }
+    else { el.className='tipempty'; el.textContent="nog leeg · vul jij 'm hieronder in"; }
+  }
+
+  function refreshPreview(){
+    $('pvName').textContent=($('f-name').value||'').toLowerCase()||'jouw zaak';
+    $('pvType').textContent=typeLabelNL($('f-type').value);
+    var addr=$('f-address').value||'';
+    $('pvAddr').textContent=addr.replace(/, Netherlands$/,'');
+    setPreviewText($('pvStory'),$('f-story_nl').value);
+    setPreviewText($('pvPick'),$('f-pick').value);
+    setPreviewText($('pvWhy'),$('f-pick_why').value);
+  }
+
+  function buildForm(slug,entry){
+    var d=entry.d||{};
+    $('who').textContent=[d.name,d.address].filter(Boolean).join(' · ').toLowerCase();
+    FIELDS.forEach(function(f){
+      var el=$('f-'+f); if(!el) return;
+      if(f==='type'){ el.value=fitType(d.type)||el.value; }
+      else { el.value=d[f]!=null?d[f]:''; }
+    });
+    // preview: show the ORIGINAL stored values, lowercased like the live map
+    $('pvName').textContent=(d.name||'').toLowerCase();
+    $('pvType').textContent=typeLabelNL(fitType(d.type));
+    $('pvAddr').textContent=(d.address||d.city||'').replace(/, Netherlands$/,'');
+    setPreviewText($('pvStory'),d.story_nl);
+    setPreviewText($('pvPick'),d.pick);
+    setPreviewText($('pvWhy'),d.pick_why);
+
+    $('form').addEventListener('input',refreshPreview);
+    $('form').addEventListener('submit',function(e){ e.preventDefault(); submit(slug); });
+
+    $('gate').hidden=true; $('doc').hidden=false;
+    document.title=(d.name?d.name+' · ':'')+'jouw vermelding';
+  }
+
+  async function submit(slug){
+    var btn=$('submitBtn'), err=$('formErr');
+    err.textContent='';
+    // bot checks: honeypot filled, or submitted implausibly fast
+    if(document.querySelector('input[name=company]').value){ showDone(); return; }
+    if(Date.now()-loadedAt<2000){ err.textContent='even geduld, probeer het nog een keer.'; return; }
+
+    var payload={slug:slug,token:qs('t')||'',loadedMs:Date.now()-loadedAt,company:document.querySelector('input[name=company]').value};
+    FIELDS.forEach(function(f){ var el=$('f-'+f); if(el) payload[f]=el.value.trim(); });
+
+    if(!cfg.ENDPOINT){
+      console.log('[vermelding] DEMO mode, no ENDPOINT set. Payload:',payload);
+      showDone(); return;
+    }
+    btn.disabled=true; btn.textContent='versturen…';
+    try{
+      var res=await fetch(cfg.ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if(!res.ok) throw new Error('status '+res.status);
+      showDone();
+    }catch(ex){
+      btn.disabled=false; btn.textContent='stuur mijn aanpassingen';
+      err.textContent='versturen lukte niet. controleer je verbinding en probeer het nog een keer.';
+    }
+  }
+
+  function showDone(){ $('gate').hidden=true; $('doc').hidden=true; $('done').hidden=false; window.scrollTo(0,0); }
+
+  // boot
+  (async function(){
+    var slug=qs('v'), token=qs('t');
+    if(!slug||!token){ showGate('deze link is niet compleet','vraag de natuurwijn-kaart om een nieuwe link, of mail <a href="mailto:hallo@naturalwinefestival.nl">hallo@naturalwinefestival.nl</a>.'); return; }
+    var entry=reg[slug];
+    if(!entry){ showGate('vermelding niet gevonden','deze link hoort niet bij een zaak op de kaart. mail ons gerust: <a href="mailto:hallo@naturalwinefestival.nl">hallo@naturalwinefestival.nl</a>.'); return; }
+    var ok=false;
+    try{ ok=(await sha256hex(token))===entry.h; }catch(ex){ ok=false; }
+    if(!ok){ showGate('deze link klopt niet','mogelijk is de link afgekapt in de e-mail. gebruik de volledige link, of mail <a href="mailto:hallo@naturalwinefestival.nl">hallo@naturalwinefestival.nl</a>.'); return; }
+    buildForm(slug,entry);
+  })();
+})();
+</script>
+</body>
+</html>
