@@ -55,6 +55,13 @@
   .chip[aria-pressed="false"]{color:var(--ink-3);border-color:var(--rule)}
   .chip:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 
+  /* Language switcher (NL | EN) */
+  .langsw{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden;height:30px}
+  .langsw button{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    cursor:pointer;border:none;background:transparent;color:var(--ink-3);padding:0 11px;transition:all .15s ease}
+  .langsw button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+  .langsw button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
   /* Body: list + map */
   .body{display:grid;grid-template-columns:340px 1fr;min-height:0}
   @media(max-width:760px){.body{grid-template-columns:1fr;grid-template-rows:40% 60%}}
@@ -251,7 +258,7 @@
 </nav>
 <div class="app">
   <header>
-    <h1>Natuurwijn in <span>Nederland</span></h1>
+    <h1 id="title">Natuurwijn in <span>Nederland</span></h1>
     <span class="count" id="count">laden…</span>
     <div class="cswitch" id="cswitch" role="group" aria-label="Kaartstijl" hidden></div>
     <div class="spacer"></div>
@@ -259,6 +266,10 @@
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input id="search" type="search" placeholder="Zoek op naam of stad" aria-label="Zoek locatie">
+    </div>
+    <div class="langsw" id="langsw" role="group" aria-label="Taal / Language">
+      <button type="button" data-lang="nl" aria-pressed="true">NL</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
   </header>
   <div class="body">
@@ -473,21 +484,76 @@
     map.fitBounds(EU,{padding:[14,14]});
     document.querySelectorAll('#cswitch button').forEach(function(b){b.classList.toggle('on',b.dataset.c===name);});
   }
+  // ---- Bilingual UI (NL default for the Dutch market / SEO, EN switchable) ----
+  var I18N={
+    nl:{
+      title:'Natuurwijn in <span>Nederland</span>', loading:'laden…',
+      count:function(s,t){return s+' van '+t+' locaties';},
+      searchPh:'Zoek op naam of stad', searchAria:'Zoek locatie',
+      chips:{drink:'Drinken',eat:'Eten',buy:'Kopen'},
+      buckets:{restaurant:'restaurant',bar:'wijnbar',shop:'winkel',other:'overig'},
+      story:'het verhaal', tip:'de tip',
+      website:'Website',instagram:'Instagram',facebook:'Facebook',email:'E-mail',
+      unknown:'onbekend', place:'locatie'
+    },
+    en:{
+      title:'Natural wine in <span>the Netherlands</span>', loading:'loading…',
+      count:function(s,t){return s+' of '+t+' places';},
+      searchPh:'Search by name or city', searchAria:'Search places',
+      chips:{drink:'Drink',eat:'Eat',buy:'Buy'},
+      buckets:{restaurant:'restaurant',bar:'wine bar',shop:'shop',other:'other'},
+      story:'the story', tip:'the tip',
+      website:'Website',instagram:'Instagram',facebook:'Facebook',email:'Email',
+      unknown:'unknown', place:'place'
+    }
+  };
+  var LANG='nl';
+  try{var _sv=localStorage.getItem('nwfa_kaart_lang'); if(_sv==='en'||_sv==='nl') LANG=_sv;}catch(e){}
+  function T(){return I18N[LANG]||I18N.nl;}
+
+  // Our own display label for the raw (Raisin / inferred) type. The raw string
+  // stays on v.type for the bucket logic; we never render it. Compositional so
+  // any compound ("Restaurant and a Bar and a Wine shop") maps cleanly in both languages.
+  var TYPE_TOKENS={
+    'restaurant':{nl:'restaurant',en:'restaurant'},
+    'bistro':{nl:'bistro',en:'bistro'},
+    'bar':{nl:'bar',en:'bar'},
+    'coffee bar':{nl:'koffiebar',en:'coffee bar'},
+    'wine shop':{nl:'wijnwinkel',en:'wine shop'},
+    'wijnwinkel':{nl:'wijnwinkel',en:'wine shop'},
+    'cave':{nl:'wijnwinkel',en:'wine shop'},
+    'accommodation':{nl:'verblijf',en:'stay'}
+  };
+  function typeLabel(raw,lang){
+    var t=(raw||'').toLowerCase().trim();
+    if(!t) return (I18N[lang]||I18N.nl).place;
+    t=t.replace(/\s+and an?\s+/g,'|').replace(/\s*\/\s*/g,'|').replace(/\s+and\s+/g,'|');
+    var parts=t.split('|').map(function(s){return s.trim();}).filter(Boolean);
+    var seen={}, out=[];
+    parts.forEach(function(p){
+      var m=TYPE_TOKENS[p], val=m?m[lang]:p;
+      if(val&&!seen[val]){seen[val]=1;out.push(val);}
+    });
+    if(!out.length) return (I18N[lang]||I18N.nl).place;
+    return out.join(lang==='en'?' & ':' en ');
+  }
+  function bucketLabel(b){return T().buckets[b]||T().buckets.other;}
+
   function popupHtml(v){
     var c=colorK(v);
-    var h='<div class="pop"><div class="nm">'+esc(v.name||'Onbekend')+'</div>'+
-      '<span class="ty" style="background:'+c+'">'+esc(v.type||'Locatie')+'</span>';
+    var h='<div class="pop"><div class="nm">'+esc(v.name||T().unknown)+'</div>'+
+      '<span class="ty" style="background:'+c+'">'+esc(typeLabel(v.type,LANG))+'</span>';
     if(v.address) h+='<div class="ad">'+esc(v.address.replace(/, Netherlands$/,''))+'</div>';
     else if(v.city) h+='<div class="ad">'+esc(v.city)+'</div>';
-    var story=v.story||v.description;
-    if(story) h+='<div class="verhaal"><span class="lbl">het verhaal</span>'+esc(story)+'</div>';
-    if(v.pick) h+='<div class="tip"><span class="lbl">de tip</span>'+esc(v.pick)+'</div>';
+    var story=v['story_'+LANG];   // only the current language; never the raw description
+    if(story) h+='<div class="verhaal"><span class="lbl">'+esc(T().story)+'</span>'+esc(story)+'</div>';
+    if(v.pick) h+='<div class="tip"><span class="lbl">'+esc(T().tip)+'</span>'+esc(v.pick)+'</div>';
     var contact=[];
-    if(v.website) contact.push('<a href="'+encodeURI(v.website)+'" target="_blank" rel="noopener">Website</a>');
-    if(v.instagram) contact.push('<a href="'+encodeURI(v.instagram)+'" target="_blank" rel="noopener">Instagram</a>');
-    if(v.facebook) contact.push('<a href="'+encodeURI(v.facebook)+'" target="_blank" rel="noopener">Facebook</a>');
+    if(v.website) contact.push('<a href="'+encodeURI(v.website)+'" target="_blank" rel="noopener">'+esc(T().website)+'</a>');
+    if(v.instagram) contact.push('<a href="'+encodeURI(v.instagram)+'" target="_blank" rel="noopener">'+esc(T().instagram)+'</a>');
+    if(v.facebook) contact.push('<a href="'+encodeURI(v.facebook)+'" target="_blank" rel="noopener">'+esc(T().facebook)+'</a>');
     if(v.phone) contact.push('<a href="tel:'+esc(v.phone.replace(/\s+/g,''))+'">'+esc(v.phone)+'</a>');
-    if(v.email) contact.push('<a href="mailto:'+esc(v.email)+'">E-mail</a>');
+    if(v.email) contact.push('<a href="mailto:'+esc(v.email)+'">'+esc(T().email)+'</a>');
     if(contact.length) h+='<div class="contact">'+contact.join('<span class="sep">·</span>')+'</div>';
     h+='</div>';return h;
   }
@@ -496,8 +562,8 @@
   VENUES.forEach(function(v,i){
     var m=L.marker([v.lat,v.lng],{icon:iconFor(v),title:'',kind:v._kind,riseOnHover:true});
     m.bindPopup(popupHtml(v));
-    var tipMeta=[v.city,BUCKET[v._b].label].filter(Boolean).join(' · ');
-    m.bindTooltip('<span class="tn">'+esc(v.name||'Onbekend')+'</span>'+(tipMeta?'<span class="tm">'+esc(tipMeta)+'</span>':''),
+    var tipMeta=[v.city,bucketLabel(v._b)].filter(Boolean).join(' · ');
+    m.bindTooltip('<span class="tn">'+esc(v.name||T().unknown)+'</span>'+(tipMeta?'<span class="tm">'+esc(tipMeta)+'</span>':''),
       {direction:'top',offset:[0,-7],className:'vtip',opacity:1});
     m.on('click',function(){highlight(i);});
     v._m=m; markers[i]=m;
@@ -526,7 +592,7 @@
       if(visible(v)){ if(!cluster.hasLayer(v._m)) cluster.addLayer(v._m); shown++; }
       else { if(cluster.hasLayer(v._m)) cluster.removeLayer(v._m); }
     });
-    countEl.textContent=shown+' van '+VENUES.length+' locaties';
+    countEl.textContent=T().count(shown,VENUES.length);
   }
 
   function highlight(i){
@@ -535,18 +601,20 @@
     else v._m.openPopup();
   }
 
-  // ---- Chips: Drinken vs Kopen ----
+  // ---- Chips: Drinken / Eten / Kopen ----
   var chipsEl=document.getElementById('chips');
-  [{key:'drink',label:'Drinken',color:KIND.drink.color},{key:'eat',label:'Eten',color:KIND.eat.color},{key:'buy',label:'Kopen',color:KIND.buy.color}].forEach(function(t){
+  var chipRefs=[];
+  [{key:'drink'},{key:'eat'},{key:'buy'}].forEach(function(t){
     var c=document.createElement('button');
     c.className='chip'; c.setAttribute('aria-pressed','true');
-    c.innerHTML='<span class="dot" style="background:'+t.color+'"></span>'+t.label;
+    c.innerHTML='<span class="dot" style="background:'+KIND[t.key].color+'"></span><span class="chip-l">'+T().chips[t.key]+'</span>';
     c.addEventListener('click',function(){
       active[t.key]=!active[t.key];
       c.setAttribute('aria-pressed',active[t.key]?'true':'false');
       render();
     });
     chipsEl.appendChild(c);
+    chipRefs.push({key:t.key,el:c});
   });
   // ---- Search ----
   var si=document.getElementById('search');
@@ -556,6 +624,32 @@
       if(pts.length) map.fitBounds(L.latLngBounds(pts),{padding:[70,70],maxZoom:13});}
     else map.fitBounds(EU,{padding:[14,14]});
   });
+
+  // ---- Language switcher (NL | EN) ----
+  function applyStaticLang(){
+    document.documentElement.setAttribute('lang',LANG);
+    var titleEl=document.getElementById('title'); if(titleEl) titleEl.innerHTML=T().title;
+    si.placeholder=T().searchPh; si.setAttribute('aria-label',T().searchAria);
+    chipRefs.forEach(function(r){var l=r.el.querySelector('.chip-l'); if(l) l.textContent=T().chips[r.key];});
+    document.querySelectorAll('#langsw button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===LANG?'true':'false');});
+  }
+  function rebindMarkers(){
+    VENUES.forEach(function(v,i){
+      var m=markers[i]; if(!m) return;
+      m.setPopupContent(popupHtml(v));
+      var tipMeta=[v.city,bucketLabel(v._b)].filter(Boolean).join(' · ');
+      m.setTooltipContent('<span class="tn">'+esc(v.name||T().unknown)+'</span>'+(tipMeta?'<span class="tm">'+esc(tipMeta)+'</span>':''));
+    });
+  }
+  function setLang(l){
+    if(l!=='nl'&&l!=='en') return;
+    LANG=l; try{localStorage.setItem('nwfa_kaart_lang',l);}catch(e){}
+    applyStaticLang(); render(); rebindMarkers();
+  }
+  document.querySelectorAll('#langsw button').forEach(function(b){
+    b.addEventListener('click',function(){ if(LANG!==b.dataset.lang) setLang(b.dataset.lang); });
+  });
+  applyStaticLang();
 
   // ---- Concept switcher ----
   document.querySelectorAll('#cswitch button').forEach(function(b){
