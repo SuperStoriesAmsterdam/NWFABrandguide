@@ -15,6 +15,8 @@
 
 The Natural Wine Festival Amsterdam is a recurring festival celebrating natural wine culture — winemakers, food, workshops, tastings, and community. The brand identity is bold, illustrative, and unapologetically festive. It looks like a festival poster, not a corporate event.
 
+This edition (2027) adds a digital layer on top of that: the **ministeck** mark system, the festival's icons rebuilt as pixel-bead art for the app and socials. The poster language below stays as it is; ministeck is what the brand looks like on a screen. See 05.
+
 ---
 
 ## 02 Color System
@@ -25,8 +27,10 @@ Three colors. No gradients. No transparency. Every element uses one of these thr
 |--------------|-----------|----------------|--------------------------------------------------------|
 | `--navy`     | #233260   | Festival Navy  | Text, logo elements, dark backgrounds, illustration    |
 | `--gold`     | #DBBB00   | Festival Gold  | Primary background, highlight, icon fills, accent text |
-| `--green`    | #21B501   | Festival Green | Logo leaf, illustration accents, CTA buttons, badges   |
+| `--green`    | #1c9055   | Festival Green | Logo leaf, illustration accents, CTA buttons, badges   |
 | `--white`    | #FFFFFF   | White          | Text on navy backgrounds, image borders                |
+
+*Green was #21B501 in earlier editions; this edition it is #1c9055 (softer, and the green the app already uses). The leaf, CTAs and accents all use #1c9055 now. Older print assets may still carry the brighter #21B501.*
 
 ### Color modes
 
@@ -49,7 +53,7 @@ The brand operates in two distinct color modes:
 - On gold backgrounds: text is always navy. Never green text on gold.
 - On navy backgrounds: text is always gold or white. Never green text on navy.
 - Green text only appears inside green-filled shapes (e.g. the "UNITED BY WINE" banner, "BOOK NOW" button).
-- No shadows, no gradients, no opacity. Flat color only.
+- No shadows, no gradients, no opacity. Flat color only. (Screen exception: the ministeck glow, 05.)
 
 ---
 
@@ -161,6 +165,8 @@ Always accompanied by "GREEN is GOLDEN" above in Inter (green text, with "is" sm
 
 The brand uses a set of custom hand-drawn illustrations in a consistent style: bold outlines in navy, filled areas in green and gold. They feel hand-printed, almost like linocuts — rough edges, no perfect curves.
 
+This is one of two illustration systems this edition: the linocut icons here are the print language, the ministeck marks (end of this section) are the screen language. Use the one that matches the surface.
+
 ### Icon set
 
 All icons follow the same construction: navy circle border (with navy stroke), content illustrated in the three brand colors.
@@ -187,6 +193,34 @@ All icons follow the same construction: navy circle border (with navy stroke), c
 - Below each icon: a label in uppercase Inter
 - Illustrations are never shown at less than 48px diameter
 - New illustrations must match the existing hand-drawn style — no clean vector, no gradients, no 3D
+
+### Ministeck marks (screen layer, 2027)
+
+The second illustration system, for screens only. The festival's icons rebuilt as **ministeck** (kraaltjes): pixel beads on a visible grid, the way a bead board looks up close. It is also the identity of the **Good Juice** app (by NWFA). It runs alongside the linocut icons, it does not replace them.
+
+Where each applies:
+- **Ministeck:** the Good Juice app, social posts and stories, screens, avatars, app icons.
+- **Linocut:** posters, flyers, print, large-format illustration.
+
+Construction:
+- A **square** tile on the gold field, navy keyline border (2px). Square is deliberate: the linocut icons are circles, so the two systems never get confused.
+- The subject is drawn in navy beads on the gold field. Behind it sits a soft gold-to-green glow with a few scattered sparkle beads.
+- Three colors only: navy, gold, green #1c9055. The glow reads as a gradient. That is the one allowed break from the flat-color rule, and only here, on screen.
+- Export at 256 colors or more so the glow stays clean. Fewer colors band the gold-to-green into a muddy brown.
+
+The three marks in use:
+
+| Mark           | Subject                    | Surface                        |
+|----------------|----------------------------|--------------------------------|
+| grapes + leaf  | druiven, the umbrella mark | intro / keuzescherm (home)     |
+| de kop         | grape-brain head           | de somm (wine pairing)         |
+| kerkraam       | church rosette, De Hallen  | tasting notes (boekje)         |
+
+The kop and the kerkraam are the ministeck cousins of the linocut Brain/mind and church icons. New ministeck marks follow the same construction: square, navy keyline, bead grid, gold field, green glow, three colors.
+
+Master files:
+- `static/img/mark-{grapes,somm,church}-beaded.png` (nwfa-sommelier repo)
+- `goodjuice-marks.zip`: all three at 1024 / 512 / 256 / 128 / 64px
 
 ---
 
@@ -276,7 +310,7 @@ venue-interior-01.jpg
 This is a recurring brand element — a horizontal banner/ribbon shape containing the tagline.
 
 - Shape: a wide rectangle with angled/pointed ends (like a ribbon or pennant)
-- Fill: green (#21B501)
+- Fill: green (#1c9055)
 - Text: "UNITED BY WINE" in white, uppercase Inter Bold
 - Placement: always between the festival name and the date
 - Never use this banner for any other text
@@ -391,9 +425,9 @@ references/social-/            — Social media template examples (5 files)
 - Never use Vicky Black in uppercase for headlines (exception: fixed phrases like "GREEN is GOLDEN")
 - Never place text directly on a photo without a solid color bar
 - Never use additional colors outside the three-color system
-- Never use gradients, shadows, or transparency
+- Never use gradients, shadows, or transparency in print. The one exception is the ministeck glow on screen (05)
 - Never use rounded corners on rectangular elements
-- Never use a different illustration style alongside the existing icons
+- Never introduce a third illustration style. The two sanctioned systems are the linocut icons (print) and the ministeck marks (screen)
 - Never use stock photography — only real event/winemaker photos
 - Never write headlines in title case
 
