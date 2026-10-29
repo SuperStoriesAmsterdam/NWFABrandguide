@@ -190,6 +190,8 @@ The same marks serve as square app icons for Good Juice (by NWFA).
 
 Each mark exists at 1024, 512, 256, 128 and 64px, as PNG. The files are in `logos-/goodjuice-marks/`, with `goodjuice-marks.zip` holding all six at all sizes. The six marks, with a download for each, sit at the top of `social/social-system.html`.
 
+The source PNGs are 1024px at 72 dpi, too low for print. For poster and large-format use the grape cluster is rebuilt from its bead grid as a print master: `goodjuice-grapes-umbrella.svg` (vector, infinite resolution) and `goodjuice-grapes-umbrella-6000.png` (6000 × 6000). The guide page offers both as downloads on the grape. The same reconstruction works on the other five marks when print versions are needed.
+
 ### In the hero post
 
 The hero post shows the grape as a circle (clip 46.5%) on a flat ground, so the navy corners of the bead image do not show.
