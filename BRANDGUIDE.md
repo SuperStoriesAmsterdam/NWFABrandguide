@@ -253,24 +253,26 @@ The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-insta
 
 ## 08 Reels and film
 
-The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Fifteen films play and download on the guide page, in five groups. Reels are 1080 × 1920, posts are 1080 × 1350 or 1080 × 1920, and the poster studies are 1080 × 1528.
+The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Three films play and download on the guide page: the living wines reel (1080 × 1920), the living wines post (1080 × 1350) and the early bird reel (1080 × 1920). Two ticket-sales stills download next to them. The sunday service film is a rough animation with its script, in the assets section.
 
 ### The grape in motion: "living wines"
 
-One seed at the core grows calmly, bead by bead, from the centre outward into the living grape. The festival lockup and the date then resolve, and "living wines" appears last, as two words in a calm sequence, and stays. It sits on the `--navy-deep` ground with no frame, with "living wines" top-left and the lockup and enlarged date along the bottom. It is delivered in the two Instagram formats, each laid out for its own canvas and not cropped: reel 1080 × 1920 and post 1080 × 1350. The film itself is 1080 × 1528. An early bird reel (1080 × 1920) belongs with it. Stills of both are downloadable.
+One seed at the core grows calmly, bead by bead, from the centre outward into the living grape. The festival lockup and the date then resolve, and "living wines" appears last, as two words in a calm sequence, and stays. It sits on the `--navy-deep` ground with no frame, with "living wines" top-left and the lockup and enlarged date along the bottom. It is delivered in the two Instagram formats, each laid out for its own canvas and not cropped: reel 1080 × 1920 and post 1080 × 1350. An early bird reel (1080 × 1920) belongs with it, with a downloadable still.
 
 | Film | Format | Length | File |
 |---|---|---|---|
 | living wines, reel | 1080 × 1920 | 32 s | `poster-nwfa27-anim/nwfa27-living-wines-reel.mp4` |
 | living wines, post | 1080 × 1350 | 32 s | `poster-nwfa27-anim/nwfa27-living-wines-post.mp4` |
-| living wines, film | 1080 × 1528 | 31 s | `poster-nwfa27-anim/nwfa27-living-wines.mp4` |
 | early bird, reel | 1080 × 1920 | 12 s | `poster-nwfa27-anim/nwfa27-early-bird-reel.mp4` |
+
+A third cut of this film, the poster-format version (1080 × 1528), is withdrawn until it is re-rendered. Its render page gave `.poster` no `font-family`, so the headline, the lockup and the date fell back to a serif. The fix is one line, `font-family:'Figtree',sans-serif` on `.poster`, and a new render. The reel and the post were rendered with that line and are set in Figtree.
+
+### Ticket sales stills
+
+The hand-and-ticket mark as a circle on the `--navy-deep` ground, with the headline "ticket sales have just opened", the call to action "get your ticket →" and the date. 1080 × 1080 and 1080 × 1350 in `poster-nwfa27-anim/`. Open: section 07 words the ticket-sales post "ticket sales have started!" with the price on the brush stroke; these stills use "just opened". One of the two wordings has to change.
 
 ### Other films
 
-- **Poster motion:** `nwfa27-cascade.mp4`, `nwfa27-settle.mp4` and `nwfa27-pulse.mp4` in `poster-nwfa27-anim/`, 1080 × 1528.
-- **Post examples:** workshops (post 01), early bird (post 06) and mind alive (showpiece) in `posts/drafts/`, 1080 × 1920.
-- **Brand film, September 2026:** five films from the earlier video system in `brand-video/`: label, register and united (1920 × 1080), grid reel and winemaker quote (1080 × 1920).
 - **Tasting flow reel:** `reel/tasting-flow-reel.mp4`, 1080 × 1920, 59 s. It sits behind a password at `/reel/` and does not play on the guide page.
 
 ---
@@ -338,7 +340,24 @@ Pages in review carry the annotation widget (`annotate.js`). It is removed befor
 
 ## 11 Assets
 
-The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, and every film. The zips are in `brandguide/downloads/`.
+The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, every film, the poster and the flyer. The zips and the poster and flyer pdfs are in `brandguide/downloads/`.
+
+### Film script: sunday service
+
+A rough animation (`poster-nwfa27-anim/nwfa27-sunday-service-rough.mp4`, 1080 × 1920, 24 s) plays next to the script on the guide page. Text cards are two lines, cream and amber, left-aligned at the bottom like the title frame, both lines the same size and inside the frame. Photographs are static, hard cuts, 0.7 s each. The images are placeholders from the festival photographs; the final images are still to be chosen.
+
+1. **sunday service.** The ministeck church mark builds in, the headline hits.
+2. **no sermon.** Text card.
+3. **the makers.** Text card, then three maker photographs.
+4. **the wines.** Text card, then three photographs of glasses and bottles.
+5. **the congregation.** The public. Text card, then four photographs of visitors.
+6. **sun 28 feb · 13:00 – 18:15.** Text card.
+7. **de hallen, amsterdam.** Text card.
+- **End: the ticketing.** The ministeck hand with the ticket builds in and holds. No text.
+
+**Poster:** hero navy, A2 (420 × 594 mm), pdf. The grape is the 6000 px print master, 410 ppi at A2. The earlier hero A2 pdfs (bold, framed, green) carry the 1024 px mark at 70 to 90 ppi and are not for print.
+
+**Flyer:** front is the poster at A5 (148 × 210 mm, the format of the flyer generator), without bleed. At that size the smallest poster text is about 3 pt. The back is to be made.
 
 ```
 concept-assets/        Figtree.woff2, Vicky-Black.woff2, ico-*, win-*, badge.svg, photo-*
