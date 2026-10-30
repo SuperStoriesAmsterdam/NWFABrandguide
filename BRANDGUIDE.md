@@ -344,11 +344,11 @@ The guide page offers these as downloads: logos (zip, svg, png), the two fonts, 
 
 ### Film script: sunday service
 
-A rough animation (`poster-nwfa27-anim/nwfa27-sunday-service-rough.mp4`, 1080 × 1920, 17 s) plays next to the script on the guide page. Text cards are two lines, cream and amber, set so large that they run off the frame edges; the date and the place stay inside it. Photographs are static, hard cuts, 0.7 s each. The images are placeholders from the festival photographs; the final images are still to be chosen.
+A rough animation (`poster-nwfa27-anim/nwfa27-sunday-service-rough.mp4`, 1080 × 1920, 24 s) plays next to the script on the guide page. Text cards are two lines, cream and amber, left-aligned at the bottom like the title frame, both lines the same size and inside the frame. Photographs are static, hard cuts, 0.7 s each. The images are placeholders from the festival photographs; the final images are still to be chosen.
 
 1. **sunday service.** The ministeck church mark builds in, the headline hits.
 2. **no sermon.** Text card.
-3. **the makers.** Text card, then two maker photographs.
+3. **the makers.** Text card, then three maker photographs.
 4. **the wines.** Text card, then three photographs of glasses and bottles.
 5. **the congregation.** The public. Text card, then four photographs of visitors.
 6. **sun 28 feb · 13:00 – 18:15.** Text card.
