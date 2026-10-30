@@ -253,7 +253,7 @@ The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-insta
 
 ## 08 Reels and film
 
-The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Three films play and download on the guide page: the living wines reel (1080 × 1920), the living wines post (1080 × 1350) and the early bird reel (1080 × 1920). Two ticket-sales stills download next to them. The sunday service film is a script, in the assets section.
+The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Three films play and download on the guide page: the living wines reel (1080 × 1920), the living wines post (1080 × 1350) and the early bird reel (1080 × 1920). Two ticket-sales stills download next to them. The sunday service film is a rough animation with its script, in the assets section.
 
 ### The grape in motion: "living wines"
 
@@ -342,21 +342,18 @@ Pages in review carry the annotation widget (`annotate.js`). It is removed befor
 
 The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, every film, the poster and the flyer. The zips and the poster and flyer pdfs are in `brandguide/downloads/`.
 
-### Film script: sunday service (draft)
+### Film script: sunday service
 
-Draft for Peter's edit, 12 seconds, 1080 × 1920, a fast edit: hard cuts, no zoom. It starts as Peter asked, with the ministeck church mark and a large "sunday service", and it ends on the ministeck hand with the ticket. The words "real juice", "no dogma" and "just maximum flavor" are text cards on the navy-deep ground, each word set large enough to run off the frame edges; the treatment still has to be tried, and plain text on the ground is the fallback. A photograph follows every card, static, without text.
+A rough animation (`poster-nwfa27-anim/nwfa27-sunday-service-rough.mp4`, 1080 × 1920, 17 s) plays next to the script on the guide page. Text cards are two lines, cream and amber, set so large that they run off the frame edges; the date and the place stay inside it. Photographs are static, hard cuts, 0.7 s each. The images are placeholders from the festival photographs; the final images are still to be chosen.
 
-| # | Picture | Time | What we see | On screen |
-|---|---|---|---|---|
-| 1 | `goodjuice-church-tastingnotes` | 0.0 to 2.0 s | The ministeck church rosette fills the frame on the navy-deep ground. The beads build in quickly from the centre. The headline hits over the lower half. | **sunday service** (large headline) |
-| 2 | `concept-assets/photo-11.jpg` | 2.0 to 3.0 s | A man holds a glass in front of grey shelves. Static, hard cut in, hard cut out. | none |
-| 3 | text card | 3.0 to 4.0 s | Text card on the navy-deep ground. The words are set so large that they run off the frame edges. | **real juice** (text treatment) |
-| 4 | `concept-assets/photo-6.jpg` | 4.0 to 5.0 s | A woman holds a glass of white wine while a man holds a bottle. Static, hard cuts. | none |
-| 5 | text card | 5.0 to 6.0 s | Text card, same treatment. | **no dogma** (text treatment) |
-| 6 | `concept-assets/photo-8.jpg` | 6.0 to 7.0 s | Two people looking the same way, one with a glass. Static, hard cuts. | none |
-| 7 | text card | 7.0 to 8.2 s | Text card, same treatment. | **just maximum flavor** (text treatment) |
-| 8 | `concept-assets/photo-10.jpg` | 8.2 to 9.2 s | A woman looks out of frame, a glass of red wine in the foreground. Static, hard cuts. | none |
-| 9 | `goodjuice-hand-ticket` | 9.2 to 12.0 s | The film ends on the ministeck hand with the ticket. It builds in quickly and stays, and the last frame is held for 1.5 s. The wordmark sits above it and the date and venue below, as in the ticket-sales post. | **natural wine festival a'dam** (28 feb · 13:00–18:15 in amber · de hallen · amsterdam) |
+1. **sunday service.** The ministeck church mark builds in, the headline hits.
+2. **no sermon.** Text card.
+3. **the makers.** Text card, then two maker photographs.
+4. **the wines.** Text card, then three photographs of glasses and bottles.
+5. **the congregation.** The public. Text card, then four photographs of visitors.
+6. **sun 28 feb · 13:00 – 18:15.** Text card.
+7. **de hallen, amsterdam.** Text card.
+- **End: the ticketing.** The ministeck hand with the ticket builds in and holds. No text.
 
 **Poster:** hero navy, A2 (420 × 594 mm), pdf. The grape is the 6000 px print master, 410 ppi at A2. The earlier hero A2 pdfs (bold, framed, green) carry the 1024 px mark at 70 to 90 ppi and are not for print.
 
