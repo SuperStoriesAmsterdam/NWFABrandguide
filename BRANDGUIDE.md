@@ -55,7 +55,7 @@ Paper and ochre: `social/social-system.html` currently uses `#e7e1d0` and `#9a66
 
 **Figtree** (`concept-assets/Figtree.woff2`) is the display and body face. Headlines are lowercase, weight 700, letter-spacing -.02em to -.03em, line-height .9 to .95.
 
-**Vicky Black** (`concept-assets/Vicky-Black.woff2`) carries the payoff only: "united by wine", set lowercase. It is never used for headlines. Every Vicky rule has a Figtree fallback, so the payoff can never fall back to a serif.
+**Vicky Black** (`concept-assets/Vicky-Black.woff2`) carries the payoff, "united by wine", and the descriptor line under the name of an award, for example "best under 30 contemporary sommelier" under "the natural". It is set lowercase and smaller than the name above it, and it is never used for headlines. Every Vicky rule has a Figtree fallback, so a Vicky line can never fall back to a serif.
 
 The identity has no serif typeface.
 
@@ -109,8 +109,9 @@ The payoff "united by wine" sits beneath it in Vicky.
 
 ### Variants and related marks
 
-- `logos-/logo-dark-church.svg` and `logos-/logo-icon.svg`: the original church emblem and its icon form (original palette `#233260`, `#dbbb00`, `#21b501`).
-- `logos-/logo-primary.svg`: the hand-and-bottle illustration with grape leaves. The same illustration is the round badge (`concept-assets/badge.svg`), and the ministeck "fles & blad" mark is traced from it.
+- `logos-/logo-dark-church.svg`: the original church emblem (original palette `#233260`, `#dbbb00`, `#21b501`).
+- `logos-/logo-icon.svg`: the hand-and-bottle illustration as an icon.
+- `concept-assets/badge.svg`: the hand-and-bottle illustration without a wordmark. The ministeck "fles & blad" mark is traced from it.
 - Clear space around the logo: the height of the "a" in a'dam.
 
 
@@ -138,9 +139,9 @@ Round badges: sake, oyster, mind, tasting, shipment, mini-market, market-badge, 
 | Icon | Subject | Use |
 |---|---|---|
 | tasting | Bottle and glass | Tasting, the maker label in posts |
-| mind | Head with grapes | Workshops and masterclasses. A masterclass is a workshop. The brain icon is not used for workshops. |
+| mind | Head with grapes | Workshops. A masterclass is a workshop. The brain icon is not used for workshops. |
 | oyster | Oyster | Oyster bar |
-| eat-drink-pair-love | Food and drink | Restaurant, pairings. In social posts it has a navy ground with gold lettering (`social/marks/ico-eat-drink-pair-love.svg`). |
+| eat-drink-pair-love | Food and drink | Restaurant, pairings. Navy ground with gold lettering, in the site set (`icons-set/`) and in social posts (`social/marks/ico-eat-drink-pair-love.svg`). |
 | mini-market, market-badge | Market goods | Mini market |
 | sake | Sake | Sake tasting. Also in the social set (`social/marks/ico-sake.svg`). |
 | shipment | Box | Delivery |
@@ -149,15 +150,17 @@ Round badges: sake, oyster, mind, tasting, shipment, mini-market, market-badge, 
 
 The church-window emblems tie an activity to the venue, De Hallen. They stay in the system as an optional layer and are used where a post or page gives the venue room to show.
 
+The plate lettering inside the windows is Vicky Black. The windows read "workshops", "gems", "mini market" and "buy direct"; the dinner window has no "invite only" and the gems window has no "enoteca naturista". The originals in `icons-/` still carry the old lettering.
+
 | Activity | Site set (`icons-set/`) | Original (`icons-/`) | Social set (`concept-assets/`) |
 |---|---|---|---|
 | Winemakers | `winemakers.svg` | `icon-church -thewinemakers.svg` | `win-winemakers.svg` |
-| Workshops and masterclasses | `workshops.svg` | `icon-church-workshops&Masterclasses.svg` | `win-workshops.svg` |
+| Workshops | `workshops.svg` | `icon-church-workshops&Masterclasses.svg` | `win-workshops.svg` |
 | Winemakers dinner | `dinner.svg` | `icon-church-winemakersdinner.svg` | `win-dinner.svg` |
-| Market | `market.svg` | `icon-church-market.svg` | `win-market.svg` |
-| Gems bar | `gems.svg` | `icon-church-gemsbar.svg` | `win-gems.svg` |
+| Mini market | `market.svg` | `icon-church-market.svg` | `win-market.svg` |
+| Gems | `gems.svg` | `icon-church-gemsbar.svg` | `win-gems.svg` |
 | Bar brut nature | `brut.svg` | `icon-church-BarBrutNature.svg` | `win-brut.svg` |
-| Winestore | `winestore.svg` | `icon-church-WinestoreXL.svg` | `win-store.svg` |
+| Buy direct | `winestore.svg` | `icon-church-WinestoreXL.svg` | `win-store.svg` |
 | Camping culinair | `camping.svg` | `icon-church-campingCulinair.svg` | `win-camping.svg` |
 
 ### Rules
@@ -314,7 +317,7 @@ Pages in review carry the annotation widget (`annotate.js`). It is removed befor
 ```
 concept-assets/        Figtree.woff2, Vicky-Black.woff2, ico-*, win-*, badge.svg, photo-*
 fonts-/                Vicky-Black.woff2, InterVariable.woff2
-logos-/                logo-church-tuned.svg, logo-dark-church.svg, logo-icon.svg, logo-primary.svg
+logos-/                logo-church-tuned.svg, logo-dark-church.svg, logo-icon.svg
 logos-/goodjuice-marks/   six ministeck marks, five sizes each, zip, README
 icons-set/             the site icon set (16)
 icons-/                original icons (17)
