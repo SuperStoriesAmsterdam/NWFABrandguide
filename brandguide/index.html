@@ -228,6 +228,30 @@
   .bg-photos img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;}
   .bg-code{background:#F3EEE1;border-radius:8px;padding:18px 20px;font:12.5px/1.7 ui-monospace,Menlo,monospace;color:#2f3a31;white-space:pre;overflow:auto;}
   .blocklabel.sub{border-top:1px solid rgba(27,51,38,.12);}
+
+  /* ===== film and downloads ===== */
+  .bg-fgroup{margin-top:40px;}
+  .bg-fgroup h3{margin-top:0;}
+  .bg-fgroup p.note{max-width:78ch;font-size:14.5px;line-height:1.62;color:#2f3a31;margin:0 0 16px;}
+  .bg-films{display:grid;gap:22px;align-items:start;}
+  .bg-films.p916{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));}
+  .bg-films.p150{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));}
+  .bg-films.l169{grid-template-columns:repeat(auto-fill,minmax(330px,1fr));}
+  .bg-film{margin:0;}
+  .bg-film video{width:100%;display:block;border-radius:8px;background:#1B3326;}
+  .bg-film .t{margin-top:10px;font-size:14px;font-weight:700;color:#1B3326;text-transform:lowercase;letter-spacing:-.01em;}
+  .bg-film .s{margin-top:2px;font-size:11.5px;color:#6f6a58;line-height:1.4;}
+  .bg-dl{display:inline-flex;align-items:center;gap:7px;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.05em;color:#3a382f;text-decoration:none;padding:0 0 2px;border-bottom:1px solid rgba(27,51,38,.22);}
+  .bg-dl .ar{font-size:14px;line-height:1;color:#9F6E29;}
+  .bg-dl:hover{color:#1B3326;border-bottom-color:#9F6E29;}
+  .bg-dlrow{display:flex;flex-wrap:wrap;gap:6px 22px;}
+  .bg-dltbl{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .bg-dltbl th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7a7460;font-weight:700;padding:8px 10px;border-bottom:1px solid rgba(27,51,38,.2);}
+  .bg-dltbl td{padding:10px;border-bottom:1px solid rgba(27,51,38,.1);color:#2f3a31;vertical-align:top;}
+  .bg-dltbl td:first-child{font-weight:700;color:#1B3326;white-space:nowrap;}
+  .bg-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:14px;}
+  .bg-thumbs a{display:block;position:relative;}
+  .bg-thumbs img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;}
   .bg-foot{padding:60px 0 80px;font-size:13px;color:#6f6a58;}
   .stage{padding-left:0;padding-right:0;max-width:none;}
   .bg-social .intro-t{max-width:70ch;font-size:16px;line-height:1.65;color:#2f3a31;margin-bottom:6px;}
@@ -238,7 +262,7 @@
   <div class="index">
     <strong>natural wine festival a'dam · brand guide</strong>
     <span class="sp"></span>
-    <a href="#overview">overview</a><a href="#colour">colour</a><a href="#type">type</a><a href="#logo">logo</a><a href="#icons">icons</a><a href="#ministeck">ministeck</a><a href="#social">social system</a><a href="#photo">photography</a><a href="#specs">specs</a><a href="#assets">assets</a>
+    <a href="#overview">overview</a><a href="#colour">colour</a><a href="#type">type</a><a href="#logo">logo</a><a href="#icons">icons</a><a href="#ministeck">ministeck</a><a href="#social">social system</a><a href="#film">film</a><a href="#photo">photography</a><a href="#specs">specs</a><a href="#assets">assets</a>
   </div>
 
   <div class="bg-wrap">
@@ -502,8 +526,21 @@
       </div>
     </section>
 
+    <section class="bg-ch" id="film">
+      <div class="num">08 · reels and film</div>
+      <h2>the grape in motion</h2>
+      <p class="lead">The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Every film opens in place and downloads as an MP4. Stills sit next to the films they belong to.</p>
+      <div class="bg-fgroup"><h3>living wines · edition 05</h3><p class="note">One seed at the core grows calmly, bead by bead, from the centre outward into the living grape. The festival lockup and the date then resolve, and "living wines" appears last, as two words in a calm sequence, and stays. It sits on the navy-deep ground with no frame, with "living wines" top-left and the lockup and enlarged date along the bottom. Each Instagram format is laid out for its own canvas and not cropped: reel 1080 × 1920, post 1080 × 1350.</p><div class="bg-films p916"><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-living-wines-reel.jpg" style="aspect-ratio:1080/1920;"><source src="../poster-nwfa27-anim/nwfa27-living-wines-reel.mp4" type="video/mp4"></video><div class="t">living wines · reel</div><div class="s">1080 × 1920 · 32 s · 7.9 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-living-wines-reel.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-living-wines-post.jpg" style="aspect-ratio:1080/1350;"><source src="../poster-nwfa27-anim/nwfa27-living-wines-post.mp4" type="video/mp4"></video><div class="t">living wines · post</div><div class="s">1080 × 1350 · 32 s · 6.2 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-living-wines-post.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-living-wines.jpg" style="aspect-ratio:1080/1528;"><source src="../poster-nwfa27-anim/nwfa27-living-wines.mp4" type="video/mp4"></video><div class="t">living wines · film</div><div class="s">1080 × 1528 · 31 s · 6.3 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-living-wines.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-early-bird-reel.jpg" style="aspect-ratio:1080/1920;"><source src="../poster-nwfa27-anim/nwfa27-early-bird-reel.mp4" type="video/mp4"></video><div class="t">early bird · reel</div><div class="s">1080 × 1920 · 12 s · 0.7 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-early-bird-reel.mp4" download><span class="ar">↓</span> mp4</a></figure></div></div>
+      <div class="bg-dlrow" style="margin-top:12px;"><a class="bg-dl" href="../poster-nwfa27-anim/living-wines-still.png" download><span class="ar">↓</span> living wines still · png (0.9 MB)</a><a class="bg-dl" href="../poster-nwfa27-anim/early-bird-still.png" download><span class="ar">↓</span> early bird still · png (0.4 MB)</a></div>
+      <div class="bg-fgroup"><h3>poster motion</h3><p class="note">Three motion studies on the poster format, 1080 × 1528.</p><div class="bg-films p150"><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-cascade.jpg" style="aspect-ratio:1080/1528;"><source src="../poster-nwfa27-anim/nwfa27-cascade.mp4" type="video/mp4"></video><div class="t">cascade</div><div class="s">1080 × 1528 · 6 s · 1.7 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-cascade.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-settle.jpg" style="aspect-ratio:1080/1528;"><source src="../poster-nwfa27-anim/nwfa27-settle.mp4" type="video/mp4"></video><div class="t">settle</div><div class="s">1080 × 1528 · 7 s · 6.8 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-settle.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa27-pulse.jpg" style="aspect-ratio:1080/1528;"><source src="../poster-nwfa27-anim/nwfa27-pulse.mp4" type="video/mp4"></video><div class="t">pulse</div><div class="s">1080 × 1528 · 8 s · 13.1 MB</div><a class="bg-dl" href="../poster-nwfa27-anim/nwfa27-pulse.mp4" download><span class="ar">↓</span> mp4</a></figure></div></div>
+      <div class="bg-fgroup"><h3>post examples</h3><p class="note">Examples from <code>posts/drafts/</code>, 1080 × 1920.</p><div class="bg-films p916"><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/post-01-workshops.jpg" style="aspect-ratio:1080/1920;"><source src="../posts/drafts/post-01-workshops.mp4" type="video/mp4"></video><div class="t">workshops · post 01</div><div class="s">1080 × 1920 · 11 s · 1.7 MB</div><a class="bg-dl" href="../posts/drafts/post-01-workshops.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/post-06-earlybird.jpg" style="aspect-ratio:1080/1920;"><source src="../posts/drafts/post-06-earlybird.mp4" type="video/mp4"></video><div class="t">early bird · post 06</div><div class="s">1080 × 1920 · 11 s · 1.8 MB</div><a class="bg-dl" href="../posts/drafts/post-06-earlybird.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/showpiece-mind-alive.jpg" style="aspect-ratio:1080/1920;"><source src="../posts/drafts/showpiece-mind-alive.mp4" type="video/mp4"></video><div class="t">mind alive · showpiece</div><div class="s">1080 × 1920 · 15 s · 2.5 MB</div><a class="bg-dl" href="../posts/drafts/showpiece-mind-alive.mp4" download><span class="ar">↓</span> mp4</a></figure></div></div>
+      <div class="bg-fgroup"><h3>brand film · september</h3><p class="note">Five films from the September 2026 video system in <code>brand-video/</code>.</p><div class="bg-films l169"><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa-a1-label-16x9.jpg" style="aspect-ratio:1920/1080;"><source src="../brand-video/nwfa-a1-label-16x9.mp4" type="video/mp4"></video><div class="t">label · a1</div><div class="s">1920 × 1080 · 8 s · 0.5 MB</div><a class="bg-dl" href="../brand-video/nwfa-a1-label-16x9.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa-a2-register-16x9.jpg" style="aspect-ratio:1920/1080;"><source src="../brand-video/nwfa-a2-register-16x9.mp4" type="video/mp4"></video><div class="t">register · a2</div><div class="s">1920 × 1080 · 7 s · 0.4 MB</div><a class="bg-dl" href="../brand-video/nwfa-a2-register-16x9.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa-a3-united-16x9.jpg" style="aspect-ratio:1920/1080;"><source src="../brand-video/nwfa-a3-united-16x9.mp4" type="video/mp4"></video><div class="t">united · a3</div><div class="s">1920 × 1080 · 7 s · 0.5 MB</div><a class="bg-dl" href="../brand-video/nwfa-a3-united-16x9.mp4" download><span class="ar">↓</span> mp4</a></figure></div></div>
+      <div class="bg-fgroup" style="margin-top:22px;"><div class="bg-films p916"><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa-a4-grid-reel-9x16.jpg" style="aspect-ratio:1080/1920;"><source src="../brand-video/nwfa-a4-grid-reel-9x16.mp4" type="video/mp4"></video><div class="t">grid reel · a4</div><div class="s">1080 × 1920 · 9 s · 2.7 MB</div><a class="bg-dl" href="../brand-video/nwfa-a4-grid-reel-9x16.mp4" download><span class="ar">↓</span> mp4</a></figure><figure class="bg-film"><video controls preload="none" playsinline poster="films/posters/nwfa-a5-winemaker-quote-9x16.jpg" style="aspect-ratio:1080/1920;"><source src="../brand-video/nwfa-a5-winemaker-quote-9x16.mp4" type="video/mp4"></video><div class="t">winemaker quote · a5</div><div class="s">1080 × 1920 · 9 s · 3.9 MB</div><a class="bg-dl" href="../brand-video/nwfa-a5-winemaker-quote-9x16.mp4" download><span class="ar">↓</span> mp4</a></figure></div></div>
+      <div class="bg-fgroup"><h3>tasting flow reel</h3><p class="note">1080 × 1920 · 59 s · 13.6 MB. This reel sits behind a password, so it does not play on this page. <a href="../reel/" style="color:#9F6E29;">Open the gated preview</a>.</p></div>
+    </section>
+
     <section class="bg-ch" id="photo">
-      <div class="num">08 · photography</div>
+      <div class="num">09 · photography</div>
       <h2>documentary and warm</h2>
       <p class="lead">Event photography is documentary and warm. Real people, real wine, real moments. Never staged.</p>
       <h3>subjects</h3>
@@ -519,7 +556,7 @@ food-preparation-01.jpg · venue-interior-01.jpg</div>
     </section>
 
     <section class="bg-ch" id="specs">
-      <div class="num">09 · digital specifications</div>
+      <div class="num">10 · digital specifications</div>
       <h2>web and social</h2>
       <ul class="rules">
         <li>Background: paper #ECE6D6, text ink #1B3326</li>
@@ -533,16 +570,33 @@ food-preparation-01.jpg · venue-interior-01.jpg</div>
     </section>
 
     <section class="bg-ch" id="assets">
-      <div class="num">10 · assets</div>
-      <h2>where everything lives</h2>
+      <div class="num">11 · assets</div>
+      <h2>download what you need</h2>
+      <table class="bg-dltbl">
+        <tr><th>Asset</th><th>Files</th></tr>
+        <tr><td>Logos</td><td><div class="bg-dlrow"><a class="bg-dl" href="downloads/nwfa-logos.zip" download><span class="ar">↓</span> all logos · zip · 71 KB</a><a class="bg-dl" href="../logos-/logo-church-tuned.svg" download><span class="ar">↓</span> church logo · svg</a><a class="bg-dl" href="../logos-/logo-church-tuned.png" download><span class="ar">↓</span> church logo · png</a></div></td></tr>
+        <tr><td>Fonts</td><td><div class="bg-dlrow"><a class="bg-dl" href="../concept-assets/Figtree.woff2" download><span class="ar">↓</span> Figtree · woff2 · 20 KB</a><a class="bg-dl" href="../concept-assets/Vicky-Black.woff2" download><span class="ar">↓</span> Vicky Black · woff2 · 36 KB</a></div></td></tr>
+        <tr><td>Icons</td><td><div class="bg-dlrow"><a class="bg-dl" href="downloads/nwfa-icons-site-set.zip" download><span class="ar">↓</span> site set · 16 svg · zip · 66 KB</a><a class="bg-dl" href="downloads/nwfa-icons-social-set.zip" download><span class="ar">↓</span> social set · zip · 59 KB</a></div></td></tr>
+        <tr><td>Ministeck marks</td><td><div class="bg-dlrow"><a class="bg-dl" href="../logos-/goodjuice-marks/goodjuice-marks.zip" download><span class="ar">↓</span> six marks, all sizes · zip · 5.6 MB</a><a class="bg-dl" href="../logos-/goodjuice-marks/goodjuice-grapes-umbrella-6000.png" download><span class="ar">↓</span> grape print master · png 6000 · 2.5 MB</a><a class="bg-dl" href="../logos-/goodjuice-marks/goodjuice-grapes-umbrella.svg" download><span class="ar">↓</span> grape print master · svg</a></div></td></tr>
+        <tr><td>Instagram icon</td><td><div class="bg-dlrow"><a class="bg-dl" href="../social/marks/nwfa-instagram-icon-1024.png" download><span class="ar">↓</span> instagram icon · png 1024 · 1.2 MB</a></div></td></tr>
+        <tr><td>Design tokens</td><td><div class="bg-dlrow"><a class="bg-dl" href="../tokens/tokens.json" download><span class="ar">↓</span> tokens · json</a></div></td></tr>
+        <tr><td>Films</td><td>Every film downloads from its card in <a href="#film" style="color:#9F6E29;">reels and film</a>.</td></tr>
+      </table>
+      <h3>photography</h3>
+      <p class="note" style="max-width:78ch;font-size:14.5px;line-height:1.62;color:#2f3a31;">A first set of twelve to download. The full set is 91 files (98 MB) in <code>photography-/</code>.</p>
+      <div class="bg-thumbs"><a href="../concept-assets/photo-1.jpg" download><img src="../concept-assets/photo-1.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-2.jpg" download><img src="../concept-assets/photo-2.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-3.jpg" download><img src="../concept-assets/photo-3.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-4.jpg" download><img src="../concept-assets/photo-4.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-5.jpg" download><img src="../concept-assets/photo-5.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-6.jpg" download><img src="../concept-assets/photo-6.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-7.jpg" download><img src="../concept-assets/photo-7.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-8.jpg" download><img src="../concept-assets/photo-8.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-9.jpg" download><img src="../concept-assets/photo-9.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-10.jpg" download><img src="../concept-assets/photo-10.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-11.jpg" download><img src="../concept-assets/photo-11.jpg" alt="" loading="lazy"></a><a href="../concept-assets/photo-12.jpg" download><img src="../concept-assets/photo-12.jpg" alt="" loading="lazy"></a></div>
+      <h3>folders</h3>
       <div class="bg-code">concept-assets/          Figtree.woff2, Vicky-Black.woff2, ico-*, win-*, badge.svg, photo-*
 fonts-/                  Vicky-Black.woff2, InterVariable.woff2
 logos-/                  logo-church-tuned.svg, logo-dark-church.svg, logo-icon.svg
-logos-/goodjuice-marks/  six ministeck marks, five sizes each, zip, README
+logos-/goodjuice-marks/  six ministeck marks, five sizes each, zip, README, grape print master
 icons-set/               the site icon set (16)
 icons-/                  original icons (17)
 icons-tuned/             tuned variants (8)
 social/marks/            hero and downloadable marks, social icons, Instagram icon
+poster-nwfa27-anim/      living wines, early bird, poster motion films
+posts/drafts/            post example films
+brand-video/             the September films
 photography-/            event photography (91 files)</div>
     </section>
 
