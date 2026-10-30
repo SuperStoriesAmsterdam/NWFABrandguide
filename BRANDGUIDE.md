@@ -253,7 +253,7 @@ The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-insta
 
 ## 08 Reels and film
 
-The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Three films play and download on the guide page: the living wines reel (1080 × 1920), the living wines post (1080 × 1350) and the early bird reel (1080 × 1920).
+The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Four films play and download on the guide page: the living wines reel (1080 × 1920), the living wines post (1080 × 1350), the early bird reel (1080 × 1920) and the sunday service montage (1080 × 1920). Two ticket-sales stills download next to them.
 
 ### The grape in motion: "living wines"
 
@@ -266,6 +266,14 @@ One seed at the core grows calmly, bead by bead, from the centre outward into th
 | early bird, reel | 1080 × 1920 | 12 s | `poster-nwfa27-anim/nwfa27-early-bird-reel.mp4` |
 
 A third cut of this film, the poster-format version (1080 × 1528), is withdrawn until it is re-rendered. Its render page gave `.poster` no `font-family`, so the headline, the lockup and the date fell back to a serif. The fix is one line, `font-family:'Figtree',sans-serif` on `.poster`, and a new render. The reel and the post were rendered with that line and are set in Figtree.
+
+### Sunday service montage
+
+Five festival photographs, each with a slow zoom and one line in lowercase: "sunday service", "real juice", "no dogma", "just maximum flavor" and the date and hours ("28 feb · 13:00–18:15"). The reel ends on a navy-deep card with the church rosette, the wordmark, "united by wine" and "de hallen · amsterdam". 1080 × 1920, 9 s, `poster-nwfa27-anim/nwfa27-sunday-service-reel.mp4`.
+
+### Ticket sales stills
+
+The hand-and-ticket mark as a circle on the `--navy-deep` ground, with the headline "ticket sales have just opened", the call to action "get your ticket →" and the date. 1080 × 1080 and 1080 × 1350 in `poster-nwfa27-anim/`. Open: section 07 words the ticket-sales post "ticket sales have started!" with the price on the brush stroke; these stills use "just opened". One of the two wordings has to change.
 
 ### Other films
 
@@ -336,7 +344,11 @@ Pages in review carry the annotation widget (`annotate.js`). It is removed befor
 
 ## 11 Assets
 
-The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, and every film. The zips are in `brandguide/downloads/`.
+The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, every film, the poster and the flyer. The zips and the poster and flyer pdfs are in `brandguide/downloads/`.
+
+**Poster:** hero navy, A2 (420 × 594 mm), pdf. The grape is the 6000 px print master, 410 ppi at A2. The earlier hero A2 pdfs (bold, framed, green) carry the 1024 px mark at 70 to 90 ppi and are not for print.
+
+**Flyer:** front is the poster at A5 (148 × 210 mm, the format of the flyer generator), without bleed. At that size the smallest poster text is about 3 pt. The back is to be made.
 
 ```
 concept-assets/        Figtree.woff2, Vicky-Black.woff2, ico-*, win-*, badge.svg, photo-*
