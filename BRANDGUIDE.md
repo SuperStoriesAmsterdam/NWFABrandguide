@@ -156,7 +156,7 @@ The plate lettering inside the windows is Vicky Black. The windows read "worksho
 |---|---|---|---|
 | Winemakers | `winemakers.svg` | `icon-church -thewinemakers.svg` | `win-winemakers.svg` |
 | Workshops | `workshops.svg` | `icon-church-workshops&Masterclasses.svg` | `win-workshops.svg` |
-| Winemakers dinner | `dinner.svg` | `icon-church-winemakersdinner.svg` | `win-dinner.svg` |
+| Winemakers dinner | `dinner.svg` | `icon-church-winemakersdinner.svg` | none (the site set version is the only one) |
 | Mini market | `market.svg` | `icon-church-market.svg` | `win-market.svg` |
 | Gems | `gems.svg` | `icon-church-gemsbar.svg` | `win-gems.svg` |
 | Bar brut nature | `brut.svg` | `icon-church-BarBrutNature.svg` | `win-brut.svg` |
@@ -247,7 +247,7 @@ Social posts mark a price or call to action with a hand-painted amber stroke. It
 
 ### Avatar and handle
 
-The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-instagram-icon-1024.png`, 1024 × 1024, which Instagram crops to a circle. The profile name is "natural wine festival a'dam".
+The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-instagram-icon-1024.png`, 1024 × 1024, which Instagram crops to a circle. It is a small-size version: the dark grid between the beads is filtered out so the gold stays clean at 110 px, and the artwork sits at 95% inside a navy ring so the circle crop keeps a blue edge. The profile name is "natural wine festival a'dam".
 
 ---
 
