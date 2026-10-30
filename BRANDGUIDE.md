@@ -233,7 +233,7 @@ The feed opens with the **hero post** and the **announce post**. They are always
 
 **Workshops.** The maker layout on an ink ground. Label "workshops" (no time), the bottle-and-head icon right, a photo in a cream border, the workshop name, and the host's name in amber caps.
 
-**What's included.** Ink ground, frame. A grid of icon plates (tasting, workshops, oysters, kitchen, market) and "all day" in Vicky, amber.
+**What's included.** Ink ground, frame. A grid of icon plates (tasting, workshops, oyster bar, buy direct, mini market) and "all day" in Vicky, amber.
 
 **Manifesto and countdown.** Ink ground. The manifesto line is lowercase Figtree with an amber highlight on the key words. The countdown is a large "t–30" with the bottle icon top right and the date beneath.
 
