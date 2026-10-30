@@ -178,9 +178,14 @@ window.SS_PHOTOS = {
 };
 </script>
 <script src="https://ask.superstories.com/photo-picker.js" defer></script>
-<link rel="stylesheet" href="../../annotate-nwfa-theme.css">
-<script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa"};</script>
-<script src="../../annotate.js" defer></script>
+<script>
+  /* ?embed=1 shows the photographs only, for the guide page: no title, buttons, stars or fields. */
+  if (/[?&]embed=1\b/.test(location.search)) {
+    document.write('<style>html body .ssp{padding:0;max-width:none}html body .ssp__kicker,html body .ssp h1,html body .ssp__lead,html body .ssp__bar,html body .ssp__saved,html body .ssp__star,html body .ssp__pick,html body .ssp__body{display:none}html body .ssp__grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}html body .ssp__card,html body .ssp__card.is-starred,html body .ssp__card.is-assigned{border:0;border-radius:6px;background:transparent;box-shadow:none}html body .ssp__img{aspect-ratio:1/1;border-radius:6px}</style>');
+  } else {
+    document.write('<link rel="stylesheet" href="../../annotate-nwfa-theme.css"><script>window.SS_ANNOTATIONS={api:"https://annotations.superstories.com",project:"nwfa"};<\/script><script src="../../annotate.js" defer><\/script>');
+  }
+</script>
 </head>
 <body>
 <div id="ss-photos"></div>
