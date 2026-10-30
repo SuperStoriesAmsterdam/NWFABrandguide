@@ -253,7 +253,7 @@ The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-insta
 
 ## 08 Reels and film
 
-The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Six films play and download on the guide page, in two groups. Reels are 1080 × 1920, the living wines post is 1080 × 1350, and the poster studies are 1080 × 1528.
+The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Three films play and download on the guide page: the living wines reel (1080 × 1920), the living wines post (1080 × 1350) and the early bird reel (1080 × 1920).
 
 ### The grape in motion: "living wines"
 
@@ -269,7 +269,6 @@ A third cut of this film, the poster-format version (1080 × 1528), is withdrawn
 
 ### Other films
 
-- **Poster motion:** `nwfa27-cascade.mp4`, `nwfa27-settle.mp4` and `nwfa27-pulse.mp4` in `poster-nwfa27-anim/`, 1080 × 1528.
 - **Tasting flow reel:** `reel/tasting-flow-reel.mp4`, 1080 × 1920, 59 s. It sits behind a password at `/reel/` and does not play on the guide page.
 
 ---
