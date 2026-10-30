@@ -299,6 +299,10 @@ Subjects:
 - Photo-heavy layouts alternate with illustration-heavy layouts
 - Only photography from the festival and its winemakers is used
 
+### Selected photographs
+
+The guide page shows the 138 photographs selected from the photo selector (`brandguide/photo-picker/`) in a scrolling frame, as 1100 px previews. The frame is the selector itself with `?embed=1`, which hides its title, buttons, stars and fields, so it follows the image folder. There are no downloads of these previews.
+
 ### File naming
 
 ```
@@ -340,7 +344,7 @@ Pages in review carry the annotation widget (`annotate.js`). It is removed befor
 
 ## 11 Assets
 
-The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, every film, the poster and the flyer. The zips and the poster and flyer pdfs are in `brandguide/downloads/`.
+The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, every film, the poster and the flyer. The zips and the poster and flyer pdfs are in `brandguide/downloads/`.
 
 ### Film script: sunday service
 
