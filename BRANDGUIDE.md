@@ -251,7 +251,31 @@ The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-insta
 
 ---
 
-## 08 Photography
+## 08 Reels and film
+
+The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Fifteen films play and download on the guide page, in five groups. Reels are 1080 × 1920, posts are 1080 × 1350 or 1080 × 1920, and the poster studies are 1080 × 1528.
+
+### The grape in motion: "living wines"
+
+One seed at the core grows calmly, bead by bead, from the centre outward into the living grape. The festival lockup and the date then resolve, and "living wines" appears last, as two words in a calm sequence, and stays. It sits on the `--navy-deep` ground with no frame, with "living wines" top-left and the lockup and enlarged date along the bottom. It is delivered in the two Instagram formats, each laid out for its own canvas and not cropped: reel 1080 × 1920 and post 1080 × 1350. The film itself is 1080 × 1528. An early bird reel (1080 × 1920) belongs with it. Stills of both are downloadable.
+
+| Film | Format | Length | File |
+|---|---|---|---|
+| living wines, reel | 1080 × 1920 | 32 s | `poster-nwfa27-anim/nwfa27-living-wines-reel.mp4` |
+| living wines, post | 1080 × 1350 | 32 s | `poster-nwfa27-anim/nwfa27-living-wines-post.mp4` |
+| living wines, film | 1080 × 1528 | 31 s | `poster-nwfa27-anim/nwfa27-living-wines.mp4` |
+| early bird, reel | 1080 × 1920 | 12 s | `poster-nwfa27-anim/nwfa27-early-bird-reel.mp4` |
+
+### Other films
+
+- **Poster motion:** `nwfa27-cascade.mp4`, `nwfa27-settle.mp4` and `nwfa27-pulse.mp4` in `poster-nwfa27-anim/`, 1080 × 1528.
+- **Post examples:** workshops (post 01), early bird (post 06) and mind alive (showpiece) in `posts/drafts/`, 1080 × 1920.
+- **Brand film, September 2026:** five films from the earlier video system in `brand-video/`: label, register and united (1920 × 1080), grid reel and winemaker quote (1080 × 1920).
+- **Tasting flow reel:** `reel/tasting-flow-reel.mp4`, 1080 × 1920, 59 s. It sits behind a password at `/reel/` and does not play on the guide page.
+
+---
+
+## 09 Photography
 
 ### Style
 
@@ -290,7 +314,7 @@ The existing files in `photography-/` (91) carry camera names such as `HOI_1536.
 
 ---
 
-## 09 Digital specifications
+## 10 Digital specifications
 
 ### Web
 
@@ -312,7 +336,9 @@ Pages in review carry the annotation widget (`annotate.js`). It is removed befor
 
 ---
 
-## 10 Assets
+## 11 Assets
+
+The guide page offers these as downloads: logos (zip, svg, png), the two fonts, the site icon set and the social icon set (zip), the six ministeck marks (zip) with the grape print master (svg and 6000 px png), the Instagram icon, the design tokens, twelve photographs, and every film. The zips are in `brandguide/downloads/`.
 
 ```
 concept-assets/        Figtree.woff2, Vicky-Black.woff2, ico-*, win-*, badge.svg, photo-*
