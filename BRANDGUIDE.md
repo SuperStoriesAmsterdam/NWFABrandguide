@@ -253,18 +253,19 @@ The Instagram icon is the ministeck "fles & blad" mark: `social/marks/nwfa-insta
 
 ## 08 Reels and film
 
-The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Seven films play and download on the guide page, in two groups. Reels are 1080 × 1920, the living wines post is 1080 × 1350, and the poster studies are 1080 × 1528.
+The edition's films are built from the same marks as the posts: the ministeck grape, the lockup, the date. Six films play and download on the guide page, in two groups. Reels are 1080 × 1920, the living wines post is 1080 × 1350, and the poster studies are 1080 × 1528.
 
 ### The grape in motion: "living wines"
 
-One seed at the core grows calmly, bead by bead, from the centre outward into the living grape. The festival lockup and the date then resolve, and "living wines" appears last, as two words in a calm sequence, and stays. It sits on the `--navy-deep` ground with no frame, with "living wines" top-left and the lockup and enlarged date along the bottom. It is delivered in the two Instagram formats, each laid out for its own canvas and not cropped: reel 1080 × 1920 and post 1080 × 1350. The film itself is 1080 × 1528. An early bird reel (1080 × 1920) belongs with it. Stills of both are downloadable.
+One seed at the core grows calmly, bead by bead, from the centre outward into the living grape. The festival lockup and the date then resolve, and "living wines" appears last, as two words in a calm sequence, and stays. It sits on the `--navy-deep` ground with no frame, with "living wines" top-left and the lockup and enlarged date along the bottom. It is delivered in the two Instagram formats, each laid out for its own canvas and not cropped: reel 1080 × 1920 and post 1080 × 1350. An early bird reel (1080 × 1920) belongs with it, with a downloadable still.
 
 | Film | Format | Length | File |
 |---|---|---|---|
 | living wines, reel | 1080 × 1920 | 32 s | `poster-nwfa27-anim/nwfa27-living-wines-reel.mp4` |
 | living wines, post | 1080 × 1350 | 32 s | `poster-nwfa27-anim/nwfa27-living-wines-post.mp4` |
-| living wines, film | 1080 × 1528 | 31 s | `poster-nwfa27-anim/nwfa27-living-wines.mp4` |
 | early bird, reel | 1080 × 1920 | 12 s | `poster-nwfa27-anim/nwfa27-early-bird-reel.mp4` |
+
+A third cut of this film, the poster-format version (1080 × 1528), is withdrawn until it is re-rendered. Its render page gave `.poster` no `font-family`, so the headline, the lockup and the date fell back to a serif. The fix is one line, `font-family:'Figtree',sans-serif` on `.poster`, and a new render. The reel and the post were rendered with that line and are set in Figtree.
 
 ### Other films
 
